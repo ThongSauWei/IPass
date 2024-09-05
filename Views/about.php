@@ -19,7 +19,7 @@
 
 </head>
 <body>
-   <?php include('header.php'); ?>
+   <?php include('views/header.php'); ?>
     <div id="page-content" class="page-content">
         <div class="banner">
             <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('assets/img/bg-header.jpg');">
@@ -112,7 +112,7 @@
             </div>
         </section>
     </div>
-    <?php include('footer.php'); ?>
+    <?php include('views/footer.php'); ?>
 
     <script type="text/javascript" src="assets/js/jquery.js"></script>
     <script type="text/javascript" src="assets/js/jquery-migrate.js"></script>

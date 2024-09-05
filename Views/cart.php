@@ -19,7 +19,7 @@
 
     </head>
     <body>
-        <?php include('header.php'); ?>
+        <?php include('views/header.php'); ?>
         <div id="page-content" class="page-content">
             <div class="banner">
                 <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('assets/img/bg-header.jpg');">
@@ -119,7 +119,7 @@
                             </div>
                         </div>
                         <div class="col">
-                            <a href="shop.php" class="btn btn-default">Continue Shopping</a>
+                            <a href="views/shop.php" class="btn btn-default">Continue Shopping</a>
                         </div>
                         <div class="col text-right">
                             <div class="input-group w-50 float-right">
@@ -130,13 +130,13 @@
                             </div>
                             <div class="clearfix"></div>
                             <h6 class="mt-3">Total: Rp 180.000</h6>
-                            <a href="checkout.php" class="btn btn-lg btn-primary">Checkout <i class="fa fa-long-arrow-right"></i></a>
+                            <a href="views/checkout.php" class="btn btn-lg btn-primary">Checkout <i class="fa fa-long-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>
             </section>
         </div>
-        <?php include('footer.php'); ?>
+        <?php include('views/footer.php'); ?>
 
         <script type="text/javascript" src="assets/js/jquery.js"></script>
         <script type="text/javascript" src="assets/js/jquery-migrate.js"></script>

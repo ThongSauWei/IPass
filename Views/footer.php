@@ -9,22 +9,22 @@
                 <h5>Links</h5>
                 <ul>
                     <li>
-                        <a href="about.php">About</a>
+                        <a href="views/about.php">About</a>
                     </li>
                     <li>
-                        <a href="contact.php">Contact Us</a>
+                        <a href="views/contact.php">Contact Us</a>
                     </li>
                     <li>
-                        <a href="faq.php">FAQ</a>
+                        <a href="views/faq.php">FAQ</a>
                     </li>
                     <li>
                         <a href="javascript:void(0)">How it Works</a>
                     </li>
                     <li>
-                        <a href="terms.php">Terms</a>
+                        <a href="views/terms.php">Terms</a>
                     </li>
                     <li>
-                        <a href="privacy.php">Privacy Policy</a>
+                        <a href="views/privacy.php">Privacy Policy</a>
                     </li>
                 </ul>
             </div>
