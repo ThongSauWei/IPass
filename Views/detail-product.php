@@ -19,7 +19,7 @@
 
     </head>
     <body>
-        <?php include('header.php'); ?>
+        <?php include('views/header.php'); ?>
         <div id="page-content" class="page-content">
             <div class="banner">
                 <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('assets/img/bg-header.jpg');">
@@ -144,13 +144,13 @@
                                     </div>
                                     <div class="card-body">
                                         <h4 class="card-title">
-                                            <a href="detail-product.php">' . $product['title'] . '</a>
+                                            <a href="views/detail-product.php">' . $product['title'] . '</a>
                                         </h4>
                                         <div class="card-price">
                                             <span class="discount">' . $product['discount'] . '</span>
                                             <span class="reguler">' . $product['reguler'] . '</span>
                                         </div>
-                                        <a href="detail-product.php" class="btn btn-block btn-primary">
+                                        <a href="views/detail-product.php" class="btn btn-block btn-primary">
                                             Add to Cart
                                         </a>
                                     </div>
@@ -165,7 +165,7 @@
             </section>
 
         </div>
-        <?php include('footer.php'); ?>
+        <?php include('views/footer.php'); ?>
 
         <script type="text/javascript" src="assets/js/jquery.js"></script>
         <script type="text/javascript" src="assets/js/jquery-migrate.js"></script>

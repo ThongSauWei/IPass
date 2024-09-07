@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Freshcery | Groceries Organic Store</title>
+    <title>Groceries Store</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -19,7 +19,7 @@
 
 </head>
 <body>
-     <?php include('header.php'); ?>
+     <?php include('views/header.php'); ?>
     <div id="page-content" class="page-content">
         <div class="banner">
             <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('assets/img/bg-header.jpg');">
@@ -88,7 +88,7 @@
             </div>
         </section>
     </div>
-     <?php include('footer.php'); ?>
+     <?php include('views/footer.php'); ?>
 
     <script type="text/javascript" src="assets/js/jquery.js"></script>
     <script type="text/javascript" src="assets/js/jquery-migrate.js"></script>
