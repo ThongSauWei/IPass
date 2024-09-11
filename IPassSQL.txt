@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS groceryDB;
-USE groceryDB;
+CREATE DATABASE IF NOT EXISTS nsk_db;
+USE nsk_db;
 
 -- User Table
 CREATE TABLE User (
