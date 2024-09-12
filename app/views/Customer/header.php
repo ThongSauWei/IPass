@@ -6,16 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="assets/fonts/sb-bistro/sb-bistro.css" rel="stylesheet" type="text/css">
-    <link href="assets/fonts/font-awesome/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="../../../public/assets/fonts/sb-bistro/sb-bistro.css" rel="stylesheet" type="text/css">
+    <link href="../../../public/assets/fonts/font-awesome/font-awesome.css" rel="stylesheet" type="text/css">
 
-    <link rel="stylesheet" type="text/css" media="all" href="assets/packages/bootstrap/bootstrap.css">
-    <link rel="stylesheet" type="text/css" media="all" href="assets/packages/o2system-ui/o2system-ui.css">
-    <link rel="stylesheet" type="text/css" media="all" href="assets/packages/owl-carousel/owl-carousel.css">
-    <link rel="stylesheet" type="text/css" media="all" href="assets/packages/cloudzoom/cloudzoom.css">
-    <link rel="stylesheet" type="text/css" media="all" href="assets/packages/thumbelina/thumbelina.css">
-    <link rel="stylesheet" type="text/css" media="all" href="assets/packages/bootstrap-touchspin/bootstrap-touchspin.css">
-    <link rel="stylesheet" type="text/css" media="all" href="assets/css/theme.css">
+    <link rel="stylesheet" type="text/css" media="all" href="../../../public/assets/packages/bootstrap/bootstrap.css">
+    <link rel="stylesheet" type="text/css" media="all" href="../../../public/assets/packages/o2system-ui/o2system-ui.css">
+    <link rel="stylesheet" type="text/css" media="all" href="../../../public/assets/packages/owl-carousel/owl-carousel.css">
+    <link rel="stylesheet" type="text/css" media="all" href="../../../public/assets/packages/cloudzoom/cloudzoom.css">
+    <link rel="stylesheet" type="text/css" media="all" href="../../../public/assets/packages/thumbelina/thumbelina.css">
+    <link rel="stylesheet" type="text/css" media="all" href="../../../public/assets/packages/bootstrap-touchspin/bootstrap-touchspin.css">
+    <link rel="stylesheet" type="text/css" media="all" href="../../../public/assets/css/theme.css">
 </head>
 <div class="page-header">
         <!--=============== Navbar ===============-->
@@ -23,7 +23,7 @@
             <div class="container">
                 <!-- Navbar Brand -->
                 <a href="views/index.php" class="navbar-brand">
-                    <img src="assets/img/logo/logo.png" alt="">
+                    <img src="../../../public/assets/img/logo/logo.png" alt="">
                 </a>
 
                 <!-- Toggle Button -->
@@ -45,7 +45,7 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <div class="avatar-header"><img src="assets/img/logo/avatar.jpg"></div> John Doe
+                                <div class="avatar-header"><img src="../../../public/assets/img/logo/avatar.jpg"></div> John Doe
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="views/transaction.php">Transactions History</a>
@@ -64,7 +64,7 @@
                                     <li>
                                         <div class="shopping-cart-list">
                                             <div class="media">
-                                                <img class="d-flex mr-3" src="assets/img/logo/avatar.jpg" width="60">
+                                                <img class="d-flex mr-3" src="../../../public/assets/img/logo/avatar.jpg" width="60">
                                                 <div class="media-body">
                                                     <h5><a href="javascript:void(0)">Carrot</a></h5>
                                                     <p class="price">
@@ -75,7 +75,7 @@
                                                 </div>
                                             </div>
                                             <div class="media">
-                                                <img class="d-flex mr-3" src="assets/img/logo/avatar.jpg" width="60">
+                                                <img class="d-flex mr-3" src="../../../public/assets/img/logo/avatar.jpg" width="60">
                                                 <div class="media-body">
                                                     <h5><a href="javascript:void(0)">Carrot</a></h5>
                                                     <p class="price">
@@ -86,7 +86,7 @@
                                                 </div>
                                             </div>
                                             <div class="media">
-                                                <img class="d-flex mr-3" src="assets/img/logo/avatar.jpg" width="60">
+                                                <img class="d-flex mr-3" src="../../../public/assets/img/logo/avatar.jpg" width="60">
                                                 <div class="media-body">
                                                     <h5><a href="javascript:void(0)">Carrot</a></h5>
                                                     <p class="price">
@@ -97,7 +97,7 @@
                                                 </div>
                                             </div>
                                             <div class="media">
-                                                <img class="d-flex mr-3" src="assets/img/logo/avatar.jpg" width="60">
+                                                <img class="d-flex mr-3" src="../../../public/assets/img/logo/avatar.jpg" width="60">
                                                 <div class="media-body">
                                                     <h5><a href="javascript:void(0)">Carrot</a></h5>
                                                     <p class="price">
@@ -129,16 +129,16 @@
         </nav>
     </div>
 
-<script type="text/javascript" src="assets/js/jquery.js"></script>
-    <script type="text/javascript" src="assets/js/jquery-migrate.js"></script>
-    <script type="text/javascript" src="assets/packages/bootstrap/libraries/popper.js"></script>
-    <script type="text/javascript" src="assets/packages/bootstrap/bootstrap.js"></script>
-    <script type="text/javascript" src="assets/packages/o2system-ui/o2system-ui.js"></script>
-    <script type="text/javascript" src="assets/packages/owl-carousel/owl-carousel.js"></script>
-    <script type="text/javascript" src="assets/packages/cloudzoom/cloudzoom.js"></script>
-    <script type="text/javascript" src="assets/packages/thumbelina/thumbelina.js"></script>
-    <script type="text/javascript" src="assets/packages/bootstrap-touchspin/bootstrap-touchspin.js"></script>
-    <script type="text/javascript" src="assets/js/theme.js"></script>
+<script type="text/javascript" src="../../../public/assets/js/jquery.js"></script>
+    <script type="text/javascript" src="../../../public/assets/js/jquery-migrate.js"></script>
+    <script type="text/javascript" src="../../../public/assets/packages/bootstrap/libraries/popper.js"></script>
+    <script type="text/javascript" src="../../../public/assets/packages/bootstrap/bootstrap.js"></script>
+    <script type="text/javascript" src="../../../public/assets/packages/o2system-ui/o2system-ui.js"></script>
+    <script type="text/javascript" src="../../../public/assets/packages/owl-carousel/owl-carousel.js"></script>
+    <script type="text/javascript" src="../../../public/assets/packages/cloudzoom/cloudzoom.js"></script>
+    <script type="text/javascript" src="../../../public/assets/packages/thumbelina/thumbelina.js"></script>
+    <script type="text/javascript" src="../../../public/assets/packages/bootstrap-touchspin/bootstrap-touchspin.js"></script>
+    <script type="text/javascript" src="../../../public/assets/js/theme.js"></script>
 </html>
 
 <!--<!DOCTYPE html>
@@ -149,16 +149,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="assets/fonts/sb-bistro/sb-bistro.css" rel="stylesheet" type="text/css">
-    <link href="assets/fonts/font-awesome/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="../../../public/assets/fonts/sb-bistro/sb-bistro.css" rel="stylesheet" type="text/css">
+    <link href="../../../public/assets/fonts/font-awesome/font-awesome.css" rel="stylesheet" type="text/css">
 
-    <link rel="stylesheet" type="text/css" media="all" href="assets/packages/bootstrap/bootstrap.css">
-    <link rel="stylesheet" type="text/css" media="all" href="assets/packages/o2system-ui/o2system-ui.css">
-    <link rel="stylesheet" type="text/css" media="all" href="assets/packages/owl-carousel/owl-carousel.css">
-    <link rel="stylesheet" type="text/css" media="all" href="assets/packages/cloudzoom/cloudzoom.css">
-    <link rel="stylesheet" type="text/css" media="all" href="assets/packages/thumbelina/thumbelina.css">
-    <link rel="stylesheet" type="text/css" media="all" href="assets/packages/bootstrap-touchspin/bootstrap-touchspin.css">
-    <link rel="stylesheet" type="text/css" media="all" href="assets/css/theme.css">
+    <link rel="stylesheet" type="text/css" media="all" href="../../../public/assets/packages/bootstrap/bootstrap.css">
+    <link rel="stylesheet" type="text/css" media="all" href="../../../public/assets/packages/o2system-ui/o2system-ui.css">
+    <link rel="stylesheet" type="text/css" media="all" href="../../../public/assets/packages/owl-carousel/owl-carousel.css">
+    <link rel="stylesheet" type="text/css" media="all" href="../../../public/assets/packages/cloudzoom/cloudzoom.css">
+    <link rel="stylesheet" type="text/css" media="all" href="../../../public/assets/packages/thumbelina/thumbelina.css">
+    <link rel="stylesheet" type="text/css" media="all" href="../../../public/assets/packages/bootstrap-touchspin/bootstrap-touchspin.css">
+    <link rel="stylesheet" type="text/css" media="all" href="../../../public/assets/css/theme.css">
 </head>
 <body>
     <div class="page-header">
@@ -167,7 +167,7 @@
             <div class="container">
                  Navbar Brand 
                 <a href="index.php" class="navbar-brand">
-                    <img src="assets/img/logo/logo.png" alt="">
+                    <img src="../../../public/assets/img/logo/logo.png" alt="">
                 </a>
 
                  Toggle Button 
@@ -191,7 +191,7 @@
                         <?php if (isset($_SESSION['user'])): ?>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <div class="avatar-header"><img src="assets/img/logo/avatar.jpg"></div> <?php echo $_SESSION['user']['name']; ?>
+                                <div class="avatar-header"><img src="../../../public/assets/img/logo/avatar.jpg"></div> <?php echo $_SESSION['user']['name']; ?>
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="transaction.php">Transactions History</a>
@@ -218,7 +218,7 @@
                                         <div class="shopping-cart-list">
                                             <?php foreach ($_SESSION['cart'] as $item): ?>
                                             <div class="media">
-                                                <img class="d-flex mr-3" src="assets/img/logo/avatar.jpg" width="60">
+                                                <img class="d-flex mr-3" src="../../../public/assets/img/logo/avatar.jpg" width="60">
                                                 <div class="media-body">
                                                     <h5><a href="javascript:void(0)"><?php echo $item['name']; ?></a></h5>
                                                     <p class="price">
