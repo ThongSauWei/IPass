@@ -1,6 +1,7 @@
 <?php
 
-require_once '../model/Cart.php';
+require_once '../models/CartModel.php';
+require_once '../models/Product.php';
 
 class CartController {
     private $model;
@@ -9,8 +10,17 @@ class CartController {
         $this->model = $model;
     }
     
-    public function getCartItems($userID) {
+    public function showCart($userID) {
+        $cartItems = $this->model->getCart($userID);
         
+        require '../views/Customer/cart.php';
     }
 }
+
+$model = new CartModel();
+$controller = new CartController($model);
+
+$userID = "C1001";
+
+$controller->showCart($userID);
 

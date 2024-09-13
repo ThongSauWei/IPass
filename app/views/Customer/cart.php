@@ -1,28 +1,10 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Freshcery | Groceries Organic Store</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-        <link href="../../../public/assets/fonts/sb-bistro/sb-bistro.css" rel="stylesheet" type="text/css">
-        <link href="../../../public/assets/fonts/font-awesome/font-awesome.css" rel="stylesheet" type="text/css">
 
-        <link rel="stylesheet" type="text/css" media="all" href="../../../public/assets/packages/bootstrap/bootstrap.css">
-        <link rel="stylesheet" type="text/css" media="all" href="../../../public/assets/packages/o2system-ui/o2system-ui.css">
-        <link rel="stylesheet" type="text/css" media="all" href="../../../public/assets/packages/owl-carousel/owl-carousel.css">
-        <link rel="stylesheet" type="text/css" media="all" href="../../../public/assets/packages/cloudzoom/cloudzoom.css">
-        <link rel="stylesheet" type="text/css" media="all" href="../../../public/assets/packages/thumbelina/thumbelina.css">
-        <link rel="stylesheet" type="text/css" media="all" href="../../../public/assets/packages/bootstrap-touchspin/bootstrap-touchspin.css">
-        <link rel="stylesheet" type="text/css" media="all" href="../../../public/assets/css/theme.css">
-
-    </head>
-    <body>
-        <?php include('header.php'); ?>
+        <?php
+        include_once 'header.php';
+        ?> 
         <div id="page-content" class="page-content">
             <div class="banner">
-                <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('../../../public/assets/img/bg-header.jpg');">
+                <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('../../public/assets/img/bg-header.jpg');">
                     <div class="container">
                         <h1 class="pt-5">
                             Your Cart
@@ -50,13 +32,15 @@
                                             <th></th>
                                         </tr>
                                     </thead>
+                                    <?php if (!empty($cartItems)): ?>
+                                    <?php foreach ($cartItems as $item): ?>
                                     <tbody>
                                         <tr>
                                             <td>
-                                                <img src="../../../public/assets/img/fish.jpg" width="60">
+                                                <img src="../../public/assets/img/fish.jpg" width="60">
                                             </td>
                                             <td>
-                                                Ikan Segar<br>
+                                                <?= $item["ProductID"] ?> <br>
                                                 <small>1000g</small>
                                             </td>
                                             <td>
@@ -72,7 +56,7 @@
                                                 <a href="javasript:void" class="text-danger"><i class="fa fa-times"></i></a>
                                             </td>
                                         </tr>
-                                        <tr>
+<!--                                        <tr>
                                             <td>
                                                 <img src="../../../public/assets/img/meats.jpg" width="60">
                                             </td>
@@ -113,8 +97,10 @@
                                             <td>
                                                 <a href="javasript:void" class="text-danger"><i class="fa fa-times"></i></a>
                                             </td>
-                                        </tr>
+                                        </tr>-->
                                     </tbody>
+                                    <?php endforeach; ?>
+                                    <?php endif; ?>
                                 </table>
                             </div>
                         </div>
@@ -136,17 +122,3 @@
                 </div>
             </section>
         </div>
-        <?php include('footer.php'); ?>
-
-        <script type="text/javascript" src="../../../public/assets/js/jquery.js"></script>
-        <script type="text/javascript" src="../../../public/assets/js/jquery-migrate.js"></script>
-        <script type="text/javascript" src="../../../public/assets/packages/bootstrap/libraries/popper.js"></script>
-        <script type="text/javascript" src="../../../public/assets/packages/bootstrap/bootstrap.js"></script>
-        <script type="text/javascript" src="../../../public/assets/packages/o2system-ui/o2system-ui.js"></script>
-        <script type="text/javascript" src="../../../public/assets/packages/owl-carousel/owl-carousel.js"></script>
-        <script type="text/javascript" src="../../../public/assets/packages/cloudzoom/cloudzoom.js"></script>
-        <script type="text/javascript" src="../../../public/assets/packages/thumbelina/thumbelina.js"></script>
-        <script type="text/javascript" src="../../../public/assets/packages/bootstrap-touchspin/bootstrap-touchspin.js"></script>
-        <script type="text/javascript" src="../../../public/assets/js/theme.js"></script>
-    </body>
-</html>
