@@ -1,10 +1,10 @@
 
         <?php
-        include_once '/header.php';
+        include_once 'header.php';
         ?>
         <div id="page-content" class="page-content">
             <div class="banner">
-                <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('assets/img/bg-header.jpg');">
+                <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('<?= ROOT ?>/assets/img/bg-header.jpg');">
                     <div class="container">
                         <h1 class="pt-5">
                             Checkout
@@ -156,5 +156,5 @@
             </section>
         </div>
         <?php
-        include_once __DIR__ . '/footer.php';
+        include_once 'footer.php';
         ?>

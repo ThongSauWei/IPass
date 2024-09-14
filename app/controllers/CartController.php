@@ -1,7 +1,6 @@
 <?php
 
 require_once '../models/CartModel.php';
-require_once '../models/Product.php';
 
 class CartController {
     private $model;

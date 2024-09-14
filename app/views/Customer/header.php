@@ -1,5 +1,5 @@
 <?php
-$configPath = '../core/config.php';
+$configPath = dirname(__DIR__, 2) . '/core/config.php';
 if (file_exists($configPath)) {
     include_once $configPath;
 } else {
