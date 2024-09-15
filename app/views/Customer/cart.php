@@ -105,7 +105,7 @@
                             </div>
                         </div>
                         <div class="col">
-                            <a href="views/shop.php" class="btn btn-default">Continue Shopping</a>
+                            <a href="shop.php" class="btn btn-default">Continue Shopping</a>
                         </div>
                         <div class="col text-right">
                             <div class="input-group w-50 float-right">
@@ -116,7 +116,7 @@
                             </div>
                             <div class="clearfix"></div>
                             <h6 class="mt-3">Total: Rp 180.000</h6>
-                            <a href="views/checkout.php" class="btn btn-lg btn-primary">Checkout <i class="fa fa-long-arrow-right"></i></a>
+                            <a href="checkout.php" class="btn btn-lg btn-primary">Checkout <i class="fa fa-long-arrow-right"></i></a>
                         </div>
                     </div>
                 </div>

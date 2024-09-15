@@ -13,7 +13,7 @@ include_once __DIR__ . '/header.php';
                         <form class="form-horizontal" method="post" action="views/login.php">
                             <div class="form-group row mt-3">
                                 <div class="col-md-12">
-                                    <input class="form-control" type="text" name="username" required placeholder="Username">
+                                    <input class="form-control" type="text" name="identity" required placeholder="Email or Username">
                                 </div>
                             </div>
                             <div class="form-group row">

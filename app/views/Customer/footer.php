@@ -3,28 +3,25 @@
         <div class="row">
             <div class="col-md-3">
                 <h5>About</h5>
-                <p>Nisi esse dolor irure dolor eiusmod ex deserunt proident cillum eu qui enim occaecat sunt aliqua anim eiusmod qui ut voluptate.</p>
+                <p style="text-align: justify;">Established with a mission to revolutionize the grocery shopping experience, NSK Grocery has grown into a household name across Malaysia. From our flagship store in Kuala Lumpur to numerous outlets nationwide, we aim to provide an unparalleled range of products that cater to all tastes and preferences. </p>
             </div>
             <div class="col-md-3">
                 <h5>Links</h5>
                 <ul>
                     <li>
-                        <a href="views/about.php">About</a>
+                        <a href="about.php">About</a>
                     </li>
                     <li>
-                        <a href="views/contact.php">Contact Us</a>
+                        <a href="contact.php">Contact Us</a>
                     </li>
                     <li>
-                        <a href="views/faq.php">FAQ</a>
+                        <a href="faq.php">FAQ</a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)">How it Works</a>
+                        <a href="terms.php">Terms</a>
                     </li>
                     <li>
-                        <a href="views/terms.php">Terms</a>
-                    </li>
-                    <li>
-                        <a href="views/privacy.php">Privacy Policy</a>
+                        <a href="privacy.php">Privacy Policy</a>
                     </li>
                 </ul>
             </div>
@@ -32,23 +29,23 @@
                 <h5>Contact</h5>
                 <ul>
                     <li>
-                        <a href="tel:+620892738334"><i class="fa fa-phone"></i> 08272367238</a>
+                        <a href="tel:+620892738334"><i class="fa fa-phone"></i> 0386471682</a>
                     </li>
                     <li>
-                        <a href="mailto:hello@domain.com"><i class="fa fa-envelope"></i> hello@domain.com</a>
+                        <a href="mailto:hello@domain.com"><i class="fa fa-envelope"></i> info@nskgrocer.com</a>
                     </li>
                 </ul>
 
                 <h5>Follow Us</h5>
                 <ul class="social">
                     <li>
-                        <a href="javascript:void(0)" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.facebook.com/nskgrocer/" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/nskgrocer/?hl=en" target="_blank"><i class="fab fa-instagram"></i></a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="https://youtu.be/fIk2n6dtydY?si=EazM8TKyAV3HuXf6" target="_blank"><i class="fab fa-youtube"></i></a>
                     </li>
                 </ul>
             </div>
@@ -56,11 +53,11 @@
                 <h5>Get Our App</h5>
                 <ul class="mb-0">
                     <li class="download-app">
-                        <a href="#"><img src="assets/img/playstore.png"></a>
+                        <a href="https://play.google.com/store/apps/details?id=com.nsi.nskmember&hl=en"><img src="<?= ROOT ?>/assets/img/playstore.png"></a>
                     </li>
                     <li style="height: 200px">
-                        <div class="mockup">
-                            <img src="assets/img/mockup.png">
+                        <div class="mockup" >
+                            <img src="<?= ROOT ?>/assets/img/nskapps.gif" style="margin-left: -52px;">
                         </div>
                     </li>
                 </ul>

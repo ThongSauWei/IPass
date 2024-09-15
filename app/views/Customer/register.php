@@ -15,40 +15,50 @@ include_once __DIR__ . '/header.php';
 
                     <div class="card card-login mb-5">
                         <div class="card-body">
-                            <form class="form-horizontal" action="index.php">
+                            <form class="form-horizontal" method="POST" action="../../controllers/UserController.php?action=register">
                                 <div class="form-group row mt-3">
                                     <div class="col-md-12">
-                                        <input class="form-control" type="text" required="" placeholder="Full Name">
+                                        <input class="form-control" type="text" name="fullname" required="" placeholder="Full Name">
                                     </div>
                                 </div>
                                 <div class="form-group row mt-3">
                                     <div class="col-md-12">
-                                        <input class="form-control" type="email" required="" placeholder="Email">
+                                        <input class="form-control" type="email" name="email" required="" placeholder="Email">
                                     </div>
                                 </div>
                                 <div class="form-group row mt-3">
                                     <div class="col-md-12">
-                                        <input class="form-control" type="text" required="" placeholder="Username">
+                                        <input class="form-control" type="text" name="username" required="" placeholder="Username">
                                     </div>
                                 </div>    
                                 <div class="form-group row mt-3">
                                     <div class="col-md-12">
-                                        <input class="form-control" type="phone" required="" placeholder="Phone">
+                                        <input class="form-control" type="phone" name="phone" required="" placeholder="Phone">
                                     </div>
                                 </div>
                                 <div class="form-group row mt-3">
                                     <div class="col-md-12">
-                                        <input class="form-control" type="date" required="" placeholder="Birthday">
+                                        <input class="form-control" type="date" name="birthday" required="" placeholder="Birthday">
+                                    </div>
+                                </div>
+                                <div class="form-group row mt-3">
+                                <div class="col-md-12">
+                                    <select class="form-control" required="" name="gender">
+                                        <option value="" disabled selected>Select Gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                                <div class="form-group row">
+                                    <div class="col-md-12">
+                                        <input class="form-control" type="password" name="password" required="" placeholder="Password">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-md-12">
-                                        <input class="form-control" type="password" required="" placeholder="Password">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="col-md-12">
-                                        <input class="form-control" type="password" required="" placeholder="Confirm Password">
+                                        <input class="form-control" type="password" name="confirmPass" required="" placeholder="Confirm Password">
                                     </div>
                                 </div>
                                 <div class="form-group row">

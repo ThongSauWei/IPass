@@ -32,7 +32,7 @@ if (file_exists($configPath)) {
             <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-transparent" id="page-navigation">
                 <div class="container">
                     <!-- Navbar Brand -->
-                    <a href="<?= ROOT ?>/views/index.php" class="navbar-brand">
+                    <a href="<?= ROOT ?>homepage.view.php" class="navbar-brand">
                         <img src="<?= ROOT ?>/assets/img/logo/logo.png" alt="">
                     </a>
 
@@ -45,21 +45,21 @@ if (file_exists($configPath)) {
                         <!-- Navbar Menu -->
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a href="<?= ROOT ?>/views/shop.php" class="nav-link">Shop</a>
+                                <a href="shop.php" class="nav-link">Shop</a>
                             </li>
                             <li class="nav-item">
-                                <a href="<?= ROOT ?>/views/register.php" class="nav-link">Register</a>
+                                <a href="register.php" class="nav-link">Register</a>
                             </li>
                             <li class="nav-item">
-                                <a href="<?= ROOT ?>/views/login.php" class="nav-link">Login</a>
+                                <a href="login.php" class="nav-link">Login</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <div class="avatar-header"><img src="<?= ROOT ?>/assets/img/logo/avatar.jpg"></div> John Doe
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="<?= ROOT ?>/views/transaction.php">Transactions History</a>
-                                    <a class="dropdown-item" href="<?= ROOT ?>/views/setting.php">Settings</a>
+                                    <a class="dropdown-item" href="transaction.php">Transactions History</a>
+                                    <a class="dropdown-item" href="setting.php">Settings</a>
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
@@ -126,8 +126,8 @@ if (file_exists($configPath)) {
                                             </div>
                                         </li>
                                         <li class="d-flex justify-content-between pl-3 pr-3 pt-3">
-                                            <a href="<?= ROOT ?>/views/cart.php" class="btn btn-default">View Cart</a>
-                                            <a href="<?= ROOT ?>/views/checkout.php" class="btn btn-primary">Checkout</a>
+                                            <a href="cart.php" class="btn btn-default">View Cart</a>
+                                            <a href="checkout.php" class="btn btn-primary">Checkout</a>
                                         </li>
                                     </ul>
                                 </div>
