@@ -4,7 +4,6 @@ require_once '../core/NewModel.php';
 require_once 'CartItemModel.php';
 
 class CartModel extends NewModel {
-    
     protected $table = "cart";
     
     public function getCart($userID) {
