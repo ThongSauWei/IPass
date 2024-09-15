@@ -51,8 +51,6 @@ class NewModel {
             }
             
             $this->stmts["startingStmt"] = "SELECT $columns from $this->table";
-            
-            var_dump($this->stmts["startingStmt"]);
         } else {
             throw new Exception("Cannot chain findAll() after a similar operation is called");
         }
@@ -88,8 +86,6 @@ class NewModel {
             $valueStmt = ":" . implode(", :", $keys);
             
             $this->stmts["startingStmt"] = "INSERT INTO $this->table ($attrStmt) VALUES ($valueStmt)";
-            
-            var_dump($this->stmts["startingStmt"]);
         } else {
             throw new Exception("Cannot chain insert() after a similar operation is called");
         }
@@ -239,7 +235,7 @@ class Testing extends NewModel {
     }
     
     public function select() {
-        var_dump($this->findAll()->execute());
+        var_dump($this->findAll(["testDate"])->execute());
     }
     
     public function modify() {
