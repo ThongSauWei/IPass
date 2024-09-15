@@ -40,10 +40,19 @@ class NewModel {
         $this->db = NewDatabase::getInstance();
     }
     
-    public function findAll() {
+    public function findAll($duplicateCol = []) {
         if ($this->queryType === null) {
             $this->queryType = "Select";
-            $this->stmts["startingStmt"] = "SELECT * from $this->table";
+            $columns = "";
+            if ($duplicateCol === []) {
+                $columns = '*';
+            } else {
+                $columns = "DISTINCT " . implode(', ', $duplicateCol);
+            }
+            
+            $this->stmts["startingStmt"] = "SELECT $columns from $this->table";
+            
+            var_dump($this->stmts["startingStmt"]);
         } else {
             throw new Exception("Cannot chain findAll() after a similar operation is called");
         }
@@ -224,13 +233,13 @@ class Testing extends NewModel {
         $this->insert([
             "testID" => "TEST1003",
             "testName" => "Testing def",
-            "testDate" => "2024-09-17",
+            "testDate" => "2024-09-15",
             "testValue" => 10
         ])->execute();
     }
     
     public function select() {
-        var_dump($this->findAll()->where("testDate", "2024-09-14", NewModel::GREATER_THAN_OR_EQUAL_TO)->execute());
+        var_dump($this->findAll()->execute());
     }
     
     public function modify() {
