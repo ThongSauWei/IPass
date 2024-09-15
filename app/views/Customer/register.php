@@ -4,7 +4,7 @@ include_once __DIR__ . '/header.php';
 ?>
     <div id="page-content" class="page-content">
         <div class="banner">
-            <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('assets/img/bg-header.jpg');">
+            <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('<?= ROOT ?>/assets/img/bg-header.jpg');">
                 <div class="container">
                     <h1 class="pt-5">
                         Register Page
@@ -15,7 +15,7 @@ include_once __DIR__ . '/header.php';
 
                     <div class="card card-login mb-5">
                         <div class="card-body">
-                            <form class="form-horizontal" action="views/index.php">
+                            <form class="form-horizontal" action="index.php">
                                 <div class="form-group row mt-3">
                                     <div class="col-md-12">
                                         <input class="form-control" type="text" required="" placeholder="Full Name">
@@ -28,12 +28,17 @@ include_once __DIR__ . '/header.php';
                                 </div>
                                 <div class="form-group row mt-3">
                                     <div class="col-md-12">
+                                        <input class="form-control" type="text" required="" placeholder="Username">
+                                    </div>
+                                </div>    
+                                <div class="form-group row mt-3">
+                                    <div class="col-md-12">
                                         <input class="form-control" type="phone" required="" placeholder="Phone">
                                     </div>
                                 </div>
                                 <div class="form-group row mt-3">
                                     <div class="col-md-12">
-                                        <input class="form-control" type="text" required="" placeholder="Username">
+                                        <input class="form-control" type="date" required="" placeholder="Birthday">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -50,7 +55,7 @@ include_once __DIR__ . '/header.php';
                                     <div class="col-md-12">
                                         <div class="checkbox">
                                             <input id="checkbox0" type="checkbox" name="terms">
-                                            <label for="checkbox0" class="mb-0">I Agree with <a href="views/terms.php" class="text-light">Terms & Conditions</a> </label>
+                                            <label for="checkbox0" class="mb-0">I Agree with <a href="terms.php" class="text-light">Terms & Conditions</a> </label>
                                         </div>
                                     </div>
                                 </div>
