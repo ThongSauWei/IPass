@@ -22,7 +22,7 @@ class User extends NewModel {
                 ->where('Email', $email)
                 ->execute();
         
-        return !empty($email); //return true if the email exist
+        return !empty($result); //return true if the email exist
     }
     
     public function register($data){

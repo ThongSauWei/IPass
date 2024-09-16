@@ -6,6 +6,15 @@ if (file_exists($configPath)) {
     echo 'Config file not found: ' . $configPath;
 }
 ?>
+
+<?php
+require_once __DIR__ . '/../../core/SessionManager.php';
+
+SessionManager::startSession();
+$isLoggedIn = SessionManager::loggedIn();
+$user = SessionManager::getUser();
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -47,21 +56,29 @@ if (file_exists($configPath)) {
                             <li class="nav-item">
                                 <a href="shop.php" class="nav-link">Shop</a>
                             </li>
-                            <li class="nav-item">
-                                <a href="register.php" class="nav-link">Register</a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="login.php" class="nav-link">Login</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <div class="avatar-header"><img src="<?= ROOT ?>/assets/img/logo/avatar.jpg"></div> John Doe
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="transaction.php">Transactions History</a>
-                                    <a class="dropdown-item" href="setting.php">Settings</a>
-                                </div>
-                            </li>
+
+                            <!-- if user havent login show it -->
+                            <?php if (!$isLoggedIn): ?>
+                                <li class="nav-item">
+                                    <a href="register.php" class="nav-link">Register</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="login.php" class="nav-link">Login</a>
+                                </li>
+                                
+                            <!-- if user login already -->    
+                            <?php else: ?>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <div class="avatar-header"><img src="<?= ROOT ?>/assets/img/logo/avatar.jpg"></div> John Doe
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="transaction.php">Transactions History</a>
+                                        <a class="dropdown-item" href="setting.php">Settings</a>
+                                        <a class="dropdown-item" href="/IPass/app/controllers/UserController.php?action=logout">Logout</a>
+                                    </div>
+                                </li>
+                            <?php endif; ?>
                             <li class="nav-item dropdown">
                                 <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fa fa-shopping-basket"></i> <span class="badge badge-primary">5</span>

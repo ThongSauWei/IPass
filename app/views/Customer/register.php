@@ -1,24 +1,18 @@
 <?php
-session_start();
-if (isset($_SESSION['errors'])) {
-    // Display errors via alert or directly in the form
-    $errors = json_encode($_SESSION['errors']);
-    echo "<script>
-                                const errors = $errors;
-                                errors.forEach(function(error) {
-                                    alert(error); // Display each error using alert
-                                });
-                            </script>";
-    unset($_SESSION['errors']); // Clear errors after displaying
-}
+require_once __DIR__ . '/../../core/SessionManager.php';
+
+SessionManager::startSession();
+
+// Check if the user is already logged in
+if (SessionManager::LoggedIn()) {
+    // If the user is logged in, redirect to the homepage or dashboard
+    header('Location: homepage.view.php');
+    exit();
 ?>
+
 
 <?php
 include_once __DIR__ . '/header.php';
-?>
-
-<?php
-//require_once __DIR__ . '/../../controllers/UserController.php';
 ?>
 
 <div id="page-content" class="page-content">
@@ -36,7 +30,7 @@ include_once __DIR__ . '/header.php';
                     <div class="card-body">
 
                         <!-- Register Form -->
-                        <form class="form-horizontal" method="POST" action="../../controllers/UserController.php?action=register">
+                        <form class="form-horizontal" method="POST" action="/IPass/app/controllers/UserController.php?action=register">
                             <div class="form-group row mt-3">
                                 <div class="col-md-12">
                                     <input class="form-control" type="text" name="fullname" required="" placeholder="Full Name">

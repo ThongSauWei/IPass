@@ -1,4 +1,9 @@
+<?php
+require_once __DIR__ . '/../../core/SessionManager.php';
 
+//ensure user login before check out their things
+SessionManager::requireLogin();
+?>
         <?php
         include_once 'header.php';
         ?>

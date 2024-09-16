@@ -8,51 +8,60 @@
 session_start(); //start
 
 class SessionManager {
-
-    public static function checkUserRole() {// static direct access no need create instance
-        if (isset($_SESSION['user'])) { //check user if login not
-            $userRole = $_SESSION['user']['Role']; //user table role = admin or customer
-
-            if ($userRole === 'admin') {
-                header('Location: ../views/Admin/dashboard.view.php'); //if the Role = 'admin' navi to adminsite
-            } else {
-                header('Location: ../views/Customer/homepage.view.php'); //else then go to customer homepage
-            }
-            exit();
-        } else {
-            header('Location: ../views/Customer/login.php'); //if user have login go to login page
-            exit();
+    public static function startSession() {//if session havent start, start the session
+        if(session_status() === PHP_SESSION_NONE){
+            session_start();
         }
-
-        
     }
-    public static function checkAccess($requiredRole) {
-        session_start();
-
-        if (!isset($_SESSION['user'])) {
-            header('Location: ../views/Customer/login.php');
-            exit();
-        }
-
-        $userRole = $_SESSION['user']['Role']; 
-
-        if ($userRole !== $requiredRole) { // chec role matches the required role
-            if ($requiredRole === 'admin') {
-                header('Location: ../views/Customer/homepage.view.php'); //non-admin users to the customer homepage
-            } else {
-                header('Location: ../views/Customer/login.php'); //users who don't match the required role to the login page
-            }
+    
+    //store user in session
+    public static function loginUser($user){
+        self::startSession();
+        $_SESSION['user'] = $user;
+    }
+    
+    //check if the user is logged in
+    public static function loggedIn() {
+        self::startSession();
+        return isset($_SESSION['user']); //return true if the user is login d
+    }
+    
+    //get current loggedin user details
+    public static function getUser(){
+        self::startSession();
+        return $_SESSION['user'] ?? null; //if not login return null or details
+    }
+    
+    //check is admin
+    public static function isAdmin(){
+        self::startSession();
+        return isset($_SESSION['user']['Role'])&&$_SESSION['user']['Role'] === 'admin';
+    }
+    
+    public static function superAdmin(){
+        self::startSession();
+        return isset($_SESSION['user']['AdminRole']) && $_SESSION['user']['AdminRole'] === 'superadmin';// return if the user admin role is superadmin
+    }
+    
+    public static function staff(){
+        self::startSession();
+        return isset($_SESSION['user']['AdminRole']) && $_SESSION['user']['AdminRole'] === 'staff';
+    }
+    
+    //for the page need user login one
+    public static function requireLogin(){
+        if(!self::loggedIn()){
+            header('Location: ../Customer/login.php');//go to login
             exit();
         }
     }
     
-    public static function logout() {
-        session_start(); //start the session
-        session_unset(); //clear all session
-        session_destroy(); //destroy the session
-        header('Location: ../views/Customer/login.php'); //go to the login page
-        exit(); //stop execute
+    
+    
+    public static function logout(){
+        self::startSession();
+        session_unset();
+        session_destroy();
     }
     
-
 }
