@@ -49,9 +49,11 @@ CREATE TABLE Promotion (
     PromotionID VARCHAR(10) PRIMARY KEY, -- E.g., PR0001
     PromotionName VARCHAR(255),
     Description TEXT,
-    DiscountValue DECIMAL(5, 2),
     StartDate DATE,
     EndDate DATE,
+    Image VARCHAR(255),
+    DiscountType VARCHAR(100),
+    DiscountValue DECIMAL(5, 2),
     CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

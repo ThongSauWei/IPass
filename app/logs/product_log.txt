@@ -1,0 +1,740 @@
+[2024-09-12 18:16:04] Error adding product:   
+[2024-09-12 18:17:57] Error adding product:   
+[2024-09-12 19:09:27] Error updating product: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'grocerydb.products' doesn't exist
+[2024-09-12 19:13:07] Product updated: {"ProductID":null,"ProductName":"hhhh","Price":"9.90","Category":"Fruit","Weight":"1.25"}
+[2024-09-12 19:21:07] Product updated: {"ProductID":"P0004","ProductName":"hhhh","Price":"1.60","Category":"Fruit","Weight":"1.50"}
+[2024-09-12 19:21:36] Product updated: {"ProductID":"P0004","ProductName":"Lemon","Price":"1.60","Category":"Fruit","Weight":"1.50"}
+[2024-09-12 19:22:03] Product updated: {"ProductID":"P0004","ProductName":"Lemon","Price":"1.60","Category":"Fruit","Weight":"1.50"}
+[2024-09-12 19:30:34] Product updated: {"ProductID":"P0004","ProductName":"hhh","Price":"1.60","Category":"Fruit","Weight":"1.50"}
+[2024-09-12 19:32:30] Product updated: {"ProductID":"P0004","ProductName":"Lemon","Price":"1.60","Category":"Fruit","Weight":"1.50"}
+[2024-09-12 19:32:42] Product updated: {"ProductID":"P0004","ProductName":"heyhey","Price":"1.60","Category":"Fruit","Weight":"1.50"}
+[2024-09-12 19:32:46] Product updated: {"ProductID":"P0004","ProductName":"Lemon","Price":"1.60","Category":"Fruit","Weight":"1.50"}
+[2024-09-12 19:35:31] Product updated: {"ProductID":"P0004","ProductName":"hhhh","Price":"1.60","Category":"Fruit","Weight":"1.50"}
+[2024-09-12 19:35:39] Product updated: {"ProductID":"P0004","ProductName":"Lemon","Price":"1.60","Category":"Fruit","Weight":"1.50"}
+[2024-09-12 19:37:02] Product updated: {"ProductID":"P0004","ProductName":"Lemon","Price":"11.60","Category":"Fruit","Weight":"11.20"}
+[2024-09-13 10:21:41] Product deleted: P0012
+[2024-09-13 10:24:10] Product deleted: P0011
+[2024-09-13 10:24:26] Product updated: {"ProductID":"P0010","ProductName":"11111","Price":"11.11","Category":"Vegetable","Weight":"11.11"}
+[2024-09-13 11:14:58] Product updated: {"ProductID":"P0004","ProductName":"Lemon","Price":"11.60","Category":"Other","Weight":"11.20"}
+[2024-09-13 11:15:11] Product updated: {"ProductID":"P0004","ProductName":"Lemon","Price":"11.60","Category":"Vegetable","Weight":"11.20"}
+[2024-09-13 11:15:18] Product updated: {"ProductID":"P0004","ProductName":"Lemon","Price":"11.60","Category":"Fruit","Weight":"11.20"}
+[2024-09-13 11:20:23] Product updated: {"ProductID":"P0004","ProductName":"Lemon","Price":"11.60","Category":"Haha","Weight":"11.20","CustomCategory":"Haha"}
+[2024-09-13 11:21:31] Product updated: {"ProductID":"P0004","ProductName":"Lemon","Price":"11.60","Category":"Vegetable","Weight":"11.20","CustomCategory":""}
+[2024-09-13 11:21:36] Product updated: {"ProductID":"P0004","ProductName":"Lemon","Price":"11.60","Category":"Fruit","Weight":"11.20","CustomCategory":""}
+[2024-09-13 11:38:36] Error adding product:   
+[2024-09-13 11:48:23] Error adding product:   
+[2024-09-13 11:49:03] Product updated: {"ProductID":"P0012","ProductName":"122222","Price":"2.00","Category":"uuuuu","Weight":"2.00","CustomCategory":""}
+[2024-09-13 12:04:41] Error adding product:   
+[2024-09-13 12:04:52] Product updated: {"ProductID":"P0013","ProductName":"test","Price":"2.00","Category":"test","Weight":"7","CustomCategory":""}
+[2024-09-13 12:06:39] Product deleted: P0013
+[2024-09-13 12:22:37] Error adding product:   
+[2024-09-13 12:23:38] Product updated: {"ProductID":"P0013","ProductName":"aaaa","Price":"2.00","Category":"uuuuu","Weight":"11.00","CustomCategory":""}
+[2024-09-13 12:23:50] Product deleted: P0013
+[2024-09-13 12:24:47] Product deleted: P0012
+[2024-09-13 12:27:24] Product deleted: P0011
+[2024-09-13 12:27:45] Error adding product:   
+[2024-09-13 12:27:54] Product updated: {"ProductID":"P0011","ProductName":"test","Price":"3","Category":"test","Weight":"1.00","CustomCategory":""}
+[2024-09-13 15:07:10] Product updated: {"ProductID":"P0011","ProductName":"test","ProductDesc":"test","Price":"3.00","Category":"test","Weight":"1.00","Availability":"0","CustomCategory":""}
+[2024-09-13 15:13:11] Product updated: {"ProductID":"P0011","ProductName":"test","Price":"3.00","Category":"test","Weight":"1.00","CustomCategory":"","Availability":"0","ProductImage":"go noodle.jpg"}
+[2024-09-13 15:16:39] Product updated: {"ProductID":"P0011","ProductName":"test","Price":"3.00","Category":"test","Weight":"1.00","CustomCategory":"","Availability":"0","ProductImage":"go noodle.jpg"}
+[2024-09-13 15:17:45] Product updated: {"ProductID":"P0009","ProductName":"Giant Dragon Tiger Grouper","Price":"69.00","Category":"Fish","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"9aa844235d3e98cc16976d103c0ba6ee.jpg"}
+[2024-09-13 15:24:35] Product updated: {"ProductID":"P0011","ProductName":"test","ProductDesc":"haha","Price":"3.00","Category":"test","Weight":"1.00","CustomCategory":"","Availability":"0","ProductImage":"1726233875_go noodle.jpg"}
+[2024-09-13 15:27:34] Product updated: {"ProductID":"P0011","ProductName":"test","ProductDesc":"haha","Price":"3.00","Category":"test","Weight":"1.00","CustomCategory":"","Availability":"0","ProductImage":"uploads\/1726234054_go noodle.jpg"}
+[2024-09-13 15:31:57] Product updated: {"ProductID":"P0011","ProductName":null,"ProductDesc":null,"Price":null,"Category":null,"Weight":null,"Availability":null,"ProductImage":"uploads\/1726234054_go noodle.jpg"}
+[2024-09-13 15:35:10] Product updated: {"ProductID":"P0011","ProductName":"heyhey","ProductDesc":"hahaha","Price":"1","Category":"","Weight":"1","CustomCategory":"","Availability":"1","ProductImage":"uploads\/1726234054_go noodle.jpg"}
+[2024-09-13 15:36:15] Error adding product:   
+[2024-09-13 15:37:00] Product updated: {"ProductID":"P0011","ProductName":"heyhey","ProductDesc":"hahaha","Price":"1.00","Category":"","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/1726234620_secretlifeofpets.jpg"}
+[2024-09-13 15:38:31] Product updated: {"ProductID":"P0011","ProductName":"heyhey","ProductDesc":"hahaha","Price":"1.00","Category":"","Weight":"1.00","Availability":"1","CustomCategory":"","ProductImage":"uploads\/bd101723fc7c8563b626287c57047a09.jpg"}
+[2024-09-13 15:38:56] Product updated: {"ProductID":"P0011","ProductName":"heyhey","ProductDesc":"hahaha","Price":"1.00","Category":"","Weight":"1.00","Availability":"1","CustomCategory":"","ProductImage":"uploads\/secretlifeofpets.jpg"}
+[2024-09-13 15:47:51] Product updated: {"ProductID":"P0011","ProductName":"heyhey","ProductDesc":"hahaha","Price":"1.00","Category":"Meat","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/secretlifeofpets.jpg"}
+[2024-09-13 15:53:07] Product updated: {"ProductID":"P0011","ProductName":"heyhey","ProductDesc":"hahaha","Price":"1.00","Category":"Meat","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/secretlifeofpets.jpg"}
+[2024-09-13 16:02:06] Product updated: {"ProductID":"P0011","ProductName":"heyhey","ProductDesc":"hahaha","Price":"1.00","Category":"Meat","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/Screenshot 2022-07-24 142218.png"}
+[2024-09-13 16:02:26] Product updated: {"ProductID":"P0011","ProductName":"heyhey","ProductDesc":"hahaha","Price":"1.00","Category":"Meat","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/Screenshot 2022-07-24 142218.png"}
+[2024-09-13 16:02:41] Product updated: {"ProductID":"P0011","ProductName":"heyhey","ProductDesc":"hahaha","Price":"1.00","Category":"Meat","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/Screenshot 2022-07-24 142305.png"}
+[2024-09-13 16:15:22] Product updated: {"ProductID":"P0011","ProductName":"heyhey","ProductDesc":"hahaha","Price":"1.00","Category":"Meat","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/Screenshot 2022-07-24 142305.png"}
+[2024-09-13 17:07:23] Product updated: {"ProductID":"P0001","ProductName":"Cameron Garden French Bean","ProductDesc":"Product of Malaysia. French Bean (Kacang Buncis) (Malaysia) are smaller than common beans and have a soft velvety pod. They are sweet and wonderfully crispy. Serve them by cooking, grilling or even add them into soups and you'll be delighted!","Price":"3.70","Category":"","Weight":"2.50","CustomCategory":"aaa","Availability":"1","ProductImage":"uploads\/bean.png"}
+[2024-09-13 17:29:36] Product updated: {"ProductID":"P0011","ProductName":"heyhey","ProductDesc":"hahaha","Price":"1.00","Category":"heybro","Weight":"1.00","CustomCategory":"heybro","Availability":"1","ProductImage":"uploads\/Screenshot 2022-07-24 142305.png"}
+[2024-09-13 17:29:56] Product updated: {"ProductID":"P0003","ProductName":"Blueberry","ProductDesc":"Large size blueberries. Each pack is approx. 125g +\/-. For bulk purchase: 1 carton contains 12 boxes of blueberries.","Price":"9.90","Category":"heybro","Weight":"1.25","CustomCategory":"","Availability":"1","ProductImage":"uploads\/bluebery.jpg"}
+[2024-09-13 17:30:28] Error adding product:   
+[2024-09-13 17:30:45] Product updated: {"ProductID":"P0013","ProductName":"heyheyyo","ProductDesc":"hey yo RM nothing aaaaaaa","Price":"1.00","Category":"Fruit","Weight":"1.00","CustomCategory":"","Availability":"0","ProductImage":"uploads\/c0655ac230f53f989e4b1bc335c506a2.jpg"}
+[2024-09-13 17:31:02] Product updated: {"ProductID":"P0013","ProductName":"heyheyyo","ProductDesc":"hey yo RM nothing aaaaaaa","Price":"1.00","Category":"Fruit","Weight":"1.00","CustomCategory":"","Availability":"0","ProductImage":"uploads\/Screenshot 2022-07-24 142331.png"}
+[2024-09-13 17:31:32] Product updated: {"ProductID":"P0001","ProductName":"Cameron Garden French Bean","ProductDesc":"Product of Malaysia. French Bean (Kacang Buncis) (Malaysia) are smaller than common beans and have a soft velvety pod. They are sweet and wonderfully crispy. Serve them by cooking, grilling or even add them into soups and you'll be delighted!","Price":"3.70","Category":"haha","Weight":"2.50","CustomCategory":"haha","Availability":"1","ProductImage":"uploads\/bean.png"}
+[2024-09-13 18:31:11] Error fetching product by ID: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'P0001' in 'where clause'
+[2024-09-13 18:31:49] Error fetching product by ID: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'P0001' in 'where clause'
+[2024-09-13 18:31:51] Error fetching product by ID: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'P0001' in 'where clause'
+[2024-09-13 19:44:54] Product updated: {"ProductID":"P0001","ProductName":"Cameron Garden French Bean","ProductDesc":"Product of Malaysia. French Bean (Kacang Buncis) (Malaysia) are smaller than common beans and have a soft velvety pod. They are sweet and wonderfully crispy. Serve them by cooking, grilling or even add them into soups and you'll be delighted!","Price":"3.70","Category":"haha","Weight":"1","CustomCategory":"","Availability":"1","ProductImage":"uploads\/bean.png"}
+[2024-09-13 19:58:33] Error adding product:   
+[2024-09-13 19:58:51] Product updated: {"ProductID":"P0014","ProductName":"yyyyy","ProductDesc":"yyyyy","Price":"4.00","Category":"tttt","Weight":"5.00","CustomCategory":"tttt","Availability":"1","ProductImage":"uploads\/MV5BYjI3MTM5NTktMDIyMC00YzFkLTg0N2YtNDMzNDJjZTA4NjcwXkEyXkFqcGdeQXVyNzI1NzMxNzM@._V1_.jpg"}
+[2024-09-13 19:59:10] Product updated: {"ProductID":"P0014","ProductName":"yyyyy","ProductDesc":"yyyyy","Price":"4.00","Category":"tttt","Weight":"5.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/bfb961da6a373d5a975777bcfce931a5.gif"}
+[2024-09-13 19:59:19] Product deleted: P0014
+[2024-09-13 20:07:34] Error adding product:   
+[2024-09-13 20:12:18] Product updated: {"ProductID":"P0014","ProductName":"ccc","ProductDesc":"ccc","Price":"1.00","Category":"haha","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/ccc.jpg"}
+[2024-09-13 20:16:03] Product updated: {"ProductID":"P0014","ProductName":"ccc","ProductDesc":"ccc","Price":"1.00","Category":"haha","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/.jpg"}
+[2024-09-13 20:20:19] Product updated: {"ProductID":"P0014","ProductName":"ccc","ProductDesc":"ccc","Price":"1.00","Category":"haha","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/.jpg"}
+[2024-09-13 20:20:55] Product updated: {"ProductID":"P0014","ProductName":"ccc","ProductDesc":"ccc","Price":"1.00","Category":"haha","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/.jpg"}
+[2024-09-13 20:24:09] Product updated: {"ProductID":"P0014","ProductName":"ccc","ProductDesc":"ccc","Price":"1.00","Category":"haha","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/ccc.jpg"}
+[2024-09-13 20:24:30] Product updated: {"ProductID":"P0014","ProductName":"ccc","ProductDesc":"ccc","Price":"1.00","Category":"haha","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/ccc.jpg"}
+[2024-09-13 20:28:48] Product updated: {"ProductID":"P0014","ProductName":"ccc","ProductDesc":"ccc","Price":"1.00","Category":"haha","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/ccc.jpg"}
+[2024-09-13 20:29:13] Product updated: {"ProductID":"P0014","ProductName":"ccc","ProductDesc":"ccc","Price":"1.00","Category":"haha","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/ccc.jpg"}
+[2024-09-13 20:29:47] Product updated: {"ProductID":"P0014","ProductName":"ccc","ProductDesc":"ccc","Price":"1.00","Category":"haha","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/ccc.jpg"}
+[2024-09-13 20:31:54] Product updated: {"ProductID":"P0014","ProductName":"ccc","ProductDesc":"ccc","Price":"1.00","Category":"haha","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/ccc.jpg"}
+[2024-09-13 20:32:36] Product updated: {"ProductID":"P0014","ProductName":"ccc1","ProductDesc":"ccc","Price":"1.00","Category":"haha","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/ccc1.jpg"}
+[2024-09-13 20:35:44] Product updated: {"ProductID":"P0014","ProductName":"ccc1","ProductDesc":"ccc","Price":"1.00","Category":"haha","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/ccc1.jpg"}
+[2024-09-13 20:37:31] Product updated: {"ProductID":"P0014","ProductName":"ccc1","ProductDesc":"ccc","Price":"1.00","Category":"haha","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/ccc1.jpg"}
+[2024-09-13 20:38:03] Product updated: {"ProductID":"P0014","ProductName":"ccc1","ProductDesc":"ccc","Price":"1.00","Category":"haha","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/ccc1.jpg"}
+[2024-09-13 20:38:23] Product updated: {"ProductID":"P0014","ProductName":"ccc1","ProductDesc":"ccc","Price":"1.00","Category":"haha","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/ccc1.jpg"}
+[2024-09-13 20:44:53] Product updated: {"ProductID":"P0014","ProductName":"ccc1","ProductDesc":"ccc","Price":"1.00","Category":"haha","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/ccc1.jpg"}
+[2024-09-13 20:45:30] Product updated: {"ProductID":"P0014","ProductName":"ccc1","ProductDesc":"ccc","Price":"1.00","Category":"haha","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/ccc1.jpg"}
+[2024-09-13 20:45:48] Product updated: {"ProductID":"P0014","ProductName":"ccc1","ProductDesc":"ccc","Price":"1.00","Category":"haha","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/ccc1.gif"}
+[2024-09-13 20:46:10] Product updated: {"ProductID":"P0014","ProductName":"ccc","ProductDesc":"ccc","Price":"1.00","Category":"haha","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/ccc.jpg"}
+[2024-09-14 16:32:29] Error filtering products: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'order clause'
+[2024-09-14 16:38:19] Error fetching all products: SQLSTATE[42000]: Syntax error or access violation: 1327 Undeclared variable: offset
+[2024-09-14 16:39:05] Error fetching all products: SQLSTATE[42000]: Syntax error or access violation: 1327 Undeclared variable: offset
+[2024-09-14 16:46:25] Error searching products: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'order clause'
+[2024-09-14 16:46:32] Error filtering products: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'order clause'
+[2024-09-14 16:48:44] Product added: P0015
+[2024-09-14 17:04:29] Product deleted: 
+[2024-09-14 17:05:11] Attempting to add product: {"ProductId":"P0015","ProductName":"eee","ProductDesc":"eee","Category":"Meat","Price":"1","Weight":"1","ProductImage":"uploads\/eee.png","Availability":"1"}
+[2024-09-14 17:05:11] Product successfully added with ID: P0015
+[2024-09-14 17:05:11] Error adding product: ProductId not saved in the database.
+[2024-09-14 17:08:34] Product deleted: 
+[2024-09-14 17:08:51] Attempting to add product: {"ProductID":"P0015","ProductName":"sss","ProductDesc":"sss","Category":"sss","Price":"1","Weight":"1","ProductImage":"uploads\/sss.gif","Availability":"1"}
+[2024-09-14 17:08:51] Product successfully added with ID: P0015
+[2024-09-14 17:08:51] Error adding product: ProductId not saved in the database.
+[2024-09-14 17:10:24] Attempting to add product: {"ProductID":"P0015","ProductName":"sss","ProductDesc":"sss","Category":"ss","Price":"1","Weight":"1","ProductImage":"uploads\/sss.png","Availability":"1"}
+[2024-09-14 17:10:24] Product successfully added with ID: P0015
+[2024-09-14 17:10:24] Error adding product: ProductId not saved in the database.
+[2024-09-14 17:11:24] Attempting to add product: {"ProductId":"P0015","ProductName":"xx","ProductDesc":"xx","Category":"","Price":"1","Weight":"1","ProductImage":"uploads\/xx.png","Availability":"1"}
+[2024-09-14 17:11:24] Error adding product: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'PRIMARY'
+[2024-09-14 17:12:52] Attempting to add product: {"ProductId":"P0015","ProductName":"qq","ProductDesc":"qq","Category":"","Price":"1","Weight":"1","ProductImage":"uploads\/qq.gif","Availability":"1"}
+[2024-09-14 17:12:52] Product successfully added with ID: P0015
+[2024-09-14 17:12:52] Error adding product: ProductId not saved in the database.
+[2024-09-14 17:16:16] Product deleted: 
+[2024-09-14 17:16:29] Attempting to add product: {"ProductId":"P0015","ProductName":"vv","ProductDesc":"vv","Category":"","Price":"1","Weight":"1","ProductImage":"uploads\/vv.png","Availability":"1"}
+[2024-09-14 17:16:29] Product successfully added with ID: P0015
+[2024-09-14 17:16:29] Error adding product: ProductId not saved in the database.
+[2024-09-14 17:21:32] Error generating product ID: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+[2024-09-14 17:23:53] Attempting to add product: {"ProductId":"P0015","ProductName":"qq","ProductDesc":"q","Category":"","Price":"1","Weight":"1","ProductImage":"uploads\/qq.gif","Availability":"1"}
+[2024-09-14 17:23:53] Error adding product: ProductId not saved in the database.
+[2024-09-14 17:38:46] Attempting to add product: {"ProductId":"P0015","ProductName":"aaa","ProductDesc":"aaa","Category":"Fruit","Price":"1","Weight":"1","ProductImage":"uploads\/aaa.jpg","Availability":"1"}
+[2024-09-14 17:38:46] Error adding product: ProductId not saved in the database.
+[2024-09-14 17:43:47] Product updated: {"ProductID":"P0001","ProductName":"Cameron Garden French Bean","ProductDesc":"Product of Malaysia. French Bean (Kacang Buncis) (Malaysia) are smaller than common beans and have a soft velvety pod. They are sweet and wonderfully crispy. Serve them by cooking, grilling or even add them into soups and you'll be delighted!","Price":"3.70","Category":"Vegetable","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/bean.png"}
+[2024-09-14 17:44:25] Product updated: {"ProductID":"P0001","ProductName":"Cameron Garden French Bean","ProductDesc":"Product of Malaysia. French Bean (Kacang Buncis) (Malaysia) are smaller than common beans and have a soft velvety pod. They are sweet and wonderfully crispy. Serve them by cooking, grilling or even add them into soups and you'll be delighted!","Price":"0","Category":"haha","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/bean.png"}
+[2024-09-14 18:01:29] Product updated: {"ProductID":"P0001","ProductName":"Cameron Garden French Bean","ProductDesc":"Product of Malaysia. French Bean (Kacang Buncis) (Malaysia) are smaller than common beans and have a soft velvety pod. They are sweet and wonderfully crispy. Serve them by cooking, grilling or even add them into soups and you'll be delighted!","Price":"0.00","Category":"Vegetable","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/bean.png"}
+[2024-09-14 18:05:42] Product updated: {"ProductID":"P0001","ProductName":"Cameron Garden French Bean","ProductDesc":"Product of Malaysia. French Bean (Kacang Buncis) (Malaysia) are smaller than common beans and have a soft velvety pod. They are sweet and wonderfully crispy. Serve them by cooking, grilling or even add them into soups and you'll be delighted!","Price":"0.00","Category":"Meat","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/bean.png"}
+[2024-09-14 18:06:54] Product updated: {"ProductID":"P0001","ProductName":"Cameron Garden French Bean","ProductDesc":"Product of Malaysia. French Bean (Kacang Buncis) (Malaysia) are smaller than common beans and have a soft velvety pod. They are sweet and wonderfully crispy. Serve them by cooking, grilling or even add them into soups and you'll be delighted!","Price":"0.00","Category":"heybro","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/bean.png"}
+[2024-09-14 18:08:04] Product updated: {"ProductID":"P0001","ProductName":"Cameron Garden French Bean","ProductDesc":"Product of Malaysia. French Bean (Kacang Buncis) (Malaysia) are smaller than common beans and have a soft velvety pod. They are sweet and wonderfully crispy. Serve them by cooking, grilling or even add them into soups and you'll be delighted!","Price":"0.00","Category":"Meat","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/bean.png"}
+[2024-09-14 18:08:50] Product deleted: P0015
+[2024-09-14 18:09:32] Error searching products: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'order clause'
+[2024-09-14 18:11:31] Error searching products: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'order clause'
+[2024-09-14 18:19:48] Products successfully fetched for search term: MEAT
+[2024-09-14 18:21:02] Products successfully fetched for search term: Blueberry
+[2024-09-14 18:58:15] Error searching products: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'order by ProductId desc limit 10 offset 0' at line 1
+[2024-09-14 18:59:22] Error searching products: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'order by ProductId desc limit 10 offset 0' at line 1
+[2024-09-14 19:02:34] Error searching products: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'order clause'
+[2024-09-14 19:03:21] Products successfully fetched for search term: MEAT
+[2024-09-14 19:03:29] Products successfully fetched for search term: haha
+[2024-09-14 19:03:33] Products successfully fetched for search term: r
+[2024-09-14 19:04:54] Error searching products: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'order clause'
+[2024-09-14 19:05:57] Products successfully fetched for search term: MEAT
+[2024-09-14 19:06:19] Products successfully fetched for search term: MEAT
+[2024-09-14 19:08:32] Error searching products: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[2024-09-14 19:09:14] Search criteria: Array
+(
+    [ProductName LIKE] => %MEAT%
+    [OR Category LIKE] => %MEAT%
+)
+
+[2024-09-14 19:09:14] Error searching products: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[2024-09-14 19:11:03] Search criteria: Array
+(
+    [ProductName LIKE] => %MEAT%
+    [OR Category LIKE] => %MEAT%
+)
+
+[2024-09-14 19:11:20] Search criteria: Array
+(
+    [ProductName LIKE] => %MEAT%
+    [OR Category LIKE] => %MEAT%
+)
+
+[2024-09-14 19:11:38] Search criteria: Array
+(
+    [ProductName LIKE] => %MEAT%
+    [OR Category LIKE] => %MEAT%
+)
+
+[2024-09-14 19:19:06] Search criteria: Array
+(
+    [ProductName LIKE] => %Lemon%
+)
+
+[2024-09-14 19:19:06] Error searching products: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined
+[2024-09-14 19:19:41] Search criteria: Array
+(
+    [ProductName] => %Blueberry%
+)
+
+[2024-09-14 19:19:41] Products successfully fetched for search term: Blueberry
+[2024-09-14 19:20:32] Search criteria: Array
+(
+    [ProductName] => %Blueberry%
+)
+
+[2024-09-14 19:20:32] Products successfully fetched for search term: Blueberry
+[2024-09-14 19:21:10] Search criteria: Array
+(
+    [ProductName] => 
+)
+
+[2024-09-14 19:21:10] Products successfully fetched for search term: Lemon
+[2024-09-14 19:21:34] Search criteria: Array
+(
+    [ProductName] => Lemon
+)
+
+[2024-09-14 19:21:34] Products successfully fetched for search term: Lemon
+[2024-09-14 19:22:17] Search criteria: Array
+(
+    [ProductName] => LIKE %Lemon%
+)
+
+[2024-09-14 19:22:17] Products successfully fetched for search term: Lemon
+[2024-09-14 19:32:03] Products successfully fetched for search term: MEAT
+[2024-09-14 19:32:39] Products successfully fetched for search term: meat
+[2024-09-14 19:32:42] Products successfully fetched for search term: r
+[2024-09-14 19:32:52] Products successfully fetched for search term: blueberry
+[2024-09-14 19:32:59] Products successfully fetched for search term: r
+[2024-09-14 19:33:33] Error executing LIKE query: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ORDER BY ProductId desc LIMIT 10 OFFSET 0' at line 1
+[2024-09-14 19:33:33] Error searching products: Unable to perform LIKE search. Please try again later.
+[2024-09-14 19:35:32] Products successfully fetched for search term: MEAT
+[2024-09-14 19:35:37] Products successfully fetched for search term: r
+[2024-09-14 19:36:28] Products successfully fetched for search term: MEAT
+[2024-09-14 19:36:33] Products successfully fetched for search term: r
+[2024-09-14 19:45:36] Error filtering products: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'order clause'
+[2024-09-14 19:47:45] Error filtering products: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'order clause'
+[2024-09-14 19:56:46] Error filtering products: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+[2024-09-14 19:57:01] Error filtering products: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+[2024-09-14 19:57:52] Error filtering products: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+[2024-09-14 19:58:07] Error filtering products: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+[2024-09-14 19:58:37] Error filtering products: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+[2024-09-14 19:58:58] Error filtering products: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+[2024-09-14 20:00:23] Error filtering products: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+[2024-09-14 20:01:50] Error filtering products: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+[2024-09-14 20:02:27] Error filtering products: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+[2024-09-14 20:04:06] Error filtering products: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+[2024-09-14 20:05:12] Error filtering products: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+[2024-09-14 20:06:00] Error filtering products: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+[2024-09-14 20:07:26] Error filtering products: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+[2024-09-14 20:23:21] Error fetching products by category: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'id' in 'order clause'
+[2024-09-14 20:28:07] Error fetching categories: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 1
+[2024-09-15 16:49:37] Error generating product ID: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ASC LIMIT 1' at line 1
+[2024-09-15 17:12:25] Error generating product ID: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ASC LIMIT 1' at line 1
+[2024-09-15 17:14:43] Error generating product ID: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ASC LIMIT 1' at line 1
+[2024-09-15 17:17:27] Error generating product ID: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ASC LIMIT 1' at line 1
+[2024-09-15 17:20:45] Error generating product ID: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ASC LIMIT 1' at line 1
+[2024-09-15 17:21:28] Error generating product ID: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ASC LIMIT 1' at line 1
+[2024-09-15 17:21:50] Attempting to add product: {"ProductId":"P0015","ProductName":"1","ProductDesc":"1","Category":"heybro","Price":"1","Weight":"1","ProductImage":"uploads\/1.gif","Availability":"1"}
+[2024-09-15 17:21:50] Error adding product: ProductId not saved in the database.
+[2024-09-15 17:32:56] Starting product ID generation.
+[2024-09-15 17:34:59] Error generating product ID: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ASC LIMIT 1' at line 1
+[2024-09-15 17:40:12] Attempting to add product: {"ProductId":"P0001","ProductName":"q","ProductDesc":"1","Category":"heybro","Price":"1","Weight":"1","ProductImage":"uploads\/q.gif","Availability":"1"}
+[2024-09-15 17:40:12] Error adding product: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'P0001' for key 'PRIMARY'
+[2024-09-15 17:43:28] Attempting to add product: {"ProductId":"P0001","ProductName":"1","ProductDesc":"1","Category":"heybro","Price":"1","Weight":"1","ProductImage":"uploads\/1.gif","Availability":"1"}
+[2024-09-15 17:43:28] Error adding product: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'P0001' for key 'PRIMARY'
+[2024-09-15 17:50:35] Attempting to add product: {"ProductId":"P0001","ProductName":"1","ProductDesc":"1","Category":"Fruit","Price":"1","Weight":"1","ProductImage":"uploads\/1.gif","Availability":"1"}
+[2024-09-15 17:50:35] Error adding product: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'P0001' for key 'PRIMARY'
+[2024-09-15 17:52:03] Attempting to add product: {"ProductId":"P0001","ProductName":"1","ProductDesc":"1","Category":"Fruit","Price":"1","Weight":"1","ProductImage":"uploads\/1.gif","Availability":"1"}
+[2024-09-15 17:52:03] Error adding product: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'P0001' for key 'PRIMARY'
+[2024-09-15 17:56:25] Attempting to add product: {"ProductId":"P0001","ProductName":"1","ProductDesc":"1","Category":"heybro","Price":"1","Weight":"1","ProductImage":"uploads\/1.jpg","Availability":"1"}
+[2024-09-15 17:56:25] Error adding product: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'P0001' for key 'PRIMARY'
+[2024-09-15 17:57:47] Attempting to add product: {"ProductId":"P0001","ProductName":"1","ProductDesc":"1","Category":"heybro","Price":"1","Weight":"1","ProductImage":"uploads\/1.gif","Availability":"1"}
+[2024-09-15 17:57:47] Error adding product: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'P0001' for key 'PRIMARY'
+[2024-09-15 17:58:44] Attempting to add product: {"ProductId":"P0001","ProductName":"11","ProductDesc":"1","Category":"Fruit","Price":"1","Weight":"1","ProductImage":"uploads\/11.gif","Availability":"1"}
+[2024-09-15 17:58:44] Error adding product: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'P0001' for key 'PRIMARY'
+[2024-09-15 18:00:46] Query result for maximum ProductId: Array
+(
+    [0] => Array
+        (
+            [ProductID] => P0015
+            [ProductName] => 1
+            [ProductDesc] => 1
+            [Category] => heybro
+            [Price] => 1.00
+            [Weight] => 1.00
+            [ProductImage] => uploads/1.gif
+            [Availability] => 1
+        )
+
+)
+
+[2024-09-15 18:00:46] Maximum ProductId fetched: 
+[2024-09-15 18:00:46] Generated ProductId: P0001
+[2024-09-15 18:00:46] Attempting to add product: {"ProductId":"P0001","ProductName":"1","ProductDesc":"1","Category":"heybro","Price":"1","Weight":"1","ProductImage":"uploads\/1.jpg","Availability":"1"}
+[2024-09-15 18:00:46] Error adding product: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'P0001' for key 'PRIMARY'
+[2024-09-15 18:02:36] Query result for maximum ProductId: Array
+(
+    [0] => Array
+        (
+            [ProductID] => P0015
+            [ProductName] => 1
+            [ProductDesc] => 1
+            [Category] => heybro
+            [Price] => 1.00
+            [Weight] => 1.00
+            [ProductImage] => uploads/1.gif
+            [Availability] => 1
+        )
+
+)
+
+[2024-09-15 18:02:36] Maximum ProductId fetched: P0015
+[2024-09-15 18:02:36] Generated ProductId: P0016
+[2024-09-15 18:02:36] Attempting to add product: {"ProductId":"P0016","ProductName":"1","ProductDesc":"1","Category":"heybro","Price":"1","Weight":"1","ProductImage":"uploads\/1.jpg","Availability":"1"}
+[2024-09-15 18:02:36] Error adding product: ProductId not saved in the database.
+[2024-09-15 18:15:50] Query result for maximum ProductId: Array
+(
+    [0] => Array
+        (
+            [ProductID] => P0016
+            [ProductName] => 1
+            [ProductDesc] => 1
+            [Category] => heybro
+            [Price] => 1.00
+            [Weight] => 1.00
+            [ProductImage] => uploads/1.jpg
+            [Availability] => 1
+        )
+
+)
+
+[2024-09-15 18:15:50] Maximum ProductId fetched: P0016
+[2024-09-15 18:15:50] Generated ProductId: P0017
+[2024-09-15 18:15:50] Attempting to add product: {"ProductId":"P0017","ProductName":"2","ProductDesc":"2","Category":"","Price":"2","Weight":"2","ProductImage":"uploads\/2.jpg","Availability":"1"}
+[2024-09-15 18:15:50] Product successfully added with ID: P0017
+[2024-09-15 18:20:04] Query result for maximum ProductId: Array
+(
+    [0] => Array
+        (
+            [ProductID] => P0017
+            [ProductName] => 2
+            [ProductDesc] => 2
+            [Category] => haha
+            [Price] => 2.00
+            [Weight] => 2.00
+            [ProductImage] => uploads/2.jpg
+            [Availability] => 1
+        )
+
+)
+
+[2024-09-15 18:20:04] Maximum ProductId fetched: P0017
+[2024-09-15 18:20:04] Generated ProductId: P0018
+[2024-09-15 18:20:04] Attempting to add product: {"ProductId":"P0018","ProductName":"3","ProductDesc":"3","Category":"3","Price":"3","Weight":"3","ProductImage":"uploads\/ProductImage\/3.jpg","Availability":"1"}
+[2024-09-15 18:20:04] Product successfully added with ID: P0018
+[2024-09-15 18:25:51] Error updating product: ProductId is required for updating a product.
+[2024-09-15 18:29:27] Error updating product: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'CustomCategory' in 'field list'
+[2024-09-15 18:36:28] Error updating product: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'CustomCategory' in 'field list'
+[2024-09-15 18:40:52] Error updating product: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'CustomCategory' in 'field list'
+[2024-09-15 18:44:42] Product updated: {"ProductID":"P0018","ProductName":"66","ProductDesc":"36","Price":"3.00","Category":"3","Weight":"3.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/ProductImage\/3.jpg"}
+[2024-09-15 18:44:51] Product updated: {"ProductID":"P0018","ProductName":"66","ProductDesc":"36","Price":"3.00","Category":"Meat","Weight":"3.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/ProductImage\/3.jpg"}
+[2024-09-15 18:45:02] Product updated: {"ProductID":"P0018","ProductName":"66","ProductDesc":"36","Price":"3.00","Category":"try","Weight":"3.00","CustomCategory":"try","Availability":"1","ProductImage":"uploads\/ProductImage\/3.jpg"}
+[2024-09-15 18:57:57] Product updated: {"ProductID":"P0018","ProductName":"66","ProductDesc":"36","Price":"3.00","Category":"try","Weight":"3.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/ProductImage\/66.jpg"}
+[2024-09-15 19:01:09] Product deleted: P0018
+[2024-09-15 19:04:26] Product ID: P0017
+[2024-09-15 19:04:26] Image path: 
+[2024-09-15 19:04:26] Product deleted: P0017
+[2024-09-15 19:07:16] Product data: Array
+(
+    [0] => Array
+        (
+            [ProductID] => P0016
+            [ProductName] => 1
+            [ProductDesc] => 1
+            [Category] => heybro
+            [Price] => 1.00
+            [Weight] => 1.00
+            [ProductImage] => uploads/1.jpg
+            [Availability] => 1
+        )
+
+)
+
+[2024-09-15 19:07:16] Product ID: P0016
+[2024-09-15 19:07:16] Image path: 
+[2024-09-15 19:07:16] Product deleted: P0016
+[2024-09-15 19:07:16] No image path provided for deletion.
+[2024-09-15 19:11:27] Product data: Array
+(
+    [0] => Array
+        (
+            [ProductID] => P0015
+            [ProductName] => 1
+            [ProductDesc] => 1
+            [Category] => heybro
+            [Price] => 1.00
+            [Weight] => 1.00
+            [ProductImage] => uploads/1.gif
+            [Availability] => 1
+        )
+
+)
+
+[2024-09-15 19:11:27] Product ID: P0015
+[2024-09-15 19:11:27] Image path: uploads/1.gif
+[2024-09-15 19:11:27] Product deleted: P0015
+[2024-09-15 19:11:27] Attempting to delete image at: C:\xampp\htdocs\IPass\app\views\Admin/../../uploads/1.gif
+[2024-09-15 19:11:27] Image successfully deleted.
+[2024-09-15 19:13:17] Product data: Array
+(
+    [0] => Array
+        (
+            [ProductID] => P0014
+            [ProductName] => ccc
+            [ProductDesc] => ccc
+            [Category] => haha
+            [Price] => 1.00
+            [Weight] => 1.00
+            [ProductImage] => uploads/ccc.jpg
+            [Availability] => 1
+        )
+
+)
+
+[2024-09-15 19:13:17] Product ID: P0014
+[2024-09-15 19:13:17] Image path: uploads/ccc.jpg
+[2024-09-15 19:13:17] Product deleted: P0014
+[2024-09-15 19:13:17] Attempting to delete image at: C:\xampp\htdocs\IPass\app\views\Admin/../../uploads/ccc.jpg
+[2024-09-15 19:13:17] Image successfully deleted.
+[2024-09-15 19:36:16] Query result for maximum ProductId: Array
+(
+    [0] => Array
+        (
+            [ProductID] => P0013
+            [ProductName] => heyheyyo
+            [ProductDesc] => hey yo RM nothing aaaaaaa
+            [Category] => Fruit
+            [Price] => 1.00
+            [Weight] => 1.00
+            [ProductImage] => uploads/Screenshot 2022-07-24 142331.png
+            [Availability] => 0
+        )
+
+)
+
+[2024-09-15 19:36:16] Maximum ProductId fetched: P0013
+[2024-09-15 19:36:16] Generated ProductId: P0014
+[2024-09-15 19:36:16] Attempting to add product: {"ProductId":"P0014","ProductName":"testetst","ProductDesc":"testetss","Category":"testxia","Price":"1","Weight":"1","ProductImage":"uploads\/ProductImage\/testetst.jpg","Availability":"1"}
+[2024-09-15 19:36:16] Product successfully added with ID: P0014
+[2024-09-15 19:36:43] Product updated: {"ProductID":"P0014","ProductName":"88888","ProductDesc":"testetss","Price":"1.00","Category":"testxia","Weight":"1.00","CustomCategory":"","Availability":"1","ProductImage":"uploads\/ProductImage\/88888.jpg"}
+[2024-09-15 19:36:54] Product data: Array
+(
+    [0] => Array
+        (
+            [ProductID] => P0014
+            [ProductName] => 88888
+            [ProductDesc] => testetss
+            [Category] => testxia
+            [Price] => 1.00
+            [Weight] => 1.00
+            [ProductImage] => uploads/ProductImage/88888.jpg
+            [Availability] => 1
+        )
+
+)
+
+[2024-09-15 19:36:54] Product ID: P0014
+[2024-09-15 19:36:54] Image path: uploads/ProductImage/88888.jpg
+[2024-09-15 19:36:54] Product deleted: P0014
+[2024-09-15 19:36:54] Attempting to delete image at: C:\xampp\htdocs\IPass\app\views\Admin/../../uploads/ProductImage/88888.jpg
+[2024-09-15 19:36:54] Image successfully deleted.
+[2024-09-15 19:46:00] Products successfully fetched for search term: %r%
+[2024-09-15 19:46:06] Products successfully fetched for search term: %blue%
+[2024-09-16 15:05:02] Error checking promotion: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'StartDate' in 'where clause'
+[2024-09-16 15:14:51] Error checking promotion: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'StartDate' in 'where clause'
+[2024-09-16 15:16:29] Error checking promotion: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'StartDate' in 'where clause'
+[2024-09-16 15:25:17] Error fetching products by category: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Category' in 'where clause'
+[2024-09-16 16:06:05] Error fetching products by category: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Category' in 'where clause'
+[2024-09-16 17:52:39] Error fetching products by category: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Category' in 'where clause'
+[2024-09-16 17:58:43] Error fetching products by category: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Category' in 'where clause'
+[2024-09-16 17:59:47] Error fetching products by category: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Category' in 'where clause'
+[2024-09-16 20:22:05] Checking promotions for ProductID: P0001
+[2024-09-16 20:22:05] Current Date: 2024-09-16
+[2024-09-16 20:22:05] Checking PromotionID: PR0001
+[2024-09-16 20:22:05] No active promotion for PromotionID: PR0001
+[2024-09-16 20:22:05] Checking promotions for ProductID: P0002
+[2024-09-16 20:22:05] Current Date: 2024-09-16
+[2024-09-16 20:22:05] Checking PromotionID: PR0002
+[2024-09-16 20:22:05] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-16 20:22:05] Checking promotions for ProductID: P0006
+[2024-09-16 20:22:05] No promotions found for ProductID: P0006
+[2024-09-16 20:22:05] Checking promotions for ProductID: P0012
+[2024-09-16 20:22:05] No promotions found for ProductID: P0012
+[2024-09-16 20:22:05] Checking promotions for ProductID: P0002
+[2024-09-16 20:22:05] Current Date: 2024-09-16
+[2024-09-16 20:22:05] Checking PromotionID: PR0002
+[2024-09-16 20:22:05] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-16 20:22:08] Checking promotions for ProductID: P0002
+[2024-09-16 20:22:08] Current Date: 2024-09-16
+[2024-09-16 20:22:08] Checking PromotionID: PR0002
+[2024-09-16 20:22:08] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-16 20:22:08] Checking promotions for ProductID: P0001
+[2024-09-16 20:22:08] Current Date: 2024-09-16
+[2024-09-16 20:22:08] Checking PromotionID: PR0001
+[2024-09-16 20:22:08] No active promotion for PromotionID: PR0001
+[2024-09-16 20:22:08] Checking promotions for ProductID: P0006
+[2024-09-16 20:22:08] No promotions found for ProductID: P0006
+[2024-09-16 20:22:08] Checking promotions for ProductID: P0012
+[2024-09-16 20:22:08] No promotions found for ProductID: P0012
+[2024-09-16 20:22:08] Checking promotions for ProductID: P0001
+[2024-09-16 20:22:08] Current Date: 2024-09-16
+[2024-09-16 20:22:08] Checking PromotionID: PR0001
+[2024-09-16 20:22:08] No active promotion for PromotionID: PR0001
+[2024-09-16 20:22:11] Checking promotions for ProductID: P0001
+[2024-09-16 20:22:11] Current Date: 2024-09-16
+[2024-09-16 20:22:11] Checking PromotionID: PR0001
+[2024-09-16 20:22:11] No active promotion for PromotionID: PR0001
+[2024-09-16 20:22:11] Checking promotions for ProductID: P0002
+[2024-09-16 20:22:11] Current Date: 2024-09-16
+[2024-09-16 20:22:11] Checking PromotionID: PR0002
+[2024-09-16 20:22:11] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-16 20:22:11] Checking promotions for ProductID: P0006
+[2024-09-16 20:22:11] No promotions found for ProductID: P0006
+[2024-09-16 20:22:11] Checking promotions for ProductID: P0012
+[2024-09-16 20:22:11] No promotions found for ProductID: P0012
+[2024-09-16 20:22:11] Checking promotions for ProductID: P0002
+[2024-09-16 20:22:11] Current Date: 2024-09-16
+[2024-09-16 20:22:11] Checking PromotionID: PR0002
+[2024-09-16 20:22:11] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-16 20:22:14] Checking promotions for ProductID: P0003
+[2024-09-16 20:22:14] Current Date: 2024-09-16
+[2024-09-16 20:22:14] Checking PromotionID: PR0003
+[2024-09-16 20:22:14] Active promotion found: {"PromotionID":"PR0003","PromotionName":"expired","Description":"sale3","StartDate":"2024-09-01","EndDate":"2024-09-16","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-16 20:22:14] Checking promotions for ProductID: P0011
+[2024-09-16 20:22:14] No promotions found for ProductID: P0011
+[2024-09-16 20:22:14] Checking promotions for ProductID: P0001
+[2024-09-16 20:22:14] Current Date: 2024-09-16
+[2024-09-16 20:22:14] Checking PromotionID: PR0001
+[2024-09-16 20:22:14] No active promotion for PromotionID: PR0001
+[2024-09-16 20:22:14] Checking promotions for ProductID: P0002
+[2024-09-16 20:22:14] Current Date: 2024-09-16
+[2024-09-16 20:22:14] Checking PromotionID: PR0002
+[2024-09-16 20:22:14] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-16 20:22:14] Checking promotions for ProductID: P0004
+[2024-09-16 20:22:14] Current Date: 2024-09-16
+[2024-09-16 20:22:14] Checking PromotionID: PR0004
+[2024-09-16 20:22:14] No active promotion for PromotionID: PR0004
+[2024-09-16 20:36:00] Checking promotions for ProductID: P0001
+[2024-09-17 02:36:00] Current Date: 2024-09-17
+[2024-09-17 02:36:00] Checking PromotionID: PR0001
+[2024-09-17 02:36:00] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 02:36:00] Checking promotions for ProductID: P0002
+[2024-09-17 02:36:00] Current Date: 2024-09-17
+[2024-09-17 02:36:00] Checking PromotionID: PR0002
+[2024-09-17 02:36:00] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 02:36:00] Checking promotions for ProductID: P0006
+[2024-09-17 02:36:00] No promotions found for ProductID: P0006
+[2024-09-17 02:36:00] Checking promotions for ProductID: P0012
+[2024-09-17 02:36:00] No promotions found for ProductID: P0012
+[2024-09-17 02:36:00] Checking promotions for ProductID: P0002
+[2024-09-17 02:36:00] Current Date: 2024-09-17
+[2024-09-17 02:36:00] Checking PromotionID: PR0002
+[2024-09-17 02:36:00] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-16 20:39:01] Checking promotions for ProductID: P0002
+[2024-09-17 02:39:01] Current Date: 2024-09-17
+[2024-09-17 02:39:01] Checking PromotionID: PR0002
+[2024-09-17 02:39:01] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 02:39:01] Checking promotions for ProductID: P0001
+[2024-09-17 02:39:01] Current Date: 2024-09-17
+[2024-09-17 02:39:01] Checking PromotionID: PR0001
+[2024-09-17 02:39:01] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 02:39:01] Checking promotions for ProductID: P0006
+[2024-09-17 02:39:01] No promotions found for ProductID: P0006
+[2024-09-17 02:39:01] Checking promotions for ProductID: P0012
+[2024-09-17 02:39:01] No promotions found for ProductID: P0012
+[2024-09-17 02:39:01] Checking promotions for ProductID: P0001
+[2024-09-17 02:39:01] Current Date: 2024-09-17
+[2024-09-17 02:39:01] Checking PromotionID: PR0001
+[2024-09-17 02:39:01] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-16 20:39:16] Checking promotions for ProductID: P0001
+[2024-09-17 02:39:16] Current Date: 2024-09-17
+[2024-09-17 02:39:16] Checking PromotionID: PR0001
+[2024-09-17 02:39:16] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 02:39:16] Checking promotions for ProductID: P0002
+[2024-09-17 02:39:16] Current Date: 2024-09-17
+[2024-09-17 02:39:16] Checking PromotionID: PR0002
+[2024-09-17 02:39:16] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 02:39:16] Checking promotions for ProductID: P0006
+[2024-09-17 02:39:16] No promotions found for ProductID: P0006
+[2024-09-17 02:39:16] Checking promotions for ProductID: P0012
+[2024-09-17 02:39:16] No promotions found for ProductID: P0012
+[2024-09-17 02:39:16] Checking promotions for ProductID: P0002
+[2024-09-17 02:39:16] Current Date: 2024-09-17
+[2024-09-17 02:39:16] Checking PromotionID: PR0002
+[2024-09-17 02:39:16] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-16 20:39:18] Checking promotions for ProductID: P0003
+[2024-09-17 02:39:18] Current Date: 2024-09-17
+[2024-09-17 02:39:18] Checking PromotionID: PR0003
+[2024-09-17 02:39:18] No active promotion for PromotionID: PR0003
+[2024-09-17 02:39:18] Checking promotions for ProductID: P0011
+[2024-09-17 02:39:18] No promotions found for ProductID: P0011
+[2024-09-17 02:39:18] Checking promotions for ProductID: P0001
+[2024-09-17 02:39:18] Current Date: 2024-09-17
+[2024-09-17 02:39:18] Checking PromotionID: PR0001
+[2024-09-17 02:39:18] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 02:39:18] Checking promotions for ProductID: P0002
+[2024-09-17 02:39:18] Current Date: 2024-09-17
+[2024-09-17 02:39:18] Checking PromotionID: PR0002
+[2024-09-17 02:39:18] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 02:39:18] Checking promotions for ProductID: P0004
+[2024-09-17 02:39:18] Current Date: 2024-09-17
+[2024-09-17 02:39:18] Checking PromotionID: PR0004
+[2024-09-17 02:39:18] No active promotion for PromotionID: PR0004
+[2024-09-16 20:39:34] Checking promotions for ProductID: P0004
+[2024-09-17 02:39:34] Current Date: 2024-09-17
+[2024-09-17 02:39:34] Checking PromotionID: PR0004
+[2024-09-17 02:39:34] No active promotion for PromotionID: PR0004
+[2024-09-17 02:39:34] Checking promotions for ProductID: P0001
+[2024-09-17 02:39:34] Current Date: 2024-09-17
+[2024-09-17 02:39:34] Checking PromotionID: PR0001
+[2024-09-17 02:39:34] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 02:39:34] Checking promotions for ProductID: P0002
+[2024-09-17 02:39:34] Current Date: 2024-09-17
+[2024-09-17 02:39:34] Checking PromotionID: PR0002
+[2024-09-17 02:39:34] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 02:39:34] Checking promotions for ProductID: P0003
+[2024-09-17 02:39:34] Current Date: 2024-09-17
+[2024-09-17 02:39:34] Checking PromotionID: PR0003
+[2024-09-17 02:39:34] No active promotion for PromotionID: PR0003
+[2024-09-17 02:39:34] Checking promotions for ProductID: P0005
+[2024-09-17 02:39:34] No promotions found for ProductID: P0005
+[2024-09-16 20:45:40] Checking promotions for ProductID: P0002
+[2024-09-17 02:45:40] Current Date: 2024-09-17
+[2024-09-17 02:45:40] Checking PromotionID: PR0002
+[2024-09-17 02:45:40] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 02:45:40] Checking promotions for ProductID: P0001
+[2024-09-17 02:45:40] Current Date: 2024-09-17
+[2024-09-17 02:45:40] Checking PromotionID: PR0001
+[2024-09-17 02:45:40] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 02:45:40] Checking promotions for ProductID: P0006
+[2024-09-17 02:45:40] No promotions found for ProductID: P0006
+[2024-09-17 02:45:40] Checking promotions for ProductID: P0012
+[2024-09-17 02:45:40] No promotions found for ProductID: P0012
+[2024-09-17 02:45:40] Checking promotions for ProductID: P0001
+[2024-09-17 02:45:40] Current Date: 2024-09-17
+[2024-09-17 02:45:40] Checking PromotionID: PR0001
+[2024-09-17 02:45:40] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-16 21:19:33] Checking promotions for ProductID: P0006
+[2024-09-16 21:19:33] No promotions found for ProductID: P0006
+[2024-09-16 21:19:33] Checking promotions for ProductID: P0001
+[2024-09-17 03:19:33] Current Date: 2024-09-17
+[2024-09-17 03:19:33] Checking PromotionID: PR0001
+[2024-09-17 03:19:33] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 03:19:33] Checking promotions for ProductID: P0002
+[2024-09-17 03:19:33] Current Date: 2024-09-17
+[2024-09-17 03:19:33] Checking PromotionID: PR0002
+[2024-09-17 03:19:33] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 03:19:33] Checking promotions for ProductID: P0012
+[2024-09-17 03:19:33] No promotions found for ProductID: P0012
+[2024-09-17 03:19:33] Checking promotions for ProductID: P0001
+[2024-09-17 03:19:33] Current Date: 2024-09-17
+[2024-09-17 03:19:33] Checking PromotionID: PR0001
+[2024-09-17 03:19:33] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-16 21:27:59] Checking promotions for ProductID: P0001
+[2024-09-17 03:27:59] Current Date: 2024-09-17
+[2024-09-17 03:27:59] Checking PromotionID: PR0001
+[2024-09-17 03:27:59] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 03:27:59] Checking promotions for ProductID: P0002
+[2024-09-17 03:27:59] Current Date: 2024-09-17
+[2024-09-17 03:27:59] Checking PromotionID: PR0002
+[2024-09-17 03:27:59] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 03:27:59] Checking promotions for ProductID: P0006
+[2024-09-17 03:27:59] No promotions found for ProductID: P0006
+[2024-09-17 03:27:59] Checking promotions for ProductID: P0012
+[2024-09-17 03:27:59] No promotions found for ProductID: P0012
+[2024-09-17 03:27:59] Checking promotions for ProductID: P0002
+[2024-09-17 03:27:59] Current Date: 2024-09-17
+[2024-09-17 03:27:59] Checking PromotionID: PR0002
+[2024-09-17 03:27:59] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-16 21:28:08] Checking promotions for ProductID: P0001
+[2024-09-17 03:28:08] Current Date: 2024-09-17
+[2024-09-17 03:28:08] Checking PromotionID: PR0001
+[2024-09-17 03:28:08] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 03:28:08] Checking promotions for ProductID: P0002
+[2024-09-17 03:28:08] Current Date: 2024-09-17
+[2024-09-17 03:28:08] Checking PromotionID: PR0002
+[2024-09-17 03:28:08] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 03:28:08] Checking promotions for ProductID: P0006
+[2024-09-17 03:28:08] No promotions found for ProductID: P0006
+[2024-09-17 03:28:08] Checking promotions for ProductID: P0012
+[2024-09-17 03:28:08] No promotions found for ProductID: P0012
+[2024-09-17 03:28:08] Checking promotions for ProductID: P0002
+[2024-09-17 03:28:08] Current Date: 2024-09-17
+[2024-09-17 03:28:08] Checking PromotionID: PR0002
+[2024-09-17 03:28:08] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-16 21:28:36] Checking promotions for ProductID: P0001
+[2024-09-17 03:28:36] Current Date: 2024-09-17
+[2024-09-17 03:28:36] Checking PromotionID: PR0001
+[2024-09-17 03:28:36] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 03:28:36] Checking promotions for ProductID: P0002
+[2024-09-17 03:28:36] Current Date: 2024-09-17
+[2024-09-17 03:28:36] Checking PromotionID: PR0002
+[2024-09-17 03:28:36] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 03:28:36] Checking promotions for ProductID: P0006
+[2024-09-17 03:28:36] No promotions found for ProductID: P0006
+[2024-09-17 03:28:36] Checking promotions for ProductID: P0012
+[2024-09-17 03:28:36] No promotions found for ProductID: P0012
+[2024-09-17 03:28:36] Checking promotions for ProductID: P0002
+[2024-09-17 03:28:36] Current Date: 2024-09-17
+[2024-09-17 03:28:36] Checking PromotionID: PR0002
+[2024-09-17 03:28:36] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-16 21:28:41] Checking promotions for ProductID: P0003
+[2024-09-17 03:28:41] Current Date: 2024-09-17
+[2024-09-17 03:28:41] Checking PromotionID: PR0003
+[2024-09-17 03:28:41] No active promotion for PromotionID: PR0003
+[2024-09-17 03:28:41] Checking promotions for ProductID: P0011
+[2024-09-17 03:28:41] No promotions found for ProductID: P0011
+[2024-09-17 03:28:41] Checking promotions for ProductID: P0001
+[2024-09-17 03:28:41] Current Date: 2024-09-17
+[2024-09-17 03:28:41] Checking PromotionID: PR0001
+[2024-09-17 03:28:41] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 03:28:41] Checking promotions for ProductID: P0002
+[2024-09-17 03:28:41] Current Date: 2024-09-17
+[2024-09-17 03:28:41] Checking PromotionID: PR0002
+[2024-09-17 03:28:41] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 03:28:41] Checking promotions for ProductID: P0004
+[2024-09-17 03:28:41] Current Date: 2024-09-17
+[2024-09-17 03:28:41] Checking PromotionID: PR0004
+[2024-09-17 03:28:41] No active promotion for PromotionID: PR0004
+[2024-09-16 21:28:45] Checking promotions for ProductID: P0007
+[2024-09-16 21:28:45] No promotions found for ProductID: P0007
+[2024-09-16 21:28:45] Checking promotions for ProductID: P0005
+[2024-09-16 21:28:45] No promotions found for ProductID: P0005
+[2024-09-16 21:28:45] Checking promotions for ProductID: P0001
+[2024-09-17 03:28:45] Current Date: 2024-09-17
+[2024-09-17 03:28:45] Checking PromotionID: PR0001
+[2024-09-17 03:28:45] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 03:28:45] Checking promotions for ProductID: P0002
+[2024-09-17 03:28:45] Current Date: 2024-09-17
+[2024-09-17 03:28:45] Checking PromotionID: PR0002
+[2024-09-17 03:28:45] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 03:28:45] Checking promotions for ProductID: P0003
+[2024-09-17 03:28:45] Current Date: 2024-09-17
+[2024-09-17 03:28:45] Checking PromotionID: PR0003
+[2024-09-17 03:28:45] No active promotion for PromotionID: PR0003
+[2024-09-16 21:28:46] Checking promotions for ProductID: P0007
+[2024-09-16 21:28:46] No promotions found for ProductID: P0007
+[2024-09-16 21:28:46] Checking promotions for ProductID: P0005
+[2024-09-16 21:28:46] No promotions found for ProductID: P0005
+[2024-09-16 21:28:46] Checking promotions for ProductID: P0001
+[2024-09-17 03:28:46] Current Date: 2024-09-17
+[2024-09-17 03:28:46] Checking PromotionID: PR0001
+[2024-09-17 03:28:46] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 03:28:46] Checking promotions for ProductID: P0002
+[2024-09-17 03:28:46] Current Date: 2024-09-17
+[2024-09-17 03:28:46] Checking PromotionID: PR0002
+[2024-09-17 03:28:46] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 03:28:46] Checking promotions for ProductID: P0003
+[2024-09-17 03:28:46] Current Date: 2024-09-17
+[2024-09-17 03:28:46] Checking PromotionID: PR0003
+[2024-09-17 03:28:46] No active promotion for PromotionID: PR0003
