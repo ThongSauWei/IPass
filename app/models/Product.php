@@ -11,8 +11,8 @@ class Product extends NewModel {
     protected $allowedColumns = ['ProductId', 'ProductName', 'ProductDesc', 'Category', 'Price', 'Weight', 'ProductImage', 'Availability'];
 
     public function __construct($productData = []) {
-        parent::__construct(); 
-        $this->logger = new ProductLogger(); 
+        parent::__construct();
+        $this->logger = new ProductLogger();
         // Initialize properties with provided data
         $this->productName = $productData['ProductName'] ?? null;
         $this->productDesc = $productData['ProductDesc'] ?? null;
@@ -29,8 +29,8 @@ class Product extends NewModel {
             $this->table = 'product';
 
             $result = $this->findAll()
-                    ->orderBy('ProductID', 'DESC') 
-                    ->limit(1) 
+                    ->orderBy('ProductID', 'DESC')
+                    ->limit(1)
                     ->execute();
 
             // Log the result of the query
@@ -200,7 +200,7 @@ class Product extends NewModel {
 
             $this->logger->log("Product updated: " . json_encode($productData));
 
-            return true; 
+            return true;
         } catch (Exception $e) {
             $this->logger->log("Error updating product: " . $e->getMessage());
             throw new Exception("Error updating product.");
@@ -352,12 +352,12 @@ class Product extends NewModel {
             // If no cart exists or product is not in the cart, create a new cart if necessary
             if ($existingCartId === null) {
                 $this->table = 'Cart';
-                $existingCartId = $this->generateCartId(); 
+                $existingCartId = $this->generateCartId();
                 $cartData = [
                     'CartID' => $existingCartId,
                     'CustomerID' => $customerId
                 ];
-                $this->insert($cartData)->execute(); 
+                $this->insert($cartData)->execute();
             }
 
             // Insert the product into the CartItem table
@@ -394,6 +394,92 @@ class Product extends NewModel {
         } catch (Exception $e) {
             $this->logger->log("Error generating CartID: " . htmlspecialchars($e->getMessage()));
             throw new Exception("Unable to generate CartID. Please try again later.");
+        }
+    }
+
+    //WISHLIST
+    public function addToWishlist($productId, $customerId, $quantity) {
+        try {
+            // Check if the customer already has a wishlist
+            $this->table = 'Wishlist';
+            $existingWishlist = $this->findAll()
+                    ->where('CustomerID', $customerId)
+                    ->execute();
+
+            $existingWishlistId = null;
+
+            if (!empty($existingWishlist)) {
+                // Get the first wishlist ID for the customer
+                $existingWishlistId = $existingWishlist[0]['WishListID'];
+            }
+
+            // If no wishlist exists for the customer, create a new one
+            if ($existingWishlistId === null) {
+                $this->table = 'Wishlist';
+                $existingWishlistId = $this->generateWishlistId();
+                $wishlistData = [
+                    'WishListID' => $existingWishlistId,
+                    'CustomerID' => $customerId
+                ];
+                $this->insert($wishlistData)->execute();
+            }
+
+            // Check if the product is already in the wishlist
+            $this->table = 'WishlistItem';
+            $existingWishlistItem = $this->findAll()
+                    ->where('WishlistID', $existingWishlistId)
+                    ->where('ProductID', $productId)
+                    ->execute();
+
+            if (!empty($existingWishlistItem)) {
+                // Update the quantity of the existing wishlist item
+                $newQuantity = $existingWishlistItem[0]['Quantity'] + $quantity;
+                $this->table = 'WishlistItem';
+                $this->update('Quantity', $newQuantity)
+                        ->where('WishlistID', $existingWishlistId)
+                        ->where('ProductID', $productId)
+                        ->execute();
+
+                return [
+                    'status' => 'success',
+                    'message' => 'Product quantity updated in wishlist'
+                ];
+            }
+
+            // Insert the product into the WishlistItem table
+            $this->table = 'WishlistItem';
+            $wishlistItemData = [
+                'WishlistID' => $existingWishlistId,
+                'ProductID' => $productId,
+                'Quantity' => $quantity
+            ];
+            $this->insert($wishlistItemData)->execute();
+
+            return [
+                'status' => 'success',
+                'message' => 'Product added to wishlist successfully'
+            ];
+        } catch (Exception $e) {
+            $this->logger->log("Error adding product to wishlist: " . htmlspecialchars($e->getMessage()));
+            throw new Exception("Unable to add product to wishlist. Please try again later.");
+        }
+    }
+
+// GENERATE WishlistID
+    private function generateWishlistId() {
+        try {
+            $this->table = 'Wishlist';
+            $result = $this->findAll()
+                    ->orderBy('WishListID', 'DESC')
+                    ->limit(1)
+                    ->execute();
+
+            $maxId = $result[0]['WishListID'] ?? null;
+            $number = ($maxId) ? (int) substr($maxId, 2) + 1 : 1;
+            return 'W' . str_pad($number, 4, '0', STR_PAD_LEFT);
+        } catch (Exception $e) {
+            $this->logger->log("Error generating WishlistID: " . htmlspecialchars($e->getMessage()));
+            throw new Exception("Unable to generate WishlistID. Please try again later.");
         }
     }
 

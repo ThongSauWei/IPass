@@ -79,12 +79,25 @@ if (isset($_GET['productID'])) {
                 </div>
             </div>
 
-            <!-- Example of success message for adding to cart -->
+            <!-- success message -->
             <?php if ($_SERVER['REQUEST_METHOD'] === 'POST' && $result): ?>
-                <div class="alert alert-success" role="alert">
-                    Product added to cart successfully!
-                </div>
+                <?php if ($result['status'] === 'success'): ?>
+                    <?php if ($_POST['action'] === 'addToCart'): ?>
+                        <div class="alert alert-success" role="alert">
+                            Product added to cart successfully!
+                        </div>
+                    <?php elseif ($_POST['action'] === 'addToWishList'): ?>
+                        <div class="alert alert-success" role="alert">
+                            Product added to wishlist successfully!
+                        </div>
+                    <?php endif; ?>
+                <?php else: ?>
+                    <div class="alert alert-danger" role="alert">
+                        <?php echo htmlspecialchars($result['message']); ?>
+                    </div>
+                <?php endif; ?>
             <?php endif; ?>
+
 
             <div class="product-detail">
                 <div class="container">
@@ -177,9 +190,9 @@ if (isset($_GET['productID'])) {
 
                             <!--add to cart or wishlish (quantity)-->
                             <form action="detail-product.php?productID=<?php echo htmlspecialchars($product['ProductID']); ?>" method="POST">
-
                                 <!-- ProductID Hidden Fields -->
                                 <input type="hidden" name="productID" value="<?php echo htmlspecialchars($product['ProductID']); ?>">
+                                <input type="hidden" name="quantity" value="1"> <!-- Default quantity for wishlist -->
                                 <p class="mb-1">
                                     <strong>Quantity</strong>
                                 </p>
@@ -198,13 +211,6 @@ if (isset($_GET['productID'])) {
 
                                 <div class="row">
                                     <div class="col d-flex justify-content-between">
-                                        <!--                                        <button class="mt-3 btn-primary btn-lg">
-                                                                                    <i class="fa fa-shopping-basket"></i> Add to Cart
-                                                                                </button>
-                                        
-                                                                                <button class="mt-3 btn-primary btn-lg">
-                                                                                    <i class="fa fa-heart"></i> Add to WishList
-                                                                                </button>-->
                                         <button type="submit" name="action" value="addToCart" class="mt-3 btn-primary btn-lg">
                                             <i class="fa fa-shopping-basket"></i> Add to Cart
                                         </button>
@@ -215,6 +221,7 @@ if (isset($_GET['productID'])) {
                                     </div>
                                 </div>
                             </form>
+
                         </div>
                     </div>
                 </div>

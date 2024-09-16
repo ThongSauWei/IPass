@@ -49,14 +49,23 @@ class ProductController {
     }
 
     private function handlePostRequests() {
-        // Example for handling product add to cart
         if (isset($_POST['addToCart'])) {
+            // Handle adding product to cart
             $productId = $_POST['productId'];
             $customerId = $_POST['customerId'];  // You'd retrieve this based on logged-in user
             $quantity = $_POST['quantity'];
 
             // Call the addToCart function
             $this->addToCart($productId, $customerId, $quantity);
+        } elseif (isset($_POST['action'])) {
+            // Handle form submissions (like wishlist or other actions)
+            $action = $_POST['action'];
+            $productId = $_POST['productId'] ?? '';
+            $customerId = $_POST['customerId'] ?? '';
+
+            if ($action === 'addToWishList') {
+                $this->addToWishlist($productId, $customerId);
+            }
         }
     }
 
@@ -157,13 +166,13 @@ class ProductController {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $action = $_POST['action'] ?? '';
             $productId = $_POST['productID'] ?? '';
-            $quantity = $_POST['quantity'] ?? 1;
-            $customerId = 'C0001'; // Replace with actual customer ID logic
+            $quantity = $_POST['quantity'] ?? 1; 
+            $customerId = 'C0001'; 
 
             if ($action === 'addToCart') {
                 return $this->addToCart($productId, $customerId, $quantity);
             } elseif ($action === 'addToWishList') {
-                return $this->addToWishlist($productId, $customerId);
+                return $this->addToWishlist($productId, $customerId, $quantity);
             }
         }
         return false;
@@ -216,6 +225,11 @@ class ProductController {
         }
 
         return $displayProducts;
+    }
+
+    // ADD TO WISHLIST
+    public function addToWishlist($productId, $customerId, $quantity) {
+        return $this->product->addToWishlist($productId, $customerId, $quantity);
     }
 
     // Unit conversion (Kg to Gram)
