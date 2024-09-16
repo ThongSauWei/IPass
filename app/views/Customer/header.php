@@ -32,8 +32,8 @@ if (file_exists($configPath)) {
             <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-transparent" id="page-navigation">
                 <div class="container">
                     <!-- Navbar Brand -->
-                    <a href="<?= ROOT ?>homepage.view.php" class="navbar-brand">
-                        <img src="<?= ROOT ?>/assets/img/logo/logo.png" alt="">
+                    <a href="homepage.view.php" class="navbar-brand">
+                        <img src="<?= ROOT ?>/assets/img/logo/nsk.png" alt="">
                     </a>
 
                     <!-- Toggle Button -->

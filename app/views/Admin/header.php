@@ -1,3 +1,12 @@
+<?php
+$configPath = dirname(__DIR__, 2) . '/core/config.php';
+if (file_exists($configPath)) {
+    include_once $configPath;
+} else {
+    echo 'Config file not found: ' . $configPath;
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +37,7 @@
             <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 <!-- Sidebar - Brand -->
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= ROOT ?>">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.view.php">
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                     </div>
@@ -40,13 +49,41 @@
 
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="<?= ROOT ?>/Dashboard">
+                    <a class="nav-link" href="Dashboard.php">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Dashboard</span></a>
                 </li>
 
                 <!-- Divider -->
                 <hr class="sidebar-divider d-none d-md-block">
+
+                <!-- Staff -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+                       aria-controls="collapsePages">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>User</span>
+                    </a>
+                    <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
+                         data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <div class="collapse-divider"></div>
+                            <!-- Staff Section: Only visible to admin -->
+                            <?php if ($userRole === 'admin') : ?>
+                                <h6 class="collapse-header">Staff:</h6>
+                                <a class="collapse-item" href="display_staff.php">Display All Staff</a>
+                                <a class="collapse-item" href="create_staff.php">Create Staff</a>
+                                <a class="collapse-item" href="delete_staff.php">Delete Staff</a>
+                                <a class="collapse-item" href="update_staff.php">Update Staff</a>
+                            <?php endif; ?>
+                            <h6 class="collapse-header">Customer:</h6>
+                            <a class="collapse-item" href="<">Display All Customer</a>
+                            <a class="collapse-item" href="">Create Customer</a>
+                            <a class="collapse-item" href="">Delete Customer</a>
+                            <a class="collapse-item" href="">Update Customer</a>
+                        </div>
+                    </div>
+                </li>
 
                 <!-- Nav Item - Promotion module -->
                 <li class="nav-item">

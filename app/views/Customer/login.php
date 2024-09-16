@@ -4,13 +4,13 @@ include_once __DIR__ . '/header.php';
 ?>
 <div id="page-content" class="page-content">
     <div class="banner">
-        <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('assets/img/bg-header.jpg');">
+        <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('<?= ROOT ?>/assets/img/bg-header.jpg');">
             <div class="container">
                 <h1 class="pt-5">Login Page</h1>
                 <p class="lead">Save time and leave the groceries to us.</p>
                 <div class="card card-login mb-5">
                     <div class="card-body">
-                        <form class="form-horizontal" method="post" action="views/login.php">
+                        <form class="form-horizontal" method="post" action="../../controllers/UserController.php?action=login">
                             <div class="form-group row mt-3">
                                 <div class="col-md-12">
                                     <input class="form-control" type="text" name="identity" required placeholder="Email or Username">
