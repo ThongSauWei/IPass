@@ -220,7 +220,7 @@ class Product extends NewModel {
     }
 
     //CHECK PROMOTION
-    private function hasPromotion($productId) {
+    public function hasPromotion($productId) {
         try {
             $this->logger->log("Checking promotions for ProductID: " . $productId);
 
@@ -400,7 +400,6 @@ class Product extends NewModel {
     //WISHLIST
     public function addToWishlist($productId, $customerId, $quantity) {
         try {
-            // Check if the customer already has a wishlist
             $this->table = 'Wishlist';
             $existingWishlist = $this->findAll()
                     ->where('CustomerID', $customerId)
@@ -409,7 +408,6 @@ class Product extends NewModel {
             $existingWishlistId = null;
 
             if (!empty($existingWishlist)) {
-                // Get the first wishlist ID for the customer
                 $existingWishlistId = $existingWishlist[0]['WishListID'];
             }
 

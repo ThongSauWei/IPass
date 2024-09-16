@@ -232,6 +232,9 @@ class ProductController {
         return $this->product->addToWishlist($productId, $customerId, $quantity);
     }
 
+    public function hasPromotion($productId){
+        return $this->product->hasPromotion($productId);
+    }
     // Unit conversion (Kg to Gram)
 //    public function convertKgToGram($kg) {
 //        $converter = new UnitConverterAdapter();

@@ -236,49 +236,60 @@ if (isset($_GET['productID'])) {
                             <div class="product-carousel owl-carousel">
                                 <?php if (!empty($displayProducts) && is_array($displayProducts)): ?>
                                     <?php foreach ($displayProducts as $relatedProduct): ?>
+                                        <?php
+                                        // Fetch price and promotion data
+                                        $priceData = $productController->getPriceWithPromotion($relatedProduct['ProductID']);
+                                        $promotion = $productController->hasPromotion($relatedProduct['ProductID']);
+                                        ?>
                                         <div class="item">
                                             <a href="detail-product.php?productID=<?php echo htmlspecialchars($relatedProduct['ProductID']); ?>" class="card-link">
                                                 <div class="card card-product">
                                                     <div class="card-ribbon">
                                                         <div class="card-ribbon-container right">
-                                                            <span class="ribbon ribbon-primary">SPECIAL</span>
+                                                            <?php if ($promotion){?>
+                                                                <span class="ribbon ribbon-primary">Promotion</span>
+                                                            <?php } ?>
+                                                                
                                                         </div>
                                                     </div>
                                                     <div class="card-badge">
                                                         <div class="card-badge-container left">
-                                                            <span class="badge badge-default">Until 2018</span>
-                                                            <span class="badge badge-primary">20% OFF</span>
+                                                            <?php if ($promotion){ ?>
+                                                                <?php
+                                                                $promotionEndDate = new DateTime($promotion['EndDate']);
+                                                                ?>
+                                                                <span class="badge badge-default" style="color:black;">
+                                                                    Until <?php echo $promotionEndDate->format('m/d'); ?>
+                                                                </span>
+                                                                <span class="badge badge-primary">
+                                                                    <?php
+                                                                    if ($promotion['DiscountType'] === 'Percentage') {
+                                                                        echo $promotion['DiscountValue'] . '% OFF';
+                                                                    } elseif ($promotion['DiscountType'] === 'Fixed Amount') {
+                                                                        echo '- RM ' . number_format($promotion['DiscountValue'], 2);
+                                                                    }
+                                                                    ?>
+                                                                </span>
+                                                            <?php } ?>
+                                                                
                                                         </div>
                                                         <img src="../../<?php echo htmlspecialchars($relatedProduct['ProductImage']); ?>" alt="Card image" class="card-img-top">
                                                     </div>
                                                     <div class="card-body">
                                                         <h4 class="card-title"><?php echo htmlspecialchars($relatedProduct['ProductName']); ?></h4>
                                                         <div class="card-price">
-                                                            <?php
-                                                            // Fetch the price and promotion data
-                                                            $priceData = $productController->getPriceWithPromotion($relatedProduct['ProductID']);
-
-                                                            // Check if there's a promotional price
-                                                            if ($priceData['discountedPrice'] !== null) {
-                                                                // Display original price (strikethrough) and discounted price
-                                                                ?>
+                                                            <?php if ($priceData['discountedPrice'] !== null): ?>
                                                                 <span class="discount" style="text-decoration: line-through;">
                                                                     RM <?php echo number_format($priceData['originalPrice'], 2); ?>
                                                                 </span>
                                                                 <span class="reguler">
                                                                     RM <?php echo number_format($priceData['discountedPrice'], 2); ?>
                                                                 </span>
-
-                                                                <?php
-                                                            } else {
-                                                                // No promotion, display original price only
-                                                                ?>
+                                                            <?php else: ?>
                                                                 <span class="reguler">
                                                                     RM <?php echo number_format($priceData['originalPrice'], 2); ?>
                                                                 </span>
-                                                                <?php
-                                                            }
-                                                            ?>
+                                                            <?php endif; ?>
                                                         </div>
                                                         <a href="detail-product.php?productID=<?php echo htmlspecialchars($relatedProduct['ProductID']); ?>" class="btn btn-block btn-primary">
                                                             Add to Cart
@@ -296,6 +307,7 @@ if (isset($_GET['productID'])) {
                     </div>
                 </div>
             </section>
+
 
         <?php endif; ?>
     <?php endif; ?>
