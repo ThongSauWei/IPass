@@ -49,19 +49,18 @@ class SessionManager {
     }
     
     //for the page need user login one
-    public static function requireLogin(){
+    public static function requireLogin(){ //require login then get more action for the viewer
         if(!self::loggedIn()){
             header('Location: ../Customer/login.php');//go to login
             exit();
         }
     }
-    
-    
+   
     
     public static function logout(){
         self::startSession();
-        session_unset();
-        session_destroy();
+        session_unset();// remove all variable
+        session_destroy(); //destroy session
     }
     
 }

@@ -42,13 +42,24 @@ class UserFacade {
     public function generateCustomerID() {
         return $this->customer->generateCustomerID();
     }
-    
+
     public function usernameExists($username) {
         return $this->user->findByUsername($username);
     }
 
     public function emailExists($email) {
         return $this->user->findByEmail($email);
+    }
+
+    public function getCustomerDetails($userID) {
+        $customer = $this->customer->findCustByUserID($userID);
+        return [
+            'CustomerName' => $customer[0]['CustomerName']
+        ];
+    }
+
+    public function getUserProfileImage($userID) {
+        return $this->user->findProfileImageByUserID($userID);
     }
 
 }

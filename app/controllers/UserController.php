@@ -7,6 +7,7 @@ if (file_exists($configPath)) {
     echo 'Config file not found: ' . $configPath;
 }
 
+require_once __DIR__ . '/../core/SessionManager.php';
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
@@ -32,9 +33,15 @@ class UserController {
             case 'register':
                 $this->register();
                 break;
+            case 'login':
+                $this->login();
+                break;
+            case 'logout':
+                $this->logout();
+                break;
             default:
-                // If no valid action is provided, show the form or a 404 page
-                echo "No valid action provided.";
+                //show the form or a 404 page
+                require_once __DIR__ . './_404.php';
                 break;
         }
     }
@@ -105,7 +112,7 @@ class UserController {
                 header('Location: ../views/Customer/register.php');
                 exit(); // Stop further execution after redirect
             } else {
-                require __DIR__ . '/../views/Customer/register.php';
+                require_once __DIR__ . '/../views/Customer/register.php';
                 exit();
             }
         }
@@ -118,34 +125,65 @@ class UserController {
 
     public function login() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            session_start(); // Start the session to store errors
+            $errors = [];
+
             $identity = $_POST['identity'];
             $password = $_POST['password'];
 
-            $user = $this->userFacade->userLogin($identity, $password);
+            // Validate input fields
+            if (empty($identity)) {
+                $errors[] = "Username or Email is required.";
+            }
 
-            if ($user) {
-                session_start();
-                $_SESSION['user'] = $user;
+            if (empty($password)) {
+                $errors[] = "Password is required.";
+            }
 
-                // base on role navi
+            // Proceed with login if no input errors
+            if (empty($errors)) {
+                // Try to login the user via facade
+                $user = $this->userFacade->userLogin($identity, $password);
 
-                if ($user['Role'] === 'admin') {
-                    require '../views/Admin/dashboard.view.php';
+                if ($user) {
+                    // Check if the password matches the hashed password in the database
+                    if (password_verify($password, $user['Password'])) {
+                        // Store UserID and Role in the session after successful login
+                        SessionManager::loginUser([
+                            'UserID' => $user['UserID'],
+                            'Username' => $user['Username'],
+                            'Role' => $user['Role'],
+                        ]);
+
+                        // Redirect based on the user role
+                        if ($user['Role'] === 'admin') {
+                            header('Location: ../views/Admin/dashboard.view.php');
+                        } else {
+                            header('Location: ../views/Customer/homepage.view.php');
+                        }
+                        exit();
+                    } else {
+                        // Password mismatch error
+                        $errors[] = "Invalid login credentials. Please check your password.";
+                    }
                 } else {
-                    require '../views/Customer/homepage.view.php';
+                    // Set an error for invalid credentials
+                    $errors[] = "Invalid login credentials. Please check your username or email.";
                 }
+            }
+
+            // If there are any errors, store them in the session and redirect
+            if (!empty($errors)) {
+                $_SESSION['errors'] = $errors;
+                header('Location: ../views/Customer/login.php'); // Redirect back to login page
                 exit();
-            } else {
-                echo "Invalid login credentials.";
             }
         }
     }
 
     public function logout() {
-        session_start();
-        session_unset();
-        session_destroy();
-        require '../views/Customer/login.php';
+        SessionManager::logout(); // Call the logout function in SessionManager
+        header('Location: ../views/Customer/login.php'); // Redirect to the login page after logout
         exit();
     }
 

@@ -45,21 +45,21 @@ class Admin extends User {
                     ->orderBy('AdminID', 'DESC')//the large num
                     ->limit(1) //make sure only 1 row return
                     ->execute();
-            //then get the last id
+            //then get the last id if no record set null
             $lastID = !empty($result) ? $result[0]['AdminID'] : null;
 
             //determine next ID
             if ($lastID) {
                 //take last num use intval convert 0001 to 1
-                $lastNum = intval(substr($lastID, strlen($prefix))); //substr extracts a portion of a string, strlen return length
+                $lastNum = intval(substr($lastID, strlen($char))); //substr extracts a portion of a string, strlen return length
                 //then +1
-                $nextNum = $lastNumber + 1;
+                $nextNum = $lastNum + 1;
             } else {
                 $nextNum = 1;
             }
 
-            // let the next id start with 0
-            $nextID = $prefix . str_pad($nextNum, $length, '0' . STR_PAD_LEFT);
+            // the next AdminID with the required format 'U0001'
+            $nextID = $char . str_pad($nextNum, $length, '0', STR_PAD_LEFT);
 
             return $nextID;
         } catch (Exception $e) {
