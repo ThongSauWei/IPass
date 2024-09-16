@@ -8,11 +8,21 @@ if (file_exists($configPath)) {
 ?>
 
 <?php
+require_once __DIR__ . '/../../facades/userFacade.php';
 require_once __DIR__ . '/../../core/SessionManager.php';
 
 SessionManager::startSession();
 $isLoggedIn = SessionManager::loggedIn();
 $user = SessionManager::getUser();
+$userFacade = new UserFacade();
+if ($isLoggedIn) {
+    //get the customer name
+    $userID = $user['UserID'];
+    $profileImage = $userFacade->getUserProfileImage($userID);
+    $customerDetails = $userFacade->getCustomerDetails($userID);  // Retrieve customer details
+    $customerName = $customerDetails['CustomerName'];
+    $profileImage = $getUserProfileImage ?? ROOT . '/assets/img/logo/avatar.jpg';
+}
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +67,7 @@ $user = SessionManager::getUser();
                                 <a href="shop.php" class="nav-link">Shop</a>
                             </li>
 
-                            <!-- if user havent login show it -->
+                            <!-- If user hasn't logged in, show Register and Login -->
                             <?php if (!$isLoggedIn): ?>
                                 <li class="nav-item">
                                     <a href="register.php" class="nav-link">Register</a>
@@ -65,90 +75,61 @@ $user = SessionManager::getUser();
                                 <li class="nav-item">
                                     <a href="login.php" class="nav-link">Login</a>
                                 </li>
-                                
-                            <!-- if user login already -->    
+
+                                <!-- If the user is logged in -->
                             <?php else: ?>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <div class="avatar-header"><img src="<?= ROOT ?>/assets/img/logo/avatar.jpg"></div> John Doe
+                                        <div class="avatar-header"><img src="<?= $profileImage ?>" alt="User Image">
+                                        </div> <?= $customerName ?>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="transaction.php">Transactions History</a>
-                                        <a class="dropdown-item" href="setting.php">Settings</a>
+                                        <a class="dropdown-item" href="profile.php">Profile</a>
                                         <a class="dropdown-item" href="/IPass/app/controllers/UserController.php?action=logout">Logout</a>
                                     </div>
                                 </li>
+
+                                <li class="nav-item dropdown">
+                                    <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class="fa fa-shopping-basket"></i> <span class="badge badge-primary">5</span>
+                                    </a>
+                                    <div class="dropdown-menu shopping-cart">
+                                        <!-- Cart Details -->
+                                        <ul>
+                                            <li>
+                                                <div class="drop-title">Your Cart</div>
+                                            </li>
+                                            <li>
+                                                <div class="shopping-cart-list">
+                                                    <!-- Example Cart Item -->
+                                                    <div class="media">
+                                                        <img class="d-flex mr-3" src="<?= ROOT ?>/assets/img/logo/avatar.jpg" width="60">
+                                                        <div class="media-body">
+                                                            <h5><a href="javascript:void(0)">Carrot</a></h5>
+                                                            <p class="price">
+                                                                <span class="discount text-muted">Rp. 700.000</span>
+                                                                <span>Rp. 100.000</span>
+                                                            </p>
+                                                            <p class="text-muted">Qty: 1</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="drop-title d-flex justify-content-between">
+                                                    <span>Total:</span>
+                                                    <span class="text-primary"><strong>Rp. 2000.000</strong></span>
+                                                </div>
+                                            </li>
+                                            <li class="d-flex justify-content-between pl-3 pr-3 pt-3">
+                                                <a href="cart.php" class="btn btn-default">View Cart</a>
+                                                <a href="checkout.php" class="btn btn-primary">Checkout</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
                             <?php endif; ?>
-                            <li class="nav-item dropdown">
-                                <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <i class="fa fa-shopping-basket"></i> <span class="badge badge-primary">5</span>
-                                </a>
-                                <div class="dropdown-menu shopping-cart">
-                                    <ul>
-                                        <li>
-                                            <div class="drop-title">Your Cart</div>
-                                        </li>
-                                        <li>
-                                            <div class="shopping-cart-list">
-                                                <div class="media">
-                                                    <img class="d-flex mr-3" src="<?= ROOT ?>/assets/img/logo/avatar.jpg" width="60">
-                                                    <div class="media-body">
-                                                        <h5><a href="javascript:void(0)">Carrot</a></h5>
-                                                        <p class="price">
-                                                            <span class="discount text-muted">Rp. 700.000</span>
-                                                            <span>Rp. 100.000</span>
-                                                        </p>
-                                                        <p class="text-muted">Qty: 1</p>
-                                                    </div>
-                                                </div>
-                                                <div class="media">
-                                                    <img class="d-flex mr-3" src="<?= ROOT ?>/assets/img/logo/avatar.jpg" width="60">
-                                                    <div class="media-body">
-                                                        <h5><a href="javascript:void(0)">Carrot</a></h5>
-                                                        <p class="price">
-                                                            <span class="discount text-muted">Rp. 700.000</span>
-                                                            <span>Rp. 100.000</span>
-                                                        </p>
-                                                        <p class="text-muted">Qty: 1</p>
-                                                    </div>
-                                                </div>
-                                                <div class="media">
-                                                    <img class="d-flex mr-3" src="<?= ROOT ?>/assets/img/logo/avatar.jpg" width="60">
-                                                    <div class="media-body">
-                                                        <h5><a href="javascript:void(0)">Carrot</a></h5>
-                                                        <p class="price">
-                                                            <span class="discount text-muted">Rp. 700.000</span>
-                                                            <span>Rp. 100.000</span>
-                                                        </p>
-                                                        <p class="text-muted">Qty: 1</p>
-                                                    </div>
-                                                </div>
-                                                <div class="media">
-                                                    <img class="d-flex mr-3" src="<?= ROOT ?>/assets/img/logo/avatar.jpg" width="60">
-                                                    <div class="media-body">
-                                                        <h5><a href="javascript:void(0)">Carrot</a></h5>
-                                                        <p class="price">
-                                                            <span class="discount text-muted">Rp. 700.000</span>
-                                                            <span>Rp. 100.000</span>
-                                                        </p>
-                                                        <p class="text-muted">Qty: 1</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li>
-                                            <div class="drop-title d-flex justify-content-between">
-                                                <span>Total:</span>
-                                                <span class="text-primary"><strong>Rp. 2000.000</strong></span>
-                                            </div>
-                                        </li>
-                                        <li class="d-flex justify-content-between pl-3 pr-3 pt-3">
-                                            <a href="cart.php" class="btn btn-default">View Cart</a>
-                                            <a href="checkout.php" class="btn btn-primary">Checkout</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
                         </ul>
                     </div>
                 </div>
