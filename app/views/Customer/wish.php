@@ -1,12 +1,21 @@
 <?php
 include_once 'header.php';
 require_once __DIR__ . '/../../controllers/WishlistController.php';
+require_once __DIR__ . '/../../controllers/ProductController.php';
 
 // Create an instance of the WishlistController
 $wishlistController = new WishlistController();
+$productController = new ProductController();
 
 // Fetch the wishlist products for the customer (currently set to 'C0001')
-$customerID = 'C0001'; // Replace this with the actual customer ID later
+// Replace this with the actual customer ID later
+//echo "User ID: " . htmlspecialchars($userID);
+
+//get customer id
+$customerID = $productController->getCustomerIDByUserID($userID);
+
+//echo "Cust ID: " . htmlspecialchars($customerID);
+
 $wishlistProducts = $wishlistController->showWishlist($customerID);
 ?>
 
@@ -47,7 +56,7 @@ $wishlistProducts = $wishlistController->showWishlist($customerID);
                                     <?php foreach ($wishlistProducts as $product): ?>
                                         <tr class="<?= !$product['Availability'] ? 'out-of-stock' : '' ?>">
                                             <td>
-                                                <img src="../../<?= htmlspecialchars($product['ProductImage']) ?>" width="60">
+                                                <img src="../../../public/assets/img/ProductImage/<?= htmlspecialchars($product['ProductImage']) ?>" width="60">
                                             </td>
                                             <td>
                                                 <?= htmlspecialchars($product['ProductName']) ?>

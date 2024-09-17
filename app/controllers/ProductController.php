@@ -5,15 +5,18 @@ require_once __DIR__ . '/../models/Product.php'; // Updated path using __DIR__
 //require_once __DIR__ . '/../adapter/UnitConverterAdapter.php';
 //require_once __DIR__ . '/../adapter/CurrencyConverterAdapter.php';
 require_once __DIR__ . '/../models/ProductLogger.php';
+require_once __DIR__ . '/../core/SessionManager.php';
 
 class ProductController {
 
     private $product;
     private $logger;
+    private $session;
 
     public function __construct() {
         $this->product = new Product([]);
         $this->logger = new ProductLogger();
+        $this->session = new SessionManager();
     }
 
     // Handle GET and POST data
@@ -34,7 +37,7 @@ class ProductController {
         if (isset($_GET['action']) && $_GET['action'] === 'addProduct') {
             $this->addProduct($_POST);
         }
-        
+
         if (isset($_GET['action']) && $_GET['action'] === 'deleteProduct') {
             $this->deleteProduct($_POST);
         }
@@ -63,15 +66,26 @@ class ProductController {
         return $products;
     }
 
-    private function handlePostRequests() {
+    public function handlePostRequests() {
         if (isset($_POST['addToCart'])) {
-            // Handle adding product to cart
-            $productId = $_POST['productId'];
-            $customerId = $_POST['customerId'];  // You'd retrieve this based on logged-in user
+            // Retrieve the form data
+            $productId = $_POST['productID'];
+            $customerId = $_POST['customerID'];  // You'd retrieve this based on the logged-in user
             $quantity = $_POST['quantity'];
+            $userId = $_POST['userid'];  // Get the user ID from the form data
+            // Log the captured userID for debugging
+            $this->logger->log("Received userID: $userId");
 
-            // Call the addToCart function
-            $this->addToCart($productId, $customerId, $quantity);
+            // Check if user is logged in (userid is not 0 or null)
+            if ($userId == 0 || empty($userId)) {
+                // If no user is logged in, redirect to login
+                $this->logger->log("No user logged in. Redirecting to login page.");
+                SessionManager::requireLogin();
+            } else {
+                // If user is logged in, proceed to add the product to cart
+                $this->logger->log("User is logged in. userID: $userId");
+                $this->addToCart($productId, $customerId, $quantity);
+            }
         } elseif (isset($_POST['action'])) {
             // Handle form submissions (like wishlist or other actions)
             $action = $_POST['action'];
@@ -404,7 +418,6 @@ class ProductController {
                     // Log the image path and product ID
 //                    logMessage("Product ID: $productID");
 //                    logMessage("Image path: $productImagePath");
-
                     // Perform the deletion
 //                    $deleted = $productController->deleteProduct($productID);
                     $deleted = $this->product->deleteProductById($productID);
@@ -465,9 +478,24 @@ class ProductController {
             $productId = $_POST['productID'] ?? '';
             $quantity = $_POST['quantity'] ?? 1;
             $customerId = 'C0001';
+            $userId = $_POST['userid'];  // Get the user ID from the form data
+            // Log the captured userID for debugging (ensure logging does not output directly)
+            $this->logger->log("Received userID: $userId");
 
+            // Ensure no output is sent to the browser before checking login
             if ($action === 'addToCart') {
-                return $this->addToCart($productId, $customerId, $quantity);
+                if (empty($userId) || $userId == 0) {
+                    // If no user is logged in, redirect to login
+                    $this->logger->log("No user logged in. Redirecting to login page.");
+
+                    // Ensure redirection occurs
+                    $this->session->requireLogin();
+                    return; // Stop further processing
+                } else {
+                    // If user is logged in, proceed to add the product to cart
+                    $this->logger->log("User is logged in. userID: $userId");
+                    return $this->addToCart($productId, $customerId, $quantity);
+                }
             } elseif ($action === 'addToWishList') {
                 return $this->addToWishlist($productId, $customerId, $quantity);
             }
@@ -531,6 +559,10 @@ class ProductController {
 
     public function hasPromotion($productId) {
         return $this->product->hasPromotion($productId);
+    }
+
+    public function getCustomerIDByUserID($userID) {
+        return $this->product->getCustomerIDByUserID($userID);
     }
 
     // Unit conversion (Kg to Gram)

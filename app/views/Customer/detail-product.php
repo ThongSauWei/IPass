@@ -1,8 +1,15 @@
 <?php
+ob_start();
+
 include_once __DIR__ . '/header.php';
 require_once __DIR__ . '/../../controllers/ProductController.php';
+require_once __DIR__ . '/../../core/SessionManager.php';
 
 $productController = new ProductController();
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 $error = null;
 $relatedProducts = [];
@@ -12,6 +19,14 @@ $product = null;
 
 // Handle form submission for adding to cart or wishlist
 $result = $productController->handleFormSubmission();
+
+// Now, get the user info after handling submission
+$user = SessionManager::getUser();
+
+// Set $userID conditionally based on whether the user is logged in
+$userID = $user ? $user['UserID'] : 0;
+
+echo "User ID: " . htmlspecialchars($userID);
 
 if (isset($_GET['productID'])) {
     $productID = $_GET['productID'];
@@ -35,6 +50,8 @@ if (isset($_GET['productID'])) {
 } else {
     $error = "No product ID provided.";
 }
+
+ob_end_flush();
 ?>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 <style>
@@ -98,19 +115,18 @@ if (isset($_GET['productID'])) {
                 <?php endif; ?>
             <?php endif; ?>
 
-
             <div class="product-detail">
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="slider-zoom">
-                                <a href="../../<?php echo htmlspecialchars($product['ProductImage']); ?>" class="cloud-zoom" 
+                                <a href="../../../public/assets/img/ProductImage/<?php echo htmlspecialchars($product['ProductImage']); ?>" class="cloud-zoom" 
                                    rel="transparentImage: 'data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==', 
                                    useWrapper: false, showTitle: false, 
                                    zoomWidth: '500', zoomHeight: '500', 
                                    adjustY: 0, adjustX: 10" 
                                    id="cloudZoom">
-                                    <img alt="Detail Zoom thumbs image" src="../../<?php echo htmlspecialchars($product['ProductImage']); ?>" style="width: 100%;">
+                                    <img alt="Detail Zoom thumbs image" src="../../../public/assets/img/ProductImage/<?php echo htmlspecialchars($product['ProductImage']); ?>" style="width: 100%;">
                                 </a>
                             </div>
 
@@ -190,9 +206,11 @@ if (isset($_GET['productID'])) {
 
                             <!--add to cart or wishlish (quantity)-->
                             <form action="detail-product.php?productID=<?php echo htmlspecialchars($product['ProductID']); ?>" method="POST">
-                                <!-- ProductID Hidden Fields -->
                                 <input type="hidden" name="productID" value="<?php echo htmlspecialchars($product['ProductID']); ?>">
-                                <input type="hidden" name="quantity" value="1"> <!-- Default quantity for wishlist -->
+                                <input type="hidden" name="quantity" value="1">
+                                <input type="hidden" name="userid" value="<?php echo htmlspecialchars($userID); ?>">
+
+
                                 <p class="mb-1">
                                     <strong>Quantity</strong>
                                 </p>
@@ -246,15 +264,15 @@ if (isset($_GET['productID'])) {
                                                 <div class="card card-product">
                                                     <div class="card-ribbon">
                                                         <div class="card-ribbon-container right">
-                                                            <?php if ($promotion){?>
+                                                            <?php if ($promotion) { ?>
                                                                 <span class="ribbon ribbon-primary">Promotion</span>
                                                             <?php } ?>
-                                                                
+
                                                         </div>
                                                     </div>
                                                     <div class="card-badge">
                                                         <div class="card-badge-container left">
-                                                            <?php if ($promotion){ ?>
+                                                            <?php if ($promotion) { ?>
                                                                 <?php
                                                                 $promotionEndDate = new DateTime($promotion['EndDate']);
                                                                 ?>
@@ -271,9 +289,9 @@ if (isset($_GET['productID'])) {
                                                                     ?>
                                                                 </span>
                                                             <?php } ?>
-                                                                
+
                                                         </div>
-                                                        <img src="../../<?php echo htmlspecialchars($relatedProduct['ProductImage']); ?>" alt="Card image" class="card-img-top">
+                                                        <img src="../../../public/assets/img/ProductImage/<?php echo htmlspecialchars($relatedProduct['ProductImage']); ?>" alt="Card image" class="card-img-top">
                                                     </div>
                                                     <div class="card-body">
                                                         <h4 class="card-title"><?php echo htmlspecialchars($relatedProduct['ProductName']); ?></h4>
