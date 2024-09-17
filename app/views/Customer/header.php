@@ -89,6 +89,10 @@ if ($isLoggedIn) {
                                         <a class="dropdown-item" href="/IPass/app/controllers/UserController.php?action=logout">Logout</a>
                                     </div>
                                 </li>
+                                
+                                <li class="nav-item">
+                                    <a href="wish.php" class="nav-link">Wishlist</a>
+                                </li>
 
                                 <li class="nav-item dropdown">
                                     <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
