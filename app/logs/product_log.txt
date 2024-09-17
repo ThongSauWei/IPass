@@ -1164,3 +1164,1389 @@
 [2024-09-17 04:27:44] Current Date: 2024-09-17
 [2024-09-17 04:27:44] Checking PromotionID: PR0001
 [2024-09-17 04:27:44] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 09:50:26] Failed to update wishlist item quantity for ProductID: P0004
+[2024-09-17 09:51:54] Failed to update wishlist item quantity for ProductID: P0004. WishlistID : <br />
+<b>Warning</b>:  Undefined variable $wishlistId in <b>C:\xampp\htdocs\IPass\app\views\Customer\wish.php</b> on line <b>62</b><br />
+ & Quantity : 2
+[2024-09-17 09:59:07] Failed to update wishlist item quantity for ProductID: P0004. WishlistID : W0001 & Quantity : 2
+[2024-09-17 09:59:53] Failed to update wishlist item quantity for ProductID: P0004. WishlistID : W0001 & Quantity : 3
+[2024-09-17 10:00:07] Failed to update wishlist item quantity for ProductID: P0004. WishlistID : W0001 & Quantity : 1
+[2024-09-17 10:00:20] Failed to update wishlist item quantity for ProductID: P0004. WishlistID : W0001 & Quantity : 2
+[2024-09-17 10:00:28] Failed to update wishlist item quantity for ProductID: P0004. WishlistID : W0001 & Quantity : 3
+[2024-09-17 10:00:34] Failed to update wishlist item quantity for ProductID: P0004. WishlistID : W0001 & Quantity : 2
+[2024-09-17 10:05:19] Wishlist item quantity updated successfully for ProductID: P0004
+[2024-09-17 10:11:38] Wishlist item quantity updated successfully for ProductID: P0004
+[2024-09-17 10:12:54] Failed to update wishlist item quantity for ProductID: P0004. WishlistID : W0001 & Quantity : 5
+[2024-09-17 10:13:29] Wishlist item quantity updated successfully for ProductID: P0011
+[2024-09-17 10:15:42] Wishlist item quantity updated successfully for ProductID: P0011
+[2024-09-17 10:15:56] Wishlist item quantity updated successfully for ProductID: P0011
+[2024-09-17 10:20:51] Wishlist item quantity updated successfully for ProductID: P0006
+[2024-09-17 10:21:35] Wishlist item quantity updated successfully for ProductID: P0006
+[2024-09-17 10:22:56] Wishlist item quantity updated successfully for ProductID: P0004
+[2024-09-17 10:22:58] Wishlist item quantity updated successfully for ProductID: P0011
+[2024-09-17 10:23:00] Wishlist item quantity updated successfully for ProductID: P0006
+[2024-09-17 10:26:02] Wishlist item quantity updated successfully for ProductID: P0004
+[2024-09-17 10:26:04] Wishlist item quantity updated successfully for ProductID: P0006
+[2024-09-17 10:26:06] Wishlist item quantity updated successfully for ProductID: P0011
+[2024-09-17 10:26:09] Wishlist item quantity updated successfully for ProductID: P0011
+[2024-09-17 10:26:14] Wishlist item quantity updated successfully for ProductID: P0011
+[2024-09-17 10:26:15] Wishlist item quantity updated successfully for ProductID: P0011
+[2024-09-17 10:27:51] Wishlist item quantity updated successfully for ProductID: P0006
+[2024-09-17 10:27:54] Wishlist item quantity updated successfully for ProductID: P0011
+[2024-09-17 10:27:56] Wishlist item quantity updated successfully for ProductID: P0004
+[2024-09-17 10:42:41] Failed to delete Wishlist item for ProductID: P0004
+[2024-09-17 10:45:39] Checking promotions for ProductID: P0006
+[2024-09-17 10:45:39] No promotions found for ProductID: P0006
+[2024-09-17 10:45:39] Checking promotions for ProductID: P0001
+[2024-09-17 16:45:39] Current Date: 2024-09-17
+[2024-09-17 16:45:39] Checking PromotionID: PR0001
+[2024-09-17 16:45:39] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:39] Checking promotions for ProductID: P0001
+[2024-09-17 16:45:39] Current Date: 2024-09-17
+[2024-09-17 16:45:39] Checking PromotionID: PR0001
+[2024-09-17 16:45:39] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:39] Checking promotions for ProductID: P0002
+[2024-09-17 16:45:39] Current Date: 2024-09-17
+[2024-09-17 16:45:39] Checking PromotionID: PR0002
+[2024-09-17 16:45:39] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:39] Checking promotions for ProductID: P0002
+[2024-09-17 16:45:39] Current Date: 2024-09-17
+[2024-09-17 16:45:39] Checking PromotionID: PR0002
+[2024-09-17 16:45:39] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:39] Checking promotions for ProductID: P0012
+[2024-09-17 16:45:39] No promotions found for ProductID: P0012
+[2024-09-17 16:45:39] Checking promotions for ProductID: P0012
+[2024-09-17 16:45:39] No promotions found for ProductID: P0012
+[2024-09-17 16:45:39] Checking promotions for ProductID: P0001
+[2024-09-17 16:45:39] Current Date: 2024-09-17
+[2024-09-17 16:45:39] Checking PromotionID: PR0001
+[2024-09-17 16:45:39] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:39] Checking promotions for ProductID: P0001
+[2024-09-17 16:45:39] Current Date: 2024-09-17
+[2024-09-17 16:45:39] Checking PromotionID: PR0001
+[2024-09-17 16:45:39] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 10:45:40] Checking promotions for ProductID: P0006
+[2024-09-17 10:45:40] No promotions found for ProductID: P0006
+[2024-09-17 10:45:40] Checking promotions for ProductID: P0001
+[2024-09-17 16:45:40] Current Date: 2024-09-17
+[2024-09-17 16:45:40] Checking PromotionID: PR0001
+[2024-09-17 16:45:40] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:40] Checking promotions for ProductID: P0001
+[2024-09-17 16:45:40] Current Date: 2024-09-17
+[2024-09-17 16:45:40] Checking PromotionID: PR0001
+[2024-09-17 16:45:40] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:40] Checking promotions for ProductID: P0002
+[2024-09-17 16:45:40] Current Date: 2024-09-17
+[2024-09-17 16:45:40] Checking PromotionID: PR0002
+[2024-09-17 16:45:40] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:40] Checking promotions for ProductID: P0002
+[2024-09-17 16:45:40] Current Date: 2024-09-17
+[2024-09-17 16:45:40] Checking PromotionID: PR0002
+[2024-09-17 16:45:40] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:40] Checking promotions for ProductID: P0012
+[2024-09-17 16:45:40] No promotions found for ProductID: P0012
+[2024-09-17 16:45:40] Checking promotions for ProductID: P0012
+[2024-09-17 16:45:40] No promotions found for ProductID: P0012
+[2024-09-17 16:45:40] Checking promotions for ProductID: P0001
+[2024-09-17 16:45:40] Current Date: 2024-09-17
+[2024-09-17 16:45:40] Checking PromotionID: PR0001
+[2024-09-17 16:45:40] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:40] Checking promotions for ProductID: P0001
+[2024-09-17 16:45:40] Current Date: 2024-09-17
+[2024-09-17 16:45:40] Checking PromotionID: PR0001
+[2024-09-17 16:45:40] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 10:45:45] Checking promotions for ProductID: P0012
+[2024-09-17 10:45:45] No promotions found for ProductID: P0012
+[2024-09-17 10:45:45] Checking promotions for ProductID: P0001
+[2024-09-17 16:45:45] Current Date: 2024-09-17
+[2024-09-17 16:45:45] Checking PromotionID: PR0001
+[2024-09-17 16:45:45] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:45] Checking promotions for ProductID: P0001
+[2024-09-17 16:45:45] Current Date: 2024-09-17
+[2024-09-17 16:45:45] Checking PromotionID: PR0001
+[2024-09-17 16:45:45] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:45] Checking promotions for ProductID: P0002
+[2024-09-17 16:45:45] Current Date: 2024-09-17
+[2024-09-17 16:45:45] Checking PromotionID: PR0002
+[2024-09-17 16:45:45] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:45] Checking promotions for ProductID: P0002
+[2024-09-17 16:45:45] Current Date: 2024-09-17
+[2024-09-17 16:45:45] Checking PromotionID: PR0002
+[2024-09-17 16:45:45] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:45] Checking promotions for ProductID: P0006
+[2024-09-17 16:45:45] No promotions found for ProductID: P0006
+[2024-09-17 16:45:45] Checking promotions for ProductID: P0006
+[2024-09-17 16:45:45] No promotions found for ProductID: P0006
+[2024-09-17 16:45:45] Checking promotions for ProductID: P0001
+[2024-09-17 16:45:45] Current Date: 2024-09-17
+[2024-09-17 16:45:45] Checking PromotionID: PR0001
+[2024-09-17 16:45:45] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:45] Checking promotions for ProductID: P0001
+[2024-09-17 16:45:45] Current Date: 2024-09-17
+[2024-09-17 16:45:45] Checking PromotionID: PR0001
+[2024-09-17 16:45:45] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 10:45:48] Checking promotions for ProductID: P0012
+[2024-09-17 10:45:48] No promotions found for ProductID: P0012
+[2024-09-17 10:45:48] Checking promotions for ProductID: P0001
+[2024-09-17 16:45:48] Current Date: 2024-09-17
+[2024-09-17 16:45:48] Checking PromotionID: PR0001
+[2024-09-17 16:45:48] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:48] Checking promotions for ProductID: P0001
+[2024-09-17 16:45:48] Current Date: 2024-09-17
+[2024-09-17 16:45:48] Checking PromotionID: PR0001
+[2024-09-17 16:45:48] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:48] Checking promotions for ProductID: P0002
+[2024-09-17 16:45:48] Current Date: 2024-09-17
+[2024-09-17 16:45:48] Checking PromotionID: PR0002
+[2024-09-17 16:45:48] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:48] Checking promotions for ProductID: P0002
+[2024-09-17 16:45:48] Current Date: 2024-09-17
+[2024-09-17 16:45:48] Checking PromotionID: PR0002
+[2024-09-17 16:45:48] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:48] Checking promotions for ProductID: P0006
+[2024-09-17 16:45:48] No promotions found for ProductID: P0006
+[2024-09-17 16:45:48] Checking promotions for ProductID: P0006
+[2024-09-17 16:45:48] No promotions found for ProductID: P0006
+[2024-09-17 16:45:48] Checking promotions for ProductID: P0001
+[2024-09-17 16:45:48] Current Date: 2024-09-17
+[2024-09-17 16:45:48] Checking PromotionID: PR0001
+[2024-09-17 16:45:48] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:48] Checking promotions for ProductID: P0001
+[2024-09-17 16:45:48] Current Date: 2024-09-17
+[2024-09-17 16:45:48] Checking PromotionID: PR0001
+[2024-09-17 16:45:48] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 10:45:51] Checking promotions for ProductID: P0012
+[2024-09-17 10:45:51] No promotions found for ProductID: P0012
+[2024-09-17 10:45:51] Checking promotions for ProductID: P0001
+[2024-09-17 16:45:51] Current Date: 2024-09-17
+[2024-09-17 16:45:51] Checking PromotionID: PR0001
+[2024-09-17 16:45:51] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:51] Checking promotions for ProductID: P0001
+[2024-09-17 16:45:51] Current Date: 2024-09-17
+[2024-09-17 16:45:51] Checking PromotionID: PR0001
+[2024-09-17 16:45:51] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:51] Checking promotions for ProductID: P0002
+[2024-09-17 16:45:51] Current Date: 2024-09-17
+[2024-09-17 16:45:51] Checking PromotionID: PR0002
+[2024-09-17 16:45:51] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:51] Checking promotions for ProductID: P0002
+[2024-09-17 16:45:51] Current Date: 2024-09-17
+[2024-09-17 16:45:51] Checking PromotionID: PR0002
+[2024-09-17 16:45:51] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:51] Checking promotions for ProductID: P0006
+[2024-09-17 16:45:51] No promotions found for ProductID: P0006
+[2024-09-17 16:45:51] Checking promotions for ProductID: P0006
+[2024-09-17 16:45:51] No promotions found for ProductID: P0006
+[2024-09-17 16:45:51] Checking promotions for ProductID: P0001
+[2024-09-17 16:45:51] Current Date: 2024-09-17
+[2024-09-17 16:45:51] Checking PromotionID: PR0001
+[2024-09-17 16:45:51] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:51] Checking promotions for ProductID: P0001
+[2024-09-17 16:45:51] Current Date: 2024-09-17
+[2024-09-17 16:45:51] Checking PromotionID: PR0001
+[2024-09-17 16:45:51] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 10:45:52] Checking promotions for ProductID: P0012
+[2024-09-17 10:45:52] No promotions found for ProductID: P0012
+[2024-09-17 10:45:52] Checking promotions for ProductID: P0001
+[2024-09-17 16:45:52] Current Date: 2024-09-17
+[2024-09-17 16:45:52] Checking PromotionID: PR0001
+[2024-09-17 16:45:52] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:52] Checking promotions for ProductID: P0001
+[2024-09-17 16:45:52] Current Date: 2024-09-17
+[2024-09-17 16:45:52] Checking PromotionID: PR0001
+[2024-09-17 16:45:52] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:52] Checking promotions for ProductID: P0002
+[2024-09-17 16:45:52] Current Date: 2024-09-17
+[2024-09-17 16:45:52] Checking PromotionID: PR0002
+[2024-09-17 16:45:52] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:52] Checking promotions for ProductID: P0002
+[2024-09-17 16:45:52] Current Date: 2024-09-17
+[2024-09-17 16:45:52] Checking PromotionID: PR0002
+[2024-09-17 16:45:52] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:52] Checking promotions for ProductID: P0006
+[2024-09-17 16:45:52] No promotions found for ProductID: P0006
+[2024-09-17 16:45:52] Checking promotions for ProductID: P0006
+[2024-09-17 16:45:52] No promotions found for ProductID: P0006
+[2024-09-17 16:45:52] Checking promotions for ProductID: P0001
+[2024-09-17 16:45:52] Current Date: 2024-09-17
+[2024-09-17 16:45:52] Checking PromotionID: PR0001
+[2024-09-17 16:45:52] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:52] Checking promotions for ProductID: P0001
+[2024-09-17 16:45:52] Current Date: 2024-09-17
+[2024-09-17 16:45:52] Checking PromotionID: PR0001
+[2024-09-17 16:45:52] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 10:45:59] Checking promotions for ProductID: P0005
+[2024-09-17 10:45:59] No promotions found for ProductID: P0005
+[2024-09-17 10:45:59] Checking promotions for ProductID: P0007
+[2024-09-17 10:45:59] No promotions found for ProductID: P0007
+[2024-09-17 10:45:59] Checking promotions for ProductID: P0007
+[2024-09-17 10:45:59] No promotions found for ProductID: P0007
+[2024-09-17 10:45:59] Checking promotions for ProductID: P0001
+[2024-09-17 16:45:59] Current Date: 2024-09-17
+[2024-09-17 16:45:59] Checking PromotionID: PR0001
+[2024-09-17 16:45:59] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:59] Checking promotions for ProductID: P0001
+[2024-09-17 16:45:59] Current Date: 2024-09-17
+[2024-09-17 16:45:59] Checking PromotionID: PR0001
+[2024-09-17 16:45:59] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:59] Checking promotions for ProductID: P0002
+[2024-09-17 16:45:59] Current Date: 2024-09-17
+[2024-09-17 16:45:59] Checking PromotionID: PR0002
+[2024-09-17 16:45:59] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:59] Checking promotions for ProductID: P0002
+[2024-09-17 16:45:59] Current Date: 2024-09-17
+[2024-09-17 16:45:59] Checking PromotionID: PR0002
+[2024-09-17 16:45:59] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:45:59] Checking promotions for ProductID: P0003
+[2024-09-17 16:45:59] Current Date: 2024-09-17
+[2024-09-17 16:45:59] Checking PromotionID: PR0003
+[2024-09-17 16:45:59] No active promotion for PromotionID: PR0003
+[2024-09-17 16:45:59] Checking promotions for ProductID: P0003
+[2024-09-17 16:45:59] Current Date: 2024-09-17
+[2024-09-17 16:45:59] Checking PromotionID: PR0003
+[2024-09-17 16:45:59] No active promotion for PromotionID: PR0003
+[2024-09-17 10:46:01] Checking promotions for ProductID: P0005
+[2024-09-17 10:46:01] No promotions found for ProductID: P0005
+[2024-09-17 10:46:01] Checking promotions for ProductID: P0007
+[2024-09-17 10:46:01] No promotions found for ProductID: P0007
+[2024-09-17 10:46:01] Checking promotions for ProductID: P0007
+[2024-09-17 10:46:01] No promotions found for ProductID: P0007
+[2024-09-17 10:46:01] Checking promotions for ProductID: P0001
+[2024-09-17 16:46:01] Current Date: 2024-09-17
+[2024-09-17 16:46:01] Checking PromotionID: PR0001
+[2024-09-17 16:46:01] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:46:01] Checking promotions for ProductID: P0001
+[2024-09-17 16:46:01] Current Date: 2024-09-17
+[2024-09-17 16:46:01] Checking PromotionID: PR0001
+[2024-09-17 16:46:01] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:46:01] Checking promotions for ProductID: P0002
+[2024-09-17 16:46:01] Current Date: 2024-09-17
+[2024-09-17 16:46:01] Checking PromotionID: PR0002
+[2024-09-17 16:46:01] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:46:01] Checking promotions for ProductID: P0002
+[2024-09-17 16:46:01] Current Date: 2024-09-17
+[2024-09-17 16:46:01] Checking PromotionID: PR0002
+[2024-09-17 16:46:01] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:46:01] Checking promotions for ProductID: P0003
+[2024-09-17 16:46:01] Current Date: 2024-09-17
+[2024-09-17 16:46:01] Checking PromotionID: PR0003
+[2024-09-17 16:46:01] No active promotion for PromotionID: PR0003
+[2024-09-17 16:46:01] Checking promotions for ProductID: P0003
+[2024-09-17 16:46:01] Current Date: 2024-09-17
+[2024-09-17 16:46:01] Checking PromotionID: PR0003
+[2024-09-17 16:46:01] No active promotion for PromotionID: PR0003
+[2024-09-17 10:46:09] Wishlist item quantity updated successfully for ProductID: P0005
+[2024-09-17 10:46:26] Checking promotions for ProductID: P0003
+[2024-09-17 16:46:26] Current Date: 2024-09-17
+[2024-09-17 16:46:26] Checking PromotionID: PR0003
+[2024-09-17 16:46:26] No active promotion for PromotionID: PR0003
+[2024-09-17 16:46:26] Checking promotions for ProductID: P0011
+[2024-09-17 16:46:26] No promotions found for ProductID: P0011
+[2024-09-17 16:46:26] Checking promotions for ProductID: P0011
+[2024-09-17 16:46:26] No promotions found for ProductID: P0011
+[2024-09-17 16:46:26] Checking promotions for ProductID: P0001
+[2024-09-17 16:46:26] Current Date: 2024-09-17
+[2024-09-17 16:46:26] Checking PromotionID: PR0001
+[2024-09-17 16:46:26] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:46:26] Checking promotions for ProductID: P0001
+[2024-09-17 16:46:26] Current Date: 2024-09-17
+[2024-09-17 16:46:26] Checking PromotionID: PR0001
+[2024-09-17 16:46:26] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:46:26] Checking promotions for ProductID: P0002
+[2024-09-17 16:46:26] Current Date: 2024-09-17
+[2024-09-17 16:46:26] Checking PromotionID: PR0002
+[2024-09-17 16:46:26] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:46:26] Checking promotions for ProductID: P0002
+[2024-09-17 16:46:26] Current Date: 2024-09-17
+[2024-09-17 16:46:26] Checking PromotionID: PR0002
+[2024-09-17 16:46:26] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:46:26] Checking promotions for ProductID: P0004
+[2024-09-17 16:46:26] Current Date: 2024-09-17
+[2024-09-17 16:46:26] Checking PromotionID: PR0004
+[2024-09-17 16:46:26] No active promotion for PromotionID: PR0004
+[2024-09-17 16:46:26] Checking promotions for ProductID: P0004
+[2024-09-17 16:46:26] Current Date: 2024-09-17
+[2024-09-17 16:46:26] Checking PromotionID: PR0004
+[2024-09-17 16:46:26] No active promotion for PromotionID: PR0004
+[2024-09-17 10:46:28] Checking promotions for ProductID: P0003
+[2024-09-17 16:46:28] Current Date: 2024-09-17
+[2024-09-17 16:46:28] Checking PromotionID: PR0003
+[2024-09-17 16:46:28] No active promotion for PromotionID: PR0003
+[2024-09-17 16:46:28] Checking promotions for ProductID: P0011
+[2024-09-17 16:46:28] No promotions found for ProductID: P0011
+[2024-09-17 16:46:28] Checking promotions for ProductID: P0011
+[2024-09-17 16:46:28] No promotions found for ProductID: P0011
+[2024-09-17 16:46:28] Checking promotions for ProductID: P0001
+[2024-09-17 16:46:28] Current Date: 2024-09-17
+[2024-09-17 16:46:28] Checking PromotionID: PR0001
+[2024-09-17 16:46:28] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:46:28] Checking promotions for ProductID: P0001
+[2024-09-17 16:46:28] Current Date: 2024-09-17
+[2024-09-17 16:46:28] Checking PromotionID: PR0001
+[2024-09-17 16:46:28] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:46:28] Checking promotions for ProductID: P0002
+[2024-09-17 16:46:28] Current Date: 2024-09-17
+[2024-09-17 16:46:28] Checking PromotionID: PR0002
+[2024-09-17 16:46:28] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:46:28] Checking promotions for ProductID: P0002
+[2024-09-17 16:46:28] Current Date: 2024-09-17
+[2024-09-17 16:46:28] Checking PromotionID: PR0002
+[2024-09-17 16:46:28] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:46:28] Checking promotions for ProductID: P0004
+[2024-09-17 16:46:28] Current Date: 2024-09-17
+[2024-09-17 16:46:28] Checking PromotionID: PR0004
+[2024-09-17 16:46:28] No active promotion for PromotionID: PR0004
+[2024-09-17 16:46:28] Checking promotions for ProductID: P0004
+[2024-09-17 16:46:28] Current Date: 2024-09-17
+[2024-09-17 16:46:28] Checking PromotionID: PR0004
+[2024-09-17 16:46:28] No active promotion for PromotionID: PR0004
+[2024-09-17 10:46:33] Checking promotions for ProductID: P0004
+[2024-09-17 16:46:33] Current Date: 2024-09-17
+[2024-09-17 16:46:33] Checking PromotionID: PR0004
+[2024-09-17 16:46:33] No active promotion for PromotionID: PR0004
+[2024-09-17 16:46:33] Checking promotions for ProductID: P0001
+[2024-09-17 16:46:33] Current Date: 2024-09-17
+[2024-09-17 16:46:33] Checking PromotionID: PR0001
+[2024-09-17 16:46:33] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:46:33] Checking promotions for ProductID: P0001
+[2024-09-17 16:46:33] Current Date: 2024-09-17
+[2024-09-17 16:46:33] Checking PromotionID: PR0001
+[2024-09-17 16:46:33] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:46:33] Checking promotions for ProductID: P0002
+[2024-09-17 16:46:33] Current Date: 2024-09-17
+[2024-09-17 16:46:33] Checking PromotionID: PR0002
+[2024-09-17 16:46:33] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:46:33] Checking promotions for ProductID: P0002
+[2024-09-17 16:46:33] Current Date: 2024-09-17
+[2024-09-17 16:46:33] Checking PromotionID: PR0002
+[2024-09-17 16:46:33] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:46:33] Checking promotions for ProductID: P0003
+[2024-09-17 16:46:33] Current Date: 2024-09-17
+[2024-09-17 16:46:33] Checking PromotionID: PR0003
+[2024-09-17 16:46:33] No active promotion for PromotionID: PR0003
+[2024-09-17 16:46:33] Checking promotions for ProductID: P0003
+[2024-09-17 16:46:33] Current Date: 2024-09-17
+[2024-09-17 16:46:33] Checking PromotionID: PR0003
+[2024-09-17 16:46:33] No active promotion for PromotionID: PR0003
+[2024-09-17 16:46:33] Checking promotions for ProductID: P0005
+[2024-09-17 16:46:33] No promotions found for ProductID: P0005
+[2024-09-17 16:46:33] Checking promotions for ProductID: P0005
+[2024-09-17 16:46:33] No promotions found for ProductID: P0005
+[2024-09-17 10:46:34] Checking promotions for ProductID: P0004
+[2024-09-17 16:46:34] Current Date: 2024-09-17
+[2024-09-17 16:46:34] Checking PromotionID: PR0004
+[2024-09-17 16:46:34] No active promotion for PromotionID: PR0004
+[2024-09-17 16:46:34] Checking promotions for ProductID: P0001
+[2024-09-17 16:46:34] Current Date: 2024-09-17
+[2024-09-17 16:46:34] Checking PromotionID: PR0001
+[2024-09-17 16:46:34] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:46:34] Checking promotions for ProductID: P0001
+[2024-09-17 16:46:34] Current Date: 2024-09-17
+[2024-09-17 16:46:34] Checking PromotionID: PR0001
+[2024-09-17 16:46:34] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:46:34] Checking promotions for ProductID: P0002
+[2024-09-17 16:46:34] Current Date: 2024-09-17
+[2024-09-17 16:46:34] Checking PromotionID: PR0002
+[2024-09-17 16:46:34] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:46:34] Checking promotions for ProductID: P0002
+[2024-09-17 16:46:34] Current Date: 2024-09-17
+[2024-09-17 16:46:34] Checking PromotionID: PR0002
+[2024-09-17 16:46:34] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 16:46:34] Checking promotions for ProductID: P0003
+[2024-09-17 16:46:34] Current Date: 2024-09-17
+[2024-09-17 16:46:34] Checking PromotionID: PR0003
+[2024-09-17 16:46:34] No active promotion for PromotionID: PR0003
+[2024-09-17 16:46:34] Checking promotions for ProductID: P0003
+[2024-09-17 16:46:34] Current Date: 2024-09-17
+[2024-09-17 16:46:34] Checking PromotionID: PR0003
+[2024-09-17 16:46:34] No active promotion for PromotionID: PR0003
+[2024-09-17 16:46:34] Checking promotions for ProductID: P0005
+[2024-09-17 16:46:34] No promotions found for ProductID: P0005
+[2024-09-17 16:46:34] Checking promotions for ProductID: P0005
+[2024-09-17 16:46:34] No promotions found for ProductID: P0005
+[2024-09-17 11:07:59] Wishlist item quantity updated successfully for ProductID: P0005
+[2024-09-17 11:08:00] Wishlist item quantity updated successfully for ProductID: P0005
+[2024-09-17 11:08:01] Wishlist item quantity updated successfully for ProductID: P0005
+[2024-09-17 11:35:57] Wishlist item quantity updated successfully for ProductID: P0005, WishlistID : W0001
+[2024-09-17 11:35:57] delete wishlist start: ProductID - P0005, WishlistID : W0001
+[2024-09-17 11:47:23] Checking promotions for ProductID: P0003
+[2024-09-17 17:47:23] Current Date: 2024-09-17
+[2024-09-17 17:47:23] Checking PromotionID: PR0003
+[2024-09-17 17:47:23] No active promotion for PromotionID: PR0003
+[2024-09-17 17:47:23] Checking promotions for ProductID: P0011
+[2024-09-17 17:47:23] No promotions found for ProductID: P0011
+[2024-09-17 17:47:23] Checking promotions for ProductID: P0011
+[2024-09-17 17:47:23] No promotions found for ProductID: P0011
+[2024-09-17 17:47:23] Checking promotions for ProductID: P0001
+[2024-09-17 17:47:23] Current Date: 2024-09-17
+[2024-09-17 17:47:23] Checking PromotionID: PR0001
+[2024-09-17 17:47:23] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:47:23] Checking promotions for ProductID: P0001
+[2024-09-17 17:47:23] Current Date: 2024-09-17
+[2024-09-17 17:47:23] Checking PromotionID: PR0001
+[2024-09-17 17:47:23] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:47:23] Checking promotions for ProductID: P0002
+[2024-09-17 17:47:23] Current Date: 2024-09-17
+[2024-09-17 17:47:23] Checking PromotionID: PR0002
+[2024-09-17 17:47:23] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:47:23] Checking promotions for ProductID: P0002
+[2024-09-17 17:47:23] Current Date: 2024-09-17
+[2024-09-17 17:47:23] Checking PromotionID: PR0002
+[2024-09-17 17:47:23] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:47:23] Checking promotions for ProductID: P0004
+[2024-09-17 17:47:23] Current Date: 2024-09-17
+[2024-09-17 17:47:23] Checking PromotionID: PR0004
+[2024-09-17 17:47:23] No active promotion for PromotionID: PR0004
+[2024-09-17 17:47:23] Checking promotions for ProductID: P0004
+[2024-09-17 17:47:23] Current Date: 2024-09-17
+[2024-09-17 17:47:23] Checking PromotionID: PR0004
+[2024-09-17 17:47:23] No active promotion for PromotionID: PR0004
+[2024-09-17 11:47:26] Checking promotions for ProductID: P0003
+[2024-09-17 17:47:26] Current Date: 2024-09-17
+[2024-09-17 17:47:26] Checking PromotionID: PR0003
+[2024-09-17 17:47:26] No active promotion for PromotionID: PR0003
+[2024-09-17 17:47:26] Checking promotions for ProductID: P0011
+[2024-09-17 17:47:26] No promotions found for ProductID: P0011
+[2024-09-17 17:47:26] Checking promotions for ProductID: P0011
+[2024-09-17 17:47:26] No promotions found for ProductID: P0011
+[2024-09-17 17:47:26] Checking promotions for ProductID: P0001
+[2024-09-17 17:47:26] Current Date: 2024-09-17
+[2024-09-17 17:47:26] Checking PromotionID: PR0001
+[2024-09-17 17:47:26] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:47:26] Checking promotions for ProductID: P0001
+[2024-09-17 17:47:26] Current Date: 2024-09-17
+[2024-09-17 17:47:26] Checking PromotionID: PR0001
+[2024-09-17 17:47:26] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:47:26] Checking promotions for ProductID: P0002
+[2024-09-17 17:47:26] Current Date: 2024-09-17
+[2024-09-17 17:47:26] Checking PromotionID: PR0002
+[2024-09-17 17:47:26] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:47:26] Checking promotions for ProductID: P0002
+[2024-09-17 17:47:26] Current Date: 2024-09-17
+[2024-09-17 17:47:26] Checking PromotionID: PR0002
+[2024-09-17 17:47:26] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:47:26] Checking promotions for ProductID: P0004
+[2024-09-17 17:47:26] Current Date: 2024-09-17
+[2024-09-17 17:47:26] Checking PromotionID: PR0004
+[2024-09-17 17:47:26] No active promotion for PromotionID: PR0004
+[2024-09-17 17:47:26] Checking promotions for ProductID: P0004
+[2024-09-17 17:47:26] Current Date: 2024-09-17
+[2024-09-17 17:47:26] Checking PromotionID: PR0004
+[2024-09-17 17:47:26] No active promotion for PromotionID: PR0004
+[2024-09-17 11:47:32] Checking promotions for ProductID: P0004
+[2024-09-17 17:47:32] Current Date: 2024-09-17
+[2024-09-17 17:47:32] Checking PromotionID: PR0004
+[2024-09-17 17:47:32] No active promotion for PromotionID: PR0004
+[2024-09-17 17:47:32] Checking promotions for ProductID: P0001
+[2024-09-17 17:47:32] Current Date: 2024-09-17
+[2024-09-17 17:47:32] Checking PromotionID: PR0001
+[2024-09-17 17:47:32] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:47:32] Checking promotions for ProductID: P0001
+[2024-09-17 17:47:32] Current Date: 2024-09-17
+[2024-09-17 17:47:32] Checking PromotionID: PR0001
+[2024-09-17 17:47:32] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:47:32] Checking promotions for ProductID: P0002
+[2024-09-17 17:47:32] Current Date: 2024-09-17
+[2024-09-17 17:47:32] Checking PromotionID: PR0002
+[2024-09-17 17:47:32] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:47:32] Checking promotions for ProductID: P0002
+[2024-09-17 17:47:32] Current Date: 2024-09-17
+[2024-09-17 17:47:32] Checking PromotionID: PR0002
+[2024-09-17 17:47:32] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:47:32] Checking promotions for ProductID: P0003
+[2024-09-17 17:47:32] Current Date: 2024-09-17
+[2024-09-17 17:47:32] Checking PromotionID: PR0003
+[2024-09-17 17:47:32] No active promotion for PromotionID: PR0003
+[2024-09-17 17:47:32] Checking promotions for ProductID: P0003
+[2024-09-17 17:47:32] Current Date: 2024-09-17
+[2024-09-17 17:47:32] Checking PromotionID: PR0003
+[2024-09-17 17:47:32] No active promotion for PromotionID: PR0003
+[2024-09-17 17:47:32] Checking promotions for ProductID: P0005
+[2024-09-17 17:47:32] No promotions found for ProductID: P0005
+[2024-09-17 17:47:32] Checking promotions for ProductID: P0005
+[2024-09-17 17:47:32] No promotions found for ProductID: P0005
+[2024-09-17 11:47:35] Checking promotions for ProductID: P0004
+[2024-09-17 17:47:35] Current Date: 2024-09-17
+[2024-09-17 17:47:35] Checking PromotionID: PR0004
+[2024-09-17 17:47:35] No active promotion for PromotionID: PR0004
+[2024-09-17 17:47:35] Checking promotions for ProductID: P0001
+[2024-09-17 17:47:35] Current Date: 2024-09-17
+[2024-09-17 17:47:35] Checking PromotionID: PR0001
+[2024-09-17 17:47:35] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:47:35] Checking promotions for ProductID: P0001
+[2024-09-17 17:47:35] Current Date: 2024-09-17
+[2024-09-17 17:47:35] Checking PromotionID: PR0001
+[2024-09-17 17:47:35] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:47:35] Checking promotions for ProductID: P0002
+[2024-09-17 17:47:35] Current Date: 2024-09-17
+[2024-09-17 17:47:35] Checking PromotionID: PR0002
+[2024-09-17 17:47:35] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:47:35] Checking promotions for ProductID: P0002
+[2024-09-17 17:47:35] Current Date: 2024-09-17
+[2024-09-17 17:47:35] Checking PromotionID: PR0002
+[2024-09-17 17:47:35] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:47:35] Checking promotions for ProductID: P0003
+[2024-09-17 17:47:35] Current Date: 2024-09-17
+[2024-09-17 17:47:35] Checking PromotionID: PR0003
+[2024-09-17 17:47:35] No active promotion for PromotionID: PR0003
+[2024-09-17 17:47:35] Checking promotions for ProductID: P0003
+[2024-09-17 17:47:35] Current Date: 2024-09-17
+[2024-09-17 17:47:35] Checking PromotionID: PR0003
+[2024-09-17 17:47:35] No active promotion for PromotionID: PR0003
+[2024-09-17 17:47:35] Checking promotions for ProductID: P0005
+[2024-09-17 17:47:35] No promotions found for ProductID: P0005
+[2024-09-17 17:47:35] Checking promotions for ProductID: P0005
+[2024-09-17 17:47:35] No promotions found for ProductID: P0005
+[2024-09-17 11:48:05] Checking promotions for ProductID: P0005
+[2024-09-17 11:48:05] No promotions found for ProductID: P0005
+[2024-09-17 11:48:05] Checking promotions for ProductID: P0007
+[2024-09-17 11:48:05] No promotions found for ProductID: P0007
+[2024-09-17 11:48:05] Checking promotions for ProductID: P0007
+[2024-09-17 11:48:05] No promotions found for ProductID: P0007
+[2024-09-17 11:48:05] Checking promotions for ProductID: P0001
+[2024-09-17 17:48:05] Current Date: 2024-09-17
+[2024-09-17 17:48:05] Checking PromotionID: PR0001
+[2024-09-17 17:48:05] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:48:05] Checking promotions for ProductID: P0001
+[2024-09-17 17:48:05] Current Date: 2024-09-17
+[2024-09-17 17:48:05] Checking PromotionID: PR0001
+[2024-09-17 17:48:05] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:48:05] Checking promotions for ProductID: P0002
+[2024-09-17 17:48:05] Current Date: 2024-09-17
+[2024-09-17 17:48:05] Checking PromotionID: PR0002
+[2024-09-17 17:48:05] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:48:05] Checking promotions for ProductID: P0002
+[2024-09-17 17:48:05] Current Date: 2024-09-17
+[2024-09-17 17:48:05] Checking PromotionID: PR0002
+[2024-09-17 17:48:05] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:48:05] Checking promotions for ProductID: P0003
+[2024-09-17 17:48:05] Current Date: 2024-09-17
+[2024-09-17 17:48:05] Checking PromotionID: PR0003
+[2024-09-17 17:48:05] No active promotion for PromotionID: PR0003
+[2024-09-17 17:48:05] Checking promotions for ProductID: P0003
+[2024-09-17 17:48:05] Current Date: 2024-09-17
+[2024-09-17 17:48:05] Checking PromotionID: PR0003
+[2024-09-17 17:48:05] No active promotion for PromotionID: PR0003
+[2024-09-17 11:48:06] Checking promotions for ProductID: P0005
+[2024-09-17 11:48:06] No promotions found for ProductID: P0005
+[2024-09-17 11:48:06] Checking promotions for ProductID: P0007
+[2024-09-17 11:48:06] No promotions found for ProductID: P0007
+[2024-09-17 11:48:06] Checking promotions for ProductID: P0007
+[2024-09-17 11:48:06] No promotions found for ProductID: P0007
+[2024-09-17 11:48:06] Checking promotions for ProductID: P0001
+[2024-09-17 17:48:06] Current Date: 2024-09-17
+[2024-09-17 17:48:06] Checking PromotionID: PR0001
+[2024-09-17 17:48:06] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:48:06] Checking promotions for ProductID: P0001
+[2024-09-17 17:48:06] Current Date: 2024-09-17
+[2024-09-17 17:48:06] Checking PromotionID: PR0001
+[2024-09-17 17:48:06] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:48:06] Checking promotions for ProductID: P0002
+[2024-09-17 17:48:06] Current Date: 2024-09-17
+[2024-09-17 17:48:06] Checking PromotionID: PR0002
+[2024-09-17 17:48:06] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:48:06] Checking promotions for ProductID: P0002
+[2024-09-17 17:48:06] Current Date: 2024-09-17
+[2024-09-17 17:48:06] Checking PromotionID: PR0002
+[2024-09-17 17:48:06] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:48:06] Checking promotions for ProductID: P0003
+[2024-09-17 17:48:06] Current Date: 2024-09-17
+[2024-09-17 17:48:06] Checking PromotionID: PR0003
+[2024-09-17 17:48:06] No active promotion for PromotionID: PR0003
+[2024-09-17 17:48:06] Checking promotions for ProductID: P0003
+[2024-09-17 17:48:06] Current Date: 2024-09-17
+[2024-09-17 17:48:06] Checking PromotionID: PR0003
+[2024-09-17 17:48:06] No active promotion for PromotionID: PR0003
+[2024-09-17 11:48:08] Checking promotions for ProductID: P0002
+[2024-09-17 17:48:08] Current Date: 2024-09-17
+[2024-09-17 17:48:08] Checking PromotionID: PR0002
+[2024-09-17 17:48:08] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:48:08] Checking promotions for ProductID: P0001
+[2024-09-17 17:48:08] Current Date: 2024-09-17
+[2024-09-17 17:48:08] Checking PromotionID: PR0001
+[2024-09-17 17:48:08] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:48:08] Checking promotions for ProductID: P0001
+[2024-09-17 17:48:08] Current Date: 2024-09-17
+[2024-09-17 17:48:08] Checking PromotionID: PR0001
+[2024-09-17 17:48:08] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:48:08] Checking promotions for ProductID: P0006
+[2024-09-17 17:48:08] No promotions found for ProductID: P0006
+[2024-09-17 17:48:08] Checking promotions for ProductID: P0006
+[2024-09-17 17:48:08] No promotions found for ProductID: P0006
+[2024-09-17 17:48:08] Checking promotions for ProductID: P0012
+[2024-09-17 17:48:08] No promotions found for ProductID: P0012
+[2024-09-17 17:48:08] Checking promotions for ProductID: P0012
+[2024-09-17 17:48:08] No promotions found for ProductID: P0012
+[2024-09-17 17:48:08] Checking promotions for ProductID: P0001
+[2024-09-17 17:48:08] Current Date: 2024-09-17
+[2024-09-17 17:48:08] Checking PromotionID: PR0001
+[2024-09-17 17:48:08] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:48:08] Checking promotions for ProductID: P0001
+[2024-09-17 17:48:08] Current Date: 2024-09-17
+[2024-09-17 17:48:08] Checking PromotionID: PR0001
+[2024-09-17 17:48:08] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 11:48:11] Checking promotions for ProductID: P0002
+[2024-09-17 17:48:11] Current Date: 2024-09-17
+[2024-09-17 17:48:11] Checking PromotionID: PR0002
+[2024-09-17 17:48:11] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:48:11] Checking promotions for ProductID: P0001
+[2024-09-17 17:48:11] Current Date: 2024-09-17
+[2024-09-17 17:48:11] Checking PromotionID: PR0001
+[2024-09-17 17:48:11] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:48:11] Checking promotions for ProductID: P0001
+[2024-09-17 17:48:11] Current Date: 2024-09-17
+[2024-09-17 17:48:11] Checking PromotionID: PR0001
+[2024-09-17 17:48:11] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:48:11] Checking promotions for ProductID: P0006
+[2024-09-17 17:48:11] No promotions found for ProductID: P0006
+[2024-09-17 17:48:11] Checking promotions for ProductID: P0006
+[2024-09-17 17:48:11] No promotions found for ProductID: P0006
+[2024-09-17 17:48:11] Checking promotions for ProductID: P0012
+[2024-09-17 17:48:11] No promotions found for ProductID: P0012
+[2024-09-17 17:48:11] Checking promotions for ProductID: P0012
+[2024-09-17 17:48:11] No promotions found for ProductID: P0012
+[2024-09-17 17:48:11] Checking promotions for ProductID: P0001
+[2024-09-17 17:48:11] Current Date: 2024-09-17
+[2024-09-17 17:48:11] Checking PromotionID: PR0001
+[2024-09-17 17:48:11] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:48:11] Checking promotions for ProductID: P0001
+[2024-09-17 17:48:11] Current Date: 2024-09-17
+[2024-09-17 17:48:11] Checking PromotionID: PR0001
+[2024-09-17 17:48:11] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 11:48:17] Checking promotions for ProductID: P0007
+[2024-09-17 11:48:17] No promotions found for ProductID: P0007
+[2024-09-17 11:48:17] Checking promotions for ProductID: P0005
+[2024-09-17 11:48:17] No promotions found for ProductID: P0005
+[2024-09-17 11:48:17] Checking promotions for ProductID: P0005
+[2024-09-17 11:48:17] No promotions found for ProductID: P0005
+[2024-09-17 11:48:17] Checking promotions for ProductID: P0001
+[2024-09-17 17:48:17] Current Date: 2024-09-17
+[2024-09-17 17:48:17] Checking PromotionID: PR0001
+[2024-09-17 17:48:17] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:48:17] Checking promotions for ProductID: P0001
+[2024-09-17 17:48:17] Current Date: 2024-09-17
+[2024-09-17 17:48:17] Checking PromotionID: PR0001
+[2024-09-17 17:48:17] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:48:17] Checking promotions for ProductID: P0002
+[2024-09-17 17:48:17] Current Date: 2024-09-17
+[2024-09-17 17:48:17] Checking PromotionID: PR0002
+[2024-09-17 17:48:17] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:48:17] Checking promotions for ProductID: P0002
+[2024-09-17 17:48:17] Current Date: 2024-09-17
+[2024-09-17 17:48:17] Checking PromotionID: PR0002
+[2024-09-17 17:48:17] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:48:17] Checking promotions for ProductID: P0003
+[2024-09-17 17:48:17] Current Date: 2024-09-17
+[2024-09-17 17:48:17] Checking PromotionID: PR0003
+[2024-09-17 17:48:17] No active promotion for PromotionID: PR0003
+[2024-09-17 17:48:17] Checking promotions for ProductID: P0003
+[2024-09-17 17:48:17] Current Date: 2024-09-17
+[2024-09-17 17:48:17] Checking PromotionID: PR0003
+[2024-09-17 17:48:17] No active promotion for PromotionID: PR0003
+[2024-09-17 11:48:18] Checking promotions for ProductID: P0007
+[2024-09-17 11:48:18] No promotions found for ProductID: P0007
+[2024-09-17 11:48:18] Checking promotions for ProductID: P0005
+[2024-09-17 11:48:18] No promotions found for ProductID: P0005
+[2024-09-17 11:48:18] Checking promotions for ProductID: P0005
+[2024-09-17 11:48:18] No promotions found for ProductID: P0005
+[2024-09-17 11:48:18] Checking promotions for ProductID: P0001
+[2024-09-17 17:48:18] Current Date: 2024-09-17
+[2024-09-17 17:48:18] Checking PromotionID: PR0001
+[2024-09-17 17:48:18] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:48:18] Checking promotions for ProductID: P0001
+[2024-09-17 17:48:18] Current Date: 2024-09-17
+[2024-09-17 17:48:18] Checking PromotionID: PR0001
+[2024-09-17 17:48:18] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:48:18] Checking promotions for ProductID: P0002
+[2024-09-17 17:48:18] Current Date: 2024-09-17
+[2024-09-17 17:48:18] Checking PromotionID: PR0002
+[2024-09-17 17:48:18] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:48:18] Checking promotions for ProductID: P0002
+[2024-09-17 17:48:18] Current Date: 2024-09-17
+[2024-09-17 17:48:18] Checking PromotionID: PR0002
+[2024-09-17 17:48:18] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:48:18] Checking promotions for ProductID: P0003
+[2024-09-17 17:48:18] Current Date: 2024-09-17
+[2024-09-17 17:48:18] Checking PromotionID: PR0003
+[2024-09-17 17:48:18] No active promotion for PromotionID: PR0003
+[2024-09-17 17:48:18] Checking promotions for ProductID: P0003
+[2024-09-17 17:48:18] Current Date: 2024-09-17
+[2024-09-17 17:48:18] Checking PromotionID: PR0003
+[2024-09-17 17:48:18] No active promotion for PromotionID: PR0003
+[2024-09-17 11:48:30] Wishlist item quantity updated successfully for ProductID: P0007, WishlistID : W0001
+[2024-09-17 11:49:01] Wishlist item quantity updated successfully for ProductID: P0003, WishlistID : W0001
+[2024-09-17 11:49:01] delete wishlist start: ProductID - P0003, WishlistID : W0001
+[2024-09-17 11:49:29] Wishlist item quantity updated successfully for ProductID: P0002
+[2024-09-17 11:49:30] Wishlist item quantity updated successfully for ProductID: P0002
+[2024-09-17 11:49:35] Wishlist item quantity updated successfully for ProductID: P0002, WishlistID : W0001
+[2024-09-17 11:49:51] Wishlist item quantity updated successfully for ProductID: P0005, WishlistID : W0001
+[2024-09-17 11:50:06] Wishlist item quantity updated successfully for ProductID: P0004
+[2024-09-17 11:50:07] Wishlist item quantity updated successfully for ProductID: P0004
+[2024-09-17 11:52:10] Checking promotions for ProductID: P0012
+[2024-09-17 11:52:10] No promotions found for ProductID: P0012
+[2024-09-17 11:52:10] Checking promotions for ProductID: P0001
+[2024-09-17 17:52:10] Current Date: 2024-09-17
+[2024-09-17 17:52:10] Checking PromotionID: PR0001
+[2024-09-17 17:52:10] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:52:10] Checking promotions for ProductID: P0001
+[2024-09-17 17:52:10] Current Date: 2024-09-17
+[2024-09-17 17:52:10] Checking PromotionID: PR0001
+[2024-09-17 17:52:10] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:52:10] Checking promotions for ProductID: P0002
+[2024-09-17 17:52:10] Current Date: 2024-09-17
+[2024-09-17 17:52:10] Checking PromotionID: PR0002
+[2024-09-17 17:52:10] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:52:10] Checking promotions for ProductID: P0002
+[2024-09-17 17:52:10] Current Date: 2024-09-17
+[2024-09-17 17:52:10] Checking PromotionID: PR0002
+[2024-09-17 17:52:10] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:52:10] Checking promotions for ProductID: P0006
+[2024-09-17 17:52:10] No promotions found for ProductID: P0006
+[2024-09-17 17:52:10] Checking promotions for ProductID: P0006
+[2024-09-17 17:52:10] No promotions found for ProductID: P0006
+[2024-09-17 17:52:10] Checking promotions for ProductID: P0001
+[2024-09-17 17:52:10] Current Date: 2024-09-17
+[2024-09-17 17:52:10] Checking PromotionID: PR0001
+[2024-09-17 17:52:10] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:52:10] Checking promotions for ProductID: P0001
+[2024-09-17 17:52:10] Current Date: 2024-09-17
+[2024-09-17 17:52:10] Checking PromotionID: PR0001
+[2024-09-17 17:52:10] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 11:52:12] Checking promotions for ProductID: P0012
+[2024-09-17 11:52:12] No promotions found for ProductID: P0012
+[2024-09-17 11:52:12] Checking promotions for ProductID: P0001
+[2024-09-17 17:52:12] Current Date: 2024-09-17
+[2024-09-17 17:52:12] Checking PromotionID: PR0001
+[2024-09-17 17:52:12] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:52:12] Checking promotions for ProductID: P0001
+[2024-09-17 17:52:12] Current Date: 2024-09-17
+[2024-09-17 17:52:12] Checking PromotionID: PR0001
+[2024-09-17 17:52:12] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:52:12] Checking promotions for ProductID: P0002
+[2024-09-17 17:52:12] Current Date: 2024-09-17
+[2024-09-17 17:52:12] Checking PromotionID: PR0002
+[2024-09-17 17:52:12] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:52:12] Checking promotions for ProductID: P0002
+[2024-09-17 17:52:12] Current Date: 2024-09-17
+[2024-09-17 17:52:12] Checking PromotionID: PR0002
+[2024-09-17 17:52:12] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:52:12] Checking promotions for ProductID: P0006
+[2024-09-17 17:52:12] No promotions found for ProductID: P0006
+[2024-09-17 17:52:12] Checking promotions for ProductID: P0006
+[2024-09-17 17:52:12] No promotions found for ProductID: P0006
+[2024-09-17 17:52:12] Checking promotions for ProductID: P0001
+[2024-09-17 17:52:12] Current Date: 2024-09-17
+[2024-09-17 17:52:12] Checking PromotionID: PR0001
+[2024-09-17 17:52:12] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:52:12] Checking promotions for ProductID: P0001
+[2024-09-17 17:52:12] Current Date: 2024-09-17
+[2024-09-17 17:52:12] Checking PromotionID: PR0001
+[2024-09-17 17:52:12] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 11:52:17] Checking promotions for ProductID: P0008
+[2024-09-17 11:52:17] No promotions found for ProductID: P0008
+[2024-09-17 11:52:17] Checking promotions for ProductID: P0009
+[2024-09-17 11:52:17] No promotions found for ProductID: P0009
+[2024-09-17 11:52:17] Checking promotions for ProductID: P0009
+[2024-09-17 11:52:17] No promotions found for ProductID: P0009
+[2024-09-17 11:52:17] Checking promotions for ProductID: P0001
+[2024-09-17 17:52:17] Current Date: 2024-09-17
+[2024-09-17 17:52:17] Checking PromotionID: PR0001
+[2024-09-17 17:52:17] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:52:17] Checking promotions for ProductID: P0001
+[2024-09-17 17:52:17] Current Date: 2024-09-17
+[2024-09-17 17:52:17] Checking PromotionID: PR0001
+[2024-09-17 17:52:17] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:52:17] Checking promotions for ProductID: P0002
+[2024-09-17 17:52:17] Current Date: 2024-09-17
+[2024-09-17 17:52:17] Checking PromotionID: PR0002
+[2024-09-17 17:52:17] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:52:17] Checking promotions for ProductID: P0002
+[2024-09-17 17:52:17] Current Date: 2024-09-17
+[2024-09-17 17:52:17] Checking PromotionID: PR0002
+[2024-09-17 17:52:17] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:52:17] Checking promotions for ProductID: P0003
+[2024-09-17 17:52:17] Current Date: 2024-09-17
+[2024-09-17 17:52:17] Checking PromotionID: PR0003
+[2024-09-17 17:52:17] No active promotion for PromotionID: PR0003
+[2024-09-17 17:52:17] Checking promotions for ProductID: P0003
+[2024-09-17 17:52:17] Current Date: 2024-09-17
+[2024-09-17 17:52:17] Checking PromotionID: PR0003
+[2024-09-17 17:52:17] No active promotion for PromotionID: PR0003
+[2024-09-17 11:52:19] Checking promotions for ProductID: P0008
+[2024-09-17 11:52:19] No promotions found for ProductID: P0008
+[2024-09-17 11:52:19] Checking promotions for ProductID: P0009
+[2024-09-17 11:52:19] No promotions found for ProductID: P0009
+[2024-09-17 11:52:19] Checking promotions for ProductID: P0009
+[2024-09-17 11:52:19] No promotions found for ProductID: P0009
+[2024-09-17 11:52:19] Checking promotions for ProductID: P0001
+[2024-09-17 17:52:19] Current Date: 2024-09-17
+[2024-09-17 17:52:19] Checking PromotionID: PR0001
+[2024-09-17 17:52:19] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:52:19] Checking promotions for ProductID: P0001
+[2024-09-17 17:52:19] Current Date: 2024-09-17
+[2024-09-17 17:52:19] Checking PromotionID: PR0001
+[2024-09-17 17:52:19] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:52:19] Checking promotions for ProductID: P0002
+[2024-09-17 17:52:19] Current Date: 2024-09-17
+[2024-09-17 17:52:19] Checking PromotionID: PR0002
+[2024-09-17 17:52:19] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:52:19] Checking promotions for ProductID: P0002
+[2024-09-17 17:52:19] Current Date: 2024-09-17
+[2024-09-17 17:52:19] Checking PromotionID: PR0002
+[2024-09-17 17:52:19] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:52:19] Checking promotions for ProductID: P0003
+[2024-09-17 17:52:19] Current Date: 2024-09-17
+[2024-09-17 17:52:19] Checking PromotionID: PR0003
+[2024-09-17 17:52:19] No active promotion for PromotionID: PR0003
+[2024-09-17 17:52:19] Checking promotions for ProductID: P0003
+[2024-09-17 17:52:19] Current Date: 2024-09-17
+[2024-09-17 17:52:19] Checking PromotionID: PR0003
+[2024-09-17 17:52:19] No active promotion for PromotionID: PR0003
+[2024-09-17 11:52:23] Checking promotions for ProductID: P0008
+[2024-09-17 11:52:23] No promotions found for ProductID: P0008
+[2024-09-17 11:52:23] Checking promotions for ProductID: P0009
+[2024-09-17 11:52:23] No promotions found for ProductID: P0009
+[2024-09-17 11:52:23] Checking promotions for ProductID: P0009
+[2024-09-17 11:52:23] No promotions found for ProductID: P0009
+[2024-09-17 11:52:23] Checking promotions for ProductID: P0001
+[2024-09-17 17:52:23] Current Date: 2024-09-17
+[2024-09-17 17:52:23] Checking PromotionID: PR0001
+[2024-09-17 17:52:23] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:52:23] Checking promotions for ProductID: P0001
+[2024-09-17 17:52:23] Current Date: 2024-09-17
+[2024-09-17 17:52:23] Checking PromotionID: PR0001
+[2024-09-17 17:52:23] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:52:23] Checking promotions for ProductID: P0002
+[2024-09-17 17:52:23] Current Date: 2024-09-17
+[2024-09-17 17:52:23] Checking PromotionID: PR0002
+[2024-09-17 17:52:23] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:52:23] Checking promotions for ProductID: P0002
+[2024-09-17 17:52:23] Current Date: 2024-09-17
+[2024-09-17 17:52:23] Checking PromotionID: PR0002
+[2024-09-17 17:52:23] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:52:23] Checking promotions for ProductID: P0003
+[2024-09-17 17:52:23] Current Date: 2024-09-17
+[2024-09-17 17:52:23] Checking PromotionID: PR0003
+[2024-09-17 17:52:23] No active promotion for PromotionID: PR0003
+[2024-09-17 17:52:23] Checking promotions for ProductID: P0003
+[2024-09-17 17:52:23] Current Date: 2024-09-17
+[2024-09-17 17:52:23] Checking PromotionID: PR0003
+[2024-09-17 17:52:23] No active promotion for PromotionID: PR0003
+[2024-09-17 11:52:24] Checking promotions for ProductID: P0008
+[2024-09-17 11:52:24] No promotions found for ProductID: P0008
+[2024-09-17 11:52:24] Checking promotions for ProductID: P0009
+[2024-09-17 11:52:24] No promotions found for ProductID: P0009
+[2024-09-17 11:52:24] Checking promotions for ProductID: P0009
+[2024-09-17 11:52:24] No promotions found for ProductID: P0009
+[2024-09-17 11:52:24] Checking promotions for ProductID: P0001
+[2024-09-17 17:52:24] Current Date: 2024-09-17
+[2024-09-17 17:52:24] Checking PromotionID: PR0001
+[2024-09-17 17:52:24] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:52:24] Checking promotions for ProductID: P0001
+[2024-09-17 17:52:24] Current Date: 2024-09-17
+[2024-09-17 17:52:24] Checking PromotionID: PR0001
+[2024-09-17 17:52:24] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:52:24] Checking promotions for ProductID: P0002
+[2024-09-17 17:52:24] Current Date: 2024-09-17
+[2024-09-17 17:52:24] Checking PromotionID: PR0002
+[2024-09-17 17:52:24] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:52:24] Checking promotions for ProductID: P0002
+[2024-09-17 17:52:24] Current Date: 2024-09-17
+[2024-09-17 17:52:24] Checking PromotionID: PR0002
+[2024-09-17 17:52:24] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:52:24] Checking promotions for ProductID: P0003
+[2024-09-17 17:52:24] Current Date: 2024-09-17
+[2024-09-17 17:52:24] Checking PromotionID: PR0003
+[2024-09-17 17:52:24] No active promotion for PromotionID: PR0003
+[2024-09-17 17:52:24] Checking promotions for ProductID: P0003
+[2024-09-17 17:52:24] Current Date: 2024-09-17
+[2024-09-17 17:52:24] Checking PromotionID: PR0003
+[2024-09-17 17:52:24] No active promotion for PromotionID: PR0003
+[2024-09-17 11:53:39] Wishlist item quantity updated successfully for ProductID: P0008
+[2024-09-17 11:53:45] Wishlist item quantity updated successfully for ProductID: P0012, WishlistID : W0001
+[2024-09-17 11:53:45] delete wishlist start: ProductID - P0012, WishlistID : W0001
+[2024-09-17 11:53:48] Wishlist item quantity updated successfully for ProductID: P0008, WishlistID : W0001
+[2024-09-17 11:53:54] Checking promotions for ProductID: P0003
+[2024-09-17 17:53:54] Current Date: 2024-09-17
+[2024-09-17 17:53:54] Checking PromotionID: PR0003
+[2024-09-17 17:53:54] No active promotion for PromotionID: PR0003
+[2024-09-17 17:53:54] Checking promotions for ProductID: P0011
+[2024-09-17 17:53:54] No promotions found for ProductID: P0011
+[2024-09-17 17:53:54] Checking promotions for ProductID: P0011
+[2024-09-17 17:53:54] No promotions found for ProductID: P0011
+[2024-09-17 17:53:54] Checking promotions for ProductID: P0001
+[2024-09-17 17:53:54] Current Date: 2024-09-17
+[2024-09-17 17:53:54] Checking PromotionID: PR0001
+[2024-09-17 17:53:54] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:53:54] Checking promotions for ProductID: P0001
+[2024-09-17 17:53:54] Current Date: 2024-09-17
+[2024-09-17 17:53:54] Checking PromotionID: PR0001
+[2024-09-17 17:53:54] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:53:54] Checking promotions for ProductID: P0002
+[2024-09-17 17:53:54] Current Date: 2024-09-17
+[2024-09-17 17:53:54] Checking PromotionID: PR0002
+[2024-09-17 17:53:54] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:53:54] Checking promotions for ProductID: P0002
+[2024-09-17 17:53:54] Current Date: 2024-09-17
+[2024-09-17 17:53:54] Checking PromotionID: PR0002
+[2024-09-17 17:53:54] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:53:54] Checking promotions for ProductID: P0004
+[2024-09-17 17:53:54] Current Date: 2024-09-17
+[2024-09-17 17:53:54] Checking PromotionID: PR0004
+[2024-09-17 17:53:54] No active promotion for PromotionID: PR0004
+[2024-09-17 17:53:54] Checking promotions for ProductID: P0004
+[2024-09-17 17:53:54] Current Date: 2024-09-17
+[2024-09-17 17:53:54] Checking PromotionID: PR0004
+[2024-09-17 17:53:54] No active promotion for PromotionID: PR0004
+[2024-09-17 11:53:55] Checking promotions for ProductID: P0003
+[2024-09-17 17:53:55] Current Date: 2024-09-17
+[2024-09-17 17:53:55] Checking PromotionID: PR0003
+[2024-09-17 17:53:55] No active promotion for PromotionID: PR0003
+[2024-09-17 17:53:55] Checking promotions for ProductID: P0011
+[2024-09-17 17:53:55] No promotions found for ProductID: P0011
+[2024-09-17 17:53:55] Checking promotions for ProductID: P0011
+[2024-09-17 17:53:55] No promotions found for ProductID: P0011
+[2024-09-17 17:53:55] Checking promotions for ProductID: P0001
+[2024-09-17 17:53:55] Current Date: 2024-09-17
+[2024-09-17 17:53:55] Checking PromotionID: PR0001
+[2024-09-17 17:53:55] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:53:55] Checking promotions for ProductID: P0001
+[2024-09-17 17:53:55] Current Date: 2024-09-17
+[2024-09-17 17:53:55] Checking PromotionID: PR0001
+[2024-09-17 17:53:55] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:53:55] Checking promotions for ProductID: P0002
+[2024-09-17 17:53:55] Current Date: 2024-09-17
+[2024-09-17 17:53:55] Checking PromotionID: PR0002
+[2024-09-17 17:53:55] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:53:55] Checking promotions for ProductID: P0002
+[2024-09-17 17:53:55] Current Date: 2024-09-17
+[2024-09-17 17:53:55] Checking PromotionID: PR0002
+[2024-09-17 17:53:55] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:53:55] Checking promotions for ProductID: P0004
+[2024-09-17 17:53:55] Current Date: 2024-09-17
+[2024-09-17 17:53:55] Checking PromotionID: PR0004
+[2024-09-17 17:53:55] No active promotion for PromotionID: PR0004
+[2024-09-17 17:53:55] Checking promotions for ProductID: P0004
+[2024-09-17 17:53:55] Current Date: 2024-09-17
+[2024-09-17 17:53:55] Checking PromotionID: PR0004
+[2024-09-17 17:53:55] No active promotion for PromotionID: PR0004
+[2024-09-17 11:54:00] Checking promotions for ProductID: P0003
+[2024-09-17 17:54:00] Current Date: 2024-09-17
+[2024-09-17 17:54:00] Checking PromotionID: PR0003
+[2024-09-17 17:54:00] No active promotion for PromotionID: PR0003
+[2024-09-17 17:54:00] Checking promotions for ProductID: P0011
+[2024-09-17 17:54:00] No promotions found for ProductID: P0011
+[2024-09-17 17:54:00] Checking promotions for ProductID: P0011
+[2024-09-17 17:54:00] No promotions found for ProductID: P0011
+[2024-09-17 17:54:00] Checking promotions for ProductID: P0001
+[2024-09-17 17:54:00] Current Date: 2024-09-17
+[2024-09-17 17:54:00] Checking PromotionID: PR0001
+[2024-09-17 17:54:00] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:54:00] Checking promotions for ProductID: P0001
+[2024-09-17 17:54:00] Current Date: 2024-09-17
+[2024-09-17 17:54:00] Checking PromotionID: PR0001
+[2024-09-17 17:54:00] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:54:00] Checking promotions for ProductID: P0002
+[2024-09-17 17:54:00] Current Date: 2024-09-17
+[2024-09-17 17:54:00] Checking PromotionID: PR0002
+[2024-09-17 17:54:00] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:54:00] Checking promotions for ProductID: P0002
+[2024-09-17 17:54:00] Current Date: 2024-09-17
+[2024-09-17 17:54:00] Checking PromotionID: PR0002
+[2024-09-17 17:54:00] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:54:00] Checking promotions for ProductID: P0004
+[2024-09-17 17:54:00] Current Date: 2024-09-17
+[2024-09-17 17:54:00] Checking PromotionID: PR0004
+[2024-09-17 17:54:00] No active promotion for PromotionID: PR0004
+[2024-09-17 17:54:00] Checking promotions for ProductID: P0004
+[2024-09-17 17:54:00] Current Date: 2024-09-17
+[2024-09-17 17:54:00] Checking PromotionID: PR0004
+[2024-09-17 17:54:00] No active promotion for PromotionID: PR0004
+[2024-09-17 11:54:03] Checking promotions for ProductID: P0004
+[2024-09-17 17:54:03] Current Date: 2024-09-17
+[2024-09-17 17:54:03] Checking PromotionID: PR0004
+[2024-09-17 17:54:03] No active promotion for PromotionID: PR0004
+[2024-09-17 17:54:03] Checking promotions for ProductID: P0001
+[2024-09-17 17:54:03] Current Date: 2024-09-17
+[2024-09-17 17:54:03] Checking PromotionID: PR0001
+[2024-09-17 17:54:03] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:54:03] Checking promotions for ProductID: P0001
+[2024-09-17 17:54:03] Current Date: 2024-09-17
+[2024-09-17 17:54:03] Checking PromotionID: PR0001
+[2024-09-17 17:54:03] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:54:03] Checking promotions for ProductID: P0002
+[2024-09-17 17:54:03] Current Date: 2024-09-17
+[2024-09-17 17:54:03] Checking PromotionID: PR0002
+[2024-09-17 17:54:03] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:54:03] Checking promotions for ProductID: P0002
+[2024-09-17 17:54:03] Current Date: 2024-09-17
+[2024-09-17 17:54:03] Checking PromotionID: PR0002
+[2024-09-17 17:54:03] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:54:03] Checking promotions for ProductID: P0003
+[2024-09-17 17:54:03] Current Date: 2024-09-17
+[2024-09-17 17:54:03] Checking PromotionID: PR0003
+[2024-09-17 17:54:03] No active promotion for PromotionID: PR0003
+[2024-09-17 17:54:03] Checking promotions for ProductID: P0003
+[2024-09-17 17:54:03] Current Date: 2024-09-17
+[2024-09-17 17:54:03] Checking PromotionID: PR0003
+[2024-09-17 17:54:03] No active promotion for PromotionID: PR0003
+[2024-09-17 17:54:03] Checking promotions for ProductID: P0005
+[2024-09-17 17:54:03] No promotions found for ProductID: P0005
+[2024-09-17 17:54:03] Checking promotions for ProductID: P0005
+[2024-09-17 17:54:03] No promotions found for ProductID: P0005
+[2024-09-17 11:54:05] Checking promotions for ProductID: P0004
+[2024-09-17 17:54:05] Current Date: 2024-09-17
+[2024-09-17 17:54:05] Checking PromotionID: PR0004
+[2024-09-17 17:54:05] No active promotion for PromotionID: PR0004
+[2024-09-17 17:54:05] Checking promotions for ProductID: P0001
+[2024-09-17 17:54:05] Current Date: 2024-09-17
+[2024-09-17 17:54:05] Checking PromotionID: PR0001
+[2024-09-17 17:54:05] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:54:05] Checking promotions for ProductID: P0001
+[2024-09-17 17:54:05] Current Date: 2024-09-17
+[2024-09-17 17:54:05] Checking PromotionID: PR0001
+[2024-09-17 17:54:05] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:54:05] Checking promotions for ProductID: P0002
+[2024-09-17 17:54:05] Current Date: 2024-09-17
+[2024-09-17 17:54:05] Checking PromotionID: PR0002
+[2024-09-17 17:54:05] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:54:05] Checking promotions for ProductID: P0002
+[2024-09-17 17:54:05] Current Date: 2024-09-17
+[2024-09-17 17:54:05] Checking PromotionID: PR0002
+[2024-09-17 17:54:05] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:54:05] Checking promotions for ProductID: P0003
+[2024-09-17 17:54:05] Current Date: 2024-09-17
+[2024-09-17 17:54:05] Checking PromotionID: PR0003
+[2024-09-17 17:54:05] No active promotion for PromotionID: PR0003
+[2024-09-17 17:54:05] Checking promotions for ProductID: P0003
+[2024-09-17 17:54:05] Current Date: 2024-09-17
+[2024-09-17 17:54:05] Checking PromotionID: PR0003
+[2024-09-17 17:54:05] No active promotion for PromotionID: PR0003
+[2024-09-17 17:54:05] Checking promotions for ProductID: P0005
+[2024-09-17 17:54:05] No promotions found for ProductID: P0005
+[2024-09-17 17:54:05] Checking promotions for ProductID: P0005
+[2024-09-17 17:54:05] No promotions found for ProductID: P0005
+[2024-09-17 11:54:08] Checking promotions for ProductID: P0008
+[2024-09-17 11:54:08] No promotions found for ProductID: P0008
+[2024-09-17 11:54:08] Checking promotions for ProductID: P0009
+[2024-09-17 11:54:08] No promotions found for ProductID: P0009
+[2024-09-17 11:54:08] Checking promotions for ProductID: P0009
+[2024-09-17 11:54:08] No promotions found for ProductID: P0009
+[2024-09-17 11:54:08] Checking promotions for ProductID: P0001
+[2024-09-17 17:54:08] Current Date: 2024-09-17
+[2024-09-17 17:54:08] Checking PromotionID: PR0001
+[2024-09-17 17:54:08] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:54:08] Checking promotions for ProductID: P0001
+[2024-09-17 17:54:08] Current Date: 2024-09-17
+[2024-09-17 17:54:08] Checking PromotionID: PR0001
+[2024-09-17 17:54:08] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:54:08] Checking promotions for ProductID: P0002
+[2024-09-17 17:54:08] Current Date: 2024-09-17
+[2024-09-17 17:54:08] Checking PromotionID: PR0002
+[2024-09-17 17:54:08] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:54:08] Checking promotions for ProductID: P0002
+[2024-09-17 17:54:08] Current Date: 2024-09-17
+[2024-09-17 17:54:08] Checking PromotionID: PR0002
+[2024-09-17 17:54:08] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:54:08] Checking promotions for ProductID: P0003
+[2024-09-17 17:54:08] Current Date: 2024-09-17
+[2024-09-17 17:54:08] Checking PromotionID: PR0003
+[2024-09-17 17:54:08] No active promotion for PromotionID: PR0003
+[2024-09-17 17:54:08] Checking promotions for ProductID: P0003
+[2024-09-17 17:54:08] Current Date: 2024-09-17
+[2024-09-17 17:54:08] Checking PromotionID: PR0003
+[2024-09-17 17:54:08] No active promotion for PromotionID: PR0003
+[2024-09-17 11:54:10] Checking promotions for ProductID: P0008
+[2024-09-17 11:54:10] No promotions found for ProductID: P0008
+[2024-09-17 11:54:10] Checking promotions for ProductID: P0009
+[2024-09-17 11:54:10] No promotions found for ProductID: P0009
+[2024-09-17 11:54:10] Checking promotions for ProductID: P0009
+[2024-09-17 11:54:10] No promotions found for ProductID: P0009
+[2024-09-17 11:54:10] Checking promotions for ProductID: P0001
+[2024-09-17 17:54:10] Current Date: 2024-09-17
+[2024-09-17 17:54:10] Checking PromotionID: PR0001
+[2024-09-17 17:54:10] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:54:10] Checking promotions for ProductID: P0001
+[2024-09-17 17:54:10] Current Date: 2024-09-17
+[2024-09-17 17:54:10] Checking PromotionID: PR0001
+[2024-09-17 17:54:10] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:54:10] Checking promotions for ProductID: P0002
+[2024-09-17 17:54:10] Current Date: 2024-09-17
+[2024-09-17 17:54:10] Checking PromotionID: PR0002
+[2024-09-17 17:54:10] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:54:10] Checking promotions for ProductID: P0002
+[2024-09-17 17:54:10] Current Date: 2024-09-17
+[2024-09-17 17:54:10] Checking PromotionID: PR0002
+[2024-09-17 17:54:10] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:54:10] Checking promotions for ProductID: P0003
+[2024-09-17 17:54:10] Current Date: 2024-09-17
+[2024-09-17 17:54:10] Checking PromotionID: PR0003
+[2024-09-17 17:54:10] No active promotion for PromotionID: PR0003
+[2024-09-17 17:54:10] Checking promotions for ProductID: P0003
+[2024-09-17 17:54:10] Current Date: 2024-09-17
+[2024-09-17 17:54:10] Checking PromotionID: PR0003
+[2024-09-17 17:54:10] No active promotion for PromotionID: PR0003
+[2024-09-17 11:54:15] Wishlist item quantity updated successfully for ProductID: P0008, WishlistID : W0001
+[2024-09-17 11:55:57] Checking promotions for ProductID: P0007
+[2024-09-17 11:55:57] No promotions found for ProductID: P0007
+[2024-09-17 11:55:57] Checking promotions for ProductID: P0005
+[2024-09-17 11:55:57] No promotions found for ProductID: P0005
+[2024-09-17 11:55:57] Checking promotions for ProductID: P0005
+[2024-09-17 11:55:57] No promotions found for ProductID: P0005
+[2024-09-17 11:55:57] Checking promotions for ProductID: P0001
+[2024-09-17 17:55:57] Current Date: 2024-09-17
+[2024-09-17 17:55:57] Checking PromotionID: PR0001
+[2024-09-17 17:55:57] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:55:57] Checking promotions for ProductID: P0001
+[2024-09-17 17:55:57] Current Date: 2024-09-17
+[2024-09-17 17:55:57] Checking PromotionID: PR0001
+[2024-09-17 17:55:57] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:55:57] Checking promotions for ProductID: P0002
+[2024-09-17 17:55:57] Current Date: 2024-09-17
+[2024-09-17 17:55:57] Checking PromotionID: PR0002
+[2024-09-17 17:55:57] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:55:57] Checking promotions for ProductID: P0002
+[2024-09-17 17:55:57] Current Date: 2024-09-17
+[2024-09-17 17:55:57] Checking PromotionID: PR0002
+[2024-09-17 17:55:57] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:55:57] Checking promotions for ProductID: P0003
+[2024-09-17 17:55:57] Current Date: 2024-09-17
+[2024-09-17 17:55:57] Checking PromotionID: PR0003
+[2024-09-17 17:55:57] No active promotion for PromotionID: PR0003
+[2024-09-17 17:55:57] Checking promotions for ProductID: P0003
+[2024-09-17 17:55:57] Current Date: 2024-09-17
+[2024-09-17 17:55:57] Checking PromotionID: PR0003
+[2024-09-17 17:55:57] No active promotion for PromotionID: PR0003
+[2024-09-17 11:55:59] Checking promotions for ProductID: P0007
+[2024-09-17 11:55:59] No promotions found for ProductID: P0007
+[2024-09-17 11:55:59] Checking promotions for ProductID: P0005
+[2024-09-17 11:55:59] No promotions found for ProductID: P0005
+[2024-09-17 11:55:59] Checking promotions for ProductID: P0005
+[2024-09-17 11:55:59] No promotions found for ProductID: P0005
+[2024-09-17 11:55:59] Checking promotions for ProductID: P0001
+[2024-09-17 17:55:59] Current Date: 2024-09-17
+[2024-09-17 17:55:59] Checking PromotionID: PR0001
+[2024-09-17 17:55:59] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:55:59] Checking promotions for ProductID: P0001
+[2024-09-17 17:55:59] Current Date: 2024-09-17
+[2024-09-17 17:55:59] Checking PromotionID: PR0001
+[2024-09-17 17:55:59] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:55:59] Checking promotions for ProductID: P0002
+[2024-09-17 17:55:59] Current Date: 2024-09-17
+[2024-09-17 17:55:59] Checking PromotionID: PR0002
+[2024-09-17 17:55:59] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:55:59] Checking promotions for ProductID: P0002
+[2024-09-17 17:55:59] Current Date: 2024-09-17
+[2024-09-17 17:55:59] Checking PromotionID: PR0002
+[2024-09-17 17:55:59] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:55:59] Checking promotions for ProductID: P0003
+[2024-09-17 17:55:59] Current Date: 2024-09-17
+[2024-09-17 17:55:59] Checking PromotionID: PR0003
+[2024-09-17 17:55:59] No active promotion for PromotionID: PR0003
+[2024-09-17 17:55:59] Checking promotions for ProductID: P0003
+[2024-09-17 17:55:59] Current Date: 2024-09-17
+[2024-09-17 17:55:59] Checking PromotionID: PR0003
+[2024-09-17 17:55:59] No active promotion for PromotionID: PR0003
+[2024-09-17 11:56:01] Checking promotions for ProductID: P0002
+[2024-09-17 17:56:01] Current Date: 2024-09-17
+[2024-09-17 17:56:01] Checking PromotionID: PR0002
+[2024-09-17 17:56:01] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:56:01] Checking promotions for ProductID: P0001
+[2024-09-17 17:56:01] Current Date: 2024-09-17
+[2024-09-17 17:56:01] Checking PromotionID: PR0001
+[2024-09-17 17:56:01] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:56:01] Checking promotions for ProductID: P0001
+[2024-09-17 17:56:01] Current Date: 2024-09-17
+[2024-09-17 17:56:01] Checking PromotionID: PR0001
+[2024-09-17 17:56:01] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:56:01] Checking promotions for ProductID: P0006
+[2024-09-17 17:56:01] No promotions found for ProductID: P0006
+[2024-09-17 17:56:01] Checking promotions for ProductID: P0006
+[2024-09-17 17:56:01] No promotions found for ProductID: P0006
+[2024-09-17 17:56:01] Checking promotions for ProductID: P0012
+[2024-09-17 17:56:01] No promotions found for ProductID: P0012
+[2024-09-17 17:56:01] Checking promotions for ProductID: P0012
+[2024-09-17 17:56:01] No promotions found for ProductID: P0012
+[2024-09-17 17:56:01] Checking promotions for ProductID: P0001
+[2024-09-17 17:56:01] Current Date: 2024-09-17
+[2024-09-17 17:56:01] Checking PromotionID: PR0001
+[2024-09-17 17:56:01] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:56:01] Checking promotions for ProductID: P0001
+[2024-09-17 17:56:01] Current Date: 2024-09-17
+[2024-09-17 17:56:01] Checking PromotionID: PR0001
+[2024-09-17 17:56:01] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 11:56:03] Checking promotions for ProductID: P0002
+[2024-09-17 17:56:03] Current Date: 2024-09-17
+[2024-09-17 17:56:03] Checking PromotionID: PR0002
+[2024-09-17 17:56:03] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:56:03] Checking promotions for ProductID: P0001
+[2024-09-17 17:56:03] Current Date: 2024-09-17
+[2024-09-17 17:56:03] Checking PromotionID: PR0001
+[2024-09-17 17:56:03] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:56:03] Checking promotions for ProductID: P0001
+[2024-09-17 17:56:03] Current Date: 2024-09-17
+[2024-09-17 17:56:03] Checking PromotionID: PR0001
+[2024-09-17 17:56:03] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:56:03] Checking promotions for ProductID: P0006
+[2024-09-17 17:56:03] No promotions found for ProductID: P0006
+[2024-09-17 17:56:03] Checking promotions for ProductID: P0006
+[2024-09-17 17:56:03] No promotions found for ProductID: P0006
+[2024-09-17 17:56:03] Checking promotions for ProductID: P0012
+[2024-09-17 17:56:03] No promotions found for ProductID: P0012
+[2024-09-17 17:56:03] Checking promotions for ProductID: P0012
+[2024-09-17 17:56:03] No promotions found for ProductID: P0012
+[2024-09-17 17:56:03] Checking promotions for ProductID: P0001
+[2024-09-17 17:56:03] Current Date: 2024-09-17
+[2024-09-17 17:56:03] Checking PromotionID: PR0001
+[2024-09-17 17:56:03] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:56:03] Checking promotions for ProductID: P0001
+[2024-09-17 17:56:03] Current Date: 2024-09-17
+[2024-09-17 17:56:03] Checking PromotionID: PR0001
+[2024-09-17 17:56:03] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 11:58:13] Checking promotions for ProductID: P0001
+[2024-09-17 17:58:13] Current Date: 2024-09-17
+[2024-09-17 17:58:13] Checking PromotionID: PR0001
+[2024-09-17 17:58:13] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:58:13] Checking promotions for ProductID: P0002
+[2024-09-17 17:58:13] Current Date: 2024-09-17
+[2024-09-17 17:58:13] Checking PromotionID: PR0002
+[2024-09-17 17:58:13] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:58:13] Checking promotions for ProductID: P0002
+[2024-09-17 17:58:13] Current Date: 2024-09-17
+[2024-09-17 17:58:13] Checking PromotionID: PR0002
+[2024-09-17 17:58:13] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:58:13] Checking promotions for ProductID: P0006
+[2024-09-17 17:58:13] No promotions found for ProductID: P0006
+[2024-09-17 17:58:13] Checking promotions for ProductID: P0006
+[2024-09-17 17:58:13] No promotions found for ProductID: P0006
+[2024-09-17 17:58:13] Checking promotions for ProductID: P0012
+[2024-09-17 17:58:13] No promotions found for ProductID: P0012
+[2024-09-17 17:58:13] Checking promotions for ProductID: P0012
+[2024-09-17 17:58:13] No promotions found for ProductID: P0012
+[2024-09-17 17:58:13] Checking promotions for ProductID: P0002
+[2024-09-17 17:58:13] Current Date: 2024-09-17
+[2024-09-17 17:58:13] Checking PromotionID: PR0002
+[2024-09-17 17:58:13] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:58:13] Checking promotions for ProductID: P0002
+[2024-09-17 17:58:13] Current Date: 2024-09-17
+[2024-09-17 17:58:13] Checking PromotionID: PR0002
+[2024-09-17 17:58:13] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 11:58:15] Checking promotions for ProductID: P0001
+[2024-09-17 17:58:15] Current Date: 2024-09-17
+[2024-09-17 17:58:15] Checking PromotionID: PR0001
+[2024-09-17 17:58:15] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:58:15] Checking promotions for ProductID: P0002
+[2024-09-17 17:58:15] Current Date: 2024-09-17
+[2024-09-17 17:58:15] Checking PromotionID: PR0002
+[2024-09-17 17:58:15] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:58:15] Checking promotions for ProductID: P0002
+[2024-09-17 17:58:15] Current Date: 2024-09-17
+[2024-09-17 17:58:15] Checking PromotionID: PR0002
+[2024-09-17 17:58:15] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:58:15] Checking promotions for ProductID: P0006
+[2024-09-17 17:58:15] No promotions found for ProductID: P0006
+[2024-09-17 17:58:15] Checking promotions for ProductID: P0006
+[2024-09-17 17:58:15] No promotions found for ProductID: P0006
+[2024-09-17 17:58:15] Checking promotions for ProductID: P0012
+[2024-09-17 17:58:15] No promotions found for ProductID: P0012
+[2024-09-17 17:58:15] Checking promotions for ProductID: P0012
+[2024-09-17 17:58:15] No promotions found for ProductID: P0012
+[2024-09-17 17:58:15] Checking promotions for ProductID: P0002
+[2024-09-17 17:58:15] Current Date: 2024-09-17
+[2024-09-17 17:58:15] Checking PromotionID: PR0002
+[2024-09-17 17:58:15] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 17:58:15] Checking promotions for ProductID: P0002
+[2024-09-17 17:58:15] Current Date: 2024-09-17
+[2024-09-17 17:58:15] Checking PromotionID: PR0002
+[2024-09-17 17:58:15] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 11:59:36] Wishlist item quantity updated successfully for ProductID: P0003
+[2024-09-17 11:59:50] Wishlist item quantity updated successfully for ProductID: P0001
+[2024-09-17 11:59:58] Wishlist item quantity updated successfully for ProductID: P0002
+[2024-09-17 12:00:18] Wishlist item quantity updated successfully for ProductID: P0001, WishlistID : W0001
+[2024-09-17 12:00:18] delete wishlist start: ProductID - P0001, WishlistID : W0001
+[2024-09-17 12:00:40] Checking promotions for ProductID: P0001
+[2024-09-17 18:00:40] Current Date: 2024-09-17
+[2024-09-17 18:00:40] Checking PromotionID: PR0001
+[2024-09-17 18:00:40] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 18:00:40] Checking promotions for ProductID: P0002
+[2024-09-17 18:00:40] Current Date: 2024-09-17
+[2024-09-17 18:00:40] Checking PromotionID: PR0002
+[2024-09-17 18:00:40] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 18:00:40] Checking promotions for ProductID: P0002
+[2024-09-17 18:00:40] Current Date: 2024-09-17
+[2024-09-17 18:00:40] Checking PromotionID: PR0002
+[2024-09-17 18:00:40] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 18:00:40] Checking promotions for ProductID: P0006
+[2024-09-17 18:00:40] No promotions found for ProductID: P0006
+[2024-09-17 18:00:40] Checking promotions for ProductID: P0006
+[2024-09-17 18:00:40] No promotions found for ProductID: P0006
+[2024-09-17 18:00:40] Checking promotions for ProductID: P0012
+[2024-09-17 18:00:40] No promotions found for ProductID: P0012
+[2024-09-17 18:00:40] Checking promotions for ProductID: P0012
+[2024-09-17 18:00:40] No promotions found for ProductID: P0012
+[2024-09-17 18:00:40] Checking promotions for ProductID: P0002
+[2024-09-17 18:00:40] Current Date: 2024-09-17
+[2024-09-17 18:00:40] Checking PromotionID: PR0002
+[2024-09-17 18:00:40] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 18:00:40] Checking promotions for ProductID: P0002
+[2024-09-17 18:00:40] Current Date: 2024-09-17
+[2024-09-17 18:00:40] Checking PromotionID: PR0002
+[2024-09-17 18:00:40] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 12:00:42] Checking promotions for ProductID: P0001
+[2024-09-17 18:00:42] Current Date: 2024-09-17
+[2024-09-17 18:00:42] Checking PromotionID: PR0001
+[2024-09-17 18:00:42] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 18:00:42] Checking promotions for ProductID: P0002
+[2024-09-17 18:00:42] Current Date: 2024-09-17
+[2024-09-17 18:00:42] Checking PromotionID: PR0002
+[2024-09-17 18:00:42] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 18:00:42] Checking promotions for ProductID: P0002
+[2024-09-17 18:00:42] Current Date: 2024-09-17
+[2024-09-17 18:00:42] Checking PromotionID: PR0002
+[2024-09-17 18:00:42] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 18:00:42] Checking promotions for ProductID: P0006
+[2024-09-17 18:00:42] No promotions found for ProductID: P0006
+[2024-09-17 18:00:42] Checking promotions for ProductID: P0006
+[2024-09-17 18:00:42] No promotions found for ProductID: P0006
+[2024-09-17 18:00:42] Checking promotions for ProductID: P0012
+[2024-09-17 18:00:42] No promotions found for ProductID: P0012
+[2024-09-17 18:00:42] Checking promotions for ProductID: P0012
+[2024-09-17 18:00:42] No promotions found for ProductID: P0012
+[2024-09-17 18:00:42] Checking promotions for ProductID: P0002
+[2024-09-17 18:00:42] Current Date: 2024-09-17
+[2024-09-17 18:00:42] Checking PromotionID: PR0002
+[2024-09-17 18:00:42] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 18:00:42] Checking promotions for ProductID: P0002
+[2024-09-17 18:00:42] Current Date: 2024-09-17
+[2024-09-17 18:00:42] Checking PromotionID: PR0002
+[2024-09-17 18:00:42] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 12:00:55] Checking promotions for ProductID: P0012
+[2024-09-17 12:00:55] No promotions found for ProductID: P0012
+[2024-09-17 12:00:55] Checking promotions for ProductID: P0001
+[2024-09-17 18:00:55] Current Date: 2024-09-17
+[2024-09-17 18:00:55] Checking PromotionID: PR0001
+[2024-09-17 18:00:55] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 18:00:55] Checking promotions for ProductID: P0001
+[2024-09-17 18:00:55] Current Date: 2024-09-17
+[2024-09-17 18:00:55] Checking PromotionID: PR0001
+[2024-09-17 18:00:55] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 18:00:55] Checking promotions for ProductID: P0002
+[2024-09-17 18:00:55] Current Date: 2024-09-17
+[2024-09-17 18:00:55] Checking PromotionID: PR0002
+[2024-09-17 18:00:55] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 18:00:55] Checking promotions for ProductID: P0002
+[2024-09-17 18:00:55] Current Date: 2024-09-17
+[2024-09-17 18:00:55] Checking PromotionID: PR0002
+[2024-09-17 18:00:55] Active promotion found: {"PromotionID":"PR0002","PromotionName":"fixed","Description":"sale2","StartDate":"2024-09-16","EndDate":"2024-10-10","Image":"summer_sale.jpg","DiscountType":"Fixed Amount","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 18:00:55] Checking promotions for ProductID: P0006
+[2024-09-17 18:00:55] No promotions found for ProductID: P0006
+[2024-09-17 18:00:55] Checking promotions for ProductID: P0006
+[2024-09-17 18:00:55] No promotions found for ProductID: P0006
+[2024-09-17 18:00:55] Checking promotions for ProductID: P0001
+[2024-09-17 18:00:55] Current Date: 2024-09-17
+[2024-09-17 18:00:55] Checking PromotionID: PR0001
+[2024-09-17 18:00:55] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
+[2024-09-17 18:00:55] Checking promotions for ProductID: P0001
+[2024-09-17 18:00:55] Current Date: 2024-09-17
+[2024-09-17 18:00:55] Checking PromotionID: PR0001
+[2024-09-17 18:00:55] Active promotion found: {"PromotionID":"PR0001","PromotionName":"Summer Sale","Description":"Enjoy our summer discounts!","StartDate":"2024-09-17","EndDate":"2024-10-05","Image":"summer_sale.jpg","DiscountType":"Percentage","DiscountValue":"15.00","CreatedAt":"2024-09-17 01:49:30"}
