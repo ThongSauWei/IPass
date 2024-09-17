@@ -21,6 +21,7 @@ class UserFacade {
         $this->customer = new Customer();
     }
 
+    // login register part
     public function registerUser($userData, $customerData = null) {
         $this->user->register($userData);
 
@@ -43,6 +44,7 @@ class UserFacade {
         return $this->customer->generateCustomerID();
     }
 
+    //get data part
     public function usernameExists($username) {
         return $this->user->findByUsername($username);
     }
@@ -51,15 +53,33 @@ class UserFacade {
         return $this->user->findByEmail($email);
     }
 
+    public function getUserBirthday($userID) {
+        return $this->user->getUserBirthday($userID);
+    }
+
     public function getCustomerDetails($userID) {
-        $customer = $this->customer->findCustByUserID($userID);
-        return [
-            'CustomerName' => $customer[0]['CustomerName']
-        ];
+        return $this->customer->findCustByUserID($userID);
+    }
+    
+    public function getUserDetails($userID) {
+        return $this->user->findUserByUserID($userID);        
     }
 
     public function getUserProfileImage($userID) {
-        return $this->user->findProfileImageByUserID($userID);
+        return $this->user->getUserProfileImage($userID);
+    }
+    
+    public function getUserGender($userID){
+        return $this->user->getUserGender($userID);
+    }
+
+    //profile part
+    public function updateProfile($userID, $userData, $customerData) {
+        // Update the user profile
+        $this->user->updateProfile($userID, $userData);
+
+        // Update customer-specific details
+        $this->customer->updateProfile($userID, $customerData);
     }
 
 }

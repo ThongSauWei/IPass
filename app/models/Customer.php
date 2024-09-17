@@ -2,27 +2,40 @@
 
 require_once __DIR__ . '/User.php';
 
-/* 
+/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
  */
 
 class Customer extends User {
+
     protected $table = 'customer';
-//    
-//    public function registerCustomer($data) {
-//        //insert customer data to customer
-//        $this->insert($data)->execute();
-//    }
-//    
-    
-    public function findCustByUserID($userID){//get customer info by user id
-        return $this->findAll()
+
+    //get data part
+    public function findCustByUserID($userID) {//get customer info by user id
+        $result = $this->findAll()
                 ->where('UserID', $userID)
                 ->limit(1)
                 ->execute();
+
+        if (!empty($result)) {
+            return $result[0]; // Return all customer details as an associative array
+        }
+        return null; // Return null if no customer found
     }
-    
+
+    //profile part
+    public function updateProfile($userID, $customerData) {
+        foreach ($customerData as $column => $value) {
+            $this->update($column, $value);
+        }
+
+        $this->where('UserID', $userID);
+
+        return $this->execute();
+    }
+
+    //register part
     public function generateCustomerID() {
         $char = 'C';
         $length = 4; //0000
@@ -56,4 +69,5 @@ class Customer extends User {
             throw new Exception('Failed to generate CustomerID. Please try again later.');
         }
     }
+
 }

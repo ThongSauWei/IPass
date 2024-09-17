@@ -50,6 +50,19 @@ class UserController {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $errors = [];
 
+            if ($this->userFacade->usernameExists($_POST['username'])) {
+                $errors[] = "Username has already been taken. Please choose another one.";
+            }
+
+            if ($this->userFacade->emailExists($_POST['email'])) {
+                $errors[] = "Email has already been used. Please choose another one.";
+            }
+
+            $phone = $_POST['phone']; //^(\+?6?01)[0|1|2|3|4|6|7|8|9]\-*[0-9]{7,8}$
+            if (!$this->validPhoneNum($phone)) {
+                $errors[] = "Invalid Malaysian phone number. Eg.'0123456789'";
+            }
+
             $password = $_POST['password'];
             if (!$this->validPassword($password)) {
                 error_log("Password validation failed.");
@@ -60,13 +73,7 @@ class UserController {
                 $errors[] = "Passwords do not match!";
             }
 
-            if ($this->userFacade->usernameExists($_POST['username'])) {
-                $errors[] = "Username has already been taken. Please choose another one.";
-            }
 
-            if ($this->userFacade->emailExists($_POST['email'])) {
-                $errors[] = "Email has already been used. Please choose another one.";
-            }
 
             if (empty($errors)) {
 
@@ -118,6 +125,14 @@ class UserController {
         }
     }
 
+    private function validPhoneNum($phone) {
+        // Define the regex pattern for Malaysian phone numbers
+        $pattern = "/^(\+?6?01)[0|1|2|3|4|6|7|8|9]\-*[0-9]{7,8}$/";
+         //^ = start, (\+?6?01) can be start with 60 or 0, [0|1|2|3|4|6|7|8|9] start with 011,012 or.. but no 5, \-*[0-9] can be repeat number many time, $ end
+        
+        return preg_match($pattern, $phone);
+    }
+
     private function validPassword($password) {
         $pattern = '/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/';
         return preg_match($pattern, $password);
@@ -151,8 +166,10 @@ class UserController {
                         // Store UserID and Role in the session after successful login
                         SessionManager::loginUser([
                             'UserID' => $user['UserID'],
+                            'Email' => $user['Email'],
                             'Username' => $user['Username'],
                             'Role' => $user['Role'],
+                            'Birthday' => $user['Birthday']
                         ]);
 
                         // Redirect based on the user role

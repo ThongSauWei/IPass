@@ -21,7 +21,8 @@ if ($isLoggedIn) {
     $profileImage = $userFacade->getUserProfileImage($userID);
     $customerDetails = $userFacade->getCustomerDetails($userID);  // Retrieve customer details
     $customerName = $customerDetails['CustomerName'];
-    $profileImage = $getUserProfileImage ?? ROOT . '/assets/img/logo/avatar.jpg';
+
+    $profileImage = $profileImage ? ROOT . $profileImage : ROOT . '/assets/img/logo/avatar.jpg';
 }
 ?>
 

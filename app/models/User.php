@@ -10,6 +10,20 @@ class User extends NewModel {
 
     protected $table = 'user';
 
+    //get data part
+    
+    public function findUserByUserID($userID) {
+        $result = $this->findAll()
+                ->where('UserID', $userID)
+                ->limit(1)
+                ->execute();
+
+        if (!empty($result)) {
+            return $result[0]; 
+        }
+        return null; // Return null if no user found
+    }
+    
     public function findByUsername($username) {
         $result = $this->findAll()
                 ->where('Username', $username)
@@ -26,39 +40,77 @@ class User extends NewModel {
         return !empty($result); //return true if the email exist
     }
 
-    public function findProfileImageByUserID($userID) {
+    public function getUserBirthday($userID) {
+        // Fetch the user's birthday based on their UserID
         $result = $this->findAll()
                 ->where('UserID', $userID)
                 ->limit(1)
                 ->execute();
 
-        return !empty($result) ? $result[0]['ProfileImage'] : null;
+        if (!empty($result)) {
+            return $result[0]['Birthday']; // Return the birthday if found
+        } else {
+            return null; // If no birthday found, return null
+        }
+    }
+    
+    //get the profileImage
+    public function getUserProfileImage($userID) {
+        $result = $this->findAll()
+                ->where('UserID', $userID)
+                ->limit(1)
+                ->execute();
+                
+        return $result[0]['ProfileImage'] ?? null; // Returns the profile image path or null
+    }
+    
+    //get user gender
+    public function getUserGender($userID) {
+        $result = $this->findAll()
+                ->where('UserID', $userID)
+                ->limit(1)
+                ->execute();
+                
+        return $result[0]['Gender'] ?? null; // Returns 'male', 'female', or 'other' as stored
     }
 
+    //profile part
+    public function updateProfile($userID, $userData) {
+        foreach ($userData as $column => $value) {
+            $this->update($column, $value); // Call update() for each column-value pair
+        }
+
+        //target the specific user
+        $this->where('UserID', $userID);
+
+        return $this->execute();
+    }
+
+    // login register part
     public function register($data) {
         $data['Password'] = password_hash($data['Password'], PASSWORD_BCRYPT); //hash the password became hashvalue
         $this->insert($data)->execute();
     }
 
     public function login($identity, $password) {
-        // Try to find the user by username first
+        //find the username in db exist or not
         $resultByUsername = $this->findAll()
                 ->where('Username', $identity)
-                ->limit(1)
+                ->limit(1)//only 1 result
                 ->execute();
 
-        // If no user is found by username, check by email
+        //if no find email
         if (empty($resultByUsername)) {
             $resultByEmail = $this->findAll()
                     ->where('Email', $identity)
                     ->limit(1)
                     ->execute();
 
-            // Check if any user was found by email
+            //check if any user was found by email
             if (!empty($resultByEmail)) {
-                $user = $resultByEmail[0];
+                $user = $resultByEmail[0]; //first array like first result 0 1234index
             } else {
-                return false; // No user found by username or email
+                return false; //no user found by username or email
             }
         } else {
             $user = $resultByUsername[0];
@@ -66,10 +118,10 @@ class User extends NewModel {
 
         // If the user was found, verify the password
         if (password_verify($password, $user['Password'])) {
-            return $user; // Return user details if the password is correct
+            return $user; //return user details if the password is correct
         }
 
-        return false; // Return false if the password is incorrect
+        return false; //return false if the password is incorrect
     }
 
     public function generateUserID() {
