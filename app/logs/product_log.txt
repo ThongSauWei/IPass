@@ -1,1 +1,81 @@
 [2024-09-17 18:02:42] Product deleted: P0016
+[2024-09-17 19:59:47] Fetching product image for category: Meat
+[2024-09-17 19:59:47] Query result for category Meat: 
+[2024-09-17 19:59:47] Fetching product image for category: testextra
+[2024-09-17 19:59:47] Query result for category testextra: 
+[2024-09-17 19:59:47] Fetching product image for category: Fruit
+[2024-09-17 19:59:47] Query result for category Fruit: 
+[2024-09-17 19:59:47] Fetching product image for category: Vegetable
+[2024-09-17 19:59:47] Query result for category Vegetable: 
+[2024-09-17 19:59:47] Fetching product image for category: Fish
+[2024-09-17 19:59:47] Query result for category Fish: 
+[2024-09-17 20:05:32] Fetching product image for category: Meat
+[2024-09-17 20:05:32] Query result for category Meat: 
+[2024-09-17 20:05:32] Fetching product image for category: testextra
+[2024-09-17 20:05:32] Query result for category testextra: 
+[2024-09-17 20:05:32] Fetching product image for category: Fruit
+[2024-09-17 20:05:32] Query result for category Fruit: 
+[2024-09-17 20:05:32] Fetching product image for category: Vegetable
+[2024-09-17 20:05:32] Query result for category Vegetable: 
+[2024-09-17 20:05:32] Fetching product image for category: Fish
+[2024-09-17 20:05:32] Query result for category Fish: 
+[2024-09-17 20:08:55] Fetching product image for category: Meat
+[2024-09-17 20:08:55] Query result for category Meat: 
+[2024-09-17 20:08:55] Fetching product image for category: testextra
+[2024-09-17 20:08:55] Query result for category testextra: 
+[2024-09-17 20:08:55] Fetching product image for category: Fruit
+[2024-09-17 20:08:55] Query result for category Fruit: 
+[2024-09-17 20:08:55] Fetching product image for category: Vegetable
+[2024-09-17 20:08:55] Query result for category Vegetable: 
+[2024-09-17 20:08:55] Fetching product image for category: Fish
+[2024-09-17 20:08:55] Query result for category Fish: 
+[2024-09-17 20:10:16] Fetching product image for category: Meat
+[2024-09-17 20:10:16] Query result for category Meat: 
+[2024-09-17 20:10:16] Fetching product image for category: testextra
+[2024-09-17 20:10:16] Query result for category testextra: 
+[2024-09-17 20:10:16] Fetching product image for category: Fruit
+[2024-09-17 20:10:16] Query result for category Fruit: 
+[2024-09-17 20:10:16] Fetching product image for category: Vegetable
+[2024-09-17 20:10:16] Query result for category Vegetable: 
+[2024-09-17 20:10:16] Fetching product image for category: Fish
+[2024-09-17 20:10:16] Query result for category Fish: 
+[2024-09-17 20:10:29] Fetching product image for category: Meat
+[2024-09-17 20:10:29] Query result for category Meat: 
+[2024-09-17 20:10:29] Fetching product image for category: testextra
+[2024-09-17 20:10:29] Query result for category testextra: 
+[2024-09-17 20:10:29] Fetching product image for category: Fruit
+[2024-09-17 20:10:29] Query result for category Fruit: 
+[2024-09-17 20:10:29] Fetching product image for category: Vegetable
+[2024-09-17 20:10:29] Query result for category Vegetable: 
+[2024-09-17 20:10:29] Fetching product image for category: Fish
+[2024-09-17 20:10:29] Query result for category Fish: 
+[2024-09-17 20:13:27] Fetching product image for category: Meat
+[2024-09-17 20:13:27] Query result for category Meat: 
+[2024-09-17 20:13:27] Fetching product image for category: testextra
+[2024-09-17 20:13:27] Query result for category testextra: 
+[2024-09-17 20:13:27] Fetching product image for category: Fruit
+[2024-09-17 20:13:27] Query result for category Fruit: 
+[2024-09-17 20:13:27] Fetching product image for category: Vegetable
+[2024-09-17 20:13:27] Query result for category Vegetable: 
+[2024-09-17 20:13:27] Fetching product image for category: Fish
+[2024-09-17 20:13:27] Query result for category Fish: 
+[2024-09-17 20:40:34] Fetching product image for category: Meat
+[2024-09-17 20:40:34] Query result for category Meat: 
+[2024-09-17 20:40:34] Fetching product image for category: testextra
+[2024-09-17 20:40:34] Query result for category testextra: 
+[2024-09-17 20:40:34] Fetching product image for category: Fruit
+[2024-09-17 20:40:34] Query result for category Fruit: 
+[2024-09-17 20:40:34] Fetching product image for category: Vegetable
+[2024-09-17 20:40:34] Query result for category Vegetable: 
+[2024-09-17 20:40:34] Fetching product image for category: Fish
+[2024-09-17 20:40:34] Query result for category Fish: 
+[2024-09-17 20:50:40] Fetching product image for category: Meat
+[2024-09-17 20:50:40] Query result for category Meat: 
+[2024-09-17 20:50:40] Fetching product image for category: testextra
+[2024-09-17 20:50:40] Query result for category testextra: 
+[2024-09-17 20:50:40] Fetching product image for category: Fruit
+[2024-09-17 20:50:40] Query result for category Fruit: 
+[2024-09-17 20:50:40] Fetching product image for category: Vegetable
+[2024-09-17 20:50:40] Query result for category Vegetable: 
+[2024-09-17 20:50:40] Fetching product image for category: Fish
+[2024-09-17 20:50:40] Query result for category Fish: 
