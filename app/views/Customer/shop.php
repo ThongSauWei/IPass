@@ -1,37 +1,11 @@
-
 <?php
 include_once __DIR__ . '/header.php';
-?>
-
-<?php
-// Include necessary files for controller and product listing
 require_once __DIR__ . '/../../controllers/ProductController.php';
 
-// Instantiate ProductController to handle product data
+// Instantiate ProductController and handle the request
 $productController = new ProductController();
-
-// Initialize variables for search and filters
-$searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
-$category = isset($_GET['category']) ? $_GET['category'] : '';
-$priceMin = isset($_GET['priceMin']) ? $_GET['priceMin'] : '';
-$priceMax = isset($_GET['priceMax']) ? $_GET['priceMax'] : '';
-$weightMin = isset($_GET['weightMin']) ? $_GET['weightMin'] : '';
-$weightMax = isset($_GET['weightMax']) ? $_GET['weightMax'] : '';
-$availability = isset($_GET['availability']) ? $_GET['availability'] : '';
-
-// Determine which function to call based on user input
-if ($searchTerm !== '') {
-    // Fetch products based on search term
-    $products = $productController->getProductsBySearch($searchTerm);
-} elseif ($category || $priceMin || $priceMax || $weightMin || $weightMax || $availability !== '') {
-    // Fetch products based on filters
-    $products = $productController->getProductsByFilter($category, $priceMin, $priceMax, $weightMin, $weightMax, $availability);
-} else {
-    // Default case: Fetch all products when no search or filter is applied
-    $products = $productController->getAllProducts();
-}
-
-// Get categories for dropdown (for the filter form)
+$products = $productController->handleRequests(); // This will fetch products based on GET/POST requests
+// Get categories for dropdown
 $categories = $productController->getCategoriesArray();
 ?>
 
@@ -141,9 +115,13 @@ $categories = $productController->getCategoriesArray();
             <!-- Search Form -->
             <div class="col-md-11">
                 <form class="d-flex mb-3" method="get" action="">
-                    <input class="form-control me-2" type="search" name="search" placeholder="Search by name or category" aria-label="Search" value="<?php echo htmlspecialchars($searchTerm); ?>">
+                    <input class="form-control me-2" type="search" name="search" placeholder="Search by name or category" aria-label="Search" value="<?php echo htmlspecialchars(isset($_GET['search']) ? $_GET['search'] : ''); ?>">
                     <button class="btn btn-outline-info" type="submit">Search</button>
                 </form>
+<!--                <form action="shop.php" method="GET">
+                    <input type="text" name="search" value="<?php echo htmlspecialchars(isset($_GET['search']) ? $_GET['search'] : ''); ?>" placeholder="Search by name or category" />
+                    <button type="submit">Search</button>
+                </form>-->
             </div>
 
             <!-- Filter Button with Bootstrap Icon -->
@@ -388,27 +366,28 @@ $categories = $productController->getCategoriesArray();
 
     <!--display category-->
     <?php
-    require_once __DIR__ . '  /../../controllers/ProductController.php';
-
-// Create a new instance of ProductController
-    $controller = new ProductController(); // Ensure $db is your PDO database connection
-// Fetch all categories
-    $categories = $controller->getCategories();
-
-// Initialize a counter
     $counter = 0;
-
+    // Display product categories and products
     foreach ($categories as $categoryArray) {
-        // Access the actual category name
-        $category = $categoryArray['Category']; // Extract the 'Category' value
-        // Increment the counter
+        $category = $categoryArray['Category'];
         $counter++;
-
-        // Fetch products for the current category
-        $products = $controller->getProductsByCategory($category);
-
-        // Apply "gray-bg" class only for the first category or every other category
+        $products = $productController->getProductsByCategory($category);
         $sectionClass = ($counter % 2 != 0) ? 'gray-bg' : '';
+        // Display the products
+//// Initialize a counter
+//    $counter = 0;
+//
+//    foreach ($categories as $categoryArray) {
+//        // Access the actual category name
+//        $category = $categoryArray['Category']; // Extract the 'Category' value
+//        // Increment the counter
+//        $counter++;
+//
+//        // Fetch products for the current category
+//        $products = $controller->getProductsByCategory($category);
+//
+//        // Apply "gray-bg" class only for the first category or every other category
+//        $sectionClass = ($counter % 2 != 0) ? 'gray-bg' : '';
         ?>
         <section id="<?php echo htmlspecialchars($category); ?>" class="<?php echo $sectionClass; ?>">
             <div class="container">

@@ -49,9 +49,11 @@ CREATE TABLE Promotion (
     PromotionID VARCHAR(10) PRIMARY KEY, -- E.g., PR0001
     PromotionName VARCHAR(255),
     Description TEXT,
-    DiscountValue DECIMAL(5, 2),
     StartDate DATE,
     EndDate DATE,
+    Image VARCHAR(255),
+    DiscountType VARCHAR(100),
+    DiscountValue DECIMAL(5, 2),
     CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -110,7 +112,6 @@ CREATE TABLE OrderDetails (
 CREATE TABLE Wishlist (
     WishListID VARCHAR(10) PRIMARY KEY,  -- E.g., W0001
     CustomerID VARCHAR(10),
-    Status VARCHAR(50),
     FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
 );
 
@@ -118,7 +119,6 @@ CREATE TABLE Wishlist (
 CREATE TABLE WishlistItem (
     WishlistID VARCHAR(10),   -- FK to Wishlist
     ProductID VARCHAR(10),    -- FK to Product
-    DateAdded DATE,
     Quantity INT,
     PRIMARY KEY (WishlistID, ProductID),
     FOREIGN KEY (WishlistID) REFERENCES Wishlist(WishlistID),
