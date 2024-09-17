@@ -532,6 +532,10 @@ class ProductController {
     public function hasPromotion($productId) {
         return $this->product->hasPromotion($productId);
     }
+    
+    public function getCustomerIDByUserID($userID){
+        return $this->product->getCustomerIDByUserID($userID);
+    }
 
     // Unit conversion (Kg to Gram)
 //    public function convertKgToGram($kg) {

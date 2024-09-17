@@ -498,4 +498,29 @@ class Product extends NewModel {
         }
     }
 
+    //GET CUST ID 
+    public function getCustomerIDByUserID($userID) {
+        try {
+            $this->table = 'customer'; 
+            $result = $this->findAll()
+                    ->where('UserID', $userID) 
+                    ->execute();
+
+            $this->logger->log("Query result for customerID: " . print_r($result, true));
+
+            // Check if we got a result and return the customerID
+            if (!empty($result) && isset($result[0]['CustomerID'])) { 
+                $customerID = $result[0]['CustomerID']; 
+                $this->logger->log("Fetched customerID: " . $customerID);
+                return $customerID;
+            } else {
+                $this->logger->log("No customerID found for userID: " . $userID);
+                return null; 
+            }
+        } catch (Exception $e) {
+            $this->logger->log("Error fetching customerID: " . htmlspecialchars($e->getMessage()));
+            throw new Exception("Unable to fetch customer ID. Please try again later.");
+        }
+    }
+
 }

@@ -1,1 +1,125 @@
 [2024-09-17 18:02:42] Product deleted: P0016
+[2024-09-17 19:18:17] Query result for customerID: Array
+(
+    [0] => Array
+        (
+            [UserID] => U0005
+            [Username] => fg22
+            [Email] => erikafung26@gmail.com
+            [Password] => $2y$10$suv1RKIU5B09B.NpjTebK.Q0JyEvDjNoVSw26jB7/.sI3QqK2FjSS
+            [Role] => customer
+            [Birthday] => 2002-06-22
+            [Gender] => m
+            [ProfileImage] => 
+        )
+
+)
+
+[2024-09-17 19:18:17] No customerID found for userID: U0005
+[2024-09-17 19:19:08] Query result for customerID: Array
+(
+    [0] => Array
+        (
+            [UserID] => U0005
+            [Username] => fg22
+            [Email] => erikafung26@gmail.com
+            [Password] => $2y$10$suv1RKIU5B09B.NpjTebK.Q0JyEvDjNoVSw26jB7/.sI3QqK2FjSS
+            [Role] => customer
+            [Birthday] => 2002-06-22
+            [Gender] => m
+            [ProfileImage] => 
+        )
+
+)
+
+[2024-09-17 19:19:08] No customerID found for userID: U0005
+[2024-09-17 19:19:58] Query result for customerID: Array
+(
+    [0] => Array
+        (
+            [CustomerID] => C0003
+            [UserID] => U0005
+            [CustomerName] => Fan Gao
+            [PhoneNumber] => 0123456789
+            [Address] => 
+            [Point] => 0
+        )
+
+)
+
+[2024-09-17 19:19:58] No customerID found for userID: U0005
+[2024-09-17 19:25:48] Query result for customerID: Array
+(
+    [0] => Array
+        (
+            [CustomerID] => C0003
+            [UserID] => U0005
+            [CustomerName] => Fan Gao
+            [PhoneNumber] => 0123456789
+            [Address] => 
+            [Point] => 0
+        )
+
+)
+
+[2024-09-17 19:25:48] Fetched customerID: C0003
+[2024-09-17 19:26:59] Query result for customerID: Array
+(
+    [0] => Array
+        (
+            [CustomerID] => C0003
+            [UserID] => U0005
+            [CustomerName] => Fan Gao
+            [PhoneNumber] => 0123456789
+            [Address] => 
+            [Point] => 0
+        )
+
+)
+
+[2024-09-17 19:26:59] Fetched customerID: C0003
+[2024-09-17 19:29:16] Query result for customerID: Array
+(
+    [0] => Array
+        (
+            [CustomerID] => C0003
+            [UserID] => U0005
+            [CustomerName] => Fan Gao
+            [PhoneNumber] => 0123456789
+            [Address] => 
+            [Point] => 0
+        )
+
+)
+
+[2024-09-17 19:29:16] Fetched customerID: C0003
+[2024-09-17 19:29:23] Query result for customerID: Array
+(
+    [0] => Array
+        (
+            [CustomerID] => C0003
+            [UserID] => U0005
+            [CustomerName] => Fan Gao
+            [PhoneNumber] => 0123456789
+            [Address] => 
+            [Point] => 0
+        )
+
+)
+
+[2024-09-17 19:29:23] Fetched customerID: C0003
+[2024-09-17 19:30:39] Query result for customerID: Array
+(
+    [0] => Array
+        (
+            [CustomerID] => C0003
+            [UserID] => U0005
+            [CustomerName] => Fan Gao
+            [PhoneNumber] => 0123456789
+            [Address] => 
+            [Point] => 0
+        )
+
+)
+
+[2024-09-17 19:30:39] Fetched customerID: C0003
