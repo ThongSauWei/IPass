@@ -165,26 +165,21 @@ class Product extends NewModel {
             throw new Exception("Unable to fetch categories. Please try again later.");
         }
     }
-    
-    // GET CATEGORIES WITH FIRST PRODUCT IMAGE
-    public function getCategoriesWithImages() {
+
+    // Get Product Image by Category
+    public function getProductImageByCategory($category) {
         try {
-            $products = $this->getAll();
-            $categoriesWithImages = [];
+            $this->table = 'Product';
+            $result = $this->findAll(['ProductImage'])
+                    ->where('Category', $category)
+                    ->where('ProductImage', 'IS NOT NULL')
+                    ->limit(1)
+                    ->execute();
 
-            // Loop through all products and select the first product for each category
-            foreach ($products as $product) {
-                $category = $product['Category'];
-                if (!isset($categoriesWithImages[$category])) {
-                    // If this is the first product for the category, use it as the category image
-                    $categoriesWithImages[$category] = $product['ProductImage'];
-                }
-            }
-
-            return $categoriesWithImages;
+            return $result[0]['ProductImage'] ?? null;
         } catch (Exception $e) {
-            $this->logger->log("Error fetching categories with images: " . htmlspecialchars($e->getMessage()));
-            throw new Exception("Unable to fetch categories with images. Please try again later.");
+            $this->logger->log("Error fetching product image by category: " . htmlspecialchars($e->getMessage()));
+            return null;
         }
     }
 
