@@ -166,6 +166,23 @@ class Product extends NewModel {
         }
     }
 
+    // Get Product Image by Category
+    public function getProductImageByCategory($category) {
+        try {
+            $this->table = 'Product';
+            $result = $this->findAll(['ProductImage'])
+                    ->where('Category', $category)
+                    ->where('ProductImage', 'IS NOT NULL')
+                    ->limit(1)
+                    ->execute();
+
+            return $result[0]['ProductImage'] ?? null;
+        } catch (Exception $e) {
+            $this->logger->log("Error fetching product image by category: " . htmlspecialchars($e->getMessage()));
+            return null;
+        }
+    }
+
     // GET PRODUCTS BY CATEGORY
     public function getProductsByCategory($category) {
         if (empty($category)) {

@@ -14,8 +14,6 @@ require_once __DIR__ . '/../core/SessionManager.php';
  */
 
 
-echo "Hello world";
-
 class UserController {
 
     private $userFacade;

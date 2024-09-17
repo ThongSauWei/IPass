@@ -116,7 +116,7 @@ $categories = $productController->getCategoriesArray();
             <div class="col-md-11">
                 <form class="d-flex mb-3" method="get" action="">
                     <input class="form-control me-2" type="search" name="search" placeholder="Search by name or category" aria-label="Search" value="<?php echo htmlspecialchars(isset($_GET['search']) ? $_GET['search'] : ''); ?>">
-                    <button class="btn btn-outline-info" type="submit">Search</button>
+                    <disutton class="btn btn-outline-info" type="submit">Search</button>
                 </form>
 <!--                <form action="shop.php" method="GET">
                     <input type="text" name="search" value="<?php echo htmlspecialchars(isset($_GET['search']) ? $_GET['search'] : ''); ?>" placeholder="Search by name or category" />

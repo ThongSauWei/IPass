@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS nsk_db;
-USE nsk_db;
+CREATE DATABASE IF NOT EXISTS grocerydb;
+USE grocerydb;
 
 -- User Table
 CREATE TABLE User (
@@ -169,3 +169,13 @@ CREATE TABLE Rewards (
     FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),
     FOREIGN KEY (VoucherID) REFERENCES Vouchers(VoucherID)
 );
+
+-- Insert default superadmin user into the User table with 'admin' role
+INSERT INTO User (UserID, Username, Email, Password, Role, Birthday, Gender, ProfileImage)
+VALUES 
+('U0001', 'superadmin', 'superadmin@nskgrocery.com', 'Admin123!', 'admin', '1980-01-01', 'm', '/assets/img/ProfileImage/admin.jpg');
+
+-- Insert corresponding superadmin role into the Admin table (U0001 user is the superadmin)
+INSERT INTO Admin (AdminID, UserID, AdminRole)
+VALUES 
+('A0001', 'U0001', 'superadmin');

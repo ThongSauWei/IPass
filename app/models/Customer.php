@@ -10,6 +10,11 @@ require_once __DIR__ . '/User.php';
 class Customer extends User {
 
     protected $table = 'customer';
+    
+    public function registerCustomer($data) {
+        //insert customer data to customer
+        $this->insert($data)->execute();
+    }
 
     //get data part
     public function findCustByUserID($userID) {//get customer info by user id

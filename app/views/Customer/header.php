@@ -87,12 +87,9 @@ if ($isLoggedIn) {
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="transaction.php">Transactions History</a>
                                         <a class="dropdown-item" href="profile.php">Profile</a>
+                                        <a class="dropdown-item" href="wish.php">Wishlist</a>
                                         <a class="dropdown-item" href="/IPass/app/controllers/UserController.php?action=logout">Logout</a>
                                     </div>
-                                </li>
-                                
-                                <li class="nav-item">
-                                    <a href="wish.php" class="nav-link">Wishlist</a>
                                 </li>
 
                                 <li class="nav-item dropdown">
