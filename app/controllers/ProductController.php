@@ -565,6 +565,11 @@ class ProductController {
         return $this->product->getCustomerIDByUserID($userID);
     }
 
+    public function getTransactionLogs() {
+        $logger = new ProductLogger();
+        return $logger->getLogs();
+    }
+
     // Unit conversion (Kg to Gram)
 //    public function convertKgToGram($kg) {
 //        $converter = new UnitConverterAdapter();
