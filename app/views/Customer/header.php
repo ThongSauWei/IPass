@@ -63,7 +63,7 @@ if (file_exists($configPath)) {
                                 </div>
                             </li>
                             <li class="nav-item dropdown">
-                                <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a href="/cart/show" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <i class="fa fa-shopping-basket"></i> <span class="badge badge-primary">5</span>
                                 </a>
                                 <div class="dropdown-menu shopping-cart">
