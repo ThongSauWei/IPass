@@ -1,17 +1,17 @@
 <?php
 
 require_once __DIR__ . '/../core/NewModel.php';
-require_once __DIR__ . '/ProductLogger.php';
+//require_once __DIR__ . '/ProductLogger.php';
 require_once __DIR__ . '/../core/NewDatabase.php';
 
 class Wishlist extends NewModel {
 
     protected $table = 'Wishlist';
-    private $logger;
+//    private $logger;
 
     public function __construct() {
         parent::__construct();
-        $this->logger = new ProductLogger();
+//        $this->logger = new ProductLogger();
     }
 
     public function getWishlistItems($customerId) {
