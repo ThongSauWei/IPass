@@ -87,6 +87,18 @@ class UserFacade {
     public function getAdminRoleByUserID($userID) {
         return $this->admin->getAdminRoleByUserID($userID);
     }
+    
+    public function getAllStaff() {
+        return $this->admin->displayAllStaff();
+    }
+    
+    public function deleteStaff(){
+        return $this->admin->deleteStaff($userID);
+    }
+    
+    public function staffSelected() {
+        return $this->admin->staffSelected($userID);
+    }
 
     //profile part
     public function updateProfile($userID, $userData, $customerData) {

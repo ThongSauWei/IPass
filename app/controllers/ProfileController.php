@@ -163,7 +163,7 @@ class ProfileController {
 
                     // Set success message and redirect
                     $_SESSION['success'] = "Profile updated successfully.";
-                    header('Location: ../views/Admin/AdminProfile.php');
+                    header('Location: /IPass/app/views/Admin/AdminProfile.php');
                     exit();
                 } catch (Exception $e) {
                     $errors[] = "Failed to update the profile. Please try again later.";
@@ -173,7 +173,7 @@ class ProfileController {
             // If errors exist, store them in session and reload the page
             if (!empty($errors)) {
                 $_SESSION['error'] = $errors;
-                header('Location: ../views/Admin/AdminProfile.php');
+                header('Location: /IPass/app/views/Admin/AdminProfile.php');
                 exit();
             }
         }

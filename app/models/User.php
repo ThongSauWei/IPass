@@ -152,9 +152,7 @@ class User extends NewModel {
 
             return $nextID;
         } catch (Exception $e) {
-
-            error_log('Error generating UserID: ' . $e->getMessage());
-            throw new Exception('Failed to generate UserID. Please try again later.');
+            throw new Exception('Failed to generate UserID.');
         }
     }
 

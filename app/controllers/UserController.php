@@ -8,6 +8,7 @@ if (file_exists($configPath)) {
 }
 
 require_once __DIR__ . '/../core/SessionManager.php';
+require_once __DIR__ . '/../facades/userFacade.php';
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
@@ -19,7 +20,6 @@ class UserController {
     private $userFacade;
 
     public function __construct() {
-        require_once __DIR__ . '/../facades/userFacade.php';
         $this->userFacade = new UserFacade();
     }
 
@@ -63,7 +63,6 @@ class UserController {
 
             $password = $_POST['password'];
             if (!$this->validPassword($password)) {
-                error_log("Password validation failed.");
                 $errors[] = "Password must be at least 8 characters, with at least 1 uppercase letter, 1 lowercase letter, 1 special character, and 1 number.";
             }
 
@@ -98,12 +97,10 @@ class UserController {
                 if (empty($errors)) {
                     try {
                         $this->userFacade->registerUser($userData, $customerData);
-                        error_log('User registered successfully.');
                         // Redirect to login page after registration
                         header('Location: ../views/Customer/login.php');
                         exit();
                     } catch (Exception $e) {
-                        error_log('Error registering user: ' . $e->getMessage());
                         $error[] = "Registration failed. Please try again.";
                     }
                 }
@@ -189,7 +186,7 @@ class UserController {
 
             // If there are any errors, store them in the session and redirect
             if (!empty($errors)) {
-                $_SESSION['errors'] = $errors;
+                $_SESSION['error'] = $errors;
                 header('Location: ../views/Customer/login.php'); // Redirect back to login page
                 exit();
             }
