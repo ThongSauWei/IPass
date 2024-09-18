@@ -41,8 +41,25 @@ class ProductLogger {
         }
     }
 
-    public function getLogs() {
-        return file_exists($this->logFile) ? file($this->logFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) : [];
+//    public function getLogs() {
+//        $logLines = file_exists($this->logFile) ? file($this->logFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) : [];
+//        
+//        return array_reverse($logLines);
+//    }
+
+    public function getLogs($reverse = false) {
+        if (!file_exists($this->logFile)) {
+            return [];
+        }
+
+        $logs = file($this->logFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
+        // If reverse is true, reverse the logs (descending order)
+        if ($reverse) {
+            $logs = array_reverse($logs);
+        }
+
+        return $logs;
     }
 
 }

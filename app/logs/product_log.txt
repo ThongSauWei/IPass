@@ -1,2 +1,5 @@
-[2024-09-17 22:10:19] Operation: Product Query, Status: INFO, Event: Query result for product: null
-[2024-09-17 22:10:19] Operation: Add Product, Status: SUCCESS, Event: Product successfully added with ID: P0016
+[2024-09-18 08:05:59] Operation: Add, Status: Success, Event: Product successfully added with ID: P0017
+[2024-09-18 08:05:59] Operation: Product Detail, Status: Info, Event: Product Detail : ID - P0017, Name - d
+[2024-09-18 08:08:31] Operation: Update, Status: Success, Event: Product updated successfully with ID: P0017
+[2024-09-18 08:10:16] Operation: Update, Status: Success, Event: Product updated successfully with ID: P0017
+[2024-09-18 08:10:53] Operation: Delete, Status: Success, Event: Product deleted successfully with ID: P0017
