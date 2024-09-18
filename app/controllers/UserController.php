@@ -7,7 +7,6 @@ require_once __DIR__ . '/../facades/userFacade.php';
  * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
  */
 
-
 class UserController {
 
     private $userFacade;
@@ -101,7 +100,7 @@ class UserController {
 
             if (!empty($errors)) {
                 session_start();
-                $_SESSION['errors'] = $errors;
+                $_SESSION['error'] = $errors;
 
                 // Redirect back to the registration form with errors
                 header('Location: ../views/Customer/register.php');
@@ -116,8 +115,8 @@ class UserController {
     private function validPhoneNum($phone) {
         // Define the regex pattern for Malaysian phone numbers
         $pattern = "/^(\+?6?01)[0|1|2|3|4|6|7|8|9]\-*[0-9]{7,8}$/";
-         //^ = start, (\+?6?01) can be start with 60 or 0, [0|1|2|3|4|6|7|8|9] start with 011,012 or.. but no 5, \-*[0-9] can be repeat number many time, $ end
-        
+        //^ = start, (\+?6?01) can be start with 60 or 0, [0|1|2|3|4|6|7|8|9] start with 011,012 or.. but no 5, \-*[0-9] can be repeat number many time, $ end
+
         return preg_match($pattern, $phone);
     }
 
@@ -148,7 +147,9 @@ class UserController {
                 // Try to login the user via facade
                 $user = $this->userFacade->userLogin($identity, $password);
 
-                if ($user) {
+                if (is_array($user) && isset($user['error']) && $user['error'] === 'inactive') {
+                    $errors[] = "Your account has been blocked. Please contact us.";
+                } elseif ($user) {
                     // Check if the password matches the hashed password in the database
                     if (password_verify($password, $user['Password'])) {
                         // Store UserID and Role in the session after successful login

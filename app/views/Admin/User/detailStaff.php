@@ -59,7 +59,7 @@ unset($_SESSION['success'], $_SESSION['error']); // Clear messages after renderi
                     <div class="col-lg-4">
                         <div class="card shadow mb-4">
                             <div class="card-body text-center">
-                                <img class="img-fluid img-profile rounded-circle mb-4" style="height: 470px;" src="<?= isset($staffDetails['ProfileImage']) ? ROOT . $staffDetails['ProfileImage'] : ROOT . '/assets/img/default-profile.png' ?>" alt="Staff Image">
+                                <img class="img-fluid img-profile rounded-circle mb-4" style="height: 470px;" src="<?= isset($staffDetails['ProfileImage']) && !empty($staffDetails['ProfileImage']) ? ROOT . $staffDetails['ProfileImage'] : ROOT . '/assets/img/ProfileImage/default-profile.png' ?>" alt="Staff Image">
                                 <h5><?= isset($staffDetails['Username']) ? $staffDetails['Username'] : 'N/A' ?></h5>
                                 <p class="text-muted"><?= isset($staffDetails['Email']) ? $staffDetails['Email'] : 'N/A' ?></p>
                                 <p class="text-muted"><strong><?= isset($staffDetails['AdminRole']) ? ucfirst($staffDetails['AdminRole']) : 'N/A' ?></strong></p>

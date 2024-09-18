@@ -35,6 +35,10 @@ class UserFacade {
     public function userLogin($identity, $password) {
         $user = $this->user->login($identity, $password);
 
+        if (is_array($user) && isset($user['error']) && $user['error'] === 'inactive') {
+            return ['error' => 'inactive']; // Handle the inactive account case
+        }
+
         //check the user if is admin and check the adminrole superadmin or staff;
         if ($user && $user['Role'] === 'admin') {
             $adminRole = $this->admin->getAdminRoleByUserID($user['UserID']);
@@ -52,6 +56,10 @@ class UserFacade {
 
     public function generateCustomerID() {
         return $this->customer->generateCustomerID();
+    }
+
+    public function updateUserStatus($userID, $newStatus) {
+        return $this->user->updateStatus($userID, $newStatus);
     }
 
     //get data part
@@ -98,6 +106,19 @@ class UserFacade {
 
     public function staffSelected($userID) {
         return $this->admin->staffSelected($userID);
+    }
+
+    //customer data part
+    public function getAllCustomers() {
+        return $this->customer->displayAllCustomer();
+    }
+
+    public function deleteCustomer($userID) {
+        return $this->customer->deleteCustomer($userID);
+    }
+
+    public function customerSelected($userID) {
+        return $this->customer->customerSelected($userID);
     }
 
     //profile part

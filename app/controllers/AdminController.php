@@ -28,6 +28,9 @@ class AdminController {
             case 'detailStaff':
                 $this->detailStaff();  // Call the editStaff method
                 break;
+            case 'toggleStatus':
+                $this->toggleStatus();
+                break;
             default:
                 $this->displayStaff();  // Default action is to display the staff list
                 break;
@@ -80,36 +83,30 @@ class AdminController {
         exit();
     }
 
-//    public function detailStaff() {
-//        SessionManager::startSession();
-//
-//        if (isset($_GET['id'])) {
-//            $userID = $_GET['id'];
-//
-//            try {
-//                $staffDetails = $this->userFacade->staffSelected($userID);
-//                if ($staffDetails) {
-//                    $_SESSION['staff'] = $staffDetails;
-//
-//                    echo "<pre>";
-//                    print_r($staffDetails);
-//                    echo "/<pre>";
-//
-//                    header('Location: /IPass/app/views/Admin/User/detailStaff.php');
-//                    exit();
-//                } else {
-//                    $_SESSION['error'] = "Staff member (UserID: $userID) not found.";
-//                }
-//            } catch (Exception $e) {
-//                $_SESSION['error'] = "An error occurred: " . $e->getMessage();
-//            }
-//        } else {
-//            $_SESSION['error'] = "No staff member selected.";
-//        }
-//
-//        header('Location: /IPass/app/views/Admin/User/displayStaff.php');
-//        exit();
-//    }
+    public function toggleStatus() {
+        SessionManager::startSession();
+
+        if (isset($_GET['id'])) {
+            $userID = $_GET['id'];
+
+            // Fetch user details
+            $userDetails = $this->userFacade->getUserDetails($userID);
+
+            if ($userDetails) {
+                // Toggle the active status
+                $newStatus = $userDetails['isActive'] ? 0 : 1;
+                $this->userFacade->updateUserStatus($userID, $newStatus);
+                $_SESSION['success'] = "User status updated successfully.";
+            } else {
+                $_SESSION['error'] = "User not found.";
+            }
+        } else {
+            $_SESSION['error'] = "No user selected.";
+        }
+
+        header('Location: /IPass/app/views/Admin/User/displayStaff.php');
+        exit();
+    }
 
     public function detailStaff() {
         SessionManager::startSession();

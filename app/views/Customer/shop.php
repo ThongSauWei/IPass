@@ -46,7 +46,7 @@ $mostWantedProducts = $productController->getMostWantedProducts();
         text-decoration: none;
     }
 
-    //filter dropdown
+    <!--filter dropdown-->
     .form-group {
         margin-bottom: 1rem;
     }

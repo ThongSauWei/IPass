@@ -13,7 +13,8 @@ class Admin extends User {
     public function __construct() {
         parent::__construct();
     }
-
+    
+    //admin site CRUD staff
     //display all the staff adminrole in admin table
     public function displayAllStaff() {
         try {
@@ -30,7 +31,7 @@ class Admin extends User {
 
                 // Create a new User model to fetch user details
                 $userModel = new User();
-                $userDetails = $userModel->findAll(['Username', 'Email', 'Birthday', 'Gender'])
+                $userDetails = $userModel->findAll(['Username', 'Email', 'Birthday', 'Gender', 'isActive'])
                         ->where('UserID', $userID)
                         ->limit(1)
                         ->execute();
@@ -83,7 +84,7 @@ class Admin extends User {
             if (!empty($staffDetails)) {
                 // Fetch user details from the 'user' table, including ProfileImage
                 $userModel = new User();
-                $userDetails = $userModel->findAll(['Username', 'Email', 'Birthday', 'Gender', 'ProfileImage']) // Include ProfileImage
+                $userDetails = $userModel->findAll(['Username', 'Email', 'Birthday', 'Gender', 'ProfileImage'])
                         ->where('UserID', $userID)
                         ->limit(1)
                         ->execute();

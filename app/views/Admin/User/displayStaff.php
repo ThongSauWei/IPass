@@ -94,9 +94,9 @@ include_once __DIR__ . '/../../../../app/views/Admin/header.php';
                                     <td><?= !empty($staff['Birthday']) ? date('d-m-Y', strtotime($staff['Birthday'])) : 'N/A' ?></td>
                                     <td><?= isset($staff['Gender']) ? ($staff['Gender'] === 'm' ? 'Male' : ($staff['Gender'] === 'f' ? 'Female' : 'Other')) : 'Other' ?></td>
                                     <td>
-                                        <div class="col-md-12 justify-content-between align-items-center" style="margin-right: -18px;">
+                                        <div class="col-md-12 d-flex align-items-center">
                                             <a href="<?= ROOT ?>/../app/controllers/AdminController.php?action=detailStaff&id=<?= urlencode($staff['UserID']) ?>" class="btn btn-primary btn-sm" style="padding-left: 36px; padding-right: 36px;">
-                                                <i class="fas fa-edit"></i> View
+                                                <i class="fas fa-eye"></i> View
                                             </a>
 
                                             <a href="<?= ROOT ?>/../app/controllers/AdminController.php?action=deleteStaff&id=<?= urlencode($staff['UserID']) ?>"  class="btn btn-danger btn-sm" style="padding-left: 30px; padding-right: 30px; margin-left: 5px;" 
@@ -104,6 +104,16 @@ include_once __DIR__ . '/../../../../app/views/Admin/header.php';
                                                 <i class="fas fa-trash"></i> Delete
                                             </a>
                                         </div>
+                                        <!-- Toggle switch for activating/deactivating the user -->
+                                        <form action="<?= ROOT ?>/../app/controllers/AdminController.php?action=toggleStatus&id=<?= urlencode($staff['UserID']) ?>" method="POST" style="display:inline;">
+                                            <div class="custom-control custom-switch col-md-12" style="margin-left: 12px;" >
+                                                <input type="checkbox" class="custom-control-input" id="switch<?= $staff['UserID'] ?>" 
+                                                       <?= isset($staff['isActive']) && $staff['isActive'] == 1 ? 'checked' : '' ?> onchange="this.form.submit()">
+                                                <label class="custom-control-label" for="switch<?= $staff['UserID'] ?>">
+                                                    <?= isset($staff['isActive']) && $staff['isActive'] == 1 ? 'Active' : 'Inactive' ?>
+                                                </label>
+                                            </div>
+                                        </form>
                                     </td>
                                 </tr>
                             <?php endforeach; ?>
