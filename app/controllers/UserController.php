@@ -167,7 +167,7 @@ class UserController {
                             'Email' => $user['Email'],
                             'Username' => $user['Username'],
                             'Role' => $user['Role'],
-                            'Birthday' => $user['Birthday']
+                            'AdminRole' => $user['AdminRole'] ?? null //if customer this is null
                         ]);
 
                         // Redirect based on the user role
