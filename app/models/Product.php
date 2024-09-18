@@ -430,6 +430,9 @@ class Product extends NewModel {
     // ADD TO CART 
     public function addToCart($productId, $customerId, $quantity) {
         try {
+//            $this->logger->log("test", "test", "userid get: $customerId");
+//            $customerId = getCustomerIDByUserID($userId);
+            
             $this->table = 'Cart';
             $existingCart = $this->findAll()
                     ->where('CustomerID', $customerId)
@@ -524,6 +527,7 @@ class Product extends NewModel {
                     ->where('CustomerID', $customerId)
                     ->execute();
 
+            $this->logger->log("CustID", "INFO", "cust ID: $customerId");
             $existingWishlistId = null;
 
             if (!empty($existingWishlist)) {
@@ -624,6 +628,55 @@ class Product extends NewModel {
 //            $this->logger->log("Error fetching customerID: " . htmlspecialchars($e->getMessage()));
             $this->logger->log("Fetch Customer ID", "Error", "Error get customer ID: " . htmlspecialchars($e->getMessage()));
             throw new Exception("Unable to fetch customer ID. Please try again later.");
+        }
+    }
+
+    public function getMostOrderedProducts($limit = 10) {
+        try {
+            // Step 1: Fetch all OrderDetails records
+            $this->table = 'OrderDetails';  // Switch to OrderDetails table
+            // Use NewModel's findAll() method to fetch all records from OrderDetails
+            $orderDetails = $this->findAll()->execute();
+
+            if (empty($orderDetails)) {
+                // If there are no orders, return all products as fallback
+                $this->table = 'product';  // Switch back to product table
+                return $this->findAll()->limit($limit)->execute();
+            }
+
+            // Step 2: Count how many times each ProductID appears in OrderDetails (manually group by in PHP)
+            $productOrderCount = [];
+            foreach ($orderDetails as $orderDetail) {
+                $productId = $orderDetail['ProductID'];
+                if (!isset($productOrderCount[$productId])) {
+                    $productOrderCount[$productId] = 0;
+                }
+                $productOrderCount[$productId]++;
+            }
+
+            // Sort by the most ordered products (DESC)
+            arsort($productOrderCount);
+
+            // Limit to the top $limit products
+            $mostOrderedProductIds = array_slice(array_keys($productOrderCount), 0, $limit);
+
+            // Step 3: Fetch product details from the Product table using NewModel methods
+            $this->table = 'product';  // Switch to product table
+            $products = [];
+
+            foreach ($mostOrderedProductIds as $productId) {
+                // Fetch each product by its ProductID using where() method
+                $product = $this->findAll()->where('ProductID', $productId)->execute();
+                if (!empty($product)) {
+                    $products[] = $product[0];  // Since findAll returns an array, get the first result
+                }
+            }
+
+            // Step 4: Return the sorted products
+            return $products;
+        } catch (Exception $e) {
+            $this->logger->log("Fetch", "Error", "Error fetching most ordered products: " . htmlspecialchars($e->getMessage()));
+            throw new Exception("Unable to fetch most ordered products. Please try again later.");
         }
     }
 
