@@ -1,19 +1,41 @@
+<?php
+require_once __DIR__ . '/../../core/SessionManager.php';
+
+SessionManager::startSession();
+
+if(SessionManager::loggedIn()){
+    header('Location: homepage.view.php');
+    exit();
+}
+?>
 
 <?php
 include_once __DIR__ . '/header.php';
 ?>
+
+<!-- Display error messages as alerts -->
+<?php if (isset($_SESSION['errors']) && !empty($_SESSION['errors'])): ?>
+    <script>
+        let errors = <?php echo json_encode($_SESSION['errors']); ?>;
+        errors.forEach(function (error) {
+            alert(error); // Show each error using a JavaScript alert
+        });
+    </script>
+    <?php unset($_SESSION['errors']); // Clear errors after displaying ?>
+<?php endif; ?>
+    
 <div id="page-content" class="page-content">
     <div class="banner">
-        <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('assets/img/bg-header.jpg');">
+        <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('<?= ROOT ?>/assets/img/bg-header.jpg');">
             <div class="container">
                 <h1 class="pt-5">Login Page</h1>
                 <p class="lead">Save time and leave the groceries to us.</p>
                 <div class="card card-login mb-5">
                     <div class="card-body">
-                        <form class="form-horizontal" method="post" action="views/login.php">
+                        <form class="form-horizontal" method="post" action="/IPass/app/controllers/UserController.php?action=login">
                             <div class="form-group row mt-3">
                                 <div class="col-md-12">
-                                    <input class="form-control" type="text" name="username" required placeholder="Username">
+                                    <input class="form-control" type="text" name="identity" required placeholder="Email or Username">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -30,15 +52,6 @@ include_once __DIR__ . '/header.php';
                                     <a href="views/forgot-password.php" class="text-light"><i class="fa fa-bell"></i> Forgot password?</a>
                                 </div>
                             </div>
-                            <?php if (isset($error)): ?>
-                                <div class="form-group row">
-                                    <div class="col-md-12">
-                                        <div class="alert alert-danger">
-                                            <?php echo htmlspecialchars($error); ?>
-                                        </div>
-                                    </div>
-                                </div>
-                            <?php endif; ?>
                             <div class="form-group row text-center mt-4">
                                 <div class="col-md-12">
                                     <button type="submit" class="btn btn-primary btn-block text-uppercase">Log In</button>
@@ -51,6 +64,5 @@ include_once __DIR__ . '/header.php';
         </div>
     </div>
 </div>
-<?php
-include_once __DIR__ . '/footer.php';
-?>
+
+<?php include_once __DIR__ . '/footer.php'; ?>

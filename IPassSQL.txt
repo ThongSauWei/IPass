@@ -1,5 +1,5 @@
-CREATE DATABASE IF NOT EXISTS nsk_db;
-USE nsk_db;
+CREATE DATABASE IF NOT EXISTS grocerydb;
+USE grocerydb;
 
 -- User Table
 CREATE TABLE User (
@@ -49,9 +49,11 @@ CREATE TABLE Promotion (
     PromotionID VARCHAR(10) PRIMARY KEY, -- E.g., PR0001
     PromotionName VARCHAR(255),
     Description TEXT,
-    DiscountValue DECIMAL(5, 2),
     StartDate DATE,
     EndDate DATE,
+    Image VARCHAR(255),
+    DiscountType VARCHAR(100),
+    DiscountValue DECIMAL(5, 2),
     CreatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -111,7 +113,6 @@ CREATE TABLE OrderDetails (
 CREATE TABLE Wishlist (
     WishListID VARCHAR(10) PRIMARY KEY,  -- E.g., W0001
     CustomerID VARCHAR(10),
-    Status VARCHAR(50),
     FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID)
 );
 
@@ -119,7 +120,6 @@ CREATE TABLE Wishlist (
 CREATE TABLE WishlistItem (
     WishlistID VARCHAR(10),   -- FK to Wishlist
     ProductID VARCHAR(10),    -- FK to Product
-    DateAdded DATE,
     Quantity INT,
     PRIMARY KEY (WishlistID, ProductID),
     FOREIGN KEY (WishlistID) REFERENCES Wishlist(WishlistID),
@@ -170,3 +170,13 @@ CREATE TABLE Rewards (
     FOREIGN KEY (CustomerID) REFERENCES Customer(CustomerID),
     FOREIGN KEY (VoucherID) REFERENCES Vouchers(VoucherID)
 );
+
+-- Insert default superadmin user into the User table with 'admin' role
+INSERT INTO User (UserID, Username, Email, Password, Role, Birthday, Gender, ProfileImage)
+VALUES 
+('U0001', 'superadmin', 'superadmin@nskgrocery.com', 'Admin123!', 'admin', '1980-01-01', 'm', '/assets/img/ProfileImage/admin.jpg');
+
+-- Insert corresponding superadmin role into the Admin table (U0001 user is the superadmin)
+INSERT INTO Admin (AdminID, UserID, AdminRole)
+VALUES 
+('A0001', 'U0001', 'superadmin');

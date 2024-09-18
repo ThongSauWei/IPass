@@ -1,3 +1,11 @@
+<?php
+$configPath = dirname(__DIR__, 2) . '/core/config.php';
+if (file_exists($configPath)) {
+    include_once $configPath;
+} else {
+    echo 'Config file not found: ' . $configPath;
+}
+?>
 <!-- Footer -->
 <footer class="sticky-footer bg-white">
     <div class="container my-auto">

@@ -10,14 +10,16 @@
  *
  * @author Acer
  */
+require_once __DIR__ . '/WeightAdapterInterface.php';
 
+class UnitConverterAdapter implements WeightAdapterInterface {
 
-require_once __DIR__ . '/ProductInterface.php';
-
-
-class UnitConverterAdapter implements ProductInterface{
-    //put your code here
-    public function convert($kg) {
-        return $kg * 1000; // Convert kg to grams
+    public function convertToKg(float $weight): float {
+        return $weight; 
     }
+
+    public function convertToG(float $weight): float {
+        return $weight * 1000; // Convert kg to grams
+    }
+
 }

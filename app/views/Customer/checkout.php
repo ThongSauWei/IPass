@@ -1,17 +1,24 @@
-
 <?php
-include_once 'header.php';
+require_once __DIR__ . '/../../core/SessionManager.php';
+
+//ensure user login before check out their things
+SessionManager::requireLogin();
 ?>
-<div id="page-content" class="page-content">
-    <div class="banner">
-        <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('<?= ROOT ?>/assets/img/bg-header.jpg');">
-            <div class="container">
-                <h1 class="pt-5">
-                    Checkout
-                </h1>
-                <p class="lead">
-                    Save time and leave the groceries to us.
-                </p>
+        <?php
+        include_once 'header.php';
+        ?>
+        <div id="page-content" class="page-content">
+            <div class="banner">
+                <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('<?= ROOT ?>/assets/img/bg-header.jpg');">
+                    <div class="container">
+                        <h1 class="pt-5">
+                            Checkout
+                        </h1>
+                        <p class="lead">
+                            Save time and leave the groceries to us.
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

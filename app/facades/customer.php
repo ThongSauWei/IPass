@@ -12,11 +12,4 @@ class CustomerFacade {
         $this->customer = new Customer();
     }
 
-    public function register($username, $email, $password) {
-        return $this->customer->register($username, $email, $password);
-    }
-
-    public function login($email, $password) {
-        return $this->customer->login($email, $password);
-    }
 }
