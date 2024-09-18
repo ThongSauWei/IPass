@@ -33,7 +33,17 @@ class UserFacade {
     }
 
     public function userLogin($identity, $password) {
-        return $this->user->login($identity, $password);
+        $user = $this->user->login($identity, $password);
+
+        //check the user if is admin and check the adminrole superadmin or staff;
+        if ($user && $user['Role'] === 'admin') {
+            $adminRole = $this->admin->getAdminRoleByUserID($user['UserID']);
+            if ($adminRole) {
+                $user['AdminRole'] = $adminRole;
+            }
+        }
+
+        return $user;
     }
 
     public function generateUserID() {
@@ -60,17 +70,22 @@ class UserFacade {
     public function getCustomerDetails($userID) {
         return $this->customer->findCustByUserID($userID);
     }
-    
+
     public function getUserDetails($userID) {
-        return $this->user->findUserByUserID($userID);        
+        return $this->user->findUserByUserID($userID);
     }
 
     public function getUserProfileImage($userID) {
         return $this->user->getUserProfileImage($userID);
     }
-    
-    public function getUserGender($userID){
+
+    public function getUserGender($userID) {
         return $this->user->getUserGender($userID);
+    }
+
+    //admin data part
+    public function getAdminRoleByUserID($userID) {
+        return $this->admin->getAdminRoleByUserID($userID);
     }
 
     //profile part
@@ -80,6 +95,10 @@ class UserFacade {
 
         // Update customer-specific details
         $this->customer->updateProfile($userID, $customerData);
+    }
+    
+    public function updateAdminProfile($userID, $userData) { //accuatly just use back and just update user data
+        $this->user->updateProfile($userID, $userData);
     }
 
 }

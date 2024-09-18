@@ -6,6 +6,22 @@ if (file_exists($configPath)) {
     echo 'Config file not found: ' . $configPath;
 }
 ?>
+<?php
+require_once __DIR__ . '/../../facades/userFacade.php';
+require_once __DIR__ . '/../../core/SessionManager.php';
+
+SessionManager::startSession();
+SessionManager::requireLogin();
+
+$user = SessionManager::getUser();
+$userFacade = new UserFacade();
+
+if ($user) {
+    $userID = $user['UserID'];
+    $profileImage = $userFacade->getUserProfileImage($userID); // Fetch the user's profile image
+    $profileImage = $profileImage ? ROOT . $profileImage : ROOT . '/public/assets/img/default-profile.png'; // Use default if no image found
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,7 +65,7 @@ if (file_exists($configPath)) {
 
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="Dashboard.php">
+                    <a class="nav-link" href="dashboard.view.php">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Dashboard</span></a>
                 </li>
@@ -69,18 +85,15 @@ if (file_exists($configPath)) {
                         <div class="bg-white py-2 collapse-inner rounded">
                             <div class="collapse-divider"></div>
                             <!-- Staff Section: Only visible to admin -->
-                            <?php if ($userRole === 'admin') : ?>
+                            <?php if (SessionManager::superAdmin()) : ?>
                                 <h6 class="collapse-header">Staff:</h6>
-                                <a class="collapse-item" href="display_staff.php">Display All Staff</a>
-                                <a class="collapse-item" href="create_staff.php">Create Staff</a>
-                                <a class="collapse-item" href="delete_staff.php">Delete Staff</a>
-                                <a class="collapse-item" href="update_staff.php">Update Staff</a>
+                                <a class="collapse-item" href="./User/displayStaff.php">Display All Staff</a>
+                                <a class="collapse-item" href="./User/addStaff.php">Create Staff</a>
+                                
                             <?php endif; ?>
                             <h6 class="collapse-header">Customer:</h6>
-                            <a class="collapse-item" href="<">Display All Customer</a>
-                            <a class="collapse-item" href="">Create Customer</a>
-                            <a class="collapse-item" href="">Delete Customer</a>
-                            <a class="collapse-item" href="">Update Customer</a>
+                            <a class="collapse-item" href="./User/displayCustomer.php">Display All Customer</a>
+                            <a class="collapse-item" href="./User/addCustomer.php">Create Customer</a>
                         </div>
                     </div>
                 </li>
@@ -112,6 +125,24 @@ if (file_exists($configPath)) {
                         <span>Ticket</span></a>
                 </li>
 
+                <!-- Nav Item - Product module -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+                       aria-controls="collapsePages">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Product</span>
+                    </a>
+                    <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
+                         data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <div class="collapse-divider"></div>
+                            <h6 class="collapse-header">Product:</h6>
+                            <a class="collapse-item" href="<?= ROOT ?>/../app/views/Admin/Product/displayProduct.php">View All Product</a>
+                            <a class="collapse-item" href="<?= ROOT ?>/../app/views/Admin/Product/productLog.php">Product Transaction Log</a>
+                            
+                        </div>
+                    </div>
+                </li>
 
 
                 <!-- Sidebar Toggler (Sidebar) -->
@@ -152,40 +183,30 @@ if (file_exists($configPath)) {
 
                         <!-- Topbar Navbar -->
                         <ul class="navbar-nav ml-auto">
-
-                            <div class="topbar-divider d-none d-sm-block"></div>
-
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
                                 <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                    <img class="img-profile rounded-circle"
-                                         src="../../public/img/undraw_profile.svg">
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $_SESSION['user']['Username'] ?? 'Guest'; ?></span>
+                                    <img class="img-profile rounded-circle" src="<?= $profileImage ?>" alt="User Image">
                                 </a>
-                                <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                      aria-labelledby="userDropdown">
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="AdminProfile.php">
                                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Profile
                                     </a>
-                                    <a class="dropdown-item" href="#">
+                                    <a class="dropdown-item" href="settings.php">
                                         <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Settings
                                     </a>
-                                    <a class="dropdown-item" href="#">
-                                        <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                        Activity Log
-                                    </a>
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <a class="dropdown-item" href="/IPass/app/controllers/UserController.php?action=logout">
                                         <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Logout
                                     </a>
                                 </div>
                             </li>
-
                         </ul>
 
                     </nav>

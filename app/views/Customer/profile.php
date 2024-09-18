@@ -10,7 +10,6 @@ SessionManager::requireLogin();
 SessionManager::startSession();
 $user = SessionManager::getUser();
 
-// Check if user is logged in
 if ($user) {
     $userID = $user['UserID'];
     $userFacade = new UserFacade();
@@ -23,9 +22,9 @@ if ($user) {
     $profileImage = $userFacade->getUserProfileImage($userID);
     $email = $user['Email'] ?? 'No email found';
     $username = $user['Username'];
-    $birthday = $userFacade->getUserBirthday($userID); // Assuming the birthday is stored in the 'user' table
-    $gender = $userFacade->getUserGender($userID); // Assuming gender is stored in the 'user' table
-    // Get ustomer details
+    $birthday = $userFacade->getUserBirthday($userID);
+    $gender = $userFacade->getUserGender($userID);
+
     $customerName = $customerDetails['CustomerName'] ?? 'Guest';
     $phone = $customerDetails['PhoneNumber'] ?? '';
     $address = $customerDetails['Address'] ?? '';
@@ -34,17 +33,17 @@ if ($user) {
     $profileImage = $profileImage ? ROOT . $profileImage : ROOT . '/assets/img/logo/avatar.jpg';
 
     if (!empty($birthday)) {
-        // Format the birthday to 'd-m-Y H:i:sa' format
-        $formattedBirthday = date("d-m-Y", strtotime($birthday));
-    } else {
-        // Convert the birthday to 'YYYY-MM-DD' format if it's not
         $birthday = date('Y-m-d', strtotime($birthday));
     }
 } else {
-    // Redirect if not logged in
     header('Location: login.php');
     exit();
 }
+
+// Display success or error message
+$successMessage = $_SESSION['success'] ?? null;
+$errorMessages = $_SESSION['error'] ?? [];
+unset($_SESSION['success'], $_SESSION['error']);
 ?>
 
 <div id="page-content" class="page-content">
@@ -59,13 +58,35 @@ if ($user) {
 
     <section id="profile">
         <div class="container">
+
+            <!-- Display Success Message -->
+            <?php if ($successMessage): ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <?= $successMessage ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <?php endif; ?>
+
+            <!-- Display Error Messages -->
+            <?php if (!empty($errorMessages)): ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <?php foreach ($errorMessages as $error): ?>
+                        <p><?= $error ?></p>
+                    <?php endforeach; ?>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <?php endif; ?>
+
             <div class="row justify-content-center">
                 <div class="col-xs-12 col-sm-6 text-center">
                     <!-- Profile Image Section -->
                     <div class="profile-image text-center">
-                        <!-- Profile Image with click to change functionality -->
-                        <label for="profileImage" style="cursor: pointer; border-radius: 50%; width: 150px; height: 150px; object-fit: cover; border: 3px solid #ccc;">
-                            <img id="profileImagePreview" src="<?= $profileImage ?>" alt="User Image" class="img-circle profile-image-upload" width="150" height="150" style="border-radius: 50%; border: 2px solid #e41d61; margin-left: -3px; margin-top: -2px;">
+                        <label for="profileImage" style="cursor: pointer; border-radius: 50%; width: 156px; height: 156px; object-fit: cover; border: 3px solid #ccc;">
+                            <img id="profileImagePreview" src="<?= $profileImage ?>" alt="User Image" class="img-circle profile-image-upload" width="150" height="150" style="border-radius: 50%; border: 2px solid #e41d61;">
                             <small class="d-block mt-2" style="color:#001dff;">Click the image to change</small>
                         </label>
                     </div>
@@ -74,7 +95,7 @@ if ($user) {
 
             <div class="row justify-content-center">
                 <div class="col-xs-12 col-sm-6">
-                    <h5 class="mb-3">ACCOUNT DETAILS</h5>
+                    <h5 class="mb-3" style="margin-top: 10px;">ACCOUNT DETAILS</h5>
                     <form action="/IPass/app/controllers/ProfileController.php?action=update" method=POST enctype="multipart/form-data">
                         <fieldset>
                             <!-- Profile Image Upload -->
@@ -83,7 +104,7 @@ if ($user) {
                             <!-- Name -->
                             <div class="form-group row">
                                 <div class="col">
-                                    <label for="name" style="margin-bottom:0px !important;">Name:</label>
+                                    <label for="name">Name:</label>
                                     <input class="form-control" placeholder="Full Name" name="fullname" type="text" value="<?= $customerName ?>" required>
                                 </div>
                             </div>
@@ -91,7 +112,7 @@ if ($user) {
                             <!-- Email (readonly) -->
                             <div class="form-group row">
                                 <div class="col">
-                                    <label for="email" style="margin-bottom:0px !important;">Email:</label>
+                                    <label for="email">Email:</label>
                                     <input class="form-control" placeholder="Email Address" type="email" value="<?= $email ?>" readonly>
                                 </div>
                             </div>
@@ -99,7 +120,7 @@ if ($user) {
                             <!-- Username (readonly) -->
                             <div class="form-group row">
                                 <div class="col">
-                                    <label for="username" style="margin-bottom:0px !important;">Username:</label>
+                                    <label for="username">Username:</label>
                                     <input class="form-control" placeholder="Username" type="text" value="<?= $username ?>" readonly>
                                 </div>
                             </div>
@@ -107,21 +128,21 @@ if ($user) {
                             <!-- Phone -->
                             <div class="form-group row">
                                 <div class="col">
-                                    <label for="phone" style="margin-bottom:0px !important;">Phone Number:</label>
+                                    <label for="phone">Phone Number:</label>
                                     <input class="form-control" placeholder="Phone Number" name="phone" type="tel" value="<?= $phone ?>" required>
                                 </div>
                             </div>
 
                             <!-- Address -->
                             <div class="form-group">
-                                <label for="address" style="margin-bottom:0px !important;">Address:</label>
+                                <label for="address">Address:</label>
                                 <textarea class="form-control" name="address" placeholder="Address"><?= $address ?></textarea>
                             </div>
 
                             <!-- Gender -->
                             <div class="form-group row">
                                 <div class="col">
-                                    <label for="gender" style="margin-bottom:0px !important;">Gender:</label>
+                                    <label for="gender">Gender:</label>
                                     <select class="form-control" name="gender" required>
                                         <option value="m" <?= ($gender === 'm') ? 'selected' : '' ?>>Male</option>
                                         <option value="f" <?= ($gender === 'f') ? 'selected' : '' ?>>Female</option>
@@ -133,7 +154,7 @@ if ($user) {
                             <!-- Birthday -->
                             <div class="form-group row">
                                 <div class="col">
-                                    <label for="date" style="margin-bottom:0px !important;">Birthday:</label>
+                                    <label for="date">Birthday:</label>
                                     <input class="form-control" type="date" name="birthday" id="birthday" value="<?= $birthday ?>" required>
                                 </div>
                             </div>
@@ -141,7 +162,7 @@ if ($user) {
                             <!-- Points (readonly) -->
                             <div class="form-group row">
                                 <div class="col">
-                                    <label for="point" style="margin-bottom:0px !important;">Point:</label>
+                                    <label for="point">Points:</label>
                                     <input class="form-control" placeholder="Points" type="text" value="<?= $points ?>" readonly>
                                 </div>
                             </div>
@@ -158,27 +179,8 @@ if ($user) {
     </section>
 </div>
 
-<!-- Display success message if available -->
-<?php if (isset($_SESSION['success']) && !empty($_SESSION['success'])): ?>
-    <script>
-        alert("<?= $_SESSION['success'] ?>"); // Show success message using JavaScript alert
-    </script>
-    <?php unset($_SESSION['success']); // Clear the success message after displaying   ?>
-<?php endif; ?>
-
-<!-- Display error messages as alerts -->
-<?php if (isset($_SESSION['errors']) && !empty($_SESSION['errors'])): ?>
-    <script>
-        let errors = <?php echo json_encode($_SESSION['errors']); ?>;
-        errors.forEach(function (error) {
-            alert(error); // show each error using a JavaScript alert
-        });
-    </script>
-    <?php unset($_SESSION['errors']); // clear errors after displaying  ?>
-<?php endif; ?>
-
 <script>
-// Preview the image before uploading
+    // Preview the image before uploading
     function previewImage(event) {
         const reader = new FileReader();
         reader.onload = function () {

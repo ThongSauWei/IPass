@@ -72,7 +72,7 @@ if ($isLoggedIn) {
                             <?php else: ?>
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <div class="avatar-header"><img src="<?= $profileImage ?>" alt="User Image">
+                                        <div class="avatar-header"><img src="<?= $profileImage ?>" alt="User Image" style="height: 30px; width:30px;">
                                         </div> <?= $customerName ?>
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
