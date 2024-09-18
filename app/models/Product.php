@@ -98,7 +98,7 @@ class Product extends NewModel {
             // Log success
             $this->logger->log("Add", "Success", "Product successfully added with ID: $productId");
 
-            $this->logger->log("Product Detail", "Info", "Product Detail : ID - " . htmlspecialchars($productData['ProductId']) . " Name - " 
+            $this->logger->log("Product Detail", "Info", "Product Detail : ID - " . htmlspecialchars($productData['ProductId']) . " Name - "
                     . htmlspecialchars($productData['ProductName']));
 
             // Perform the database insertion
@@ -152,48 +152,65 @@ class Product extends NewModel {
     }
 
     // SEARCH PRODUCTS BY NAME OR CATEGORY
-//    public function getProductsBySearch($searchTerm) {
-//        try {
-//            $searchTerm = '%' . htmlspecialchars($searchTerm, ENT_QUOTES, 'UTF-8') . '%';
-//            $products = $this->findAll()
-//                    ->where('ProductName', $searchTerm, self::LIKE)
-////                    ->orWhere('Category', $searchTerm, self::LIKE)
-//                    ->execute();
-//
+    public function getProductsBySearch($searchTerm) {
+        try {
+            $searchTerm = '%' . htmlspecialchars($searchTerm, ENT_QUOTES, 'UTF-8') . '%';
+            $products = $this->findAll()
+                    ->where('ProductName', $searchTerm, self::LIKE)
+                    ->orWhere('Category', $searchTerm, self::LIKE)
+                    ->execute();
+
 //            $this->logger->log("Products successfully fetched for search term: $searchTerm");
-//            return $products;
-//        } catch (Exception $e) {
+            return $products;
+        } catch (Exception $e) {
 //            $this->logger->log("Error searching products: " . htmlspecialchars($e->getMessage()));
-//            throw new Exception("Unable to search products. Please try again later.");
-//        }
-//    }
+            throw new Exception("Unable to search products. Please try again later.");
+        }
+    }
+
     // FILTER PRODUCTS
-//    public function filterProducts($category, $priceMin, $priceMax, $weightMin, $weightMax, $availability) {
-//        try {
-//            $query = $this->findAll();
-//
-//            if ($category) {
-//                $query = $query->where('Category', $category);
-//            }
-//
-//            if ($priceMin !== '' && $priceMax !== '') {
-//                $query = $query->where('Price', [$priceMin, $priceMax], 'BETWEEN');
-//            }
-//
-//            if ($weightMin !== '' && $weightMax !== '') {
-//                $query = $query->where('Weight', [$weightMin, $weightMax], 'BETWEEN');
-//            }
-//
-//            if ($availability !== '') {
-//                $query = $query->where('Availability', $availability);
-//            }
-//
-//            return $query->execute();
-//        } catch (Exception $e) {
-//            $this->logger->log("Error filtering products: " . htmlspecialchars($e->getMessage()));
-//            throw new Exception("Unable to filter products. Please try again later.");
-//        }
-//    }
+    public function filterProducts($category, $priceMin = null, $priceMax = null, $weightMin = null, $weightMax = null, $availability = '') {
+        try {
+            $this->findAll(); // Start with SELECT * FROM table
+            // Add category filter
+            if (!empty($category)) {
+                $this->where('Category', $category);
+            }
+
+            // Add availability filter
+            if ($availability !== '') {
+                $this->where('Availability', $availability);
+            }
+
+            // Handle price range filtering
+            if (!empty($priceMin) && !empty($priceMax)) {
+                $this->where('Price', $priceMin, NewModel::GREATER_THAN_OR_EQUAL_TO)
+                        ->where('Price', $priceMax, NewModel::LESS_THAN_OR_EQUAL_TO);
+            } elseif (!empty($priceMin)) {
+                $this->where('Price', $priceMin, NewModel::GREATER_THAN_OR_EQUAL_TO);
+            } elseif (!empty($priceMax)) {
+                $this->where('Price', $priceMax, NewModel::LESS_THAN_OR_EQUAL_TO);
+            }
+
+            // Handle weight range filtering
+            if (!empty($weightMin) && !empty($weightMax)) {
+                $this->where('Weight', $weightMin, NewModel::GREATER_THAN_OR_EQUAL_TO)
+                        ->where('Weight', $weightMax, NewModel::LESS_THAN_OR_EQUAL_TO);
+            } elseif (!empty($weightMin)) {
+                $this->where('Weight', $weightMin, NewModel::GREATER_THAN_OR_EQUAL_TO);
+            } elseif (!empty($weightMax)) {
+                $this->where('Weight', $weightMax, NewModel::LESS_THAN_OR_EQUAL_TO);
+            }
+
+            // Execute the query and return the filtered products
+            return $this->execute();
+        } catch (Exception $e) {
+            $this->logger->log("Error filtering products: " . htmlspecialchars($e->getMessage()));
+            throw new Exception("Unable to filter products. Please try again later.");
+        }
+    }
+
+//    
     // GET CATEGORIES AS ARRAY
     public function getCategoriesArray() {
         try {
@@ -228,21 +245,44 @@ class Product extends NewModel {
         }
     }
 
-    // GET PRODUCTS BY CATEGORY
+//    // GET PRODUCTS BY CATEGORY
+//    public function getProductsByCategory($category) {
+//        if (empty($category)) {
+//            throw new Exception("Category cannot be empty.");
+//        }
+//
+//        try {
+//            $result = $this->findAll()
+//                    ->where('Category', $category)
+//                    ->where('Availability', 1)
+//                    ->execute();
+//            // Ensure it always returns an array
+//            return is_array($result) ? $result : [];
+//        } catch (Exception $e) {
+//            $this->logger->log("Fetch", "Error", "Error get product by Categories: " . htmlspecialchars($e->getMessage()));
+//            throw new Exception("Unable to fetch products by category. Please try again later.");
+//        }
+//    }
+
     public function getProductsByCategory($category) {
         if (empty($category)) {
             throw new Exception("Category cannot be empty.");
         }
 
         try {
-//            $this->table = 'Product';
-            return $this->findAll()
-                            ->where('Category', $category)
-                            ->where('Availability', 1)
-                            ->execute();
+            // Make sure you're querying the Product table
+            $this->table = 'Product'; // Ensure the correct table name is used
+
+            $result = $this->findAll()
+                    ->where('Category', $category) // Ensure 'Category' is correct and matches the actual DB column
+                    ->where('Availability', 1)
+                    ->execute();
+
+//            $this->logger->log("Fetch", "Info", "Generated SQL: " . $result);
+            // Ensure it always returns an array
+            return is_array($result) ? $result : [];
         } catch (Exception $e) {
-//            $this->logger->log("Error fetching products by category: " . htmlspecialchars($e->getMessage()));
-            $this->logger->log("Fetch", "Error", "Error get product by Categories: " . htmlspecialchars($e->getMessage()));
+            $this->logger->log("Fetch", "Error", "Error fetching products by category: " . htmlspecialchars($e->getMessage()));
             throw new Exception("Unable to fetch products by category. Please try again later.");
         }
     }
@@ -332,7 +372,7 @@ class Product extends NewModel {
                 if (!empty($promotionQuery)) {
                     $activePromotion = $promotionQuery[0];
 //                    $this->logger->log("Active promotion found: " . json_encode($activePromotion));
-                    $this->logger->log("Fetch", "Success", "Active promotion found: " . htmlspecialchars($activePromotion));
+//                    $this->logger->log("Fetch", "Success", "Active promotion found: " . htmlspecialchars($activePromotion));
                     break; // Stop once the first active promotion is found
                 } else {
                     $this->logger->log("Fetch", "Error", "No active promotion for PromotionID: " . $promotionID);
