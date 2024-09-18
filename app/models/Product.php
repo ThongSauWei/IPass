@@ -34,24 +34,51 @@ class Product extends NewModel {
                     ->execute();
 
             // Log the result of the query
-            $this->logger->log("Query result for maximum ProductId: " . print_r($result, true));
+//            $this->logger->log("Query result for maximum ProductId: " . print_r($result, true));
 
             $maxId = $result[0]['ProductID'] ?? null;
 
-            $this->logger->log("Maximum ProductId fetched: " . $maxId);
+//            $this->logger->log("Maximum ProductId fetched: " . $maxId);
 
             $number = ($maxId) ? (int) substr($maxId, 1) + 1 : 1;
             $newId = 'P' . str_pad($number, 4, '0', STR_PAD_LEFT);
 
-            $this->logger->log("Generated ProductId: " . $newId);
+//            $this->logger->log("Generated ProductId: " . $newId);
 
             return $newId;
         } catch (Exception $e) {
-            $this->logger->log("Error generating product ID: " . htmlspecialchars($e->getMessage()));
+            $this->logger->log("Generate ID", "Error", "Error generate new ID: " . htmlspecialchars($e->getMessage()));
             throw new Exception("Unable to generate product ID. Please try again later.");
         }
     }
 
+//    // ADD PRODUCT
+//    public function addProduct() {
+//        $productId = $this->generateProductId();
+//
+//        $productData = [
+//            'ProductId' => $productId,
+//            'ProductName' => $this->productName,
+//            'ProductDesc' => $this->productDesc,
+//            'Category' => $this->category,
+//            'Price' => $this->productPrice,
+//            'Weight' => $this->weight,
+//            'ProductImage' => $this->productImage,
+//            'Availability' => $this->availability
+//        ];
+//
+//        try {
+////            $this->logger->log("Attempting to add product: " . json_encode($productData));
+//            $result = $this->insert($productData)->execute();
+//            // Log success
+//            $this->logger->log("Add Product", "SUCCESS", "Product successfully added with ID: $productId");
+//            return true;
+//        } catch (Exception $e) {
+////            $this->logger->log("Error adding product: " . htmlspecialchars($e->getMessage()));
+//            $this->logger->log("Add Product", "ERROR", "Error adding product: " . htmlspecialchars($e->getMessage()));
+//            return false;
+//        }
+//    }
     // ADD PRODUCT
     public function addProduct() {
         $productId = $this->generateProductId();
@@ -68,12 +95,20 @@ class Product extends NewModel {
         ];
 
         try {
-            $this->logger->log("Attempting to add product: " . json_encode($productData));
+            // Log success
+            $this->logger->log("Add", "Success", "Product successfully added with ID: $productId");
+
+            $this->logger->log("Product Detail", "Info", "Product Detail : ID - " . htmlspecialchars($productData['ProductId']) . " Name - " 
+                    . htmlspecialchars($productData['ProductName']));
+
+            // Perform the database insertion
             $result = $this->insert($productData)->execute();
-            $this->logger->log("Product successfully added with ID: $productId");
+
             return true;
         } catch (Exception $e) {
-            $this->logger->log("Error adding product: " . htmlspecialchars($e->getMessage()));
+            // Log error
+            $this->logger->log("Add", "Error", "Error adding product: " . htmlspecialchars($e->getMessage()));
+
             return false;
         }
     }
@@ -84,7 +119,8 @@ class Product extends NewModel {
             $this->table = 'product';
             return $this->findAll()->execute();
         } catch (Exception $e) {
-            $this->logger->log("Error fetching all products: " . htmlspecialchars($e->getMessage()));
+//            $this->logger->log("Error fetching all products: " . htmlspecialchars($e->getMessage()));
+            $this->logger->log("Fetch", "Error", "Error get all product: " . htmlspecialchars($e->getMessage()));
             throw new Exception("Unable to fetch products. Please try again later.");
         }
     }
@@ -95,7 +131,8 @@ class Product extends NewModel {
             $this->table = 'product';
             return $this->findAll()->where('ProductId', $id)->execute();
         } catch (Exception $e) {
-            $this->logger->log("Error fetching product by ID: " . htmlspecialchars($e->getMessage()));
+//            $this->logger->log("Error fetching product by ID: " . htmlspecialchars($e->getMessage()));
+            $this->logger->log("Fetch", "Error", "Error get product by ID: " . htmlspecialchars($e->getMessage()));
             throw new Exception("Unable to fetch product. Please try again later.");
         }
     }
@@ -108,7 +145,8 @@ class Product extends NewModel {
                             ->execute();
         } catch (Exception $e) {
             // Log the error
-            $this->logger->log("Error fetching categories: " . htmlspecialchars($e->getMessage()));
+//            $this->logger->log("Error fetching categories: " . htmlspecialchars($e->getMessage()));
+            $this->logger->log("Fetch", "Error", "Error get Categories: " . htmlspecialchars($e->getMessage()));
             throw new Exception("Unable to fetch categories. Please try again later.");
         }
     }
@@ -161,11 +199,12 @@ class Product extends NewModel {
         try {
             return $this->getCategories();
         } catch (Exception $e) {
-            $this->logger->log("Error fetching categories: " . htmlspecialchars($e->getMessage()));
+//            $this->logger->log("Error fetching categories: " . htmlspecialchars($e->getMessage()));
+            $this->logger->log("Fetch", "Error", "Error get Categories detail: " . htmlspecialchars($e->getMessage()));
             throw new Exception("Unable to fetch categories. Please try again later.");
         }
     }
-    
+
     // GET CATEGORIES WITH FIRST PRODUCT IMAGE
     public function getCategoriesWithImages() {
         try {
@@ -183,7 +222,8 @@ class Product extends NewModel {
 
             return $categoriesWithImages;
         } catch (Exception $e) {
-            $this->logger->log("Error fetching categories with images: " . htmlspecialchars($e->getMessage()));
+//            $this->logger->log("Error fetching categories with images: " . htmlspecialchars($e->getMessage()));
+            $this->logger->log("Fetch", "Error", "Error get Categories Image: " . htmlspecialchars($e->getMessage()));
             throw new Exception("Unable to fetch categories with images. Please try again later.");
         }
     }
@@ -201,7 +241,8 @@ class Product extends NewModel {
                             ->where('Availability', 1)
                             ->execute();
         } catch (Exception $e) {
-            $this->logger->log("Error fetching products by category: " . htmlspecialchars($e->getMessage()));
+//            $this->logger->log("Error fetching products by category: " . htmlspecialchars($e->getMessage()));
+            $this->logger->log("Fetch", "Error", "Error get product by Categories: " . htmlspecialchars($e->getMessage()));
             throw new Exception("Unable to fetch products by category. Please try again later.");
         }
     }
@@ -220,11 +261,23 @@ class Product extends NewModel {
 
             $this->execute();
 
-            $this->logger->log("Product updated: " . json_encode($productData));
+//            $logMessage = "Product Details:\n" .
+//                    "ID: " . $productData['ProductId'] . "\n" .
+//                    "Name: " . $productData['ProductName'] . "\n" .
+//                    "Description: " . $productData['ProductDesc'] . "\n" .
+//                    "Category: " . $productData['Category'] . "\n" .
+//                    "Price: " . $productData['Price'] . "\n" .
+//                    "Weight: " . $productData['Weight'] . "\n" .
+//                    "Image: " . $productData['ProductImage'] . "\n" .
+//                    "Availability: " . $productData['Availability'];
+
+            $this->logger->log("Update", "Success", "Product updated successfully with ID: " . htmlspecialchars($productData['ProductID']));
+//            $this->logger->log("Product Detail", "Info", $logMessage);
 
             return true;
         } catch (Exception $e) {
-            $this->logger->log("Error updating product: " . $e->getMessage());
+//            $this->logger->log("Error updating product: " . $e->getMessage());
+            $this->logger->log("Update Product", "Error", "Error update product: " . htmlspecialchars($e->getMessage()));
             throw new Exception("Error updating product.");
         }
     }
@@ -233,10 +286,12 @@ class Product extends NewModel {
     public function deleteProductById($id) {
         try {
             $this->delete()->where('ProductId', $id)->execute();
-            $this->logger->log("Product deleted: " . htmlspecialchars($id));
+//            $this->logger->log("Product deleted: " . htmlspecialchars($id));
+            $this->logger->log("Delete", "Success", "Product deleted successfully with ID: " . htmlspecialchars($id));
             return true;
         } catch (Exception $e) {
-            $this->logger->log("Error deleting product: " . htmlspecialchars($e->getMessage()));
+//            $this->logger->log("Error deleting product: " . htmlspecialchars($e->getMessage()));
+            $this->logger->log("Delete", "Error", "Error delete product: " . htmlspecialchars($e->getMessage()));
             throw new Exception("Error deleting product.");
         }
     }
@@ -244,8 +299,7 @@ class Product extends NewModel {
     //CHECK PROMOTION
     public function hasPromotion($productId) {
         try {
-            $this->logger->log("Checking promotions for ProductID: " . $productId);
-
+//            $this->logger->log("Checking promotions for ProductID: " . $productId);
             // Retrieve all promotions related to the product
             $this->table = 'PromotionProducts';
             $promotionProductsQuery = $this->findAll()
@@ -254,7 +308,7 @@ class Product extends NewModel {
 
             // Log if no promotions found for the product
             if (empty($promotionProductsQuery)) {
-                $this->logger->log("No promotions found for ProductID: " . $productId);
+//                $this->logger->log("No promotions found for ProductID: " . $productId);
                 return null;
             }
 
@@ -262,13 +316,11 @@ class Product extends NewModel {
             $activePromotion = null;
             date_default_timezone_set('Asia/Kuala_Lumpur');
             $currentDate = date('Y-m-d');
-            $this->logger->log("Current Date: " . $currentDate);
-
+//            $this->logger->log("Current Date: " . $currentDate);
             //find the active one
             foreach ($promotionProductsQuery as $promotionProduct) {
                 $promotionID = $promotionProduct['PromotionID'];
-                $this->logger->log("Checking PromotionID: " . $promotionID);
-
+//                $this->logger->log("Checking PromotionID: " . $promotionID);
                 // Check the Promotion table for the PromotionID and date validity
                 $this->table = 'Promotion';
                 $promotionQuery = $this->findAll()
@@ -279,16 +331,19 @@ class Product extends NewModel {
 
                 if (!empty($promotionQuery)) {
                     $activePromotion = $promotionQuery[0];
-                    $this->logger->log("Active promotion found: " . json_encode($activePromotion));
+//                    $this->logger->log("Active promotion found: " . json_encode($activePromotion));
+                    $this->logger->log("Fetch", "Success", "Active promotion found: " . htmlspecialchars($activePromotion));
                     break; // Stop once the first active promotion is found
                 } else {
-                    $this->logger->log("No active promotion for PromotionID: " . $promotionID);
+                    $this->logger->log("Fetch", "Error", "No active promotion for PromotionID: " . $promotionID);
+//                    $this->logger->log("No active promotion for PromotionID: " . $promotionID);
                 }
             }
 
             return $activePromotion;
         } catch (Exception $e) {
-            $this->logger->log("Error checking promotion: " . htmlspecialchars($e->getMessage()));
+//            $this->logger->log("Error checking promotion: " . htmlspecialchars($e->getMessage()));
+            $this->logger->log("Fetch Promotion", "Error", "Error get promotion: " . htmlspecialchars($e->getMessage()));
             throw new Exception("Unable to check promotion. Please try again later.");
         }
     }
@@ -396,7 +451,8 @@ class Product extends NewModel {
                 'message' => 'Product added to cart successfully'
             ];
         } catch (Exception $e) {
-            $this->logger->log("Error adding product to cart: " . htmlspecialchars($e->getMessage()));
+//            $this->logger->log("Error adding product to cart: " . htmlspecialchars($e->getMessage()));
+            $this->logger->log("Add to Product", "Error", "Error add to cart: " . htmlspecialchars($e->getMessage()));
             throw new Exception("Unable to add product to cart. Please try again later.");
         }
     }
@@ -414,7 +470,8 @@ class Product extends NewModel {
             $number = ($maxId) ? (int) substr($maxId, 2) + 1 : 1;
             return 'CT' . str_pad($number, 4, '0', STR_PAD_LEFT);
         } catch (Exception $e) {
-            $this->logger->log("Error generating CartID: " . htmlspecialchars($e->getMessage()));
+//            $this->logger->log("Error generating CartID: " . htmlspecialchars($e->getMessage()));
+            $this->logger->log("Generate Cart ID", "Error", "Error generate cart ID: " . htmlspecialchars($e->getMessage()));
             throw new Exception("Unable to generate CartID. Please try again later.");
         }
     }
@@ -480,7 +537,8 @@ class Product extends NewModel {
                 'message' => 'Product added to wishlist successfully'
             ];
         } catch (Exception $e) {
-            $this->logger->log("Error adding product to wishlist: " . htmlspecialchars($e->getMessage()));
+//            $this->logger->log("Error adding product to wishlist: " . htmlspecialchars($e->getMessage()));
+            $this->logger->log("Add to Wishlist", "Error", "Error add product to wishlist: " . htmlspecialchars($e->getMessage()));
             throw new Exception("Unable to add product to wishlist. Please try again later.");
         }
     }
@@ -498,7 +556,8 @@ class Product extends NewModel {
             $number = ($maxId) ? (int) substr($maxId, 2) + 1 : 1;
             return 'W' . str_pad($number, 4, '0', STR_PAD_LEFT);
         } catch (Exception $e) {
-            $this->logger->log("Error generating WishlistID: " . htmlspecialchars($e->getMessage()));
+//            $this->logger->log("Error generating WishlistID: " . htmlspecialchars($e->getMessage()));
+            $this->logger->log("Generate Wishlist ID", "Error", "Error generate wishlist ID: " . htmlspecialchars($e->getMessage()));
             throw new Exception("Unable to generate WishlistID. Please try again later.");
         }
     }
@@ -506,24 +565,24 @@ class Product extends NewModel {
     //GET CUST ID 
     public function getCustomerIDByUserID($userID) {
         try {
-            $this->table = 'customer'; 
+            $this->table = 'customer';
             $result = $this->findAll()
-                    ->where('UserID', $userID) 
+                    ->where('UserID', $userID)
                     ->execute();
 
-            $this->logger->log("Query result for customerID: " . print_r($result, true));
-
+//            $this->logger->log("Query result for customerID: " . print_r($result, true));
             // Check if we got a result and return the customerID
-            if (!empty($result) && isset($result[0]['CustomerID'])) { 
-                $customerID = $result[0]['CustomerID']; 
-                $this->logger->log("Fetched customerID: " . $customerID);
+            if (!empty($result) && isset($result[0]['CustomerID'])) {
+                $customerID = $result[0]['CustomerID'];
+//                $this->logger->log("Fetched customerID: " . $customerID);
                 return $customerID;
             } else {
-                $this->logger->log("No customerID found for userID: " . $userID);
-                return null; 
+//                $this->logger->log("No customerID found for userID: " . $userID);
+                return null;
             }
         } catch (Exception $e) {
-            $this->logger->log("Error fetching customerID: " . htmlspecialchars($e->getMessage()));
+//            $this->logger->log("Error fetching customerID: " . htmlspecialchars($e->getMessage()));
+            $this->logger->log("Fetch Customer ID", "Error", "Error get customer ID: " . htmlspecialchars($e->getMessage()));
             throw new Exception("Unable to fetch customer ID. Please try again later.");
         }
     }

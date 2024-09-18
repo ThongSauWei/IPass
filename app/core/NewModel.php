@@ -137,6 +137,18 @@ class NewModel {
         return $this;
     }
     
+    public function orWhere($column, $value, $type = NewModel::EQUAL) {
+        if (strpos($this->stmts['whereStmt'], "WHERE") === false) {
+            throw new Exception("Please call the where() first before calling this function");
+        } else {
+            $this->stmts["whereStmt"] .= " OR $column $type :$column";
+            
+            $this->binding[$column] = $value;
+        }
+        
+        return $this;
+    }
+    
     public function orderBy($column, $direction = "ASC") {
         if ($this->queryType !== "Select") {
             throw new Exception("orderBy() can be only called in a select query");

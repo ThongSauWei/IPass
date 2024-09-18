@@ -11,6 +11,7 @@
  * @author Acer
  */
 class ProductLogger {
+
     private $logFile;
 
     public function __construct($logFile = __DIR__ . '/../logs/product_log.txt') {
@@ -32,10 +33,33 @@ class ProductLogger {
         }
     }
 
-    public function log($message) {
+    public function log($operation, $status, $event) {
         $time = date('Y-m-d H:i:s');
-        if (file_put_contents($this->logFile, "[$time] $message\n", FILE_APPEND) === false) {
+        $logEntry = "[$time] Operation: $operation, Status: $status, Event: $event\n";
+        if (file_put_contents($this->logFile, $logEntry, FILE_APPEND) === false) {
             throw new Exception("Unable to write to log file: $this->logFile");
         }
     }
+
+//    public function getLogs() {
+//        $logLines = file_exists($this->logFile) ? file($this->logFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) : [];
+//        
+//        return array_reverse($logLines);
+//    }
+
+    public function getLogs($reverse = false) {
+        if (!file_exists($this->logFile)) {
+            return [];
+        }
+
+        $logs = file($this->logFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
+        // If reverse is true, reverse the logs (descending order)
+        if ($reverse) {
+            $logs = array_reverse($logs);
+        }
+
+        return $logs;
+    }
+
 }

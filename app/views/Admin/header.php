@@ -125,6 +125,24 @@ if ($user) {
                         <span>Ticket</span></a>
                 </li>
 
+                <!-- Nav Item - Product module -->
+                <li class="nav-item">
+                    <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+                       aria-controls="collapsePages">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Product</span>
+                    </a>
+                    <div id="collapsePages" class="collapse" aria-labelledby="headingPages"
+                         data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <div class="collapse-divider"></div>
+                            <h6 class="collapse-header">Product:</h6>
+                            <a class="collapse-item" href="<?= ROOT ?>/../app/views/Admin/Product/displayProduct.php">View All Product</a>
+                            <a class="collapse-item" href="<?= ROOT ?>/../app/views/Admin/Product/productLog.php">Product Transaction Log</a>
+                            
+                        </div>
+                    </div>
+                </li>
 
 
                 <!-- Sidebar Toggler (Sidebar) -->

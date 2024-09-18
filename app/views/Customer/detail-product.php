@@ -4,6 +4,10 @@ ob_start();
 include_once __DIR__ . '/header.php';
 require_once __DIR__ . '/../../controllers/ProductController.php';
 require_once __DIR__ . '/../../core/SessionManager.php';
+require_once __DIR__ . '/../../adapter/WeightAdapterInterface.php';
+require_once __DIR__ . '/../../adapter/UnitConverterAdapter.php';
+
+$weightConverter = new UnitConverterAdapter();
 
 $productController = new ProductController();
 
@@ -26,7 +30,7 @@ $user = SessionManager::getUser();
 // Set $userID conditionally based on whether the user is logged in
 $userID = $user ? $user['UserID'] : 0;
 
-echo "User ID: " . htmlspecialchars($userID);
+//echo "User ID: " . htmlspecialchars($userID);
 
 if (isset($_GET['productID'])) {
     $productID = $_GET['productID'];
@@ -178,27 +182,38 @@ ob_end_flush();
                                     </select>
                                 </div>
                             </div>
+
+                            <?php
+                            // Get product weight from database
+                            $productWeightKg = (float) $product['Weight']; // Weight in kg
+// Convert weight to grams
+                            $productWeightG = $weightConverter->convertToG($productWeightKg);
+                            ?>
+
+
                             <div class="row">
                                 <div class="col-sm-6">
                                     <!-- Weight Section -->
                                     <p>
                                         <strong>Weight</strong>
                                         <br>
-                                        <span class="price">
-                                            <?php echo htmlspecialchars($product['Weight']); ?> kg
+                                        <span id="product-weight" class="price">
+                                            <?php echo htmlspecialchars($productWeightKg); ?> kg
                                         </span>
                                     </p>
                                 </div>
 
                                 <div class="col-sm-6 text-right">
-                                    <select class="form-select d-inline-block" style="width: auto; display: inline;">
+                                    <select id="weight-unit" class="form-select d-inline-block" style="width: auto; display: inline;">
                                         <option value="KG" selected>KG</option>
                                         <option value="G">G</option>
-                                        <!-- Add more weight units as needed -->
                                     </select>
-
                                 </div>
                             </div>
+
+
+
+
                             <p>
                                 <strong>Category</strong><br>
                                 <?php echo htmlspecialchars($product['Category']); ?>
@@ -331,6 +346,25 @@ ob_end_flush();
     <?php endif; ?>
 
 </div>
+
+<script>
+    document.getElementById('weight-unit').addEventListener('change', function () {
+        var unit = this.value;
+        var weightElement = document.getElementById('product-weight');
+
+        // Get the weight values from the PHP code
+        var weightKg = <?php echo json_encode($productWeightKg); ?>;
+        var weightG = <?php echo json_encode($productWeightG); ?>;
+
+        // Update the displayed weight based on the selected unit
+        if (unit === 'KG') {
+            weightElement.textContent = weightKg + ' kg';
+        } else if (unit === 'G') {
+            weightElement.textContent = weightG + ' g';
+        }
+    });
+</script>
+
 <?php
 include_once __DIR__ . '/footer.php';
 ?>

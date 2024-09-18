@@ -89,6 +89,7 @@ CREATE TABLE Orders (
     CustomerID VARCHAR(10),
     PurchasedAmt DECIMAL(10, 2),
     Discount DECIMAL(5, 2),
+    DeliveryFee DECIMAL(5, 2),
     OrderDate DATE,
     Status VARCHAR(50),
     DeliveryAddress TEXT,

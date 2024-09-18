@@ -15,7 +15,7 @@ class ProductController {
 
     public function __construct() {
         $this->product = new Product([]);
-        $this->logger = new ProductLogger();
+//        $this->logger = new ProductLogger();
         $this->session = new SessionManager();
     }
 
@@ -74,16 +74,16 @@ class ProductController {
             $quantity = $_POST['quantity'];
             $userId = $_POST['userid'];  // Get the user ID from the form data
             // Log the captured userID for debugging
-            $this->logger->log("Received userID: $userId");
+//            $this->logger->log("Received userID: $userId");
 
             // Check if user is logged in (userid is not 0 or null)
             if ($userId == 0 || empty($userId)) {
                 // If no user is logged in, redirect to login
-                $this->logger->log("No user logged in. Redirecting to login page.");
+//                $this->logger->log("No user logged in. Redirecting to login page.");
                 SessionManager::requireLogin();
             } else {
                 // If user is logged in, proceed to add the product to cart
-                $this->logger->log("User is logged in. userID: $userId");
+//                $this->logger->log("User is logged in. userID: $userId");
                 $this->addToCart($productId, $customerId, $quantity);
             }
         } elseif (isset($_POST['action'])) {
@@ -323,7 +323,7 @@ class ProductController {
                         if (!empty($_POST['existingProductImage'])) {
                             $existingImagePath = __DIR__ . "/../../public/assets/img/ProductImage/" . $_POST['existingProductImage'];
 
-                            $this->logger->log("old image- $existingImagePath");
+//                            $this->logger->log("old image- $existingImagePath");
                             if (file_exists($existingImagePath)) {
                                 unlink($existingImagePath); // Delete the old image
                             }
@@ -480,20 +480,20 @@ class ProductController {
             $customerId = 'C0001';
             $userId = $_POST['userid'];  // Get the user ID from the form data
             // Log the captured userID for debugging (ensure logging does not output directly)
-            $this->logger->log("Received userID: $userId");
+//            $this->logger->log("Received userID: $userId");
 
             // Ensure no output is sent to the browser before checking login
             if ($action === 'addToCart') {
                 if (empty($userId) || $userId == 0) {
                     // If no user is logged in, redirect to login
-                    $this->logger->log("No user logged in. Redirecting to login page.");
+//                    $this->logger->log("No user logged in. Redirecting to login page.");
 
                     // Ensure redirection occurs
                     $this->session->requireLogin();
                     return; // Stop further processing
                 } else {
                     // If user is logged in, proceed to add the product to cart
-                    $this->logger->log("User is logged in. userID: $userId");
+//                    $this->logger->log("User is logged in. userID: $userId");
                     return $this->addToCart($productId, $customerId, $quantity);
                 }
             } elseif ($action === 'addToWishList') {
@@ -563,6 +563,11 @@ class ProductController {
 
     public function getCustomerIDByUserID($userID) {
         return $this->product->getCustomerIDByUserID($userID);
+    }
+
+    public function getTransactionLogs() {
+        $logger = new ProductLogger();
+        return $logger->getLogs();
     }
 
     // Unit conversion (Kg to Gram)
