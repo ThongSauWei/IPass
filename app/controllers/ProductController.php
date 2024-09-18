@@ -23,8 +23,17 @@ class ProductController {
     public function handleRequests() {
         // Handle GET requests
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $this->handleGetRequests();
+            // Get category from URL and pass it to handleGetRequests
+            $category = isset($_GET['category']) ? $_GET['category'] : '';
+            $products = $this->handleGetRequests($category);
+            return $products; // Return products based on category
         }
+        $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
+        // Fetch products based on search term
+        if ($searchTerm !== '') {
+            return $this->getProductsBySearch($searchTerm);
+        }
+        
         // Handle POST requests
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->handlePostRequests();
@@ -43,26 +52,46 @@ class ProductController {
         }
     }
 
-    private function handleGetRequests() {
-        // Initialize variables
+//    private function handleGetRequests() {
+//        // Initialize variables
+//        $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
+//        $category = isset($_GET['category']) ? $_GET['category'] : '';
+//        $priceMin = isset($_GET['priceMin']) ? $_GET['priceMin'] : '';
+//        $priceMax = isset($_GET['priceMax']) ? $_GET['priceMax'] : '';
+//        $weightMin = isset($_GET['weightMin']) ? $_GET['weightMin'] : '';
+//        $weightMax = isset($_GET['weightMax']) ? $_GET['weightMax'] : '';
+//        $availability = isset($_GET['availability']) ? $_GET['availability'] : '';
+//
+//        // Determine which method to call based on user input
+//        if (!empty($searchTerm)) {
+//            $products = $this->getProductsBySearch($searchTerm);
+//        } elseif ($category || $priceMin || $priceMax || $weightMin || $weightMax || $availability !== '') {
+//            $products = $this->getProductsByFilter($category, $priceMin, $priceMax, $weightMin, $weightMax, $availability);
+//        } else {
+//            $products = $this->getAllProducts();
+//        }
+//
+//        // Pass products to view
+//        return $products;
+//    }
+    private function handleGetRequests($category = '') {
         $searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
-        $category = isset($_GET['category']) ? $_GET['category'] : '';
         $priceMin = isset($_GET['priceMin']) ? $_GET['priceMin'] : '';
         $priceMax = isset($_GET['priceMax']) ? $_GET['priceMax'] : '';
         $weightMin = isset($_GET['weightMin']) ? $_GET['weightMin'] : '';
         $weightMax = isset($_GET['weightMax']) ? $_GET['weightMax'] : '';
         $availability = isset($_GET['availability']) ? $_GET['availability'] : '';
 
-        // Determine which method to call based on user input
-        if (!empty($searchTerm)) {
+        if ($category) {
+            $products = $this->getProductsByCategory($category);
+        } elseif (!empty($searchTerm)) {
             $products = $this->getProductsBySearch($searchTerm);
-        } elseif ($category || $priceMin || $priceMax || $weightMin || $weightMax || $availability !== '') {
+        } elseif ($priceMin || $priceMax || $weightMin || $weightMax || $availability !== '') {
             $products = $this->getProductsByFilter($category, $priceMin, $priceMax, $weightMin, $weightMax, $availability);
         } else {
             $products = $this->getAllProducts();
         }
 
-        // Pass products to view
         return $products;
     }
 
@@ -75,7 +104,6 @@ class ProductController {
             $userId = $_POST['userid'];  // Get the user ID from the form data
             // Log the captured userID for debugging
 //            $this->logger->log("Received userID: $userId");
-
             // Check if user is logged in (userid is not 0 or null)
             if ($userId == 0 || empty($userId)) {
                 // If no user is logged in, redirect to login
@@ -224,13 +252,15 @@ class ProductController {
     }
 
     // Get products by search term
-//    public function getProductsBySearch($searchTerm) {
-//        return $this->product->getProductsBySearch($searchTerm);
-//    }
+    public function getProductsBySearch($searchTerm) {
+        return $this->product->getProductsBySearch($searchTerm);
+    }
+
 //
-//    public function getProductsByFilter($category, $priceMin, $priceMax, $weightMin, $weightMax, $availability) {
-//        return $this->product->filterProducts($category, $priceMin, $priceMax, $weightMin, $weightMax, $availability);
-//    }
+    public function getProductsByFilter($category, $priceMin, $priceMax, $weightMin, $weightMax, $availability) {
+        return $this->product->filterProducts($category, $priceMin, $priceMax, $weightMin, $weightMax, $availability);
+    }
+
     // GET CATEGORIES
     public function getCategories() {
         return $this->product->getCategories();
@@ -242,8 +272,11 @@ class ProductController {
     }
 
     // GET PRODUCT BY CAT
+    // GET PRODUCT BY CAT
     public function getProductsByCategory($category) {
-        return $this->product->getProductsByCategory($category);
+        $products = $this->product->getProductsByCategory($category);
+        // Ensure that it always returns an array
+        return is_array($products) ? $products : [];
     }
 
     // UPDATE PRODUCT
@@ -481,13 +514,11 @@ class ProductController {
             $userId = $_POST['userid'];  // Get the user ID from the form data
             // Log the captured userID for debugging (ensure logging does not output directly)
 //            $this->logger->log("Received userID: $userId");
-
             // Ensure no output is sent to the browser before checking login
             if ($action === 'addToCart') {
                 if (empty($userId) || $userId == 0) {
                     // If no user is logged in, redirect to login
 //                    $this->logger->log("No user logged in. Redirecting to login page.");
-
                     // Ensure redirection occurs
                     $this->session->requireLogin();
                     return; // Stop further processing
