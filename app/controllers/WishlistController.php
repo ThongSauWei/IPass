@@ -30,21 +30,19 @@ class WishlistController {
                 $quantity = $_POST['quantity'] ?? null;
 
                 if ($wishlistId && $productId && $quantity !== null) {
+                    $this->logger->log("got", "got", "111111");
                     $updated = $this->wishlist->updateWishlistItemQuantity($wishlistId, $productId, (int) $quantity);
+                    $this->logger->log("got", "got", "gottttttttttt");
 
                     if ($updated) {
-                        header('Location: /IPass/app/views/Customer/wish.php');
-                        exit;
+                        echo json_encode(['success' => true]);
                     } else {
-                        // Return JSON response with failure message
                         echo json_encode(['success' => false, 'message' => 'Failed to update quantity.']);
-                        exit;
                     }
                 } else {
-                    // Return JSON response with invalid input message
                     echo json_encode(['success' => false, 'message' => 'Invalid input.']);
-                    exit;
                 }
+                exit;
             }
         }
     }
@@ -95,7 +93,7 @@ class WishlistController {
     public function addToCart() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $productId = $_POST['productId'] ?? null;
-            $customerId = $_POST['customerId'] ?? null;
+            $customerId = $_POST['custId'] ?? null;
             $quantity = $_POST['quantity'] ?? null;
             $wishlistId = $_POST['wishlistId'] ?? null; // Get wishlistId from POST
 
@@ -107,7 +105,6 @@ class WishlistController {
                     if ($wishlistId && $productId) {
                         try {
                             $deleted = $this->wishlist->deleteWishlistItem($wishlistId, $productId);
-                            $this->logger->log("delete wishlist start: ProductID - $productId, WishlistID : $wishlistId");
 
                             if ($deleted) {
 //                            header('Location: /IPass/app/views/Customer/wish.php');

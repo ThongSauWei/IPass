@@ -1,17 +1,17 @@
 <?php
 
 require_once __DIR__ . '/../core/NewModel.php';
-require_once __DIR__ . '/ProductLogger.php';
+//require_once __DIR__ . '/ProductLogger.php';
 require_once __DIR__ . '/../core/NewDatabase.php';
 
 class Wishlist extends NewModel {
 
     protected $table = 'Wishlist';
-    private $logger;
+//    private $logger;
 
     public function __construct() {
         parent::__construct();
-        $this->logger = new ProductLogger();
+//        $this->logger = new ProductLogger();
     }
 
     public function getWishlistItems($customerId) {
@@ -69,11 +69,9 @@ class Wishlist extends NewModel {
                     ->where('ProductID', $productId)
                     ->execute();
 
-            $this->logger->log("Wishlist item quantity updated successfully for ProductID: $productId");
 
             return true;
         } catch (Exception $e) {
-            $this->logger->log("Error updating product: " . $e->getMessage());
             return false; // Return false on error
         }
     }
@@ -87,15 +85,10 @@ class Wishlist extends NewModel {
                     ->where('ProductID', $productId)
                     ->execute();
 
-            if ($result) {
-                $this->logger->log("Wishlist item quantity updated successfully for ProductID: $productId, WishlistID : $wishlistId");
-            }else{
-                $this->logger->log("Wishlist item quantity updated successfully for ProductID: $productId, WishlistID : $wishlistId");
-            }
+//            
 
             return true;
         } catch (Exception $e) {
-            $this->logger->log("Error deleting wishlist item: " . $e->getMessage());
             throw new Exception("Error deleting wishlist item.");
             return false;
         }

@@ -5,6 +5,10 @@ require_once '../core/NewModel.php';
 class CartItemModel extends NewModel {
     protected $table = "cartItem";
     
+    public function addCartItem($cartItem) {
+        $this->insert($cartItem)->execute();
+    }
+    
     public function getCartItems($cartID) {
         return $this->findAll()->where("CartID", $cartID)->execute();
     }

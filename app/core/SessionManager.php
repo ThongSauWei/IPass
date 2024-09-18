@@ -18,6 +18,8 @@ class SessionManager {
     public static function loginUser($user){
         self::startSession();
         $_SESSION['user'] = $user;
+        session_regenerate_id();
+        $_SESSION['last_activity'] = time();
     }
     
     //check if the user is logged in
@@ -51,15 +53,33 @@ class SessionManager {
     //for the page need user login one
     public static function requireLogin(){ //require login then get more action for the viewer
         if(!self::loggedIn()){
-            header('Location: ../Customer/login.php');//go to login
+            header('Location: http://localhost/IPass/app/views/Customer/login.php');//go to login
+            exit();
+        } else {
+            self::validateSession();
+        }
+    }
+    
+    public static function validateSession() {
+        $timeout = 3600;
+        if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity']) > $timeout) {
+            self::logout();
+            header('Location: ../Customer/login.php');
             exit();
         }
+        
+        $_SESSION['last_activity'] = time();
     }
    
     
     public static function logout(){
         self::startSession();
         session_unset();// remove all variable
+        
+        if (ini_get("session.use_cookies")) {
+            $params = session_get_cookie_params();
+            setcookie(session_name(), '', time() - 42000, $params["path"], $params["domain"], $params["secure"], $params["httponly"]);
+        }
         session_destroy(); //destroy session
     }
     

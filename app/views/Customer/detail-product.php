@@ -29,6 +29,9 @@ $user = SessionManager::getUser();
 
 // Set $userID conditionally based on whether the user is logged in
 $userID = $user ? $user['UserID'] : 0;
+if ($userID) {
+    $customerID = $productController->getCustomerIDByUserID($userID);
+}
 
 //echo "User ID: " . htmlspecialchars($userID);
 
@@ -224,7 +227,7 @@ ob_end_flush();
                                 <input type="hidden" name="productID" value="<?php echo htmlspecialchars($product['ProductID']); ?>">
                                 <input type="hidden" name="quantity" value="1">
                                 <input type="hidden" name="userid" value="<?php echo htmlspecialchars($userID); ?>">
-
+                                <input type="hidden" name="custid" value="<?php echo htmlspecialchars($customerID); ?>">
 
                                 <p class="mb-1">
                                     <strong>Quantity</strong>

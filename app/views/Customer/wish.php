@@ -10,7 +10,6 @@ $productController = new ProductController();
 // Fetch the wishlist products for the customer (currently set to 'C0001')
 // Replace this with the actual customer ID later
 //echo "User ID: " . htmlspecialchars($userID);
-
 //get customer id
 $customerID = $productController->getCustomerIDByUserID($userID);
 
@@ -83,9 +82,14 @@ $wishlistProducts = $wishlistController->showWishlist($customerID);
                                             <td>
                                                 <a href="javascript:void(0)" class="text-danger delete-item" data-wishlistid="<?= htmlspecialchars($product['WishlistID']) ?>" data-productid="<?= htmlspecialchars($product['ProductID']) ?>"><i class="fa fa-times"></i></a>
                                                 <?php if ($product['Availability']): ?>
-                                                    <a href="javascript:void(0)" class="btn btn-default btn-add-to-cart" data-productid="<?= htmlspecialchars($product['ProductID']) ?>" data-quantity="<?= htmlspecialchars($product['Quantity']) ?>" data-wishlistid="<?= htmlspecialchars($product['WishlistID']) ?>" style="margin-left: 8px;">Add to Cart</a>
+                                                    <a href="javascript:void(0)" class="btn btn-default btn-add-to-cart" 
+                                                       data-productid="<?= htmlspecialchars($product['ProductID']) ?>" 
+                                                       data-quantity="<?= htmlspecialchars($product['Quantity']) ?>" 
+                                                       data-wishlistid="<?= htmlspecialchars($product['WishlistID']) ?>" 
+                                                       data-custid="<?= htmlspecialchars($customerID) ?>" 
+                                                       style="margin-left: 8px;">Add to Cart</a>
                                                 <?php endif; ?>
-                                                    
+
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -106,17 +110,15 @@ $wishlistProducts = $wishlistController->showWishlist($customerID);
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-    // Event listener for quantity inputs
-    document.querySelectorAll('.quantity-input').forEach(input => {
-        input.addEventListener('change', function () {
+    $(document).ready(function () {
+        $('.quantity-input').on('change', function () {
             var quantity = parseInt(this.value, 10);
-            var form = this.closest('form');
-            var wishlistId = form.querySelector('input[name="wishlistId"]').value;
-            var productId = form.querySelector('input[name="productId"]').value;
+            var form = $(this).closest('form');
+            var wishlistId = form.find('input[name="wishlistId"]').val();
+            var productId = form.find('input[name="productId"]').val();
 
             if (quantity === 0) {
                 if (confirm('The quantity is set to 0. Do you want to delete this item from your wishlist? This action cannot be undone.')) {
-                    // Proceed with deletion
                     $.post('../../controllers/WishlistController.php', {
                         action: 'deleteWishlistItem',
                         wishlistId: wishlistId,
@@ -136,13 +138,40 @@ $wishlistProducts = $wishlistController->showWishlist($customerID);
                     this.value = 1;
                 }
             } else {
-                // Submit the form if the quantity is greater than 0
-                form.submit();
+//                alert('test3');
+                $.ajax({
+                    url: '../../controllers/WishlistController.php',
+                    type: 'POST',
+                    data: {
+                        action: 'updateWishlistQuantity',
+                        wishlistId: wishlistId,
+                        productId: productId,
+                        quantity: quantity
+                    },
+                    success: function (response) {
+                        var data = JSON.parse(response);
+                        if (data.success) {
+//                            alert('test4');
+                            // Update subtotal without reloading
+                            var subtotalCell = $('#subtotal-' + productId);
+                            var previousQuantity = data.previousQuantity || 1; // Ensure there's a default value
+                            var previousSubtotal = parseFloat(subtotalCell.text().replace('RM ', ''));
+                            var newSubtotal = (previousSubtotal * quantity) / previousQuantity;
+                            subtotalCell.text('RM ' + newSubtotal.toFixed(2));
+//                            alert('test5');
+                            window.location.reload();
+                            
+                        } else {
+                            alert(data.message);
+                        }
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        alert('An error occurred: ' + textStatus);
+                    }
+                });
             }
         });
-    });
 
-    $(document).ready(function () {
         $('.delete-item').on('click', function () {
             var wishlistId = $(this).data('wishlistid');
             var productId = $(this).data('productid');
@@ -168,15 +197,15 @@ $wishlistProducts = $wishlistController->showWishlist($customerID);
         $('.btn-add-to-cart').on('click', function () {
             var productId = $(this).data('productid');
             var quantity = $(this).data('quantity');
-            var customerId = 'C0001'; // Replace with dynamic customer ID if needed
             var wishlistId = $(this).data('wishlistid'); // Get wishlistId from data attribute
+            var custId = $(this).data('custid');
 
             $.post('../../controllers/WishlistController.php', {
                 action: 'addToCart',
                 productId: productId,
-                customerId: customerId,
                 quantity: quantity,
-                wishlistId: wishlistId // Send wishlistId to the server
+                wishlistId: wishlistId,
+                custId: custId
             }, function (response) {
                 var data = JSON.parse(response);
                 if (data.success) {
@@ -191,6 +220,7 @@ $wishlistProducts = $wishlistController->showWishlist($customerID);
         });
     });
 </script>
+
 
 <style>
     .out-of-stock {

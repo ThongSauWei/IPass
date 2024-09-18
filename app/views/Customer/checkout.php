@@ -241,7 +241,7 @@ SessionManager::requireLogin();
         const { error } = await stripe.confirmPayment({
             elements,
             confirmParams: {
-                return_url: "https://localhost/IPass/public/index.php",
+                return_url: "https://localhost/IPass/app/views/complete-checkout.php",
             },
         });
     }
