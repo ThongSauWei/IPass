@@ -10,7 +10,6 @@ if (file_exists($configPath)) {
 require_once __DIR__ . '/../core/SessionManager.php';
 require_once __DIR__ . '/../facades/userFacade.php';
 
-
 class AdminController {
 
     private $userFacade;
@@ -18,44 +17,48 @@ class AdminController {
     public function __construct() {
         $this->userFacade = new UserFacade();
     }
-    
+
     public function handleRequest() {
-        $action = $_GET['action'] ?? 'displayStaff';
+        $action = $_GET['action'] ?? 'displayStaff';  // Default to 'displayStaff' if no action is provided
 
         switch ($action) {
             case 'deleteStaff':
-                $this->deleteStaff();
+                $this->deleteStaff();  // Call the deleteStaff method
                 break;
-            case 'editStaff':
-                $this->editStaff();
+            case 'detailStaff':
+                $this->detailStaff();  // Call the editStaff method
                 break;
             default:
-                $this->displayStaff();
+                $this->displayStaff();  // Default action is to display the staff list
                 break;
         }
     }
-    
-     public function displayStaff() {
+
+    public function displayStaff() {
         try {
             SessionManager::startSession();
             $staffMembers = $this->userFacade->getAllStaff();
             $_SESSION['staffMembers'] = $staffMembers; // Store staff members in session
-            require_once __DIR__ . '/IPass/app/views/Admin/User/displayStaff.php';
+            require_once __DIR__ . '/../views/Admin/User/displayStaff.php';
         } catch (Exception $e) {
             echo "Failed to load staff data. Please try again later.";
         }
     }
-    
+
     //delete staff
     public function deleteStaff() {
-        SessionManager::startSession();
+        SessionManager::startSession();  // Start session for storing success/error messages
         $errors = [];
 
-        if (isset($_GET['id'])) {//get userid
+        if (isset($_GET['id'])) { // Get UserID from the URL
             $userID = $_GET['id'];
 
             try {
-                if ($this->userFacade->deleteStaff($userID)) {
+                // Call the facade to delete the staff
+                $result = $this->userFacade->deleteStaff($userID);
+
+                // If deletion was successful
+                if ($result) {
                     $_SESSION['success'] = "Staff member (UserID: $userID) deleted successfully.";
                 } else {
                     $errors[] = "Failed to delete staff member (UserID: $userID).";
@@ -63,40 +66,75 @@ class AdminController {
             } catch (Exception $e) {
                 $errors[] = "Error occurred: " . $e->getMessage();
             }
-
         } else {
             $errors[] = "No staff member selected for deletion.";
         }
 
+        // Handle errors
         if (!empty($errors)) {
-            $_SESSION['error'] = $errors; // Convert error array into a string for displaying
+            $_SESSION['error'] = $errors;
         }
 
-        //back to the staff list after delete
+        // Redirect back to the staff list after deletion
         header('Location: /IPass/app/views/Admin/User/displayStaff.php');
         exit();
     }
-    
-    public function editStaff() {
+
+//    public function detailStaff() {
+//        SessionManager::startSession();
+//
+//        if (isset($_GET['id'])) {
+//            $userID = $_GET['id'];
+//
+//            try {
+//                $staffDetails = $this->userFacade->staffSelected($userID);
+//                if ($staffDetails) {
+//                    $_SESSION['staff'] = $staffDetails;
+//
+//                    echo "<pre>";
+//                    print_r($staffDetails);
+//                    echo "/<pre>";
+//
+//                    header('Location: /IPass/app/views/Admin/User/detailStaff.php');
+//                    exit();
+//                } else {
+//                    $_SESSION['error'] = "Staff member (UserID: $userID) not found.";
+//                }
+//            } catch (Exception $e) {
+//                $_SESSION['error'] = "An error occurred: " . $e->getMessage();
+//            }
+//        } else {
+//            $_SESSION['error'] = "No staff member selected.";
+//        }
+//
+//        header('Location: /IPass/app/views/Admin/User/displayStaff.php');
+//        exit();
+//    }
+
+    public function detailStaff() {
         SessionManager::startSession();
-        
-        //fecth staff data base on id
-        if(isset($_GET['id'])) {
+
+        if (isset($_GET['id'])) {
             $userID = $_GET['id'];
-            $staff = $this->userFacade->staffSelected($userID);//get the userID
-            
-            if($staff) {
-                $_SESSION['staff'] = $staff;
-                header('Location: /IPass/app/views/Admin/User/editStaff.php');
-                exit();
-            } else {
-                $_SESSION['error'] = "Staff number (UserID; $userID) not found.";
+
+            try {
+                $staffDetails = $this->userFacade->staffSelected($userID);
+                if ($staffDetails) {
+                    $_SESSION['staff'] = $staffDetails;
+
+                    header('Location: /IPass/app/views/Admin/User/detailStaff.php');
+                    exit();
+                } else {
+                    $_SESSION['error'] = "Staff member (UserID: $userID) not found.";
+                }
+            } catch (Exception $e) {
+                $_SESSION['error'] = "An error occurred: " . $e->getMessage();
             }
         } else {
-            $_SESSION['error'] = "No staff member selected for editing.";
+            $_SESSION['error'] = "No staff member selected.";
         }
-        
-         header('Location: ./IPass/app/views/Admin/User/displayStaff.php');
+
+        header('Location: /IPass/app/views/Admin/User/displayStaff.php');
         exit();
     }
 

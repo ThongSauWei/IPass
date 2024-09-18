@@ -87,16 +87,16 @@ class UserFacade {
     public function getAdminRoleByUserID($userID) {
         return $this->admin->getAdminRoleByUserID($userID);
     }
-    
+
     public function getAllStaff() {
         return $this->admin->displayAllStaff();
     }
-    
-    public function deleteStaff(){
+
+    public function deleteStaff($userID) {
         return $this->admin->deleteStaff($userID);
     }
-    
-    public function staffSelected() {
+
+    public function staffSelected($userID) {
         return $this->admin->staffSelected($userID);
     }
 
@@ -108,7 +108,7 @@ class UserFacade {
         // Update customer-specific details
         $this->customer->updateProfile($userID, $customerData);
     }
-    
+
     public function updateAdminProfile($userID, $userData) { //accuatly just use back and just update user data
         $this->user->updateProfile($userID, $userData);
     }

@@ -54,39 +54,49 @@ class Admin extends User {
     //delete staff
     public function deleteStaff($userID) {
         try {
-            //delete user from admin table
-            $adminDelete = $this->delete()
+            // Admin deletion logic
+            $this->delete()
                     ->where('UserID', $userID)
                     ->execute();
 
-            //go back to `user` table
+            // User deletion logic
             $this->table = 'user';
-            $userDelete = $this->delete()
+            $this->delete()
                     ->where('UserID', $userID)
                     ->execute();
 
-            
-            if ($adminDelete && $userDelete) {
-                return true;
-            } else {
-                throw new Exception('Failed to delete user or staff records.');
-            }
+            return true;  // Return true if both deletions are successful
         } catch (Exception $e) {
-            // Return false if any of the deletion steps fail
-            return false;
+            return false;  // Return false if something goes wrong
         }
     }
 
     public function staffSelected($userID) {
         try {
-            // Fetch staff data from Admin table
-            return $this->findAll(['UserID', 'AdminID', 'AdminRole'])
-                            ->where('UserID', $userID)
-                            ->limit(1)
-                            ->execute();
+            // Fetch staff data from the 'admin' table
+            $staffDetails = $this->findAll(['UserID', 'AdminID', 'AdminRole'])
+                    ->where('UserID', $userID)
+                    ->limit(1)
+                    ->execute();
+
+            // If staff found in 'admin' table
+            if (!empty($staffDetails)) {
+                // Fetch user details from the 'user' table, including ProfileImage
+                $userModel = new User();
+                $userDetails = $userModel->findAll(['Username', 'Email', 'Birthday', 'Gender', 'ProfileImage']) // Include ProfileImage
+                        ->where('UserID', $userID)
+                        ->limit(1)
+                        ->execute();
+
+                // Merge staff and user details if user data is found
+                if (!empty($userDetails)) {
+                    return array_merge($staffDetails[0], $userDetails[0]);
+                }
+            }
+
+            return null;  // Return null if no details are found
         } catch (Exception $e) {
-            throw new Exception('Failed fetching staff by UserID.');
-            return null;
+            throw new Exception('Failed to retrieve staff details: ' . $e->getMessage());
         }
     }
 

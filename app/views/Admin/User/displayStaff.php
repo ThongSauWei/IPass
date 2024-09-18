@@ -16,7 +16,7 @@ unset($_SESSION['success'], $_SESSION['error']); // Ensure the messages are clea
 
 
 <?php
-include_once __DIR__ . '/../header.php';
+include_once __DIR__ . '/../../../../app/views/Admin/header.php';
 ?>
 
 <!-- Begin Page Content -->
@@ -95,10 +95,11 @@ include_once __DIR__ . '/../header.php';
                                     <td><?= isset($staff['Gender']) ? ($staff['Gender'] === 'm' ? 'Male' : ($staff['Gender'] === 'f' ? 'Female' : 'Other')) : 'Other' ?></td>
                                     <td>
                                         <div class="col-md-12 justify-content-between align-items-center" style="margin-right: -18px;">
-                                            <a href="AdminController.php?action=editStaff&id=<?= $staff['UserID'] ?>" class="btn btn-primary btn-sm" style="padding-left: 36px; padding-right: 36px;" >
-                                                <i class="fas fa-edit"></i> Edit
+                                            <a href="<?= ROOT ?>/../app/controllers/AdminController.php?action=detailStaff&id=<?= urlencode($staff['UserID']) ?>" class="btn btn-primary btn-sm" style="padding-left: 36px; padding-right: 36px;">
+                                                <i class="fas fa-edit"></i> View
                                             </a>
-                                            <a href="/IPass/app/controllers/AdminController.php?action=deleteStaff&id=<?= $staff['UserID'] ?>" class="btn btn-danger btn-sm" style="padding-left: 30px; padding-right: 30px; margin-left: 5px;" 
+
+                                            <a href="<?= ROOT ?>/../app/controllers/AdminController.php?action=deleteStaff&id=<?= urlencode($staff['UserID']) ?>"  class="btn btn-danger btn-sm" style="padding-left: 30px; padding-right: 30px; margin-left: 5px;" 
                                                onclick="return confirm('Are you sure you want to delete this staff?')">
                                                 <i class="fas fa-trash"></i> Delete
                                             </a>
