@@ -45,6 +45,52 @@ $mostWantedProducts = $productController->getMostWantedProducts();
         color: #E91E63;
         text-decoration: none;
     }
+
+    //filter dropdown
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .form-label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        color: #333;
+    }
+
+    .form-select {
+        border-radius: 0.25rem;
+        border: 1px solid #ced4da;
+        padding: 0.75rem 1.25rem;
+        font-size: 1rem;
+        color: #495057;
+        background-color: #ffffff;
+    }
+
+    .form-select:focus {
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+    }
+
+    .form-select-sm {
+        font-size: 0.805rem; /* Smaller font size */
+        padding: 0.25rem 0.5rem; /* Less padding */
+        width: 200px; /* Adjust width as needed */
+    }
+
+    .option {
+        padding: 0.5rem 1rem;
+        background-color: #f8f9fa;
+    }
+
+    .option:hover {
+        background-color: #e2e6ea;
+    }
+
+    .option:active {
+        background-color: #dae0e5;
+    }
+
 </style>
 
 <div id="page-content" class="page-content">
