@@ -1,12 +1,5 @@
 <?php
 
-$configPath = dirname(__DIR__) . '/core/config.php';
-if (file_exists($configPath)) {
-    include_once $configPath;
-} else {
-    echo 'Config file not found: ' . $configPath;
-}
-
 require_once __DIR__ . '/../core/SessionManager.php';
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license

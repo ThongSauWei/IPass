@@ -36,6 +36,8 @@ class NewModel {
     
     private $queryType = null;
     
+    private static $duplicateCol = 1;
+    
     public function __construct() {
         $this->db = NewDatabase::getInstance();
     }
@@ -128,8 +130,12 @@ class NewModel {
         
         if (strpos($this->stmts["whereStmt"], "WHERE") === false) {
             $this->stmts["whereStmt"] = " WHERE $column $type :$column";
-        } else {
+        } else if (strpos($this->stmts["whereStmt"], $column) === false) {
             $this->stmts["whereStmt"] .= " AND $column $type :$column";
+        } else {
+            $column .= $this->duplicateCol;
+            $this->stmts["whereStmt"] .= " AND $column $type :$column";
+            $this->duplicateCol++;
         }
         
         $this->binding[$column] = $value;
@@ -140,11 +146,15 @@ class NewModel {
     public function orWhere($column, $value, $type = NewModel::EQUAL) {
         if (strpos($this->stmts['whereStmt'], "WHERE") === false) {
             throw new Exception("Please call the where() first before calling this function");
-        } else {
+        } else if (strpos($this->stmt["whereStmt"], $column) === false) {
             $this->stmts["whereStmt"] .= " OR $column $type :$column";
-            
-            $this->binding[$column] = $value;
+        } else {
+            $column .= $this->duplicateCol;
+            $this->stmts["whereStmt"] .= " OR $column $type :$column";
+            $this->duplicateCol++;
         }
+        
+        $this->binding[$column] = $value;
         
         return $this;
     }
@@ -209,5 +219,6 @@ class NewModel {
         }
         $this->queryType = null;
         $this->binding = [];
+        $this->duplicateCol = 1;
     }
 }
