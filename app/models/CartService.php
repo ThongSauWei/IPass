@@ -13,18 +13,27 @@ class CartService {
     }
     
     public function getCartForCustomer($customerID) {
-        $cartID = $this->cartModel->getCartID($customerID);
+        $cartID = $this->getCartID($customerID);
         return $this->cartItemModel->getCartItems($cartID);
     }
     
     public function updateCart($quantity, $productID, $customerID) {
-        $cartID = $this->cartModel->getCartID($customerID);
+        $cartID = $this->getCartID($customerID);
         return $this->cartItemModel->updateCartItem($quantity, $cartID, $productID);
     }
     
     public function removeCartItem($customerID, $productID) {
-        $cartID = $this->cartModel->getCartID($customerID);
+        $cartID = $this->getCartID($customerID);
         return $this->cartItemModel->removeCartItem($cartID, $productID);
+    }
+    
+    public function clearCart($customerID) {
+        $cartID = $this->getCartID($customerID);
+        return $this->cartItemModel->clearCartItems($cartID);
+    }
+    
+    private function getCartID($customerID) {
+        return $this->cartModel->getCartID($customerID);
     }
 }
 

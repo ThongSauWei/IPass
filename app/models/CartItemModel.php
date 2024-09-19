@@ -20,5 +20,9 @@ class CartItemModel extends NewModel {
     public function removeCartItem($cartID, $productID) {
         $this->delete()->where('ProductID', $productID)->where('CartID', $cartID)->execute();
     }
+    
+    public function clearCartItems($cartID) {
+        $this->delete()->where('CartID', $cartID)->execute();
+    }
 }
 

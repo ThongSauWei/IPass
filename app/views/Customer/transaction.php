@@ -4,7 +4,7 @@ include_once __DIR__ . '/header.php';
 ?>
 <div id="page-content" class="page-content">
     <div class="banner">
-        <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('assets/img/bg-header.jpg');">
+        <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('<?= ROOT ?>/assets/img/bg-header.jpg');">
             <div class="container">
                 <h1 class="pt-5">
                     Your Transactions
@@ -25,45 +25,50 @@ include_once __DIR__ . '/header.php';
                             <thead>
                                 <tr>
                                     <th width="5%"></th>
-                                    <th>Invoice</th>
+                                    <th>Order ID</th>
                                     <th>Date</th>
                                     <th>Total</th>
                                     <th>Status</th>
                                     <th></th>
                                 </tr>
                             </thead>
+                            <?php if (!empty($orderList)): ?>
                             <tbody>
+                                <?php foreach ($orderList as $order): ?>
                                 <tr>
-                                    <td>1</td>
+                                    <td><?= $counter ?></td>
                                     <td>
-                                        AL121N8H2XQB47
+                                        <?= $order["OrderID"] ?>
                                     </td>
                                     <td>
-                                        12-12-2017
+                                        <?= $order["OrderDate"] ?>
                                     </td>
                                     <td>
-                                        Rp 200.000
+                                        <?= number_format($order["PurchasedAmt"] - $order["Discount"] + $order["DeliveryFee"], 2) ?>
                                     </td>
                                     <td>
-                                        Delivered
+                                        <?= $order["Status"] ?>
                                     </td>
                                     <td>
-                                        <button type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#detailModal">
+                                        <button id="btn-<?= $order['OrderID'] ?>" type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#detailModal" data-order-id="<?= $order['OrderID'] ?>">
                                             Detail
                                         </button>
                                     </td>
                                 </tr>
+                                <?php $counter++ ?>
+                                <?php endforeach; ?>
                             </tbody>
+                            <?php endif; ?>
                         </table>
                     </div>
 
                     <nav aria-label="Page navigation">
                         <ul class="pagination justify-content-center">
-                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                            <li class="page-item"><a class="page-link" href="#" data-page="previous">Previous</a></li>
+                            <?php for ($i = 1; $i <= $pageNum; $i++): ?>
+                            <li class="page-item"><a class="page-link" href="#" data-page="<?= $i ?>"><?= $i ?></a></li>
+                            <?php endfor; ?>
+                            <li class="page-item"><a class="page-link" href="#" data-page="next">Next</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -84,7 +89,7 @@ include_once __DIR__ . '/header.php';
                 <div class="modal-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <p>
+                            <p id="billing-details">
                                 <strong>Billing Detail:</strong><br>
                                 Teguh Rianto<br>
                                 Jl. Petani No. 159, Cibabat<br>
@@ -94,13 +99,13 @@ include_once __DIR__ . '/header.php';
                             </p>
                         </div>
                         <div class="col-md-6">
-                            <p>
+                            <p id="payment-method">
                                 <strong>Payment Method:</strong><br>
                                 Direct Transfer to<br>
                                 Bank: BCA<br>
                                 No Rek.: 72133236179
                             </p>
-                            <p>
+                            <p id="payment-date">
                                 <strong>Batas Pembayaran</strong><br>
                                 14-12-2017 17:55 GMT+7
                             </p>
@@ -112,7 +117,7 @@ include_once __DIR__ . '/header.php';
                                 <strong>Your Order:</strong>
                             </p>
                             <div class="table-responsive">
-                                <table class="table">
+                                <table class="table" id="order-details">
                                     <thead>
                                         <tr>
                                             <th>Products</th>
@@ -120,57 +125,8 @@ include_once __DIR__ . '/header.php';
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                Ikan Segar x1
-                                            </td>
-                                            <td class="text-right">
-                                                Rp 30.000
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Sirloin x1
-                                            </td>
-                                            <td class="text-right">
-                                                Rp 120.000
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                Mix Vegetables x1
-                                            </td>
-                                            <td class="text-right">
-                                                Rp 30.000
-                                            </td>
-                                        </tr>
+                                        
                                     </tbody>
-                                    <tfooter>
-                                        <tr>
-                                            <td>
-                                                <strong>Cart Subtotal</strong>
-                                            </td>
-                                            <td class="text-right">
-                                                Rp 180.000
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>Shipping</strong>
-                                            </td>
-                                            <td class="text-right">
-                                                Rp 20.000
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <strong>ORDER TOTAL</strong>
-                                            </td>
-                                            <td class="text-right">
-                                                <strong>Rp 200.000</strong>
-                                            </td>
-                                        </tr>
-                                    </tfooter>
                                 </table>
                             </div>
                         </div>
@@ -183,6 +139,161 @@ include_once __DIR__ . '/header.php';
         </div>
     </div>
 </div>
+<script>
+    
+    var currentPage;
+    
+    document.addEventListener('DOMContentLoaded', function() {
+    const paginationLinks = document.querySelectorAll('.page-link');
+    
+    currentPage = 1;
+
+    paginationLinks.forEach(link => {
+        link.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default link behavior
+
+            // Get the clicked page number from data-page attribute
+            let page = this.getAttribute('data-page');
+            console.log(currentPage);
+            // Handle "Previous" and "Next"
+            if (page === 'previous') {
+                if (currentPage == 1) {
+                    page = currentPage;
+                } else {
+                    page = Number(currentPage) - 1;
+                }
+            } else if (page === 'next') {
+                if (currentPage == <?= $pageNum ?>) {
+                    page = currentPage;
+                } else {
+                    page = Number(currentPage) + 1;
+                }
+            }
+            
+            // Send the page number to the server
+            fetchPageData(page);
+        });
+    });
+});
+
+// Function to send the page number to the server and fetch data
+function fetchPageData(pageNumber) {
+    currentPage = pageNumber;
+    
+    
+            
+    console.log(currentPage);
+    
+    fetch(`../controllers/TransactionController.php?action=getPaginatedOrders&page=${pageNumber}`, {
+        method: 'GET'
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Handle the received data (update the page content)
+        console.log("Data for page ", pageNumber, data);
+        updatePageContent(data); // A function that updates the page content with the new data
+    })
+    .catch(error => console.error('Error fetching page data:', error));
+}
+
+// Example function to update page content (you can modify this according to your needs)
+function updatePageContent(data) {
+    // Update the page with the received data (e.g., replace the list of items)
+    const tbody = document.querySelector('.table tbody');
+            tbody.innerHTML = ''; // Clear the table body
+
+            data.orderList.forEach((order, index) => {
+                const row = `
+                    <tr>
+                        <td>${(currentPage - 1) * data.perPage + index + 1}</td>
+                        <td>${order.OrderID}</td>
+                        <td>${order.OrderDate}</td>
+                        <td>${(Number(order.PurchasedAmt) - Number(order.Discount) + Number(order.DeliveryFee)).toFixed(2)}</td>
+                        <td>${order.Status}</td>
+                        <td>
+                            <button id="btn-${order.OrderID}" type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#detailModal" data-order-id="${order.OrderID}">
+                                Detail
+                            </button>
+                        </td>
+                    </tr>
+                `;
+                tbody.insertAdjacentHTML('beforeend', row);
+            });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const paginationContainer = document.querySelector('.table-responsive'); // or another parent element
+    
+    paginationContainer.addEventListener('click', function(event) {
+        if (event.target && event.target.matches('[data-toggle="modal"]')) {
+            const orderID = event.target.getAttribute('data-order-id');
+            fetchOrderDetails(orderID);
+        }
+    });
+});
+
+function fetchOrderDetails(orderID) {
+    fetch(`../controllers/TransactionController.php?action=getOrderDetails&orderID=${orderID}`, {
+        method: 'GET'
+    })
+    .then(response => response.json())
+    .then(data => {
+        
+        const { orderData, orderDetailsData } = data;
+        // Populate the modal with the fetched details
+        populateModal(orderData, orderDetailsData);
+    })
+    .catch(error => console.error('Error fetching order details:', error));
+}
+
+function populateModal(orderData, orderDetailsData) {
+    const modalBody = document.querySelector('.modal-body');
+    console.log(orderData.DeliveryAddress);
+    const address = orderData.DeliveryAddress.split(',');
+    console.log(address);
+    document.querySelector('#exampleModalLabel').textContent = 'Order ID : ' + orderData.OrderID;
+    modalBody.querySelector('#billing-details').innerHTML = '<strong>Billing Detail:</strong><br>';
+    
+    address.forEach(element => {
+        modalBody.querySelector('#billing-details').innerHTML += element + "<br>";
+    });
+    
+    modalBody.querySelector('#payment-method').innerHTML = '<strong>Payment Method:</strong><br>' + orderData.PaymentType + '<br>';
+    modalBody.querySelector('#payment-date').innerHTML = '<strong>Payment Date</strong><br>' + orderData.OrderDate + '<br>';
+    
+    const orderDetailsTableBody = modalBody.querySelector('#order-details tbody');
+    orderDetailsTableBody.innerHTML = '';
+    
+    orderDetailsData.forEach(item => {
+        const row = `
+            <tr>
+                <td>${item.ProductName} x${item.Quantity}</td>
+                <td class="text-right">RM ${(Number(item.Quantity) * Number(item.UnitPrice) - Number(item.Discount)).toFixed(2)}</td>
+            </tr>
+        `;
+        orderDetailsTableBody.insertAdjacentHTML('beforeend', row);
+    });
+    
+    const totals = `
+        <tr>
+            <td><strong>Cart Subtotal</strong></td>
+            <td class="text-right">RM ${(Number(orderData.PurchasedAmt) - Number(orderData.Discount)).toFixed(2)}</td>
+        </tr>
+        <tr>
+            <td><strong>Shipping</strong></td>
+            <td class="text-right">RM ${Number(orderData.DeliveryFee).toFixed(2)}</td>
+        </tr>
+        <tr>
+            <td><strong>ORDER TOTAL</strong></td>
+            <td class="text-right"><strong>RM ${(Number(orderData.PurchasedAmt) - Number(orderData.Discount) + Number(orderData.DeliveryFee)).toFixed(2)}</strong></td>
+        </tr>
+    `;
+    orderDetailsTableBody.insertAdjacentHTML('beforeend', totals);
+    
+}
+
+
+</script>
 <?php
 include_once __DIR__ . '/footer.php';
 ?>

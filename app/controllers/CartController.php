@@ -1,8 +1,9 @@
 <?php
 
 require_once '../core/SessionManager.php';
+require_once '../models/Customer.php';
 require_once '../models/CartService.php';
-require_once '../models/User.php';
+require_once '../models/Product.php';
 
 class CartController {
     private $cartService;
@@ -15,17 +16,29 @@ class CartController {
         try {
             SessionManager::requireLogin();
             $user = $_SESSION['user'];
+            $userID = $user['UserID'];
+            
+            $customerModel = new Customer();
+            $customer = $customerModel->findCustByUserID($userID);
+            $customerID = $customer["CustomerID"];
 
             $cartItems = $this->cartService->getCartForCustomer($customerID);
-
-            $price = 100;
-            $weight = 150;
+            
+            $productModel = new Product();
 
             foreach ($cartItems as &$cartItem) {
-                $cartItem["Price"] = $price;
-                $cartItem["Weight"] = $weight;
-                $price += 100;
-                $weight += 350;
+                $productID = $cartItem["ProductID"];
+                $product = $productModel->getById($productID);
+                
+                if (true) {
+                    $discount = 0;
+                    $cartItem["PromotionPrice"] = number_format($product[0]["Price"] - $discount, 2);
+                }
+                
+                $cartItem["ProductName"] = $product[0]["ProductName"];
+                $cartItem["Price"] = number_format($product[0]["Price"], 2);
+                $cartItem["Weight"] = number_format($product[0]["Weight"], 0);
+                $cartItem["ProductImage"] = $product[0]["ProductImage"] ?? null;
             }
 
             require dirname(__DIR__, 1) . '/views/Customer/cart.php';
@@ -37,7 +50,14 @@ class CartController {
     public function updateCart() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             try {
-                $customerID = $_SESSION['user'];
+                SessionManager::requireLogin();
+                $user = $_SESSION['user'];
+                $userID = $user['UserID'];
+
+                $customerModel = new Customer();
+                $customer = $customerModel->findCustByUserID($userID);
+                $customerID = $customer["CustomerID"];
+                
                 $cartItems = json_decode(file_get_contents('php://input'), true);
 
                 foreach ($cartItems as $cartItem) {
@@ -55,7 +75,14 @@ class CartController {
     public function removeCartItem() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             try {
-                $customerID = $_SESSION['user'];
+                SessionManager::requireLogin();
+                $user = $_SESSION['user'];
+                $userID = $user['UserID'];
+
+                $customerModel = new Customer();
+                $customer = $customerModel->findCustByUserID($userID);
+                $customerID = $customer["CustomerID"];
+                
                 $productID = $_POST['productID'];
 
                 $this->cartService->removeCartItem($customerID, $productID);
@@ -71,7 +98,9 @@ class CartController {
 
 $controller = new CartController();
 
-$controller->showCart();
+if (isset($_GET['action']) && $_GET['action'] === 'showCart') {
+    $controller->showCart();
+}
 
 if (isset($_GET['action']) && $_GET['action'] === 'updateCart') {
     $controller->updateCart();

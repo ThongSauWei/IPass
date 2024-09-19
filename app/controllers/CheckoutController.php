@@ -1,10 +1,15 @@
 <?php
 
-require_once '../models/CartModel.php';
-require_once '../models/CheckoutModel.php';
+require_once '../core/SessionManager.php';
+require_once '../models/Customer.php';
+require_once '../models/CartService.php';
+require_once '../models/OrderModel.php';
+require_once '../models/Product.php';
+require_once '../models/OrderDetailsModel.php';
+require_once '../dto/OrderDTO.php';
+require_once '../dto/OrderDetailsDTO.php';
 
 class CheckoutController {
-
     private $model;
 
     public function __construct($model) {
@@ -12,33 +17,108 @@ class CheckoutController {
     }
 
     public function showPage() {
-        $customerID = $_SESSION['user'];
+        try {
+            SessionManager::requireLogin();
+            $user = $_SESSION['user'];
+            $userID = $user['UserID'];
+            
+            $customerModel = new Customer();
+            $customer = $customerModel->findCustByUserID($userID);
+            $customerID = $customer["CustomerID"];
 
-        $cartModel = new CartModel();
-        $cartItems = $cartModel->getCart($customerID);
+            $cartService = new CartService();
+            $cartItems = $cartService->getCartForCustomer($customerID);
+            
+            $productModel = new Product();
+            
+            $deliveryFee = 3;
+            $subtotal = 0;
 
-        $price = 100;
-        $deliveryFee = 3;
-        $subtotal = 0;
+            foreach ($cartItems as &$cartItem) {
+                $productID = $cartItem["ProductID"];
+                $product = $productModel->getById($productID);
+                
+                if (false) {
+                    $discount = 0;
+                    $price = number_format($product[0]["Price"] - $discount, 2);
+                } else {
+                    $price = number_format($product[0]["Price"], 2);
+                }
+                
+                $cartItem["Price"] = $price;
+                $subtotal += $price * $cartItem['Quantity'];
+            }
 
-        foreach ($cartItems as &$cartItem) {
-            $cartItem["Price"] = $price;
-            $subtotal += $price * $cartItem['Quantity'];
-            $price += 100;
+            require dirname(__DIR__, 1) . '/views/Customer/checkout.php';
+        } catch (Exception $ex) {
+            echo 'Error: ' . $ex->getMessage();
         }
+    }
 
-        require dirname(__DIR__, 1) . '/views/Customer/checkout.php';
+    public function createOrder() {
+        if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            try {
+                SessionManager::requireLogin();
+                $user = $_SESSION['user'];
+                $userID = $user['UserID'];
+
+                $customerModel = new Customer();
+                $customer = $customerModel->findCustByUserID($userID);
+                $customerID = $customer["CustomerID"];
+
+                $cartService = new CartService();
+                $cartItems = $cartService->getCartForCustomer($customerID);
+
+                $productModel = new Product();
+                $cartTotal = 0;
+
+                $orderID = $this->model->getNewOrderID();
+                $orderDetailsList = [];
+
+                foreach ($cartItems as &$cartItem) {
+                    $productID = $cartItem["ProductID"];
+                    $product = $productModel->getById($productID);
+                    $price = $product[0]["Price"];
+
+                    $orderDetails = new OrderDetailsDTO($orderID, $productID, $price, $cartItem["Quantity"], 0);
+                    $orderDetailsList[] = $orderDetails;
+                    $cartTotal += $price * $cartItem['Quantity'];
+                }
+
+                $jsonObj = json_decode(file_get_contents('php://input'), true);
+                $discount = $cartTotal - (int) $jsonObj["subtotal"];
+                $deliveryFee = $jsonObj["deliveryFee"];
+                $address = $jsonObj["fullAddress"];
+                $paymentMethod = "card";
+
+                $order = new OrderDTO($orderID, $customerID, $cartTotal, $discount, $deliveryFee, date('Y-m-d'), 'Created', $address, $paymentMethod);
+                $this->model->createOrder($order);
+
+                $orderDetailsModel = new OrderDetailsModel();
+
+                foreach ($orderDetailsList as $orderDetails) {
+                    $orderDetailsModel->insertOrderDetails($orderDetails);
+                }
+
+                $cartService->clearCart($customerID);
+                
+                echo json_encode(["ok" => true, "orderID" => "$orderID"]);
+                
+            } catch (Exception $ex) {
+                echo 'Error: ' . $ex->getMessage();
+            }
+        }
     }
 }
 
-$model = new CheckoutModel();
+$model = new OrderModel();
 $controller = new CheckoutController($model);
-
-session_start();
-
-$controller->showPage();
 
 if (isset($_GET['action']) && $_GET['action'] === 'showPage') {
     $controller->showPage();
+}
+
+if (isset($_GET['action']) && $_GET['action'] === 'createOrder') {
+    $controller->createOrder();
 }
 

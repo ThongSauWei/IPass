@@ -116,8 +116,8 @@ if ($isLoggedIn) {
                                                 </div>
                                             </li>
                                             <li class="d-flex justify-content-between pl-3 pr-3 pt-3">
-                                                <a href="cart.php" class="btn btn-default">View Cart</a>
-                                                <a href="checkout.php" class="btn btn-primary">Checkout</a>
+                                                <a href="http://localhost/IPass/app/controllers/CartController.php?action=showCart" class="btn btn-default">View Cart</a>
+                                                <a href="http://localhost/IPass/app/controllers/CheckoutController.php?action=showPage" class="btn btn-primary">Checkout</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -139,4 +139,20 @@ if ($isLoggedIn) {
         <script type="text/javascript" src="<?= ROOT ?>/assets/packages/thumbelina/thumbelina.js"></script>
         <script type="text/javascript" src="<?= ROOT ?>/assets/packages/bootstrap-touchspin/bootstrap-touchspin.js"></script>
         <script type="text/javascript" src="<?= ROOT ?>/assets/js/theme.js"></script>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const navItem = document.querySelectorAll('.nav-item.dropdown').forEach(function (element) {
+                    const dropdownMenu = element.querySelector('.dropdown-menu');
+            
+                    element.addEventListener('mouseenter', function () {
+                        dropdownMenu.classList.add('show');
+                    });
+            
+                    element.addEventListener('mouseleave', function () {
+                        dropdownMenu.classList.remove('show');
+                    });
+                });
+            });
+        </script>
+
 
