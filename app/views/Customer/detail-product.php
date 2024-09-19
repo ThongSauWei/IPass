@@ -41,6 +41,10 @@ if (isset($_GET['currency'])) {
 }
 
 //echo "User ID: " . htmlspecialchars($userID);
+// Determine the current language (default to 'en' for English)
+$currentLanguage = isset($_GET['lang']) ? $_GET['lang'] : 'en';
+$translateTo = $currentLanguage === 'zh' ? 'en' : 'zh';
+$translateText = $currentLanguage === 'zh' ? 'Translate to English' : 'Translate to Chinese';
 
 if (isset($_GET['productID'])) {
     $productID = $_GET['productID'];
@@ -165,10 +169,14 @@ ob_end_flush();
 
                         </div>
                         <div class="col-sm-6">
+                            <strong>Overview</strong><br>
                             <p style="text-align: justify;">
-                                <strong>Overview</strong><br>
-                                <?php echo htmlspecialchars($product['ProductDesc']); ?>
+                                <span id="product-desc"><?php echo htmlspecialchars($product['ProductDesc']); ?></span>
+                                <a href="#" id="translate-link" data-text="<?php echo htmlspecialchars($product['ProductDesc']); ?>" data-lang="<?php echo htmlspecialchars($translateTo); ?>">
+                                    <?php echo htmlspecialchars($translateText); ?>
+                                </a>
                             </p>
+
                             <div class="row">
                                 <div class="col-sm-6">
                                     <!-- Price Section -->
@@ -210,7 +218,6 @@ ob_end_flush();
 // Convert weight to grams
                             $productWeightG = $productController->convertWeight($productWeightKg);
                             ?>
-
 
                             <div class="row">
                                 <div class="col-sm-6">
@@ -358,8 +365,6 @@ ob_end_flush();
                     </div>
                 </div>
             </section>
-
-
         <?php endif; ?>
     <?php endif; ?>
 
@@ -370,11 +375,9 @@ ob_end_flush();
     document.getElementById('weight-unit').addEventListener('change', function () {
         var unit = this.value;
         var weightElement = document.getElementById('product-weight');
-
         // Get the weight values from the PHP code
         var weightKg = <?php echo json_encode($productWeightKg); ?>;
         var weightG = <?php echo json_encode($productWeightG); ?>;
-
         // Update the displayed weight based on the selected unit
         if (unit === 'KG') {
             weightElement.textContent = weightKg + ' kg';
@@ -382,13 +385,58 @@ ob_end_flush();
             weightElement.textContent = weightG + ' g';
         }
     });
-
     //currency
     document.getElementById('currency-select').addEventListener('change', function () {
         var selectedCurrency = this.value;
         // Reload the page with the selected currency
         window.location.href = 'detail-product.php?productID=<?php echo htmlspecialchars($productID); ?>&currency=' + selectedCurrency;
     });
+
+    // Translate
+    document.getElementById('translate-link').addEventListener('click', function (e) {
+        e.preventDefault();
+        var text = this.getAttribute('data-text');
+        var targetLanguage = this.getAttribute('data-lang');
+
+        fetch('../../web/productApi.php?lang=' + targetLanguage, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams({text: text})
+        })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.translatedText) {
+                        var productDescElement = document.getElementById('product-desc');
+                        if (productDescElement) {
+                            // Update only the description, keeping the link intact
+                            productDescElement.textContent = data.translatedText;
+
+                            // Update the link text and target language
+                            var translateLink = document.getElementById('translate-link');
+                            if (translateLink) {
+                                var newLang = targetLanguage === 'zh' ? 'en' : 'zh';
+                                var newText = targetLanguage === 'zh' ? 'Translate to English' : 'Translate to Chinese';
+                                translateLink.textContent = newText;
+                                translateLink.setAttribute('data-lang', newLang);
+                                translateLink.setAttribute('data-text', data.translatedText);  // Update text for the new translation
+                            } else {
+                                console.error('Translation link element not found.');
+                            }
+                        } else {
+                            console.error('Product description element not found.');
+                        }
+                    } else {
+                        alert('Error: ' + (data.error || 'Unknown error'));
+                    }
+                })
+                .catch(error => {
+                    alert('Error: ' + error.message);
+                });
+    });
+
+
 </script>
 
 <?php

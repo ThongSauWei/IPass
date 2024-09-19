@@ -614,53 +614,6 @@ class ProductController {
         return $this->product->getMostOrderedProducts(); // Retrieve the most ordered products
     }
 
-//    //CurrencyAdapter
-//    public function convertCurrency($amount, $fromCurrency, $toCurrency) {
-//        $this->logger->log("handle Currency", "handle", "controller in");
-//        return $this->currencyConverter->convert($amount, $fromCurrency, $toCurrency);
-//    }
-//
-//    public function handleCurrencyConversionRequest() {
-//        // Log the start of handling
-//        $this->logger->log("Currency Conversion Request", "Handling", "Request received");
-//
-//        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['currency'])) {
-//            // Log the incoming POST data for debugging
-//            $this->logger->log("Currency Conversion Request", "POST data", print_r($_POST, true));
-//
-//            $currency = $_POST['currency'];
-//            $originalPrice = isset($_POST['originalPrice']) ? (float) $_POST['originalPrice'] : 0;
-//            $discountedPrice = isset($_POST['discountedPrice']) ? (float) $_POST['discountedPrice'] : null;
-//
-//            // Convert prices using the CurrencyConverterAdapter
-//            $convertedOriginalPrice = $this->convertCurrency($originalPrice, 'MYR', $currency);
-//            $convertedDiscountedPrice = $discountedPrice ? $this->convertCurrency($discountedPrice, 'MYR', $currency) : null;
-//
-//            // Validate that conversion was successful
-//            if ($convertedOriginalPrice === null) {
-//                $this->logger->log("Currency Conversion Request", "Error", "Conversion failed for currency: " . $currency);
-//                echo json_encode(['error' => 'Conversion failed']);
-//                exit;
-//            }
-//
-//            // Prepare the response
-//            $response = [
-//                'originalPrice' => number_format($convertedOriginalPrice, 2),
-//                'discountedPrice' => $convertedDiscountedPrice ? number_format($convertedDiscountedPrice, 2) : null
-//            ];
-//
-//            // Log the response for debugging
-//            $this->logger->log("Currency Conversion Request", "Response", print_r($response, true));
-//
-//            // Send the response as JSON
-//            header('Content-Type: application/json');
-//            echo json_encode($response);
-//            exit;
-//        } else {
-//            $this->logger->log("Currency Conversion Request", "Error", "Invalid request method or missing currency");
-//        }
-//    }
-
     public function convertCurrency($amount, $fromCurrency, $toCurrency) {
         return $this->currencyConverter->convert($amount, $fromCurrency, $toCurrency);
     }
@@ -672,17 +625,6 @@ class ProductController {
 //        return $weightKg;
     }
 
-    // Unit conversion (Kg to Gram)
-//    public function convertKgToGram($kg) {
-//        $converter = new UnitConverterAdapter();
-//        return $converter->convert($kg);
-//    }
-//
-//    // Currency conversion (MYR to another currency)
-//    public function convertCurrency($myr, $exchangeRate) {
-//        $converter = new CurrencyConverterAdapter($exchangeRate);
-//        return $converter->convert($myr);
-//    }
 }
 
 // Initialize the controller

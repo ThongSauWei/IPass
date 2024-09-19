@@ -30,15 +30,14 @@ class CurrencyConverterAdapter implements CurrencyAdapterInterface {
 //            return $amountInMYR * $this->exchangeRates[$toCurrency];
 //        }
 //
-//        return null; // Return null if conversion not possible
+//        return null; 
 //    }
 
     public function convert($amount, $fromCurrency, $toCurrency) {
         if (isset($this->exchangeRates[$fromCurrency]) && isset($this->exchangeRates[$toCurrency])) {
-            // Convert amount to MYR first, then to the target currency
             $amountInMYR = $amount / $this->exchangeRates[$fromCurrency];
             return $amountInMYR * $this->exchangeRates[$toCurrency];
         }
-        return null; // Return null if conversion not possible
+        return null; 
     }
 }
