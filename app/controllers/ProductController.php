@@ -3,7 +3,8 @@
 require_once __DIR__ . '/../models/Product.php'; // Updated path using __DIR__
 //require_once __DIR__ . '/../adapter/ProductInterface.php'; // Updated path using __DIR__
 //require_once __DIR__ . '/../adapter/UnitConverterAdapter.php';
-//require_once __DIR__ . '/../adapter/CurrencyConverterAdapter.php';
+require_once __DIR__ . '/../adapter/CurrencyConverterAdapter.php';
+require_once __DIR__ . '/../adapter/UnitConverterAdapter.php';
 require_once __DIR__ . '/../models/ProductLogger.php';
 require_once __DIR__ . '/../core/SessionManager.php';
 
@@ -12,11 +13,15 @@ class ProductController {
     private $product;
     private $logger;
     private $session;
+    private $currencyConverter;
+    private $weightConverter;
 
     public function __construct() {
         $this->product = new Product([]);
         $this->logger = new ProductLogger();
         $this->session = new SessionManager();
+        $this->currencyConverter = new CurrencyConverterAdapter();
+        $this->weightConverter = new UnitConverterAdapter();
     }
 
     // Handle GET and POST data
@@ -132,7 +137,6 @@ class ProductController {
 //            }
 //        }
 //    }
-
     // ADD PRODUCT(ADMIN)
     public function addProduct($productData) {
         try {
@@ -363,7 +367,6 @@ class ProductController {
                         if (!empty($_POST['existingProductImage'])) {
                             $existingImagePath = __DIR__ . "/../../public/assets/img/ProductImage/" . $_POST['existingProductImage'];
 
-//                            $this->logger->log("old image- $existingImagePath");
                             if (file_exists($existingImagePath)) {
                                 unlink($existingImagePath); // Delete the old image
                             }
@@ -491,7 +494,6 @@ class ProductController {
                         exit;
                     }
                 } else {
-//                    logMessage("Product not found or invalid data: $productID");
                     header('Location: ../views/Admin/Product/displayProduct.php?action=delete&status=not_found');
                     exit;
                 }
@@ -517,22 +519,21 @@ class ProductController {
             $action = $_POST['action'] ?? '';
             $productId = $_POST['productID'] ?? '';
             $quantity = $_POST['quantity'] ?? 1;
-//            $customerId = 'C0001';
-            $userId = $_POST['userid'];  // Get the user ID from the form data
-            $custId = $_POST['custid'];
+
+            // Check if userid and custid are set in POST request
+            $userId = $_POST['userid'] ?? null;  // Use null if not set
+            $custId = $_POST['custid'] ?? null;
+
             // Log the captured userID for debugging (ensure logging does not output directly)
-            $this->logger->log("test", "test", "userid get: $userId");
             // Ensure no output is sent to the browser before checking login
             if ($action === 'addToCart') {
                 if (empty($userId) || $userId == 0) {
                     // If no user is logged in, redirect to login
-//                    $this->logger->log("No user logged in. Redirecting to login page.");
                     // Ensure redirection occurs
                     $this->session->requireLogin();
                     return; // Stop further processing
                 } else {
                     // If user is logged in, proceed to add the product to cart
-//                    $this->logger->log("User is logged in. userID: $userId");
                     return $this->addToCart($productId, $custId, $quantity);
                 }
             } elseif ($action === 'addToWishList') {
@@ -613,17 +614,17 @@ class ProductController {
         return $this->product->getMostOrderedProducts(); // Retrieve the most ordered products
     }
 
-    // Unit conversion (Kg to Gram)
-//    public function convertKgToGram($kg) {
-//        $converter = new UnitConverterAdapter();
-//        return $converter->convert($kg);
-//    }
-//
-//    // Currency conversion (MYR to another currency)
-//    public function convertCurrency($myr, $exchangeRate) {
-//        $converter = new CurrencyConverterAdapter($exchangeRate);
-//        return $converter->convert($myr);
-//    }
+    public function convertCurrency($amount, $fromCurrency, $toCurrency) {
+        return $this->currencyConverter->convert($amount, $fromCurrency, $toCurrency);
+    }
+
+    public function convertWeight($weightKg) {
+//        if ($unit === 'G') {
+            return $this->weightConverter->convertToG($weightKg);
+//        }
+//        return $weightKg;
+    }
+
 }
 
 // Initialize the controller

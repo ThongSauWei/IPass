@@ -287,9 +287,7 @@ class Product extends NewModel {
                 if (!empty($promotionQuery)) {
                     $activePromotion = $promotionQuery[0];
                     break; // Stop once the first active promotion is found
-                } else {
-                    $this->logger->log("Fetch", "Error", "No active promotion for PromotionID: " . $promotionID);
-                }
+                } 
             }
 
             return $activePromotion;
@@ -433,7 +431,6 @@ class Product extends NewModel {
                     ->where('CustomerID', $customerId)
                     ->execute();
 
-            $this->logger->log("CustID", "INFO", "cust ID: $customerId");
             $existingWishlistId = null;
 
             if (!empty($existingWishlist)) {

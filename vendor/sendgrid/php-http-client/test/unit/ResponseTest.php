@@ -2,8 +2,8 @@
 
 namespace SendGrid\Test;
 
-use PHPUnit\Framework\TestCase;
 use SendGrid\Response;
+use PHPUnit\Framework\TestCase;
 
 class ResponseTest extends TestCase
 {
@@ -11,15 +11,15 @@ class ResponseTest extends TestCase
     {
         $response = new Response();
 
-        $this->assertEquals(200, $response->statusCode());
-        $this->assertEquals('', $response->body());
-        $this->assertEquals([], $response->headers());
+        $this->assertAttributeEquals(200, 'statusCode', $response);
+        $this->assertAttributeEquals('', 'body', $response);
+        $this->assertAttributeEquals([], 'headers', $response);
 
         $response = new Response(201, 'test', ['Content-Encoding: gzip']);
 
-        $this->assertEquals(201, $response->statusCode());
-        $this->assertEquals('test', $response->body());
-        $this->assertEquals(['Content-Encoding: gzip'], $response->headers());
+        $this->assertAttributeEquals(201, 'statusCode', $response);
+        $this->assertAttributeEquals('test', 'body', $response);
+        $this->assertAttributeEquals(['Content-Encoding: gzip'], 'headers', $response);
     }
 
     public function testStatusCode()

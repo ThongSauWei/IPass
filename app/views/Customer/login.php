@@ -13,18 +13,6 @@ if(SessionManager::loggedIn()){
 include_once __DIR__ . '/header.php';
 ?>
 
-<!-- Display error messages as alerts -->
-<?php if (isset($_SESSION['error']) && !empty($_SESSION['error'])): ?>
-    <script>
-        let errors = <?php echo json_encode($_SESSION['error']); ?>;
-        errors.forEach(function (error) {
-            alert(error); // Show each error using a JavaScript alert
-        });
-    </script>
-    <?php unset($_SESSION['error']); // Clear errors after displaying ?>
-<?php endif; ?>
-
-    
 <div id="page-content" class="page-content">
     <div class="banner">
         <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('<?= ROOT ?>/assets/img/bg-header.jpg');">
@@ -33,6 +21,38 @@ include_once __DIR__ . '/header.php';
                 <p class="lead">Save time and leave the groceries to us.</p>
                 <div class="card card-login mb-5">
                     <div class="card-body">
+
+                        <!-- Moved alert container inside the card body, above the form -->
+                        <div id="centered-alert-container">
+                            <?php if (isset($_SESSION['error']) && !empty($_SESSION['error'])): ?>
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <?php
+                                    // Check if the error message is an array, and if so, implode it into a string
+                                    if (is_array($_SESSION['error'])) {
+                                        echo implode('<br>', $_SESSION['error']); // Convert array elements into a string with <br> as separator
+                                    } else {
+                                        echo $_SESSION['error']; // If it's a string, display it as-is
+                                    }
+                                    ?>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <?php unset($_SESSION['error']); // Clear errors after displaying ?>
+                            <?php endif; ?>
+
+                            <?php if (isset($_SESSION['success']) && !empty($_SESSION['success'])): ?>
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <?= $_SESSION['success'] ?>
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <?php unset($_SESSION['success']); // Clear success message after displaying ?>
+                            <?php endif; ?>
+                        </div>
+
+                        <!-- Login Form -->
                         <form class="form-horizontal" method="post" action="/IPass/app/controllers/UserController.php?action=login">
                             <div class="form-group row mt-3">
                                 <div class="col-md-12">
@@ -50,7 +70,7 @@ include_once __DIR__ . '/header.php';
                                         <input id="checkbox0" type="checkbox" name="remember">
                                         <label for="checkbox0" class="mb-0"> Remember Me? </label>
                                     </div>
-                                    <a href="views/forgot-password.php" class="text-light"><i class="fa fa-bell"></i> Forgot password?</a>
+                                    <a href="http://localhost/IPass/app/views/Customer/PassRecoverEmail.php" class="text-light"><i class="fa fa-bell"></i> Forgot password?</a>
                                 </div>
                             </div>
                             <div class="form-group row text-center mt-4">
@@ -59,6 +79,7 @@ include_once __DIR__ . '/header.php';
                                 </div>
                             </div>
                         </form>
+
                     </div>
                 </div>
             </div>
@@ -67,3 +88,10 @@ include_once __DIR__ . '/header.php';
 </div>
 
 <?php include_once __DIR__ . '/footer.php'; ?>
+
+<!-- Adjust the alert position to align with the card body -->
+<style>
+    #centered-alert-container {
+        margin-bottom: 20px; /* Space between the alert and the form */
+    }
+</style>

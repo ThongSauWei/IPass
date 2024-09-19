@@ -2,18 +2,18 @@
 
 require_once __DIR__ . '/../models/Wishlist.php';
 require_once __DIR__ . '/../models/Product.php';
-require_once __DIR__ . '/../models/ProductLogger.php';
+//require_once __DIR__ . '/../models/ProductLogger.php';
 
 class WishlistController {
 
     private $wishlist;
     private $product;
-    private $logger;
+//    private $logger;
 
     public function __construct() {
         $this->wishlist = new Wishlist();
         $this->product = new Product();
-        $this->logger = new ProductLogger();
+//        $this->logger = new ProductLogger();
     }
 
     public function showWishlist($customerID) {
@@ -30,9 +30,7 @@ class WishlistController {
                 $quantity = $_POST['quantity'] ?? null;
 
                 if ($wishlistId && $productId && $quantity !== null) {
-                    $this->logger->log("got", "got", "111111");
                     $updated = $this->wishlist->updateWishlistItemQuantity($wishlistId, $productId, (int) $quantity);
-                    $this->logger->log("got", "got", "gottttttttttt");
 
                     if ($updated) {
                         echo json_encode(['success' => true]);

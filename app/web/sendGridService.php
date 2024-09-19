@@ -1,31 +1,55 @@
 <?php
 
-require '../../vendor/autoload.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
 
 use SendGrid\Mail\Mail;
 
 function sendPasswordRecoveryEmail($email, $token) {
-    $emailMessage = new Mail();
-    $emailMessage->setFrom("no-reply@nskgocery.com", "NSK Grogery");
+    $emailMessage = new \SendGrid\Mail\Mail();
+    $emailMessage->setFrom("erika_fung26@outlook.com", "NSK Grocery");
     $emailMessage->setSubject("Password Recovery");
-    
-    //add recipient email
+
+    // Add recipient email
     $emailMessage->addTo($email, "User");
-    
-    $resetLink = "http://localhost/reset-password?token=" . $token;
-    
+
+    // Create the reset link with the token
+    $resetLink = "http://localhost/IPass/app/views/Customer/PassRecoveryNewPass.php?token=" . $token;
+
     $emailMessage->addContent(
-            "text/html",
+        "text/html",
             "<strong>Click the link below to reset your password:</strong><br><a href='$resetLink'>Reset Password</a>"
     );
+
+    $sendgrid = new \SendGrid('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');
+
     
-    $sendgrid = new \SendGrid('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');
-    
-    try{
-        //send email to user and return the status
+    try {
+        // Send the email and get the response
         $response = $sendgrid->send($emailMessage);
-        return $response->statusCode();
-    }catch (Exception $e) {
-        return 'Caught exception: ' . $e->getMessage();
+        
+        // Log the entire response for debugging
+        echo 'Status Code: ' . $response->statusCode() . "\n";
+        echo 'Response Body: ' . $response->body() . "\n";
+        echo 'Response Headers: ' . print_r($response->headers(), true) . "\n";
+        
+        // Check if the email was successfully sent
+        if ($response->statusCode() == 202) {
+            return 202; // Email sent successfully
+        } else {
+            // Log detailed information if there was an error
+            return json_encode([
+                'status' => 'error',
+                'message' => 'Failed to send recovery email. Status: ' . $response->statusCode(),
+                'response_body' => $response->body(),
+                'response_headers' => $response->headers()
+            ]);
+        }
+
+    } catch (Exception $e) {
+        // Catch and return the exception message
+        return json_encode([
+            'status' => 'error',
+            'message' => 'Exception caught: ' . $e->getMessage()
+        ]);
     }
 }

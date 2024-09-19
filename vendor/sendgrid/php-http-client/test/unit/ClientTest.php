@@ -15,7 +15,7 @@ class ClientTest extends TestCase
     /** @var array */
     private $headers;
 
-    protected function setUp(): void
+    protected function setUp()
     {
         $this->host = 'https://localhost:4010';
         $this->headers = [
@@ -27,11 +27,13 @@ class ClientTest extends TestCase
 
     public function testConstructor()
     {
-        $this->assertEquals($this->host, $this->client->getHost());
-        $this->assertEquals($this->headers, $this->client->getHeaders());
-        $this->assertEquals('/v3', $this->client->getVersion());
-        $this->assertEquals([], $this->client->getPath());
-        $this->assertEquals([], $this->client->getCurlOptions());
+        $this->assertAttributeEquals($this->host, 'host', $this->client);
+        $this->assertAttributeEquals($this->headers, 'headers', $this->client);
+        $this->assertAttributeEquals('/v3', 'version', $this->client);
+        $this->assertAttributeEquals([], 'path', $this->client);
+        $this->assertAttributeEquals([], 'curlOptions', $this->client);
+        $this->assertAttributeEquals(false, 'retryOnLimit', $this->client);
+        $this->assertAttributeEquals(['get', 'post', 'patch', 'put', 'delete'], 'methods', $this->client);
     }
 
     public function test_()
@@ -40,47 +42,40 @@ class ClientTest extends TestCase
         $client->setCurlOptions(['foo' => 'bar']);
         $client = $client->_('test');
 
-        $this->assertEquals(['test'], $client->getPath());
-        $this->assertEquals(['foo' => 'bar'], $client->getCurlOptions());
+        $this->assertAttributeEquals(['test'], 'path', $client);
+        $this->assertAttributeEquals(['foo' => 'bar'], 'curlOptions', $client);
     }
 
     public function test__call()
     {
         $client = $this->client->get();
-        $this->assertEquals('https://localhost:4010/v3/', $client->url);
+        $this->assertAttributeEquals('https://localhost:4010/v3/', 'url', $client);
 
         $queryParams = ['limit' => 100, 'offset' => 0];
         $client = $this->client->get(null, $queryParams);
-        $this->assertEquals('https://localhost:4010/v3/?limit=100&offset=0', $client->url);
+        $this->assertAttributeEquals('https://localhost:4010/v3/?limit=100&offset=0', 'url', $client);
 
         $requestBody = ['name' => 'A New Hope'];
         $client = $this->client->get($requestBody);
-        $this->assertEquals($requestBody, $client->requestBody);
+        $this->assertAttributeEquals($requestBody, 'requestBody', $client);
 
         $requestHeaders = ['X-Mock: 200'];
         $client = $this->client->get(null, null, $requestHeaders);
-        $this->assertEquals($requestHeaders, $client->requestHeaders);
+        $this->assertAttributeEquals($requestHeaders, 'requestHeaders', $client);
 
         $client = $this->client->version('/v4');
-        $this->assertEquals('/v4', $client->getVersion());
+        $this->assertAttributeEquals('/v4', 'version', $client);
 
         $client = $this->client->path_to_endpoint();
-        $this->assertEquals(['path_to_endpoint'], $client->getPath());
+        $this->assertAttributeEquals(['path_to_endpoint'], 'path', $client);
         $client = $client->one_more_segment();
-        $this->assertEquals(['path_to_endpoint', 'one_more_segment'], $client->getPath());
+        $this->assertAttributeEquals(['path_to_endpoint', 'one_more_segment'], 'path', $client);
     }
 
     public function testGetHost()
     {
         $client = new Client('https://localhost:4010');
         $this->assertSame('https://localhost:4010', $client->getHost());
-    }
-
-    public function testSetHost()
-    {
-        $client = new Client('https://localhost:4010');
-        $client->setHost("https://api.test.com");
-        $this->assertSame('https://api.test.com', $client->getHost());
     }
 
     public function testGetHeaders()
@@ -217,7 +212,7 @@ class ClientTest extends TestCase
     public function testMakeRequestWithUntrustedRootCert()
     {
         $this->expectException(InvalidRequest::class);
-        $this->expectExceptionMessageMatches('/certificate/i');
+        $this->expectExceptionMessageRegExp('/certificate/i');
 
         $client = new Client('https://untrusted-root.badssl.com/');
         $client->makeRequest('GET', 'https://untrusted-root.badssl.com/');
@@ -228,15 +223,15 @@ class ClientTest extends TestCase
         $client = new Client('https://localhost:4010');
 
         $testParams = [
-            'thing' => 'stuff',
-            'foo' => [
-                'bar',
-                'bat',
-                'baz',
-            ],
+          'thing' => 'stuff',
+          'foo' => [
+            'bar',
+            'bat',
+            'baz',
+          ],
         ];
         $result = $this->callMethod($client, 'buildUrl', [$testParams]);
-        $this->assertEquals('https://localhost:4010/?thing=stuff&foo=bar&foo=bat&foo=baz', $result);
+        $this->assertEquals($result, 'https://localhost:4010/?thing=stuff&foo=bar&foo=bat&foo=baz');
     }
 
     /**

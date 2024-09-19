@@ -90,6 +90,7 @@ class UserController {
                     try {
                         $this->userFacade->registerUser($userData, $customerData);
                         // Redirect to login page after registration
+                        $_SESSION['success'] = "Registration successful. Login now!";
                         header('Location: ../views/Customer/login.php');
                         exit();
                     } catch (Exception $e) {
