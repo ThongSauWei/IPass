@@ -14,15 +14,16 @@ include_once __DIR__ . '/header.php';
 ?>
 
 <!-- Display error messages as alerts -->
-<?php if (isset($_SESSION['errors']) && !empty($_SESSION['errors'])): ?>
+<?php if (isset($_SESSION['error']) && !empty($_SESSION['error'])): ?>
     <script>
-        let errors = <?php echo json_encode($_SESSION['errors']); ?>;
+        let errors = <?php echo json_encode($_SESSION['error']); ?>;
         errors.forEach(function (error) {
             alert(error); // Show each error using a JavaScript alert
         });
     </script>
-    <?php unset($_SESSION['errors']); // Clear errors after displaying ?>
+    <?php unset($_SESSION['error']); // Clear errors after displaying ?>
 <?php endif; ?>
+
     
 <div id="page-content" class="page-content">
     <div class="banner">

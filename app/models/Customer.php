@@ -10,7 +10,92 @@ require_once __DIR__ . '/User.php';
 class Customer extends User {
 
     protected $table = 'customer';
-    
+
+    //admin site CRUD customer
+    //display all customer
+    public function displayAllCustomer() {
+        try {
+            // Get all customer members from the `customer` table
+            $customerList = $this->findAll(['UserID', 'CustomerID', 'CustomerName', 'PhoneNumber' , 'Address', 'Point'])
+                    ->execute();  // Fetch all customers without filtering by `UserID`
+
+            $fullCustomerDetails = [];
+
+            // Loop through each customer record and fetch user details
+            foreach ($customerList as $customer) {
+                $userID = $customer['UserID'];
+
+                // Create a new User model to fetch user details
+                $userModel = new User();
+                $userDetails = $userModel->findAll(['Username', 'Email', 'Birthday', 'Gender', 'isActive'])
+                        ->where('UserID', $userID) // Fetch specific user details based on UserID
+                        ->limit(1) // Fetch only one user with that ID
+                        ->execute();
+
+                // Merge the customer and user details together
+                if (!empty($userDetails)) {
+                    $fullCustomerDetails[] = array_merge($customer, $userDetails[0]);
+                } else {
+                    // If user details are not found, keep the customer info as is
+                    $fullCustomerDetails[] = $customer;
+                }
+            }
+
+            return $fullCustomerDetails;
+        } catch (Exception $e) {
+            throw new Exception('Failed to display customer: ' . $e->getMessage());
+            return []; // Return an empty array on error
+        }
+    }
+
+    public function deleteCustomer($userID) {
+        try {
+            //delete from the customer table
+            $this->delete()
+                    ->where('UserID', $userID)
+                    ->execute();
+
+            //delete from the user table
+            $this->table = 'user';
+            $this->delete()
+                    ->where('UserID', $userID)
+                    ->execute();
+
+            return true;  //return true if both deletions are successful
+        } catch (Exception $e) {
+            return false;  //return false if something goes wrong
+        }
+    }
+
+    public function customerSelected($userID) {
+        try {
+            // Fetch customer data from the 'customer' table
+            $customerDetails = $this->findAll(['UserID', 'CustomerID', 'CustomerName', 'PhoneNumber','Address', 'Point'])
+                    ->where('UserID', $userID)
+                    ->limit(1)
+                    ->execute();
+
+            // If customer found in 'customer' table
+            if (!empty($customerDetails)) {
+                // Fetch user details from the 'user' table, including ProfileImage
+                $userModel = new User();
+                $userDetails = $userModel->findAll(['Username', 'Email', 'Birthday', 'Gender', 'ProfileImage', 'isActive'])
+                        ->where('UserID', $userID)
+                        ->limit(1)
+                        ->execute();
+
+                // Merge customer and user details if user data is found
+                if (!empty($userDetails)) {
+                    return array_merge($customerDetails[0], $userDetails[0]);
+                }
+            }
+
+            return null;  // Return null if no details are found
+        } catch (Exception $e) {
+            throw new Exception('Failed to retrieve customer details: ' . $e->getMessage());
+        }
+    }
+
     public function registerCustomer($data) {
         //insert customer data to customer
         $this->insert($data)->execute();

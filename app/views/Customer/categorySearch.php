@@ -87,19 +87,33 @@
     <!-- Filter Drawer -->
     <div class="drawer" id="filterDrawer" style="display:none; position: fixed; right: 0; top: 0; width: 300px; height: 100%; background-color: #f8f9fa; border-left: 1px solid #ddd; box-shadow: -2px 0 5px rgba(0,0,0,0.1); z-index: 1050; overflow-y: auto;">
         <div class="p-3">
-            <h4>Filter Products</h4>
-            <form method="get" action="">
+            <h4 style="margin-top: 30px;">Filter Products</h4>
+            <form method="get" action="" style="margin-top: 30px;">
                 <!-- Category Filter -->
                 <div class="mb-3">
-                    <label for="category" class="form-label">Category</label>
-                    <select id="category" name="category" class="form-select">
-                        <option value="">All Categories</option>
-                        <?php foreach ($categories as $cat): ?>
-                            <option value="<?php echo htmlspecialchars($cat['Category']); ?>" <?php echo $cat['Category'] == $category ? 'selected' : ''; ?>>
-                                <?php echo htmlspecialchars($cat['Category']); ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
+                    <!--                    <label for="category" class="form-label">Category</label>
+                                        <select id="category" name="category" class="form-select">
+                                            <option value="">All Categories</option>
+                    <?php foreach ($categories as $cat): ?>
+                                                        <option value="<?php echo htmlspecialchars($cat['Category']); ?>" <?php echo $cat['Category'] == $category ? 'selected' : ''; ?>>
+                        <?php echo htmlspecialchars($cat['Category']); ?>
+                                                        </option>
+                    <?php endforeach; ?>
+                                        </select>-->
+
+                    <div class="form-group">
+                        <label for="category" class="form-label">Select Category</label>
+                        <select id="category" name="category" class="form-select form-select-sm">
+                            <option value="">All Categories</option>
+                            <?php foreach ($categories as $cat): ?>
+                                <option value="<?php echo htmlspecialchars($cat['Category']); ?>" <?php echo $cat['Category'] == $category ? 'selected' : ''; ?>>
+                                    <?php echo htmlspecialchars($cat['Category']); ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+
+                    </div>
+
                 </div>
 
                 <!-- Price Range Filter -->
@@ -117,39 +131,38 @@
                 </div>
 
                 <!-- Availability Filter -->
-                <div class="mb-3">
-                    <label for="availability" class="form-label">Availability</label>
-                    <select id="availability" name="availability" class="form-select">
-                        <option value="">All</option>
-                        <option value="1" <?php echo $availability == '1' ? 'selected' : ''; ?>>Available</option>
-                        <option value="0" <?php echo $availability == '0' ? 'selected' : ''; ?>>Unavailable</option>
-                    </select>
-                </div>
+                <!--                <div class="mb-3">
+                                    <label for="availability" class="form-label">Availability</label>
+                                    <select id="availability" name="availability" class="form-select">
+                                        <option value="">All</option>
+                                        <option value="1" <?php echo $availability == '1' ? 'selected' : ''; ?>>Available</option>
+                                        <option value="0" <?php echo $availability == '0' ? 'selected' : ''; ?>>Unavailable</option>
+                                    </select>
+                                </div>-->
 
                 <!-- Buttons -->
-                <button type="submit" class="btn btn-primary">Apply Filters</button>
-                <button type="button" class="btn btn-secondary ms-2" id="closeFilter">Close</button>
+                <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Apply Filters</button>
+                <button type="button" class="btn btn-secondary ms-2" id="closeFilter" style="margin-top: 10px;">Close</button>
             </form>
         </div>
     </div>
-    <!--</div>-->
 
 </div>
 
 <script>
     // Handle cancel icon click
-    document.getElementById('cancelIcon').addEventListener('click', function() {
+    document.getElementById('cancelIcon').addEventListener('click', function () {
         var searchInput = document.querySelector('.search-input');
         searchInput.value = ''; // Clear the input field
         searchInput.focus(); // Optional: focus on the input field after clearing
     });
 
     // Handle input event to show/hide the cancel icon
-    document.querySelector('.search-input').addEventListener('input', function() {
+    document.querySelector('.search-input').addEventListener('input', function () {
         var cancelIcon = document.getElementById('cancelIcon');
         cancelIcon.style.display = this.value ? 'block' : 'none';
     });
-    
+
     //filter drawer
     document.getElementById('filterButton').addEventListener('click', function () {
         document.getElementById('filterDrawer').style.display = 'block';

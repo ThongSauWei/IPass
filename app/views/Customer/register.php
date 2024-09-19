@@ -86,14 +86,14 @@ include_once __DIR__ . '/header.php';
 </div>
 
 <!-- Display error messages as alerts -->
-<?php if (isset($_SESSION['errors']) && !empty($_SESSION['errors'])): ?>
+<?php if (isset($_SESSION['error']) && !empty($_SESSION['error'])): ?>
     <script>
-        let errors = <?php echo json_encode($_SESSION['errors']); ?>;
+        let errors = <?php echo json_encode($_SESSION['error']); ?>;
         errors.forEach(function (error) {
             alert(error); // show each error using a JavaScript alert
         });
     </script>
-    <?php unset($_SESSION['errors']); // clear errors after displaying?>
+    <?php unset($_SESSION['error']); // clear errors after displaying?>
 <?php endif; ?>
     
 <?php

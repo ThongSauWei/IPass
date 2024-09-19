@@ -11,7 +11,7 @@ class User extends NewModel {
     protected $table = 'user';
 
     //get data part
-    
+
     public function findUserByUserID($userID) {
         $result = $this->findAll()
                 ->where('UserID', $userID)
@@ -19,11 +19,11 @@ class User extends NewModel {
                 ->execute();
 
         if (!empty($result)) {
-            return $result[0]; 
+            return $result[0];
         }
         return null; // Return null if no user found
     }
-    
+
     public function findByUsername($username) {
         $result = $this->findAll()
                 ->where('Username', $username)
@@ -53,24 +53,24 @@ class User extends NewModel {
             return null; // If no birthday found, return null
         }
     }
-    
+
     //get the profileImage
     public function getUserProfileImage($userID) {
         $result = $this->findAll()
                 ->where('UserID', $userID)
                 ->limit(1)
                 ->execute();
-                
+
         return $result[0]['ProfileImage'] ?? null; // Returns the profile image path or null
     }
-    
+
     //get user gender
     public function getUserGender($userID) {
         $result = $this->findAll()
                 ->where('UserID', $userID)
                 ->limit(1)
                 ->execute();
-                
+
         return $result[0]['Gender'] ?? null; // Returns 'male', 'female', or 'other' as stored
     }
 
@@ -86,29 +86,27 @@ class User extends NewModel {
         return $this->execute();
     }
 
-    // login register part
+    //login register part
     public function register($data) {
         $data['Password'] = password_hash($data['Password'], PASSWORD_BCRYPT); //hash the password became hashvalue
         $this->insert($data)->execute();
     }
 
     public function login($identity, $password) {
-        //find the username in db exist or not
+        //find the user by username or email
         $resultByUsername = $this->findAll()
                 ->where('Username', $identity)
-                ->limit(1)//only 1 result
+                ->limit(1)
                 ->execute();
 
-        //if no find email
         if (empty($resultByUsername)) {
             $resultByEmail = $this->findAll()
                     ->where('Email', $identity)
                     ->limit(1)
                     ->execute();
 
-            //check if any user was found by email
             if (!empty($resultByEmail)) {
-                $user = $resultByEmail[0]; //first array like first result 0 1234index
+                $user = $resultByEmail[0];
             } else {
                 return false; //no user found by username or email
             }
@@ -116,9 +114,14 @@ class User extends NewModel {
             $user = $resultByUsername[0];
         }
 
-        // If the user was found, verify the password
+        // Check if the user is active
+        if ($user['isActive'] != 1) { //user 1 is active if not equal to 1 deactive
+            return ['error' => 'inactive']; //inactive
+        }
+
+        //if the user was found, verify the password
         if (password_verify($password, $user['Password'])) {
-            return $user; //return user details if the password is correct
+            return $user; //return user details if the password is correct and the user is active
         }
 
         return false; //return false if the password is incorrect
@@ -152,10 +155,14 @@ class User extends NewModel {
 
             return $nextID;
         } catch (Exception $e) {
-
-            error_log('Error generating UserID: ' . $e->getMessage());
-            throw new Exception('Failed to generate UserID. Please try again later.');
+            throw new Exception('Failed to generate UserID.');
         }
+    }
+
+    public function updateStatus($userID, $status) {
+        return $this->update('isActive', $status)
+                        ->where('UserID', $userID)
+                        ->execute();
     }
 
 }

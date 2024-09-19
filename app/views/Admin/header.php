@@ -53,7 +53,7 @@ if ($user) {
             <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 <!-- Sidebar - Brand -->
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.view.php">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= ROOT ?>/../views/Admin/dashboard.view.php">
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                     </div>
@@ -65,7 +65,7 @@ if ($user) {
 
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="dashboard.view.php">
+                    <a class="nav-link" href="<?= ROOT ?>/../views/Admin/dashboard.view.php">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Dashboard</span></a>
                 </li>

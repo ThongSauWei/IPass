@@ -9,8 +9,9 @@ CREATE TABLE User (
     Password VARCHAR(255) NOT NULL,
     Role VARCHAR(50),
     Birthday DATE,
-    Gender CHAR(1),
-    ProfileImage VARCHAR(255)
+    Gender CHAR(1),  
+    ProfileImage VARCHAR(255),
+    isActive BOOLEAN DEFAULT 1
 );
 
 -- Admin Table

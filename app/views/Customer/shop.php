@@ -31,8 +31,10 @@ if ($searchTerm !== '') {
 
 $category = isset($_GET['category']) ? $_GET['category'] : '';
 
-$searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
-var_dump($searchTerm);
+$mostWantedProducts = $productController->getMostWantedProducts();
+
+//$searchTerm = isset($_GET['search']) ? $_GET['search'] : '';
+//var_dump($searchTerm);
 ?>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css">
@@ -43,6 +45,52 @@ var_dump($searchTerm);
         color: #E91E63;
         text-decoration: none;
     }
+
+    <!--filter dropdown-->
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .form-label {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        color: #333;
+    }
+
+    .form-select {
+        border-radius: 0.25rem;
+        border: 1px solid #ced4da;
+        padding: 0.75rem 1.25rem;
+        font-size: 1rem;
+        color: #495057;
+        background-color: #ffffff;
+    }
+
+    .form-select:focus {
+        border-color: #80bdff;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+    }
+
+    .form-select-sm {
+        font-size: 0.805rem; /* Smaller font size */
+        padding: 0.25rem 0.5rem; /* Less padding */
+        width: 200px; /* Adjust width as needed */
+    }
+
+    .option {
+        padding: 0.5rem 1rem;
+        background-color: #f8f9fa;
+    }
+
+    .option:hover {
+        background-color: #e2e6ea;
+    }
+
+    .option:active {
+        background-color: #dae0e5;
+    }
+
 </style>
 
 <div id="page-content" class="page-content">
@@ -63,41 +111,80 @@ var_dump($searchTerm);
         include __DIR__ . '/productCategory.php';
     else:
         ?>
-        <!--most wanted-->
+        <!-- Most Wanted Section -->
         <section id="most-wanted">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <h2 class="title">Most Wanted</h2>
                         <div class="product-carousel owl-carousel">
-                            <!-- Your predefined most wanted products -->
-                            <!-- Example product item starts here -->
-                            <!-- Repeat similar structure for other products -->
-                            <div class="item">
-                                <div class="card card-product">
-                                    <div class="card-ribbon">
-                                        <div class="card-ribbon-container right">
-                                            <span class="ribbon ribbon-primary">SPECIAL</span>
+                            <?php
+// Loop through the products and display them
+                            foreach ($mostWantedProducts as $product):
+                                ?>
+                                <?php
+                                // Fetch price and promotion data
+                                $priceData = $productController->getPriceWithPromotion($product['ProductID']);
+                                $promotion = $productController->hasPromotion($product['ProductID']);
+                                ?>
+                                <div class="item">
+                                    <div class="card card-product">
+                                        <div class="card-ribbon">
+                                            <div class="card-ribbon-container right">
+                                                <span class="ribbon ribbon-warning">TOP SELLER</span>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="card-badge">
-                                        <div class="card-badge-container left">
-                                            <span class="badge badge-default">Until 2018</span>
-                                            <span class="badge badge-primary">20% OFF</span>
+                                        <div class="card-badge">
+                                            <div class="card-badge-container left">
+                                                <!--<span class="badge badge-default" style="background-color: #E91E63; color: white;">Best Seller</span>-->
+                                                <?php if ($promotion): ?>
+                                                    <?php
+                                                    $promotionEndDate = new DateTime($promotion['EndDate']);
+                                                    ?>
+                                                    <span class="badge badge-default" style="color:black;">
+                                                        Until <?php echo $promotionEndDate->format('m/d'); ?>
+                                                    </span>
+                                                    <span class="badge badge-primary">
+                                                        <?php
+                                                        if ($promotion['DiscountType'] === 'Percentage') {
+                                                            echo $promotion['DiscountValue'] . '% OFF';
+                                                        } elseif ($promotion['DiscountType'] === 'Fixed Amount') {
+                                                            echo '- RM ' . number_format($promotion['DiscountValue'], 2);
+                                                        }
+                                                        ?>
+                                                    </span>
+                                                <?php endif; ?>
+                                            </div>
+                                            <a href="detail-product.php?productID=<?php echo htmlspecialchars($product['ProductID']); ?>">
+                                                <img src="../../../public/assets/img/ProductImage/<?php echo htmlspecialchars($product['ProductImage']); ?>" alt="Product Image" width="250" height="250" class="card-img-top">
+                                            </a>
                                         </div>
-                                        <img src="../../../public/assets/img/meats.jpg" alt="Card image 2" class="card-img-top">
-                                    </div>
-                                    <div class="card-body">
-                                        <h4 class="card-title"><a href="detail-product.html">Product Title</a></h4>
-                                        <div class="card-price">
-                                            <span class="discount">Rp. 300.000</span>
-                                            <span class="reguler">Rp. 200.000</span>
+                                        <div class="card-body">
+                                            <h4 class="card-title">
+                                                <a href="detail-product.php?productID=<?php echo htmlspecialchars($product['ProductID']); ?>">
+                                                    <?php echo htmlspecialchars($product['ProductName']); ?>
+                                                </a>
+                                            </h4>
+                                            <div class="card-price">
+                                                <?php if ($priceData['discountedPrice'] !== null): ?>
+                                                    <span class="discount" style="text-decoration: line-through;">
+                                                        RM <?php echo number_format($priceData['originalPrice'], 2); ?>
+                                                    </span>
+                                                    <span class="reguler">
+                                                        RM <?php echo number_format($priceData['discountedPrice'], 2); ?>
+                                                    </span>
+                                                <?php else: ?>
+                                                    <span class="reguler">
+                                                        RM <?php echo number_format($priceData['originalPrice'], 2); ?>
+                                                    </span>
+                                                <?php endif; ?>
+                                            </div>
+                                            <a href="add-to-cart.php?productID=<?php echo htmlspecialchars($product['ProductID']); ?>" class="btn btn-block btn-primary">Add to Cart</a>
                                         </div>
-                                        <a href="detail-product.html" class="btn btn-block btn-primary">Add to Cart</a>
                                     </div>
                                 </div>
-                            </div>
-                            <!-- Example product item ends here -->
+                            <?php endforeach; ?>
+
                         </div>
                     </div>
                 </div>
