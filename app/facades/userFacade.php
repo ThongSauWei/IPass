@@ -28,7 +28,7 @@ class UserFacade {
         if ($userData['Role'] === 'customer') {//if the register is customer, register in customer table
             $this->customer->registerCustomer($customerData);
         } else if ($userData['Role'] === 'admin') {// if the register is admin, register in admin table
-            $this->admin->createAdmin($userData);
+            $this->admin->addAdmin($userData);
         }
     }
 
@@ -56,6 +56,10 @@ class UserFacade {
 
     public function generateCustomerID() {
         return $this->customer->generateCustomerID();
+    }
+    
+    public function generateAdminID() {
+        return $this->admin->generateAdminID();
     }
 
     public function updateUserStatus($userID, $newStatus) {
@@ -98,6 +102,15 @@ class UserFacade {
 
     public function getAllStaff() {
         return $this->admin->displayAllStaff();
+    }
+    
+    public function addStaff() {
+        //register user with role as 'admin' (since staff is a type of admin)
+        $userData['Role'] = 'admin';
+        $this->user->register($userData);
+        
+        //create staff in admin table then AdminRole = staff
+        $this->admin->addAdmin($userData);
     }
 
     public function deleteStaff($userID) {

@@ -21,6 +21,7 @@ if ($user) {
     $profileImage = $userFacade->getUserProfileImage($userID); // Fetch the user's profile image
     $profileImage = $profileImage ? ROOT . $profileImage : ROOT . '/public/assets/img/default-profile.png'; // Use default if no image found
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +54,7 @@ if ($user) {
             <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
                 <!-- Sidebar - Brand -->
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= ROOT ?>/../views/Admin/dashboard.view.php">
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= ROOT ?>/../../app/views/Admin/dashboard.view.php">
                     <div class="sidebar-brand-icon rotate-n-15">
                         <i class="fas fa-laugh-wink"></i>
                     </div>
@@ -65,7 +66,7 @@ if ($user) {
 
                 <!-- Nav Item - Dashboard -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="<?= ROOT ?>/../views/Admin/dashboard.view.php">
+                    <a class="nav-link" href="<?= ROOT ?><?= ROOT ?>/../../app/views/Admin/dashboard.view.php">
                         <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Dashboard</span></a>
                 </li>
@@ -87,13 +88,12 @@ if ($user) {
                             <!-- Staff Section: Only visible to admin -->
                             <?php if (SessionManager::superAdmin()) : ?>
                                 <h6 class="collapse-header">Staff:</h6>
-                                <a class="collapse-item" href="./User/displayStaff.php">Display All Staff</a>
-                                <a class="collapse-item" href="./User/addStaff.php">Create Staff</a>
+                                <a class="collapse-item" href="<?= ROOT ?>/../app/views/Admin/User/displayStaff.php">Display All Staff</a>
+                                <a class="collapse-item" href="<?= ROOT ?>/../app/views/Admin/User/addStaff.php">Create Staff</a>
                                 
                             <?php endif; ?>
                             <h6 class="collapse-header">Customer:</h6>
-                            <a class="collapse-item" href="./User/displayCustomer.php">Display All Customer</a>
-                            <a class="collapse-item" href="./User/addCustomer.php">Create Customer</a>
+                            <a class="collapse-item" href="<?= ROOT ?>/../app/views/Admin/User/displayCustomer.php">Display All Customer</a>
                         </div>
                     </div>
                 </li>
@@ -192,7 +192,7 @@ if ($user) {
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                      aria-labelledby="userDropdown">
-                                    <a class="dropdown-item" href="AdminProfile.php">
+                                    <a class="dropdown-item" href="<?= ROOT ?>/../../app/views/Admin/AdminProfile.php">
                                         <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                         Profile
                                     </a>

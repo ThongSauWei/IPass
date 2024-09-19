@@ -51,6 +51,17 @@ class Admin extends User {
             return []; // Return an empty array on error
         }
     }
+    
+    //add admin
+    public function addAdmin($data) {
+        $adminData = [
+            'AdminID' => $this->generateAdminID(),
+            'UserID' => $data['UserID'],
+            'AdminRole' => 'staff'
+        ];
+        
+        $this->insert($adminData)->execute();
+    }
 
     //delete staff
     public function deleteStaff($userID) {
