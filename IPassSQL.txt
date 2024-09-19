@@ -181,3 +181,5 @@ VALUES
 INSERT INTO Admin (AdminID, UserID, AdminRole)
 VALUES 
 ('A0001', 'U0001', 'superadmin');
+
+ALTER TABLE User ADD isActive BOOLEAN DEFAULT 1;

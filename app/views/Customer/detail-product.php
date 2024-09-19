@@ -6,8 +6,10 @@ require_once __DIR__ . '/../../controllers/ProductController.php';
 require_once __DIR__ . '/../../core/SessionManager.php';
 require_once __DIR__ . '/../../adapter/WeightAdapterInterface.php';
 require_once __DIR__ . '/../../adapter/UnitConverterAdapter.php';
+require_once __DIR__ . '/../../adapter/CurrencyConverterAdapter.php';
 
 $weightConverter = new UnitConverterAdapter();
+$currencyConverter = new CurrencyConverterAdapter();
 
 $productController = new ProductController();
 
@@ -33,6 +35,11 @@ if ($userID) {
     $customerID = $productController->getCustomerIDByUserID($userID);
 }
 
+$selectedCurrency = 'MYR'; // Default currency
+if (isset($_GET['currency'])) {
+    $selectedCurrency = $_GET['currency'];
+}
+
 //echo "User ID: " . htmlspecialchars($userID);
 
 if (isset($_GET['productID'])) {
@@ -53,6 +60,25 @@ if (isset($_GET['productID'])) {
         } else {
             $error = "Product category is not defined.";
         }
+
+        // Convert prices
+        $priceData = $productController->getPriceWithPromotion($productID);
+        $originalPrice = $priceData['originalPrice'];
+        $discountedPrice = $priceData['discountedPrice'];
+
+        $convertedOriginalPrice = $productController->convertCurrency($originalPrice, 'MYR', $selectedCurrency);
+        $convertedDiscountedPrice = $productController->convertCurrency($discountedPrice ?? $originalPrice, 'MYR', $selectedCurrency);
+
+        $currencySymbols = [
+            'MYR' => 'RM ',
+            'USD' => 'USD ',
+            'SGD' => 'SGD ',
+            'CNY' => 'CNY ',
+            'EUR' => 'EUR ',
+            'GBP' => 'GBP '
+        ];
+
+        $currencySymbol = $currencySymbols[$selectedCurrency] ?? 'RM';
     }
 } else {
     $error = "No product ID provided.";
@@ -149,38 +175,30 @@ ob_end_flush();
                                     <p>
                                         <strong>Price</strong>
                                         <br>
-                                        <?php
-                                        // Fetch the price and promotion data
-                                        $priceData = $productController->getPriceWithPromotion($productID);
-
-                                        // Check if there's a promotional price
-                                        if ($priceData['discountedPrice'] !== null) {
-                                            // Display discounted price and original price
-                                            ?>
-                                            <span class="price">
-                                                RM <?php echo number_format($priceData['discountedPrice'], 2); ?>
-                                            </span>
-                                            <span class="old-price" style="text-decoration: line-through;">
-                                                RM <?php echo number_format($priceData['originalPrice'], 2); ?>
-                                            </span>
-                                            <?php
-                                        } else {
-                                            // No promotion, display original price only
-                                            ?>
-                                            <span class="price">
-                                                RM <?php echo number_format($priceData['originalPrice'], 2); ?>
-                                            </span>
-                                            <?php
-                                        }
-                                        ?>
+                                        <span id="price">
+                                            <?php if ($discountedPrice !== null): ?>
+                                                <span id="discounted-price" class="price">
+                                                    <?php echo htmlspecialchars($currencySymbol) . number_format($convertedDiscountedPrice, 2); ?>
+                                                </span>
+                                                <span id="original-price" class="old-price" style="text-decoration: line-through;">
+                                                    <?php echo htmlspecialchars($currencySymbol) . number_format($convertedOriginalPrice, 2); ?>
+                                                </span>
+                                            <?php else: ?>
+                                                <span id="original-price" class="price">
+                                                    <?php echo htmlspecialchars($currencySymbol) . number_format($convertedOriginalPrice, 2); ?>
+                                                </span>
+                                            <?php endif; ?>
+                                        </span>
                                     </p>
                                 </div>
 
                                 <div class="col-sm-6 text-right">
-                                    <select class="form-select d-inline-block" style="width: auto; display: inline;">
-                                        <option value="MYR" selected>MYR</option>
-                                        <option value="SGD">SGD</option>
-                                        <option value="USD">USD</option>
+                                    <select id="currency-select" class="form-select d-inline-block" style="width: auto; display: inline;">
+                                        <option value="MYR" <?php echo $selectedCurrency === 'MYR' ? 'selected' : ''; ?>>MYR</option>
+                                        <option value="USD" <?php echo $selectedCurrency === 'USD' ? 'selected' : ''; ?>>USD</option>
+                                        <option value="SGD" <?php echo $selectedCurrency === 'SGD' ? 'selected' : ''; ?>>SGD</option>
+                                        <option value="CNY" <?php echo $selectedCurrency === 'USD' ? 'selected' : ''; ?>>CNY</option>
+                                        <option value="GBP" <?php echo $selectedCurrency === 'SGD' ? 'selected' : ''; ?>>GBP</option>
                                         <!-- Add more currency options as needed -->
                                     </select>
                                 </div>
@@ -190,7 +208,7 @@ ob_end_flush();
                             // Get product weight from database
                             $productWeightKg = (float) $product['Weight']; // Weight in kg
 // Convert weight to grams
-                            $productWeightG = $weightConverter->convertToG($productWeightKg);
+                            $productWeightG = $productController->convertWeight($productWeightKg);
                             ?>
 
 
@@ -213,9 +231,6 @@ ob_end_flush();
                                     </select>
                                 </div>
                             </div>
-
-
-
 
                             <p>
                                 <strong>Category</strong><br>
@@ -351,6 +366,7 @@ ob_end_flush();
 </div>
 
 <script>
+    //weight
     document.getElementById('weight-unit').addEventListener('change', function () {
         var unit = this.value;
         var weightElement = document.getElementById('product-weight');
@@ -365,6 +381,13 @@ ob_end_flush();
         } else if (unit === 'G') {
             weightElement.textContent = weightG + ' g';
         }
+    });
+
+    //currency
+    document.getElementById('currency-select').addEventListener('change', function () {
+        var selectedCurrency = this.value;
+        // Reload the page with the selected currency
+        window.location.href = 'detail-product.php?productID=<?php echo htmlspecialchars($productID); ?>&currency=' + selectedCurrency;
     });
 </script>
 
