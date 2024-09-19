@@ -37,14 +37,14 @@ include_once 'header.php';
                                     <?php foreach ($cartItems as $item): ?>
                                         <tr id="row-<?= $item['ProductID'] ?>">
                                             <td>
-                                                <img src="../../public/assets/img/fish.jpg" width="60">
+                                                <img src="<?= isset($item["ProductImage"])? $item["ProductImage"] : ROOT . "/assets/img/meats.jpg" ?>" width="60">
                                             </td>
                                             <td>
-                                                <?= $item["ProductID"] ?> <br>
+                                                <?= $item["ProductName"] ?> <br>
                                                 <small><?= $item["Weight"] ?>g</small>
                                             </td>
                                             <td id="price-<?= $item['ProductID'] ?>">
-                                                RM <?= $item['Price'] ?>
+                                                <?= isset($item["PromotionPrice"])? "<del>RM " . $item["Price"] . "</del> <span style='color:rgb(233, 30, 99);'>RM " . $item["PromotionPrice"] . "</span>" : "RM " . $item["Price"] ?>
                                             </td>
                                             <td>
                                                 <input onchange="calculateSubtotal(this, '<?= $item['ProductID'] ?>')" class="vertical-spin" product-id="<?= $item['ProductID'] ?>" type="text" data-bts-button-down-class="btn btn-primary" data-bts-button-up-class="btn btn-primary" value="<?= $item['Quantity'] ?>" name="vertical-spin">
@@ -125,7 +125,15 @@ include_once 'header.php';
 <script>
     function calculateSubtotal(element, productID) {
         let quantity = element.value;
-        let price = parseFloat(document.querySelector('#price-' + productID).textContent.replace(/[^\d.-]/g, ''));
+        let priceTD = document.querySelector('#price-' + productID);
+        let priceElement = priceTD.querySelector('span');
+        
+        var price;
+        if (priceElement) {
+            price = priceElement.textContent.replace(/[^\d.-]/g, '');
+        } else {
+            price = priceTD.textContent.replace(/[^\d.-]/g, '');
+        }
 
         let subtotal = price * quantity;
 

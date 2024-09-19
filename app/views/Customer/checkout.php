@@ -1,9 +1,4 @@
-<?php
-require_once __DIR__ . '/../../core/SessionManager.php';
 
-//ensure user login before check out their things
-SessionManager::requireLogin();
-?>
         <?php
         include_once 'header.php';
         ?>
@@ -135,7 +130,7 @@ SessionManager::requireLogin();
                                             <strong>ORDER TOTAL</strong>
                                         </td>
                                         <td class="text-right">
-                                            <strong>RM <?= number_format($subtotal + $deliveryFee) ?></strong>
+                                            <strong>RM <?= number_format($subtotal + $deliveryFee, 2) ?></strong>
                                         </td>
                                     </tr>
                                 </tfooter>
@@ -210,6 +205,10 @@ SessionManager::requireLogin();
     
     const totalAmount = <?= ($subtotal + $deliveryFee) * 100 ?>;
     
+    const subtotal = <?= $subtotal ?>;
+    const deliveryFee = <?= $deliveryFee ?>;
+    
+    var paymentMethod;
     let element;
     
     initialise();
@@ -238,12 +237,41 @@ SessionManager::requireLogin();
     async function handleSubmit(e) {
         e.preventDefault();
         
-        const { error } = await stripe.confirmPayment({
-            elements,
-            confirmParams: {
-                return_url: "https://localhost/IPass/app/views/complete-checkout.php",
-            },
-        });
+        const address = document.querySelector('textarea[placeholder="Address"]').value;
+        const city = document.querySelector('input[placeholder="Town / City"]').value;
+        const state = document.querySelector('input[placeholder="State / Country"]').value;
+        const zipcode = document.querySelector('input[placeholder="Postcode / Zip"]').value;
+        
+        const fullAddress = address + ', ' + city + ', ' + state + ', ' + zipcode;
+
+        try {
+            const response = await fetch('../controllers/CheckoutController.php?action=createOrder', {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ subtotal, deliveryFee, fullAddress }),
+            });
+            
+            const createOrderResponse = await response.json();
+
+            if (!createOrderResponse.ok) {
+                throw new Error('Failed to create the order.');
+            }
+            
+            const { error } = await stripe.confirmPayment({
+                elements,
+                confirmParams: {
+                    return_url: "http://localhost/IPass/app/controllers/CompleteCheckoutController.php?action=showPage&orderID=" + createOrderResponse.orderID + "&totalAmount=" + (subtotal + deliveryFee),
+                },
+            });
+        
+            if (error) {
+                console.error('Payment error: ', error.message);
+            }
+        } catch (error) {
+            console.error('Error during order creation: ', error);
+        }
     }
 </script>
 <?php
