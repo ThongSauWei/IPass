@@ -1,10 +1,6 @@
 <?php
 
 require_once __DIR__ . '/../core/NewModel.php';
-<<<<<<< HEAD
-require_once __DIR__ . '/../web/sendGridService.php';
-=======
->>>>>>> parent of d2fbf34 (not complete)
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
@@ -15,10 +11,6 @@ class User extends NewModel {
     protected $table = 'user';
 
     //get data part
-<<<<<<< HEAD
-=======
-
->>>>>>> parent of d2fbf34 (not complete)
     public function findUserByUserID($userID) {
         $result = $this->findAll()
                 ->where('UserID', $userID)
@@ -172,7 +164,6 @@ class User extends NewModel {
                         ->execute();
     }
 
-<<<<<<< HEAD
     //password recovery
     public function passwordRecovery($email) {
         // 1. Check if the email exists in the database
@@ -261,6 +252,4 @@ class User extends NewModel {
         ];
     }
 
-=======
->>>>>>> parent of d2fbf34 (not complete)
 }
