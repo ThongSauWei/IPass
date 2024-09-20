@@ -20,7 +20,7 @@ function sendPasswordRecoveryEmail($email, $token) {
             "<strong>Click the link below to reset your password:</strong><br><a href='$resetLink'>Reset Password</a>"
     );
 
-    $sendgrid = new \SendGrid('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');
+    $sendgrid = new \SendGrid('');
 
     
     try {
