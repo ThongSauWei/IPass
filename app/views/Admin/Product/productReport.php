@@ -10,7 +10,7 @@
 </head>
 <body>
 <h1>Available Products Report</h1>
-<p><strong>Report Generated On:</strong>2024-09-20 14:04:24</p>
+<p><strong>Report Generated On:</strong>2024-09-20 21:04:45</p>
 <table>
 <tr>
 <th>Product ID</th>
@@ -36,7 +36,7 @@
 <tr>
 <td>P0003</td>
 <td>Blueberry</td>
-<td>Fruit</td>
+<td>testextra</td>
 <td>9.90</td>
 <td>1.25</td>
 </tr>
@@ -75,57 +75,15 @@
 <td>69.00</td>
 <td>1.00</td>
 </tr>
-<tr>
-<td>P0011</td>
-<td>heyhey</td>
-<td>heybro</td>
-<td>1.00</td>
-<td>1.00</td>
-</tr>
-<tr>
-<td>P0012</td>
-<td>xxxxxxx</td>
-<td>Meat</td>
-<td>1.00</td>
-<td>1.00</td>
-</tr>
-<tr>
-<td>P0013</td>
-<td>66</td>
-<td>Fruit</td>
-<td>5.00</td>
-<td>1.00</td>
-</tr>
-<tr>
-<td>P0014</td>
-<td>oooo</td>
-<td>Meat</td>
-<td>1.00</td>
-<td>2.00</td>
-</tr>
-<tr>
-<td>P0015</td>
-<td>222</td>
-<td>Meat</td>
-<td>2.00</td>
-<td>2.00</td>
-</tr>
-<tr>
-<td>P0016</td>
-<td>1</td>
-<td>testextra</td>
-<td>1.00</td>
-<td>1.00</td>
-</tr>
 <tr><td colspan="5">
-<strong>Total Products Found:</strong>14</td></tr>
+<strong>Total Products Found:</strong>8</td></tr>
 <tr><td colspan="5">
-<strong>Total Categories Found:</strong>6<br><strong>Categories:</strong>Meat, Fruit, Vegetable, Fish, heybro, testextra</td></tr>
+<strong>Total Categories Found:</strong>4<br><strong>Categories:</strong>Meat, testextra, Vegetable, Fish</td></tr>
 <tr><td colspan="5">
 <strong>Highest Price:</strong>69<strong> (Product: </strong>Giant Dragon Tiger Grouper<strong>)</strong>
 </td></tr>
 <tr><td colspan="5">
-<strong>Lowest Price:</strong>1<strong> (Product: </strong>heyhey<strong>)</strong>
+<strong>Lowest Price:</strong>2.2<strong> (Product: </strong>Red Chili Padi (Thailand) <strong>)</strong>
 </td></tr>
 </table>
 </body>

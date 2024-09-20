@@ -53,7 +53,7 @@ include_once __DIR__ . '/../../../../app/views/Admin/header.php';
         </div>
     <?php endif; ?>
 
-    <a href="http://localhost/IPass/app/views/Admin/User/addStaff.php" class="btn btn-success" style="margin-bottom: 10px">
+    <a href="http://localhost/IPass/app/views/Admin/User/addStaff.php" class="btn btn-info" style="margin-bottom: 10px">
         <i class="fas fa-pen"></i> ADD STAFF
     </a>
 

@@ -1,17 +1,18 @@
 <?php
-// Load the required models from the correct path
-require_once __DIR__ . '/../../../../models/User.php';
-require_once __DIR__ . '/../../../../models/Customer.php';
+require_once __DIR__ . '/../../../../facades/UserFacade.php';
+require_once __DIR__ . '/XSLTransformation.php'; // Ensure this path is correct
 
-// Assume you have a Customer class that queries the DB
-$customerModel = new Customer();
-$customers = $customerModel->displayAllCustomer(); // Fetch data from DB
+// Fetch current date and time in Kuala Lumpur
+$currentDateTime = (new DateTime('now', new DateTimeZone('Asia/Kuala_Lumpur')))->format('Y-m-d H:i:s');
 
-// Create a new XML document
+// Generate XML dynamically
+$userFacade = new UserFacade();
+$customers = $userFacade->getAllCustomers(); // Fetch customers from the database
+
+// Create XML content dynamically
 $xml = new DOMDocument('1.0', 'UTF-8');
 $root = $xml->createElement('customers');
 
-// Loop through the database results and build the XML structure
 foreach ($customers as $customer) {
     $customerNode = $xml->createElement('customer');
 
@@ -27,7 +28,7 @@ foreach ($customers as $customer) {
     $email = $xml->createElement('Email', $customer['Email']);
     $customerNode->appendChild($email);
 
-    $gender = $xml->createElement('Gender', $customer['Gender']);
+    $gender = $xml->createElement('Gender', $customer['Gender'] == 'm' ? 'Male' : 'Female');
     $customerNode->appendChild($gender);
 
     $phone = $xml->createElement('Phone', $customer['PhoneNumber']);
@@ -36,15 +37,20 @@ foreach ($customers as $customer) {
     $registrationDate = $xml->createElement('RegistrationDate', $customer['RegistrationDate']);
     $customerNode->appendChild($registrationDate);
 
-    // Add the customer node to the root (customers)
     $root->appendChild($customerNode);
 }
 
-// Add the root node to the document
 $xml->appendChild($root);
 
-// Save the XML to a file
-$xml->save(__DIR__ . '/customers.xml'); // Save the generated XML
+// Save XML file
+$xmlFilePath = __DIR__ . '/customers.xml';
+$xml->save($xmlFilePath);
 
-// Optional: Notify when the file has been successfully generated
-echo "XML generated successfully!";
+// Apply XSL Transformation
+$xslFilePath = __DIR__ . '/customerReport.xsl';
+$transformer = new XSLTransformation();
+$htmlContent = $transformer->transformWithXsl($xmlFilePath, $xslFilePath, $currentDateTime);
+
+// Output HTML
+echo $htmlContent;
+?>

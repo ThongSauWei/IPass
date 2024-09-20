@@ -34,7 +34,7 @@ class Customer extends NewModel {
 
                 // Create a new User model to fetch user details
                 $userModel = new User();
-                $userDetails = $userModel->findAll(['Username', 'Email', 'Birthday', 'Gender', 'isActive'])
+                $userDetails = $userModel->findAll(['Username', 'Email', 'Birthday', 'Gender', 'isActive','RegistrationDate'])
                         ->where('UserID', $userID) // Fetch specific user details based on UserID
                         ->limit(1) // Fetch only one user with that ID
                         ->execute();
