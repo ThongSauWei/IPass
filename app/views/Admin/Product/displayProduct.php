@@ -4,20 +4,66 @@ include_once __DIR__ . '/../../../../app/views/Admin/header.php';
 
 <style>
     .table-hover tbody tr:hover {
-        background-color: #f1f1f1; 
+        background-color: #f1f1f1;
         cursor: pointer;
     }
 </style>
 
 <?php
 require_once __DIR__ . '/../../../controllers/ProductController.php';
+require_once __DIR__ . '/XSLTransformation.php';
 
 $productController = new ProductController();
 
-$products = $productController->getAllProducts();
+
 
 // Get categories for dropdown (for the filter form)
 $categories = $productController->getCategoriesArray();
+
+$products = $productController->getAllProducts();
+// Generate the XML file for available products
+$xmlFilePath = __DIR__ . '/productReport.xml';
+$xslFilePath = __DIR__ . '/productReport.xsl';
+
+// Create a new SimpleXMLElement
+$xml = new SimpleXMLElement('<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="productReport.xsl"?>
+<Report/>'); // Change to <Report> to match the XSLT structure
+
+// Add the current date and time
+//$xml->addChild('GeneratedDateTime', date('Y-m-d\TH:i:s'));
+
+// Add only available products
+foreach ($products as $product) {
+//    if ($product['Availability'] == 1) { // Uncomment this line to filter by availability
+        $productXML = $xml->addChild('Product');
+        $productXML->addChild('ProductID', htmlspecialchars($product['ProductID']));
+        $productXML->addChild('ProductName', htmlspecialchars($product['ProductName']));
+        $productXML->addChild('Category', htmlspecialchars($product['Category']));
+        $productXML->addChild('Price', htmlspecialchars($product['Price']));
+        $productXML->addChild('Weight', htmlspecialchars($product['Weight']));
+        $productXML->addChild('Availability', htmlspecialchars($product['Availability']));
+//    }
+}
+
+// Save XML file
+$xml->asXML($xmlFilePath);
+
+// Get current date and time
+$currentDateTime = date('Y-m-d H:i:s');
+
+// Initialize the XSLT transformation
+$xslt = new XSLTransformation();
+$transformedHtml = $xslt->transformWithXsl($xmlFilePath, $xslFilePath, $currentDateTime);
+
+
+$htmlFilePath = __DIR__ . '/productReport.php';
+// Check if there was an error with the transformation
+if (strpos($transformedHtml, 'Error') === false) {
+    file_put_contents($htmlFilePath, $transformedHtml); // Output the transformed HTML (Product Report)
+} else {
+    echo '<div class="alert alert-danger">' . htmlspecialchars($transformedHtml) . '</div>';
+}
 ?>
 
 <!-- Begin Page Content -->
@@ -72,6 +118,10 @@ $categories = $productController->getCategoriesArray();
         Add Product
     </a>
 
+    <!-- Print Button in the UI -->
+    <a href="javascript:void(0);" class="btn btn-info" onclick="printReport()" style="margin-top: -16px; margin-left: 6px;">Report PDF</a>
+
+
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
@@ -89,7 +139,7 @@ $categories = $productController->getCategoriesArray();
                             <th>Price</th>
                             <th>Weight</th>
                             <th>Availability</th>
-                            <th>Action</th>
+                            <th width='20%'>Action</th>
                         </tr>
                     </thead>
                     <tfoot>
@@ -177,6 +227,14 @@ $categories = $productController->getCategoriesArray();
 <!-- Bootstrap JS and dependencies -->
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+<script>
+    function printReport() {
+        const reportWindow = window.open('<?php echo 'productReport.php'; ?>'); 
+        reportWindow.onload = function () {
+            reportWindow.print();
+        };
+    }
+</script>
 <?php
 include_once __DIR__ . '/../../../../app/views/Admin/footer.php';
 ?>
