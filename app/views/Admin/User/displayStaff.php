@@ -53,6 +53,10 @@ include_once __DIR__ . '/../../../../app/views/Admin/header.php';
         </div>
     <?php endif; ?>
 
+    <a href="http://localhost/IPass/app/views/Admin/User/addStaff.php" class="btn btn-success" style="margin-bottom: 10px">
+        <i class="fas fa-pen"></i> ADD STAFF
+    </a>
+
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">

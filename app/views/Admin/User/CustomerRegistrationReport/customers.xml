@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<customers>
+    <customer>
+        <UserID>U0001</UserID>
+        <CustomerID>C0001</CustomerID>
+        <Username>Sau Wei</Username>
+        <Email>sauwei@example.com</Email>
+        <Gender>Female</Gender>
+        <Phone>0123456789</Phone>
+        <RegistrationDate>2024-09-20 12:34:56</RegistrationDate>
+    </customer>
+    <customer>
+        <UserID>U0002</UserID>
+        <CustomerID>C0002</CustomerID>
+        <Username>Erika</Username>
+        <Email>erika@example.com</Email>
+        <Gender>Female</Gender>
+        <Phone>0123456789</Phone>
+        <RegistrationDate>2024-09-20 12:34:56</RegistrationDate>
+    </customer>
+    <!-- more customers here -->
+</customers>

@@ -89,6 +89,11 @@ class User extends NewModel {
     //login register part
     public function register($data) {
         $data['Password'] = password_hash($data['Password'], PASSWORD_BCRYPT); //hash the password became hashvalue
+
+        $kualaLumpurTime = new DateTime('now', new DateTimeZone('Asia/Kuala_Lumpur'));
+        $currentDateTime = $kualaLumpurTime->format('Y-m-d H:i:s');
+
+        $data['RegistrationDate'] = $currentDateTime; //auto insert the current date
         $this->insert($data)->execute();
     }
 
