@@ -397,8 +397,10 @@ ob_end_flush();
         e.preventDefault();
         var text = this.getAttribute('data-text');
         var targetLanguage = this.getAttribute('data-lang');
+        
+        alert("test");
 
-        fetch('../../web/productApi.php?lang=' + targetLanguage, {
+        fetch('../../controllers/ProductController.php?action=translate&lang=' + targetLanguage, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
@@ -408,33 +410,26 @@ ob_end_flush();
                 .then(response => response.json())
                 .then(data => {
                     if (data.translatedText) {
-                        var productDescElement = document.getElementById('product-desc');
-                        if (productDescElement) {
-                            // Update only the description, keeping the link intact
-                            productDescElement.textContent = data.translatedText;
-
-                            // Update the link text and target language
-                            var translateLink = document.getElementById('translate-link');
-                            if (translateLink) {
-                                var newLang = targetLanguage === 'zh' ? 'en' : 'zh';
-                                var newText = targetLanguage === 'zh' ? 'Translate to English' : 'Translate to Chinese';
-                                translateLink.textContent = newText;
-                                translateLink.setAttribute('data-lang', newLang);
-                                translateLink.setAttribute('data-text', data.translatedText);  // Update text for the new translation
-                            } else {
-                                console.error('Translation link element not found.');
-                            }
-                        } else {
-                            console.error('Product description element not found.');
-                        }
+                        alert("testin");
+                        document.getElementById('product-desc').textContent = data.translatedText;
+                        // Update translation link
+                        var translateLink = document.getElementById('translate-link');
+                        var newLang = targetLanguage === 'zh' ? 'en' : 'zh';
+                        var newText = targetLanguage === 'zh' ? 'Translate to English' : 'Translate to Chinese';
+                        translateLink.textContent = newText;
+                        translateLink.setAttribute('data-lang', newLang);
+                        translateLink.setAttribute('data-text', data.translatedText);
                     } else {
+                        alert("test1");
                         alert('Error: ' + (data.error || 'Unknown error'));
                     }
                 })
                 .catch(error => {
+                    alert("test2");
                     alert('Error: ' + error.message);
                 });
     });
+
 
 
 </script>

@@ -1,15 +1,12 @@
 <?php
 
 require_once __DIR__ . '/../models/Product.php'; // Updated path using __DIR__
-//require_once __DIR__ . '/../adapter/ProductInterface.php'; // Updated path using __DIR__
-//require_once __DIR__ . '/../adapter/UnitConverterAdapter.php';
 require_once __DIR__ . '/../adapter/CurrencyConverterAdapter.php';
 require_once __DIR__ . '/../adapter/UnitConverterAdapter.php';
 require_once __DIR__ . '/../models/ProductLogger.php';
 require_once __DIR__ . '/../core/SessionManager.php';
 
 class ProductController {
-
     private $product;
     private $logger;
     private $session;
@@ -54,6 +51,21 @@ class ProductController {
 
         if (isset($_GET['action']) && $_GET['action'] === 'deleteProduct') {
             $this->deleteProduct($_POST);
+        }
+
+        if (isset($_GET['action']) && $_GET['action'] === 'translate') {
+            $this->logger->log("translate", "Error", "translate in");
+            $text = $_POST['text'] ?? '';
+            $targetLanguage = $_GET['lang'] ?? 'zh';
+
+            if (!empty($text)) {
+                $productController = new ProductController();
+                $result = $productController->translateText($text, $targetLanguage);
+                echo json_encode($result);
+            } else {
+                echo json_encode(['error' => 'No text provided']);
+            }
+            exit;
         }
     }
 
@@ -186,7 +198,7 @@ class ProductController {
                 // Check if $uploadOk is set to 0 by an error
                 if ($uploadOk == 0) {
                     // Redirect with error message
-                    header('Location: productList.php?action=add&status=file_error&message=' . urlencode($errorMessage));
+                    header('Location: ../views/Admin/Product/displayProduct.php?action=add&status=file_error&message=' . urlencode($errorMessage));
                     exit();
                 } else {
                     if (move_uploaded_file($_FILES["ProductImage"]["tmp_name"], $targetFile)) {
@@ -620,9 +632,39 @@ class ProductController {
 
     public function convertWeight($weightKg) {
 //        if ($unit === 'G') {
-            return $this->weightConverter->convertToG($weightKg);
+        return $this->weightConverter->convertToG($weightKg);
 //        }
 //        return $weightKg;
+    }
+
+    public function translateText($text, $targetLanguage) {
+//        $this->logger->log("translate", "Error", "translate inin");
+
+        // Use the absolute URL
+        $url = 'http://localhost/IPass/app/web/productApi.php?lang=' . urlencode($targetLanguage);
+        $curl = curl_init();
+
+        curl_setopt_array($curl, [
+            CURLOPT_URL => $url,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => http_build_query(['text' => $text]),
+            CURLOPT_HTTPHEADER => [
+                "Content-Type: application/x-www-form-urlencoded",
+            ],
+        ]);
+
+        $result = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
+
+//        $this->logger->log("translate", "Error", "translate ininin result: " . ($result ?: "cURL Error: $err"));
+
+        if ($err) {
+            return ['error' => 'cURL Error: ' . $err];
+        }
+
+        return json_decode($result, true);
     }
 
 }
