@@ -1,10 +1,6 @@
 {
     "require": {
-<<<<<<< HEAD
         "stripe/stripe-php": "^15.9",
-        "sendgrid/sendgrid": "~7"
-=======
-        "stripe/stripe-php": "^15.9"
->>>>>>> parent of d2fbf34 (not complete)
+        "sendgrid/sendgrid": "^8.1"
     }
 }

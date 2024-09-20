@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../core/NewModel.php';
+require_once __DIR__ . '/../web/sendGridService.php'; // Adjust the path as needed
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template

@@ -35,7 +35,6 @@ class PassRecoveryController {
     // Password recovery action
     public function PasswordRecovery() {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            session_start(); // Start session to store errors
             $errors = []; // Initialize error array
 
             $email = isset($_POST['email']) ? $_POST['email'] : null;
