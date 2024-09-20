@@ -133,6 +133,10 @@ class UserFacade {
     public function customerSelected($userID) {
         return $this->customer->customerSelected($userID);
     }
+    
+    public function findCustByCustID($customerID){
+        return $this->customer->findCustByCustID($customerID);
+    }
 
     //profile part
     public function updateProfile($userID, $userData, $customerData) {
