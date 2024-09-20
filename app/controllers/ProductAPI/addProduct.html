@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Add Product</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 10px;
+                background-color: #f8f9fa;
+                font-size: 14px; /* Smaller font size */
+                /*padding:10px 10px 10px 10px;*/
+                padding-left: 46px;
+                padding-right: 46px;
+            }
+
+            h2 {
+                color: #343a40;
+                margin-bottom: 10px; /* Reduced margin */
+            }
+
+            form {
+                background-color: #ffffff;
+                padding: 15px; /* Less padding */
+                border-radius: 5px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+                margin-bottom: 15px; /* Less margin */
+            }
+
+            label {
+                display: block;
+                margin: 5px 0; /* Reduced margin */
+            }
+
+            input[type="text"],
+            input[type="number"],
+            textarea {
+                width: calc(100% - 18px); /* Adjusted width */
+                padding: 8px; /* Reduced padding */
+                border: 1px solid #ced4da;
+                border-radius: 3px; /* Slightly smaller radius */
+                margin-bottom: 8px; /* Less margin */
+                font-size: 14px; /* Smaller font size */
+            }
+
+            button {
+                background-color: #87C4FD;
+                color: white;
+                border: none;
+                padding: 8px 12px; /* Smaller padding */
+                border-radius: 3px; /* Smaller radius */
+                cursor: pointer;
+                font-size: 14px; /* Smaller font size */
+                margin-right: 10px;
+            }
+
+            button:hover {
+                background-color: #0056b3;
+            }
+
+            #result {
+                margin: 5px 0; /* Less margin */
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 15px; /* Reduced margin */
+            }
+
+            th, td {
+                border: 1px solid #dee2e6;
+                padding: 8px; /* Smaller padding */
+                text-align: left;
+                font-size: 14px; /* Smaller font size */
+            }
+
+            th {
+                background-color: #3C99DC;
+                color: white;
+            }
+
+            tr:hover {
+                background-color: #f1f1f1;
+            }
+
+            .action-buttons {
+                display: flex;
+                gap: 5px; /* Reduced gap */
+            }
+
+            .action-buttons button {
+                padding: 5px 8px; /* Smaller padding */
+            }
+
+            #updateFormContainer {
+                background-color: #ffffff;
+                padding: 15px; /* Less padding */
+                border-radius: 5px;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            }
+
+            #container{
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+        </style>
+    </head>
+
+
+    <body>
+        <div id="container">
+            <h2>Add New Product</h2>
+            <form id="productForm">
+                <label for="productName">Product Name:</label>
+                <input type="text" id="productName" name="productName" required>
+
+                <label for="productDesc">Product Description:</label>
+                <textarea id="productDesc" name="productDesc" required></textarea>
+
+                <label for="category">Category:</label>
+                <input type="text" id="category" name="category" required>
+
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" step="0.01" required>
+
+                <label for="weight">Weight:</label>
+                <input type="number" id="weight" name="weight" step="0.01" required>
+
+                <label for="productImage">Product Image URL:</label>
+                <input type="text" id="productImage" name="productImage" required>
+
+                <label for="availability">Availability:</label>
+                <input type="number" id="availability" name="availability" min="0" max="1" required>
+
+                <button type="submit">Add Product</button>
+            </form>
+        </div>
+
+        <div id="result"></div>
+
+        <h2>Product List</h2>
+        <table id="productTable">
+            <thead>
+                <tr>
+                    <th>Product ID</th>
+                    <th>Product Name</th>
+                    <th>Description</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th>Weight</th>
+                    <th>Availability</th>
+                    <th style="width: 14%;">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Product rows will be inserted here -->
+            </tbody>
+        </table>
+
+        <div id="updateFormContainer" style="display:none;">
+            <h2>Update Product</h2>
+            <form id="updateForm">
+                <input type="hidden" id="updateProductId" name="productId">
+                <label for="updateProductName">Product Name:</label>
+                <input type="text" id="updateProductName" name="productName" required>
+
+                <label for="updateProductDesc">Product Description:</label>
+                <textarea id="updateProductDesc" name="productDesc" required></textarea>
+
+                <label for="updateCategory">Category:</label>
+                <input type="text" id="updateCategory" name="category" required>
+
+                <label for="updatePrice">Price:</label>
+                <input type="number" id="updatePrice" name="price" step="0.01" required>
+
+                <label for="updateWeight">Weight:</label>
+                <input type="number" id="updateWeight" name="weight" step="0.01" required>
+
+                <label for="updateProductImage">Product Image URL:</label>
+                <input type="text" id="updateProductImage" name="productImage" required>
+
+                <label for="updateAvailability">Availability:</label>
+                <input type="number" id="updateAvailability" name="availability" min="0" max="1" required>
+
+                <button type="submit">Update Product</button>
+            </form>
+        </div>
+
+        <script>
+            document.getElementById('productForm').addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                const productData = {
+                    ProductName: document.getElementById('productName').value,
+                    ProductDesc: document.getElementById('productDesc').value,
+                    Category: document.getElementById('category').value,
+                    Price: parseFloat(document.getElementById('price').value),
+                    Weight: parseFloat(document.getElementById('weight').value),
+                    ProductImage: document.getElementById('productImage').value,
+                    Availability: parseInt(document.getElementById('availability').value)
+                };
+
+                try {
+                    const response = await fetch('http://localhost/IPass/app/controllers/ProductAPI/api.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(productData)
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok) {
+                        document.getElementById('result').innerHTML = `<p style="color:green;">${result.message}</p>`;
+                        document.getElementById('productForm').reset();
+                        loadProducts();
+                    } else {
+                        document.getElementById('result').innerHTML = `<p style="color:red;">${result.message}</p>`;
+                    }
+                } catch (error) {
+                    document.getElementById('result').innerHTML = `<p style="color:red;">Error: ${error.message}</p>`;
+                }
+            });
+
+            window.onload = loadProducts;
+
+            async function loadProducts() {
+                try {
+                    const response = await fetch('http://localhost/IPass/app/controllers/ProductAPI/api.php');
+                    const products = await response.json();
+
+                    const productTableBody = document.getElementById('productTable').querySelector('tbody');
+                    productTableBody.innerHTML = '';
+
+                    products.forEach(product => {
+                        const row = document.createElement('tr');
+                        row.innerHTML = `
+                            <td>${product.ProductID}</td>
+                            <td>${product.ProductName}</td>
+                            <td>${product.ProductDesc}</td>
+                            <td>${product.Category}</td>
+                            <td>${product.Price}</td>
+                            <td>${product.Weight}</td>
+                            <td>${product.Availability}</td>
+                        `;
+
+                        const deleteButton = document.createElement('button');
+                        deleteButton.textContent = 'Delete';
+                        deleteButton.addEventListener('click', () => deleteProduct(product.ProductID));
+                        row.appendChild(deleteButton);
+
+                        const updateButton = document.createElement('button');
+                        updateButton.textContent = 'Update';
+                        updateButton.addEventListener('click', () => updateProduct(product.ProductID));
+                        row.appendChild(updateButton);
+
+                        productTableBody.appendChild(row);
+                    });
+                } catch (error) {
+                    console.error('Error loading products:', error);
+                }
+            }
+
+            async function deleteProduct(id) {
+                if (confirm("Are you sure you want to delete this product?")) {
+                    try {
+                        const response = await fetch(`http://localhost/IPass/app/controllers/ProductAPI/api.php?id=${id}`, {
+                            method: 'DELETE'
+                        });
+
+                        const result = await response.json();
+
+                        if (response.ok) {
+                            alert(result.message);
+                            loadProducts(); // Refresh the product list
+                        } else {
+                            alert(`Error: ${result.message}`);
+                        }
+                    } catch (error) {
+                        alert(`Error: ${error.message}`);
+                    }
+                }
+            }
+
+            async function updateProduct(id) {
+                // Show the update form and set the product ID
+                document.getElementById('updateProductId').value = id; // Store the ID
+                document.getElementById('updateFormContainer').style.display = 'block';
+            }
+
+            document.getElementById('updateForm').addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                const productData = {
+                    ProductID: document.getElementById('updateProductId').value,
+                    ProductName: document.getElementById('updateProductName').value,
+                    ProductDesc: document.getElementById('updateProductDesc').value,
+                    Category: document.getElementById('updateCategory').value,
+                    Price: parseFloat(document.getElementById('updatePrice').value),
+                    Weight: parseFloat(document.getElementById('updateWeight').value),
+                    ProductImage: document.getElementById('updateProductImage').value,
+                    Availability: parseInt(document.getElementById('updateAvailability').value)
+                };
+
+                try {
+                    const response = await fetch('http://localhost/IPass/app/controllers/ProductAPI/api.php', {
+                        method: 'PUT',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(productData)
+                    });
+
+                    const result = await response.json();
+
+                    if (response.ok) {
+                        document.getElementById('result').innerHTML = `<p style="color:green;">${result.message}</p>`;
+                        document.getElementById('updateFormContainer').style.display = 'none';
+                        loadProducts();
+                    } else {
+                        document.getElementById('result').innerHTML = `<p style="color:red;">${result.message}</p>`;
+                    }
+                } catch (error) {
+                    document.getElementById('result').innerHTML = `<p style="color:red;">Error: ${error.message}</p>`;
+                }
+            });
+        </script>
+
+    </body>
+</html>
