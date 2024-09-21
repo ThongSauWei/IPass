@@ -10,7 +10,7 @@
 </head>
 <body>
 <h1>Available Products Report</h1>
-<p><strong>Report Generated On:</strong>2024-09-21 08:57:00</p>
+<p><strong>Report Generated On:</strong>2024-09-21 11:06:41</p>
 <table>
 <tr>
 <th>Product ID</th>
@@ -23,7 +23,7 @@
 <td>P0002</td>
 <td>Spring Onion Leaves</td>
 <td>Vegetable</td>
-<td>1.00</td>
+<td>1.10</td>
 <td>0.30</td>
 </tr>
 <tr>
@@ -159,15 +159,8 @@
 <td>2.95</td>
 <td>0.20</td>
 </tr>
-<tr>
-<td>P0022</td>
-<td>Red Apple USA</td>
-<td>Fruit</td>
-<td>19.95</td>
-<td>1.00</td>
-</tr>
 <tr><td colspan="5">
-<strong>Total Products Found:</strong>21</td></tr>
+<strong>Total Products Found:</strong>20</td></tr>
 <tr><td colspan="5">
 <strong>Total Categories Found:</strong>4<br><strong>Categories:</strong>Vegetable, Fruit, Meat, Fish</td></tr>
 <tr><td colspan="5">

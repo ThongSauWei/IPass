@@ -541,7 +541,17 @@ class ProductController {
                     return $this->addToCart($productId, $custId, $quantity);
                 }
             } elseif ($action === 'addToWishList') {
-                return $this->addToWishlist($productId, $custId, $quantity);
+                
+                if (empty($userId) || $userId == 0) {
+                    // If no user is logged in, redirect to login
+                    // Ensure redirection occurs
+                    $this->session->requireLogin();
+                    return; // Stop further processing
+                } else {
+                    // If user is logged in, proceed to add the product to cart
+                    return $this->addToWishlist($productId, $custId, $quantity);
+                }
+                
             }
         }
         return false;
