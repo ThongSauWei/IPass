@@ -143,6 +143,24 @@ if ($user) {
                         </div>
                     </div>
                 </li>
+                
+                <li id="order-list" class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
+                       aria-controls="collapsePages">
+                        <i class="fas fa-fw fa-folder"></i>
+                        <span>Order</span>
+                    </a>
+                    <div class="collapse" aria-labelledby="headingPages"
+                         data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <div class="collapse-divider"></div>
+                            <h6 class="collapse-header">Order:</h6>
+                            <a class="collapse-item" href="<?= ROOT ?>/../app/views/Admin/Order/listOrder.php">View All Orders</a>
+                            <a class="collapse-item" href="<?= ROOT ?>/../app/views/Admin/Product/productLog.php">Product Transaction Log</a>
+                            
+                        </div>
+                    </div>
+                </li>
 
 
                 <!-- Sidebar Toggler (Sidebar) -->
@@ -211,3 +229,23 @@ if ($user) {
 
                     </nav>
                     <!-- End of Topbar -->
+<!--                    <script>
+                        const list = document.querySelector('#order-list');
+                        const link = list.querySelector('.nav-link');
+                        
+                        link.addEventListener("click", function() {
+                            if (link.classList.contains('collapsed')) {
+                                link.classList.remove('collapsed');
+                                link.setAttribute('aria-expanded', 'true');
+                                const div = list.querySelector('.collapse');
+                                console.log(div);
+                                div.classList.add('show');
+                            } else {
+                                link.classList.add('collapsed');
+                                link.setAttribute('aria-expanded', 'false');
+                                const div = list.querySelector('.collapse');
+                                console.log(div);
+                                div.classList.remove('show');
+                            }
+                        });
+                    </script>-->

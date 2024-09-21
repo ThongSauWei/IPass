@@ -259,10 +259,10 @@
                 throw new Error('Failed to create the order.');
             }
             
-            const { error } = await stripe.confirmPayment({
+            const { error, paymentIntent } = await stripe.confirmPayment({
                 elements,
                 confirmParams: {
-                    return_url: "http://localhost/IPass/app/controllers/CompleteCheckoutController.php?action=showPage&orderID=" + createOrderResponse.orderID + "&totalAmount=" + (subtotal + deliveryFee),
+                    return_url: "http://localhost/IPass/app/controllers/CompleteCheckoutController.php?action=showPage&orderID=" + createOrderResponse.orderID + "&paymentIntentID=" + paymentIntent.id,
                 },
             });
         

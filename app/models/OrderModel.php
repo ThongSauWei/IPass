@@ -1,6 +1,12 @@
 <?php
 
 require_once '../core/NewModel.php';
+require_once '../state/OrderStateContext.php';
+require_once '../state/CancelledState.php';
+require_once '../state/CompletedState.php';
+require_once '../state/CreatedState.php';
+require_once '../state/DeliveringState.php';
+require_once '../state/PendingState.php';
 
 class OrderModel extends NewModel {
     protected $table = 'orders';
@@ -10,7 +16,17 @@ class OrderModel extends NewModel {
     }
     
     public function getOrder($orderID) {
-        return $this->findAll()->where("OrderID", $orderID)->execute();
+        return $this->findAll()->where("OrderID", $orderID)->execute()[0];
+    }
+    
+    public function getOrderContext($orderID) {
+        $order = $this->findAll()->where("OrderID", $orderID)->execute()[0];
+        
+        $stateClass = $this->getStateClassFromStatus($order["Status"]);
+        
+        $orderContext = new OrderStateContext($orderID, new $stateClass);
+        
+        return $orderContext;
     }
     
     public function getOrdersByCustomer($customerID, $limit = 1000, $offset = 0) {
@@ -24,6 +40,14 @@ class OrderModel extends NewModel {
     
     public function getAllOrders() {
         return $this->findAll()->execute();
+    }
+    
+    public function updateStatus($orderID, $status) {
+        $this->update("Status", $status)->where("OrderID", $orderID)->execute();
+    }
+    
+    public function updatePaymentMethod($orderID, $paymentMethod) {
+        $this->update("PaymentType", $paymentMethod)->where("OrderID", $orderID)->execute();
     }
     
     public function getNewOrderID() {
@@ -40,6 +64,21 @@ class OrderModel extends NewModel {
         }
         
         return $newOrderID;
+    }
+    
+    private function getStateClassFromStatus($status) {
+        switch ($status) {
+            case 'Created':
+                return CreatedState::class;
+            case 'Pending':
+                return PendingState::class;
+            case 'Delivering':
+                return DeliveringState::class;
+            case 'Completed':
+                return CompletedState::class;
+            case 'Cancelled':
+                return CancelledState::class;
+        }
     }
 }
 

@@ -5,6 +5,7 @@ require_once '../models/Customer.php';
 require_once '../models/OrderModel.php';
 require_once '../models/OrderDetailsModel.php';
 require_once '../models/Product.php';
+require_once '../state/OrderStateContext.php';
 
 class TransactionController {
     private $model;
@@ -67,13 +68,13 @@ class TransactionController {
                 
                 $productModel = new Product();
                 
-                foreach ($orderDetails as &$item) {
+                foreach ($orderDetails as $key => $item) {
                     $productID = $item["ProductID"];
                     $product = $productModel->getById($productID);
-                    $item["ProductName"] = $product[0]["ProductName"];
+                    $orderDetails[$key]["ProductName"] = $product[0]["ProductName"];
                 }
                 
-                $order = $this->model->getOrder($orderID)[0];
+                $order = $this->model->getOrder($orderID);
 
                 // Return details as JSON
                 header('Content-Type: application/json');
@@ -88,6 +89,18 @@ class TransactionController {
         } catch (Exception $ex) {
             echo json_encode(['error' => $ex->getMessage()]);
             exit;
+        }
+    }
+    
+    public function cancelOrder() {
+        try {
+            $orderID = json_decode(file_get_contents('php://input'), true);
+            
+            $orderContext = $this->model->getOrderContext($orderID);
+            $orderContext->cancelOrder();
+            
+        } catch (Exception $ex) {
+            echo 'Error: ' . $ex->getMessage();
         }
     }
 
@@ -125,6 +138,10 @@ class TransactionController {
 $model = new OrderModel();
 $controller = new TransactionController($model);
 
+if (isset($_GET['action']) && $_GET['action'] === 'showPage') {
+    $controller->showPage();
+}
+
 // Handle AJAX request for pagination FIRST
 if (isset($_GET['action']) && $_GET['action'] === 'getPaginatedOrders') {
     $controller->getPaginatedOrders();
@@ -133,6 +150,11 @@ if (isset($_GET['action']) && $_GET['action'] === 'getPaginatedOrders') {
 
 if (isset($_GET['action']) && $_GET['action'] === 'getOrderDetails') {
     $controller->getOrderDetails();
+    exit;
+}
+
+if (isset($_GET['action']) && $_GET['action'] === 'cancelOrder') {
+    $controller->cancelOrder();
     exit;
 }
 

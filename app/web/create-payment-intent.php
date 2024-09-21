@@ -31,5 +31,5 @@ try {
     echo $ex->getMessage();
     echo json_encode(["error" => $ex->getMessage()]);
 }
-?>
+
 
