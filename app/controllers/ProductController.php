@@ -484,15 +484,7 @@ class ProductController {
                             // Log the full path to the image
 //                            logMessage("Attempting to delete image at: $fullImagePath");
 
-                            if (file_exists($fullImagePath)) {
-                                if (unlink($fullImagePath)) {
-//                                    logMessage("Image successfully deleted.");
-                                } else {
-//                                    logMessage("Failed to delete image.");
-                                }
-                            } else {
-//                                logMessage("Image file does not exist: $fullImagePath");
-                            }
+                            
                         } else {
 //                            logMessage("No image path provided for deletion.");
                         }
