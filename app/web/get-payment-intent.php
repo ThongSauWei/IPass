@@ -1,6 +1,6 @@
 <?php
 
-if ($paymentIntentID) {
+if (isset($paymentIntentID)) {
     require_once '../../vendor/autoload.php';
     require_once 'secrets.php';
     
@@ -9,13 +9,13 @@ if ($paymentIntentID) {
     try {
         $paymentIntent = $stripe->paymentIntents->retrieve($paymentIntentID);
         
-        $paymentMethodID = $paymentIntent->payment_method;
-        $totalAmount = number_format(($paymentIntent->amount) / 100.0, 2);
+        if ($paymentIntent->status === 'succeeded') {
+            $paymentMethodID = $paymentIntent->payment_method;
+            $totalAmount = number_format(($paymentIntent->amount) / 100.0, 2);
         
-        $paymentMethod = $stripe->paymentMethods->retrieve($paymentMethodID);
-        
-        var_dump($paymentMethod);
-        
+            $paymentMethod = $stripe->paymentMethods->retrieve($paymentMethodID);
+            $paymentType = $paymentMethod->type;
+        }
     } catch (Exception $ex) {
         "Error: " . $ex->getMessage();
     }

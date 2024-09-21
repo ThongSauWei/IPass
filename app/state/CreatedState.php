@@ -31,7 +31,7 @@ class CreatedState implements OrderStateInterface {
     }
     
     public function deliverOrder() {
-        echo "You will need to accept the order before you can deliver it";
+        echo "You will deliver order at this state";
         
         return false;
     }

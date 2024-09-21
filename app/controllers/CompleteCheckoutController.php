@@ -18,13 +18,7 @@ class CompleteCheckoutController {
                 $username = $user["Username"];
 
                 $orderID = $_GET['orderID'];
-                $paymentIntentID = $_GET['paymentIntentID'];
-                
-                include '../web/get-payment-intent.php';
-                
-                if (isset($paymentMethod)) {
-                    $this->model->updatePaymentMethod($orderID, $paymentMethod);
-                }
+                $totalAmount = $_GET['totalAmount'];
 
                 require dirname(__DIR__, 1) . '/views/Customer/complete-checkout.php';
             } catch (Exception $ex) {

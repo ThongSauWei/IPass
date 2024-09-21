@@ -35,7 +35,7 @@ class CheckoutController {
             $deliveryFee = 3;
             $subtotal = 0;
 
-            foreach ($cartItems as &$cartItem) {
+            foreach ($cartItems as $key => $cartItem) {
                 $productID = $cartItem["ProductID"];
                 $product = $productModel->getById($productID);
                 
@@ -46,7 +46,7 @@ class CheckoutController {
                     $price = number_format($product[0]["Price"], 2);
                 }
                 
-                $cartItem["Price"] = $price;
+                $cartItems[$key]["Price"] = $price;
                 $subtotal += $price * $cartItem['Quantity'];
             }
 
@@ -57,41 +57,44 @@ class CheckoutController {
     }
 
     public function createOrder() {
-        if ($_SERVER["REQUEST_METHOD"] === "POST") {
-            try {
-                SessionManager::requireLogin();
-                $user = $_SESSION['user'];
-                $userID = $user['UserID'];
+        try {
+            SessionManager::requireLogin();
+            $user = $_SESSION['user'];
+            $userID = $user['UserID'];
 
-                $customerModel = new Customer();
-                $customer = $customerModel->findCustByUserID($userID);
-                $customerID = $customer["CustomerID"];
+            $customerModel = new Customer();
+            $customer = $customerModel->findCustByUserID($userID);
+            $customerID = $customer["CustomerID"];
 
-                $cartService = new CartService();
-                $cartItems = $cartService->getCartForCustomer($customerID);
+            $cartService = new CartService();
+            $cartItems = $cartService->getCartForCustomer($customerID);
 
-                $productModel = new Product();
-                $cartTotal = 0;
+            $productModel = new Product();
+            $cartTotal = 0;
 
-                $orderID = $this->model->getNewOrderID();
-                $orderDetailsList = [];
+            $orderID = $this->model->getNewOrderID();
+            $orderDetailsList = [];
 
-                foreach ($cartItems as &$cartItem) {
-                    $productID = $cartItem["ProductID"];
-                    $product = $productModel->getById($productID);
-                    $price = $product[0]["Price"];
+            foreach ($cartItems as $key => $cartItem) {
+                $productID = $cartItem["ProductID"];
+                $product = $productModel->getById($productID);
+                $price = $product[0]["Price"];
 
-                    $orderDetails = new OrderDetailsDTO($orderID, $productID, $price, $cartItem["Quantity"], 0);
-                    $orderDetailsList[] = $orderDetails;
-                    $cartTotal += $price * $cartItem['Quantity'];
-                }
+                $orderDetails = new OrderDetailsDTO($orderID, $productID, $price, $cartItem["Quantity"], 0);
+                $orderDetailsList[] = $orderDetails;
+                $cartTotal += $price * $cartItem['Quantity'];
+            }
 
-                $jsonObj = json_decode(file_get_contents('php://input'), true);
-                $discount = $cartTotal - (int) $jsonObj["subtotal"];
-                $deliveryFee = $jsonObj["deliveryFee"];
-                $address = $jsonObj["fullAddress"];
+            $paymentIntentID = $_GET["payment_intent"] ?? null;
+            $subtotal = (float) $_GET["subtotal"] ?? null;
+            $discount = $cartTotal - $subtotal;
+            $deliveryFee = (float) $_GET["deliveryFee"] ?? null;
+            $address = $_GET["fullAddress"] ?? null;
 
-                $order = new OrderDTO($orderID, $customerID, $cartTotal, $discount, $deliveryFee, date('Y-m-d'), $address);
+            include '../web/get-payment-intent.php';
+
+            if (isset($paymentType)) {
+                $order = new OrderDTO($orderID, $customerID, $cartTotal, $discount, $deliveryFee, date('Y-m-d'), $address, $paymentType);
                 $orderContext = new OrderStateContext($orderID);
                 $orderContext->placeOrder($order);
 
@@ -102,12 +105,15 @@ class CheckoutController {
                 }
 
                 $cartService->clearCart($customerID);
-                
-                echo json_encode(["ok" => true, "orderID" => "$orderID"]);
-                
-            } catch (Exception $ex) {
-                echo 'Error: ' . $ex->getMessage();
+
+                header("Location: http://localhost/IPass/app/controllers/CompleteCheckoutController.php?action=showPage&orderID=" . $orderID . "&totalAmount=" . ($subtotal + $deliveryFee));
+                exit();
+            } else {
+                header("Location: http://localhost/IPass/app/controllers/CartController.php?action=showCart");
+                exit();
             }
+        } catch (Exception $ex) {
+            echo 'Error: ' . $ex->getMessage();
         }
     }
 }

@@ -26,19 +26,19 @@ class CartController {
             
             $productModel = new Product();
 
-            foreach ($cartItems as &$cartItem) {
+            foreach ($cartItems as $key => $cartItem) {
                 $productID = $cartItem["ProductID"];
                 $product = $productModel->getById($productID);
                 
                 if (true) {
                     $discount = 0;
-                    $cartItem["PromotionPrice"] = number_format($product[0]["Price"] - $discount, 2);
+                    $cartItems[$key]["PromotionPrice"] = number_format($product[0]["Price"] - $discount, 2);
                 }
                 
-                $cartItem["ProductName"] = $product[0]["ProductName"];
-                $cartItem["Price"] = number_format($product[0]["Price"], 2);
-                $cartItem["Weight"] = number_format($product[0]["Weight"], 0);
-                $cartItem["ProductImage"] = $product[0]["ProductImage"] ?? null;
+                $cartItems[$key]["ProductName"] = $product[0]["ProductName"];
+                $cartItems[$key]["Price"] = number_format($product[0]["Price"], 2);
+                $cartItems[$key]["Weight"] = number_format($product[0]["Weight"], 0);
+                $cartItems[$key]["ProductImage"] = $product[0]["ProductImage"] ?? null;
             }
 
             require dirname(__DIR__, 1) . '/views/Customer/cart.php';

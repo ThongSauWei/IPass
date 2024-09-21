@@ -297,7 +297,6 @@ function populateModal(orderData, orderDetailsData) {
     
     const btn = document.querySelector('#cancel-order');
     btn.setAttribute('data-order-id', `${orderData.OrderID}`);
-    console.log(btn);
     
 }
 
