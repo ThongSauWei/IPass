@@ -32,8 +32,9 @@ include_once __DIR__ . '/header.php';
                                     <th></th>
                                 </tr>
                             </thead>
-                            <?php if (!empty($orderList)): ?>
                             <tbody>
+                                <?php if (!empty($orderList)): ?>
+                                <?php $exist = true; ?>
                                 <?php foreach ($orderList as $order): ?>
                                 <tr>
                                     <td><?= $counter ?></td>
@@ -57,8 +58,13 @@ include_once __DIR__ . '/header.php';
                                 </tr>
                                 <?php $counter++ ?>
                                 <?php endforeach; ?>
+                                <?php else: ?>
+                                <?php $exist = false; ?>
+                                    <tr>
+                                        <td id='no-trans' colspan='6' class='text-center'>No transactions found.</td>
+                                    </tr>
+                                <?php endif; ?>
                             </tbody>
-                            <?php endif; ?>
                         </table>
                     </div>
 
@@ -149,6 +155,7 @@ include_once __DIR__ . '/header.php';
 <script>
     
     var currentPage;
+    var exist = document.getElementById('no-trans');
     
     document.addEventListener('DOMContentLoaded', function() {
     const paginationLinks = document.querySelectorAll('.page-link');
@@ -178,7 +185,9 @@ include_once __DIR__ . '/header.php';
             }
             
             // Send the page number to the server
-            fetchPageData(page);
+            if (exist === null) {
+                fetchPageData(page);
+            }
         });
     });
 });
@@ -186,10 +195,6 @@ include_once __DIR__ . '/header.php';
 // Function to send the page number to the server and fetch data
 function fetchPageData(pageNumber) {
     currentPage = pageNumber;
-    
-    
-            
-    console.log(currentPage);
     
     fetch(`../controllers/TransactionController.php?action=getPaginatedOrders&page=${pageNumber}`, {
         method: 'GET'

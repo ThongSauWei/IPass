@@ -26,19 +26,21 @@ class CartController {
             
             $productModel = new Product();
 
-            foreach ($cartItems as $key => $cartItem) {
-                $productID = $cartItem["ProductID"];
-                $product = $productModel->getById($productID);
-                
-                if (true) {
-                    $discount = 0;
-                    $cartItems[$key]["PromotionPrice"] = number_format($product[0]["Price"] - $discount, 2);
+            if (is_array($cartItems) && !empty($cartItems)) {
+                foreach ($cartItems as $key => $cartItem) {
+                    $productID = $cartItem["ProductID"];
+                    $product = $productModel->getById($productID);
+
+                    if (false) {
+                        $discount = 0;
+                        $cartItems[$key]["PromotionPrice"] = number_format($product[0]["Price"] - $discount, 2);
+                    }
+
+                    $cartItems[$key]["ProductName"] = $product[0]["ProductName"];
+                    $cartItems[$key]["Price"] = number_format($product[0]["Price"], 2);
+                    $cartItems[$key]["Weight"] = number_format($product[0]["Weight"], 0);
+                    $cartItems[$key]["ProductImage"] = $product[0]["ProductImage"] ?? null;
                 }
-                
-                $cartItems[$key]["ProductName"] = $product[0]["ProductName"];
-                $cartItems[$key]["Price"] = number_format($product[0]["Price"], 2);
-                $cartItems[$key]["Weight"] = number_format($product[0]["Weight"], 0);
-                $cartItems[$key]["ProductImage"] = $product[0]["ProductImage"] ?? null;
             }
 
             require dirname(__DIR__, 1) . '/views/Customer/cart.php';
@@ -60,11 +62,13 @@ class CartController {
                 
                 $cartItems = json_decode(file_get_contents('php://input'), true);
 
-                foreach ($cartItems as $cartItem) {
-                    $quantity = $cartItem['quantity'];
-                    $productID = $cartItem['productID'];
+                if (is_array($cartItems) && !empty($cartItems)) {
+                    foreach ($cartItems as $cartItem) {
+                        $quantity = $cartItem['quantity'];
+                        $productID = $cartItem['productID'];
 
-                    $this->cartService->updateCart($quantity, $productID, $customerID);
+                        $this->cartService->updateCart($quantity, $productID, $customerID);
+                    }
                 }
             } catch (Exception $ex) {
                 echo 'Error: ' . $ex->getMessage();

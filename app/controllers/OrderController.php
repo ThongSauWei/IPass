@@ -15,6 +15,20 @@ class OrderController {
         $this->orderDetailsModel = new OrderDetailsModel();
     }
     
+    public function deleteOrder() {
+        try {
+            $orderID = $_GET["orderID"];
+            
+            $this->orderDetailsModel->clearAllOrderDetails($orderID);
+            $this->orderModel->deleteOrder($orderID);
+            
+            $this->listOrders();
+            
+        } catch (Exception $ex) {
+            echo 'Error: ' . $ex->getMessage();
+        }
+    }
+    
     public function handleOrder() {
         try {
             $jsonObj = json_decode(file_get_contents('php://input'), true);
@@ -48,12 +62,14 @@ class OrderController {
             
             $customerModel = new Customer();
             
-            foreach ($orderList as $key => $order) {
-                $customerID = $order["CustomerID"];
-                $customer = $customerModel->findCustByCustID($customerID);
-                $orderList[$key]["CustomerName"] = $customer[0]["CustomerName"];
+            if (is_array($orderList) && !empty($orderList)) {
+                foreach ($orderList as $key => $order) {
+                    $customerID = $order["CustomerID"];
+                    $customer = $customerModel->findCustByCustID($customerID);
+                    $orderList[$key]["CustomerName"] = $customer[0]["CustomerName"];
+                }
             }
-            
+
             require '../views/Admin/Order/listOrders.php';
         } catch (Exception $ex) {
             echo 'Error: ' . $ex->getMessage();
@@ -71,22 +87,15 @@ class OrderController {
             
                 $productModel = new Product();
                 
-                foreach ($orderDetails as $key => $item) {
-                    $productID = $item["ProductID"];
-                    $product = $productModel->getById($productID);
-                    $orderDetails[$key]["ProductName"] = $product[0]["ProductName"];
+                if (is_array($orderDetails) && !empty($orderDetails)) {
+                    foreach ($orderDetails as $key => $item) {
+                        $productID = $item["ProductID"];
+                        $product = $productModel->getById($productID);
+                        $orderDetails[$key]["ProductName"] = $product[0]["ProductName"];
+                    }
                 }
-                
-                if ($_GET['action'] === 'viewOrder') {
-                    require '../views/Admin/Order/viewOrder.php';
-                } else if ($_GET['action'] === 'editOrder') {
-                    $customerName = $_GET["customerName"];
-                    $order["CustomerName"] = $customerName;
-                    
-                    require '../views/Admin/Order/editOrder.php';
-                }
-            
-                
+
+                require '../views/Admin/Order/viewOrder.php';
             } else {
                 throw new Exception("Order ID is required");
             }
@@ -102,11 +111,15 @@ if (isset($_GET['action']) && $_GET['action'] === 'listOrders') {
     $controller->listOrders();
 }
 
-if (isset($_GET['action']) && ($_GET['action'] === 'viewOrder' || $_GET['action'] === 'editOrder')) {
+if (isset($_GET['action']) && ($_GET['action'] === 'viewOrder')) {
     $controller->showOrder();
 }
 
 if (isset($_GET['action']) && $_GET['action'] === 'handleOrder') {
     $controller->handleOrder();
+}
+
+if (isset($_GET['action']) && $_GET['action'] === 'deleteOrder') {
+    $controller->deleteOrder();
 }
 

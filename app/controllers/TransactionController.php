@@ -68,12 +68,14 @@ class TransactionController {
                 
                 $productModel = new Product();
                 
-                foreach ($orderDetails as $key => $item) {
-                    $productID = $item["ProductID"];
-                    $product = $productModel->getById($productID);
-                    $orderDetails[$key]["ProductName"] = $product[0]["ProductName"];
+                if (is_array($orderDetails) && !empty($orderDetails)) {
+                    foreach ($orderDetails as $key => $item) {
+                        $productID = $item["ProductID"];
+                        $product = $productModel->getById($productID);
+                        $orderDetails[$key]["ProductName"] = $product[0]["ProductName"];
+                    }
                 }
-                
+
                 $order = $this->model->getOrder($orderID);
 
                 // Return details as JSON
@@ -157,6 +159,3 @@ if (isset($_GET['action']) && $_GET['action'] === 'cancelOrder') {
     $controller->cancelOrder();
     exit;
 }
-
-// Default action: Load the main page
-$controller->showPage();

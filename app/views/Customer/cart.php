@@ -32,8 +32,8 @@ include_once 'header.php';
                                     <th></th>
                                 </tr>
                             </thead>
-                            <?php if (!empty($cartItems)): ?>
                                 <tbody>
+                                    <?php if (!empty($cartItems)): ?>
                                     <?php foreach ($cartItems as $item): ?>
                                         <tr id="row-<?= $item['ProductID'] ?>">
                                             <td>
@@ -41,7 +41,7 @@ include_once 'header.php';
                                             </td>
                                             <td>
                                                 <?= $item["ProductName"] ?> <br>
-                                                <small><?= $item["Weight"] ?>g</small>
+                                                <small><?= $item["Weight"] * 1000 ?>g</small>
                                             </td>
                                             <td id="price-<?= $item['ProductID'] ?>">
                                                 <?= isset($item["PromotionPrice"])? "<del>RM " . $item["Price"] . "</del> <span style='color:rgb(233, 30, 99);'>RM " . $item["PromotionPrice"] . "</span>" : "RM " . $item["Price"] ?>
@@ -97,15 +97,19 @@ include_once 'header.php';
                                             <td>
                                                 <a href="javasript:void" class="text-danger"><i class="fa fa-times"></i></a>
                                             </td>
-                                        </tr>-->
+                                                </tr>-->
                                     <?php endforeach; ?>
+                                    <?php else: ?>
+                                        <tr>
+                                            <td colspan='6' class='text-center'>No cart items found.</td>
+                                        </tr>
+                                    <?php endif; ?>
                                 </tbody>
-                            <?php endif; ?>
                         </table>
                     </div>
                 </div>
                 <div class="col">
-                    <a href="views/shop.php" class="btn btn-default">Continue Shopping</a>
+                    <a href="../views/Customer/shop.php" class="btn btn-default">Continue Shopping</a>
                 </div>
                 <div class="col text-right">
                     <div class="input-group w-50 float-right">

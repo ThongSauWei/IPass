@@ -35,19 +35,21 @@ class CheckoutController {
             $deliveryFee = 3;
             $subtotal = 0;
 
-            foreach ($cartItems as $key => $cartItem) {
-                $productID = $cartItem["ProductID"];
-                $product = $productModel->getById($productID);
-                
-                if (false) {
-                    $discount = 0;
-                    $price = number_format($product[0]["Price"] - $discount, 2);
-                } else {
-                    $price = number_format($product[0]["Price"], 2);
+            if (is_array($cartItems) && !empty($cartItems)) {
+                foreach ($cartItems as $key => $cartItem) {
+                    $productID = $cartItem["ProductID"];
+                    $product = $productModel->getById($productID);
+
+                    if (false) {
+                        $discount = 0;
+                        $price = number_format($product[0]["Price"] - $discount, 2);
+                    } else {
+                        $price = number_format($product[0]["Price"], 2);
+                    }
+
+                    $cartItems[$key]["Price"] = $price;
+                    $subtotal += $price * $cartItem['Quantity'];
                 }
-                
-                $cartItems[$key]["Price"] = $price;
-                $subtotal += $price * $cartItem['Quantity'];
             }
 
             require dirname(__DIR__, 1) . '/views/Customer/checkout.php';
@@ -75,14 +77,16 @@ class CheckoutController {
             $orderID = $this->model->getNewOrderID();
             $orderDetailsList = [];
 
-            foreach ($cartItems as $key => $cartItem) {
-                $productID = $cartItem["ProductID"];
-                $product = $productModel->getById($productID);
-                $price = $product[0]["Price"];
+            if (is_array($cartItems) && !empty($cartItems)) {
+                foreach ($cartItems as $key => $cartItem) {
+                    $productID = $cartItem["ProductID"];
+                    $product = $productModel->getById($productID);
+                    $price = $product[0]["Price"];
 
-                $orderDetails = new OrderDetailsDTO($orderID, $productID, $price, $cartItem["Quantity"], 0);
-                $orderDetailsList[] = $orderDetails;
-                $cartTotal += $price * $cartItem['Quantity'];
+                    $orderDetails = new OrderDetailsDTO($orderID, $productID, $price, $cartItem["Quantity"], 0);
+                    $orderDetailsList[] = $orderDetails;
+                    $cartTotal += $price * $cartItem['Quantity'];
+                }
             }
 
             $paymentIntentID = $_GET["payment_intent"] ?? null;
@@ -100,8 +104,10 @@ class CheckoutController {
 
                 $orderDetailsModel = new OrderDetailsModel();
 
-                foreach ($orderDetailsList as $orderDetails) {
-                    $orderDetailsModel->insertOrderDetails($orderDetails);
+                if (is_array($orderDetailsList) && !empty($orderDetailsList)) {
+                    foreach ($orderDetailsList as $orderDetails) {
+                        $orderDetailsModel->insertOrderDetails($orderDetails);
+                    }
                 }
 
                 $cartService->clearCart($customerID);

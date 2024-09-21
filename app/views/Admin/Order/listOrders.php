@@ -38,30 +38,52 @@ require_once '../views/Admin/header.php';
                             <td><?= $order["Status"] ?></td>
                             <td><?= $order["PaymentType"] ?></td>
                             <td>
-                                <button class="btn btn-outline-warning" onclick="clickEdit(this, event)" id='<?= $order["OrderID"] ?>'>Edit</button>
-                                <button class="btn btn-outline-danger" onclick="window.location.href='http://localhost/IPass/app/controllers/OrderController.php?action=deleteOrder&productID=<?= $order["OrderID"] ?>'">Delete</button>
+                                <button class="btn btn-outline-danger" onclick="showDialog(event)">Delete</button>
                             </td>
                         </tr>
                         <?php endforeach; ?>
                         <?php else: ?>
                         <tr>
-                            <td>No order records found.</td>
+                            <td colspan='10' class='text-center'>No order records found.</td>
                         </tr>
                         <?php endif; ?>
                     </tbody>
                 </table>
             </div>
+        </div>     
+    </div>
+    <div class="modal fade" id="notificationModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body delete">
+                    Are you sure you want to delete this order?
+                </div>
+                <div class="modal-footer">
+                    <button id='<?= $order["OrderID"] ?>' type='button' class='btn btn-danger' onclick="clickDelete(this)">Sure</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
         </div>
     </div>
-    
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
 <script>
-    function clickEdit(element, event) {
+    function showDialog(event) {
         event.stopPropagation();
         
-        window.location.href='http://localhost/IPass/app/controllers/OrderController.php?action=editOrder&orderID=' + element.id + '&customerName=<?= $order["CustomerName"] ?>';
+        $('#notificationModal').modal('show');
+    }
+    
+    function clickDelete(element) {
+        
+        window.location.href='http://localhost/IPass/app/controllers/OrderController.php?action=deleteOrder&orderID=' + element.id;
     }
 </script>
 <?php

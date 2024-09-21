@@ -37,7 +37,11 @@ class OrderModel extends NewModel {
     
     public function getOrderCount($customerID = null) {
         $orderList = isset($customerID)? $this->findAll()->where("CustomerID", $customerID)->execute() : $this->findAll()->execute();
-        return count($orderList);
+        
+        if (is_array($orderList)) {
+            return count($orderList);
+        }
+        return 0;
     }
     
     public function getAllOrders() {
@@ -50,6 +54,10 @@ class OrderModel extends NewModel {
     
     public function updatePaymentMethod($orderID, $paymentMethod) {
         $this->update("PaymentType", $paymentMethod)->where("OrderID", $orderID)->execute();
+    }
+    
+    public function deleteOrder($orderID) {
+        $this->delete()->where("OrderID", $orderID)->execute();
     }
     
     public function getNewOrderID() {
