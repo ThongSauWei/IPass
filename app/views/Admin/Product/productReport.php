@@ -10,7 +10,7 @@
 </head>
 <body>
 <h1>Available Products Report</h1>
-<p><strong>Report Generated On:</strong>2024-09-21 08:57:00</p>
+<p><strong>Report Generated On:</strong>2024-09-21 13:21:54</p>
 <table>
 <tr>
 <th>Product ID</th>
@@ -166,12 +166,19 @@
 <td>19.95</td>
 <td>1.00</td>
 </tr>
+<tr>
+<td>P0024</td>
+<td>Dog Meat</td>
+<td>Meat</td>
+<td>100.00</td>
+<td>10.00</td>
+</tr>
 <tr><td colspan="5">
-<strong>Total Products Found:</strong>21</td></tr>
+<strong>Total Products Found:</strong>22</td></tr>
 <tr><td colspan="5">
 <strong>Total Categories Found:</strong>4<br><strong>Categories:</strong>Vegetable, Fruit, Meat, Fish</td></tr>
 <tr><td colspan="5">
-<strong>Highest Price:</strong>59.95<strong> (Product: </strong>Fresh Silver pomfret<strong>)</strong>
+<strong>Highest Price:</strong>100<strong> (Product: </strong>Dog Meat<strong>)</strong>
 </td></tr>
 <tr><td colspan="5">
 <strong>Lowest Price:</strong>2.95<strong> (Product: </strong>Old Ginger China<strong>)</strong>

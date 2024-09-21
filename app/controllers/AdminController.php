@@ -124,6 +124,11 @@ class AdminController {
             if ($this->userFacade->emailExists($_POST['email'])) {
                 $errors[] = "Email has already been used. Please choose another one.";
             }
+            
+            $password = $_POST['password'];
+            if (!$this->validPassword($password)) {
+                $errors[] = "Password must be at least 8 characters, with at least 1 uppercase letter, 1 lowercase letter, 1 special character, and 1 number.";
+            }
 
             // Validate password
             if ($_POST['password'] !== $_POST['confirmPass']) {
@@ -191,86 +196,6 @@ class AdminController {
         }
     }
 
-//    public function addStaff() {
-//        SessionManager::startSession();
-//        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//            $errors = [];
-//
-//            // Validate the input fields
-//            if ($this->userFacade->usernameExists($_POST['username'])) {
-//                $errors[] = "Username has already been taken. Please choose another one.";
-//            }
-//
-//            if ($this->userFacade->emailExists($_POST['email'])) {
-//                $errors[] = "Email has already been used. Please choose another one.";
-//            }
-//
-//            // Password validation (check if passwords match)
-//            $password = $_POST['password'];
-//            $confirmPass = $_POST['confirmPass'];
-//            if ($password !== $confirmPass) {
-//                $errors[] = "Passwords do not match.";
-//            }
-//
-//            // Proceed if no errors
-//            if (empty($errors)) {
-//                $userData = [
-//                    'UserID' => $this->userFacade->generateUserID(),
-//                    'Username' => $_POST['username'],
-//                    'Email' => $_POST['email'],
-//                    'Password' => $_POST['password'],
-//                    'Role' => 'admin', // Role is 'admin' for staff
-//                    'Birthday' => $_POST['birthday'],
-//                    'Gender' => $_POST['gender'],
-//                    'ProfileImage' => '' // Profile image will be updated after upload
-//                ];
-//
-//                // Handle profile image upload
-//                if (isset($_FILES['profileImage']) && $_FILES['profileImage']['error'] === UPLOAD_ERR_OK) {
-//                    $profileImageDir = realpath(__DIR__ . '/../../../public/assets/img/ProfileImage');
-//
-//                    if (!is_dir($profileImageDir)) {
-//                        mkdir($profileImageDir, 0755, true); // Create the directory if it doesn't exist
-//                    }
-//
-//                    $profileImagePath = $profileImageDir . '/' . basename($_FILES['profileImage']['name']);
-//
-//                    if (move_uploaded_file($_FILES['profileImage']['tmp_name'], $profileImagePath)) {
-//                        $userData['ProfileImage'] = '/assets/img/ProfileImage/' . basename($_FILES['profileImage']['name']);
-//                    } else {
-//                        $errors[] = "Failed to upload the profile image.";
-//                    }
-//                }
-//
-//                // Admin-specific data
-//                $adminData = [
-//                    'AdminID' => $this->userFacade->generateAdminID(),
-//                    'UserID' => $userData['UserID'],
-//                    'AdminRole' => 'staff' // AdminRole set as 'staff'
-//                ];
-//
-//                try {
-//                    // Register the user and admin in the system
-//                    $this->userFacade->registerUser($userData, $adminData);
-//
-//                    // Success message and redirect to detailStaff page
-//                    $_SESSION['success'] = "Staff member added successfully.";
-//                    header('Location: /IPass/app/controllers/AdminController.php?action=detailStaff&id=' . $userData['UserID']);
-//                    exit();
-//                } catch (Exception $e) {
-//                    $errors[] = "Failed to add staff. Please try again.";
-//                }
-//            }
-//
-//            // If there are errors, store them in session and redirect back to add staff form
-//            if (!empty($errors)) {
-//                $_SESSION['error'] = $errors;
-//                header('Location: /IPass/app/views/Admin/User/addStaff.php');
-//                exit();
-//            }
-//        }
-//    }
-
     public function detailStaff() {
         SessionManager::startSession();
 
@@ -296,6 +221,11 @@ class AdminController {
 
         header('Location: /IPass/app/views/Admin/User/displayStaff.php');
         exit();
+    }
+    
+    private function validPassword($password) {
+        $pattern = '/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/';
+        return preg_match($pattern, $password);
     }
 
 }

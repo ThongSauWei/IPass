@@ -198,6 +198,8 @@ class User extends NewModel {
             $result = sendPasswordRecoveryEmail($email, $token);  // Call SendGrid service to send email
 
             if ($result == 202) {
+                error_log("SendGrid API response: " . json_encode($result));
+
                 return json_encode([
                     'status' => 'success',
                     'message' => 'Password recovery email sent successfully.'

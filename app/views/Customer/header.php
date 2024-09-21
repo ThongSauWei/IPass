@@ -43,7 +43,7 @@ if ($isLoggedIn) {
             <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-transparent" id="page-navigation">
                 <div class="container">
                     <!-- Navbar Brand -->
-                    <a href="homepage.view.php" class="navbar-brand">
+                    <a href="http://localhost/IPass/app/views/Customer/homepage.view.php" class="navbar-brand">
                         <img src="<?= ROOT ?>/assets/img/logo/nsk.png" alt="">
                     </a>
 
@@ -77,8 +77,8 @@ if ($isLoggedIn) {
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="http://localhost/IPass/app/controllers/TransactionController.php?action=showPage">Transactions History</a>
-                                        <a class="dropdown-item" href="profile.php">Profile</a>
-                                        <a class="dropdown-item" href="wish.php">Wishlist</a>
+                                        <a class="dropdown-item" href="http://localhost/IPass/app/views/Customer/profile.php">Profile</a>
+                                        <a class="dropdown-item" href="http://localhost/IPass/app/views/Customer/wish.php">Wishlist</a>
                                         <a class="dropdown-item" href="/IPass/app/controllers/UserController.php?action=logout">Logout</a>
                                     </div>
                                 </li>
