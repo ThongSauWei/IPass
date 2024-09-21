@@ -132,7 +132,7 @@ class CustomerController {
             $_SESSION['error'] = "No customer selected.";
         }
 
-        header('Location: http://localhost/IPass/app/views/Admin/User/detailCustomer.php');
+        header('Location: http://localhost/IPass/app/views/Admin/User/displayCustomer.php');
         exit();
     }
 
