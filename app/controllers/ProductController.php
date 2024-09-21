@@ -531,7 +531,7 @@ class ProductController {
             // Log the captured userID for debugging (ensure logging does not output directly)
             // Ensure no output is sent to the browser before checking login
             if ($action === 'addToCart') {
-                if (empty($userId) || $userId == 0) {
+                if (empty($userId) || $userId === 0) {
                     // If no user is logged in, redirect to login
                     // Ensure redirection occurs
                     $this->session->requireLogin();

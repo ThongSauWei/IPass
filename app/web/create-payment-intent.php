@@ -1,7 +1,7 @@
 <?php
 
-require_once '../../vendor/autoload.php';
-require_once 'secrets.php';
+require_once __DIR__ . '/../../vendor/autoload.php';
+require_once __DIR__ . '/secrets.php';
 
 $stripe = new \Stripe\StripeClient($stripeSecretKey);
 

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Order API Test</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+            }
+            .section {
+                margin-bottom: 20px;
+            }
+            label {
+                display: block;
+                margin-top: 10px;
+            }
+            input, textarea {
+                width: 300px;
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1>Test Order API</h1>
+
+        <!-- Section to List Orders -->
+        <div class="section">
+            <h2>List All Orders</h2>
+            <button onclick="listOrders()">List Orders</button>
+            <pre id="orderList"></pre>
+        </div>
+
+        <!-- Section to Show a Specific Order -->
+        <div class="section">
+            <h2>Show Order by ID</h2>
+            <label for="orderID">Order ID:</label>
+            <input type="text" id="orderID">
+            <button onclick="showOrder()">Get Order</button>
+            <pre id="singleOrder"></pre>
+        </div>
+
+        <!-- Section to Create a New Order -->
+        <div class="section">
+            <h2>Create a New Order</h2>
+            <label for="customerID">Customer ID:</label>
+            <input type="text" id="customerID">
+            <label for="discount">Discount:</label>
+            <input type="text" id="discount">
+            <label for="deliveryAddress">Delivery Address:</label>
+            <input type="text" id="deliveryAddress">
+            <label for="paymentType">Payment Type:</label>
+            <input type="text" id="paymentType">
+            <label for="deliveryFee">Delivery Fee:</label>
+            <input type="text" id="deliveryFee">
+            <label for="orderDetails">Order Details (JSON Format):</label>
+            <textarea id="orderDetails" rows="4">[{"productID": "P001", "unitPrice": 100, "quantity": 2, "discount": 10}]</textarea>
+            <button onclick="createOrder()">Create Order</button>
+            <pre id="createResponse"></pre>
+        </div>
+
+        <!-- Section to Update an Order -->
+        <div class="section">
+            <h2>Update Order</h2>
+            <label for="updateOrderID">Order ID to Update:</label>
+            <input type="text" id="updateOrderID">
+            <label for="updateCustomerID">Customer ID:</label>
+            <input type="text" id="updateCustomerID">
+            <label for="updateDiscount">Discount:</label>
+            <input type="text" id="updateDiscount">
+            <label for="updateDeliveryAddress">Delivery Address:</label>
+            <input type="text" id="updateDeliveryAddress">
+            <label for="updatePaymentType">Payment Type:</label>
+            <input type="text" id="updatePaymentType">
+            <label for="updateDeliveryFee">Delivery Fee:</label>
+            <input type="text" id="updateDeliveryFee">
+            <label for="updateOrderDetails">Order Details (JSON Format):</label>
+            <textarea id="updateOrderDetails" rows="4">[{"productID": "P001", "unitPrice": 150, "quantity": 1, "discount": 0}]</textarea>
+            <button onclick="updateOrder()">Update Order</button>
+            <pre id="updateResponse"></pre>
+        </div>
+
+        <!-- Section to Delete an Order -->
+        <div class="section">
+            <h2>Delete Order</h2>
+            <label for="deleteOrderID">Order ID to Delete:</label>
+            <input type="text" id="deleteOrderID">
+            <button onclick="deleteOrder()">Delete Order</button>
+            <pre id="deleteResponse"></pre>
+        </div>
+
+        <script>
+            const apiBaseUrl = 'http://localhost/IPass/app/controllers/OrderAPI/OrderAPI.php';  // Adjust the API base URL if needed
+
+            // Function to list all orders
+            function listOrders() {
+                fetch(`${apiBaseUrl}/orders`, {
+                    method: 'GET'
+                })
+                        .then(response => response.json())
+                        .then(data => {
+                            document.getElementById('orderList').textContent = JSON.stringify(data, null, 4);
+                        })
+                        .catch(error => console.error('Error:', error));
+            }
+
+            // Function to show a specific order by ID
+            function showOrder() {
+                const orderID = document.getElementById('orderID').value;
+                fetch(`${apiBaseUrl}/orders/${orderID}`, {
+                    method: 'GET'
+                })
+                        .then(response => response.json())
+                        .then(data => {
+                            document.getElementById('singleOrder').textContent = JSON.stringify(data, null, 4);
+                        })
+                        .catch(error => console.error('Error:', error));
+            }
+
+            // Function to create a new order
+            function createOrder() {
+                const orderData = {
+                    customerID: document.getElementById('customerID').value,
+                    discount: document.getElementById('discount').value,
+                    deliveryAddress: document.getElementById('deliveryAddress').value,
+                    paymentType: document.getElementById('paymentType').value,
+                    deliveryFee: document.getElementById('deliveryFee').value,
+                    orderDetails: JSON.parse(document.getElementById('orderDetails').value)
+                };
+
+                fetch(`${apiBaseUrl}/orders`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(orderData)
+                })
+                        .then(response => response.json())
+                        .then(data => {
+                            document.getElementById('createResponse').textContent = JSON.stringify(data, null, 4);
+                        })
+                        .catch(error => console.error('Error:', error));
+            }
+
+            // Function to update an existing order
+            function updateOrder() {
+                const orderID = document.getElementById('updateOrderID').value;
+                const updateData = {
+                    customerID: document.getElementById('updateCustomerID').value,
+                    discount: document.getElementById('updateDiscount').value,
+                    deliveryAddress: document.getElementById('updateDeliveryAddress').value,
+                    paymentType: document.getElementById('updatePaymentType').value,
+                    deliveryFee: document.getElementById('updateDeliveryFee').value,
+                    orderDetails: JSON.parse(document.getElementById('updateOrderDetails').value)
+                };
+
+                fetch(`${apiBaseUrl}/orders/${orderID}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(updateData)
+                })
+                        .then(response => response.json())
+                        .then(data => {
+                            document.getElementById('updateResponse').textContent = JSON.stringify(data, null, 4);
+                        })
+                        .catch(error => console.error('Error:', error));
+            }
+
+            // Function to delete an order
+            function deleteOrder() {
+                const orderID = document.getElementById('deleteOrderID').value;
+                fetch(`${apiBaseUrl}/orders/${orderID}`, {
+                    method: 'DELETE'
+                })
+                        .then(response => response.json())
+                        .then(data => {
+                            document.getElementById('deleteResponse').textContent = JSON.stringify(data, null, 4);
+                        })
+                        .catch(error => console.error('Error:', error));
+            }
+        </script>
+    </body>
+</html>

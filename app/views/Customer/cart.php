@@ -1,6 +1,6 @@
 
 <?php
-include_once 'header.php';
+include_once __DIR__ . '/header.php';
 ?> 
 <div id="page-content" class="page-content">
     <div class="banner">
@@ -37,7 +37,7 @@ include_once 'header.php';
                                     <?php foreach ($cartItems as $item): ?>
                                         <tr id="row-<?= $item['ProductID'] ?>">
                                             <td>
-                                                <img src="<?= isset($item["ProductImage"])? $item["ProductImage"] : ROOT . "/assets/img/meats.jpg" ?>" width="60">
+                                                <img src="<?= ROOT ?>/assets/img/ProductImage/<?= $item["ProductImage"] ?>" width="60">
                                             </td>
                                             <td>
                                                 <?= $item["ProductName"] ?> <br>

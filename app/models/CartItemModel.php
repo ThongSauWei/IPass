@@ -1,6 +1,6 @@
 <?php
 
-require_once '../core/NewModel.php';
+require_once __DIR__ . '/../core/NewModel.php';
 
 class CartItemModel extends NewModel {
     protected $table = "cartItem";

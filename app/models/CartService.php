@@ -1,7 +1,7 @@
 <?php
 
-require_once 'CartModel.php';
-require_once 'CartItemModel.php';
+require_once __DIR__ . '/CartModel.php';
+require_once __DIR__ . '/CartItemModel.php';
 
 class CartService {
     private $cartModel;

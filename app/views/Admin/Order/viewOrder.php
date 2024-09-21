@@ -1,5 +1,5 @@
 <?php
-require_once '../views/Admin/header.php';
+require_once __DIR__ . '/../views/Admin/header.php';
 ?>
 <div class="container-fluid">
     <h1 class="h3 mb-2 text-gray-800">Order Management</h1>

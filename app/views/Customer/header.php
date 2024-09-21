@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . '/../../facades/userFacade.php';
 require_once __DIR__ . '/../../core/SessionManager.php';
+require_once __DIR__ . '/../../models/CartService.php';
+require_once __DIR__ . '/../../models/Product.php';
 
 SessionManager::startSession();
 $isLoggedIn = SessionManager::loggedIn();
@@ -14,6 +16,36 @@ if ($isLoggedIn) {
     $customerName = $customerDetails['CustomerName'];
 
     $profileImage = $profileImage ? ROOT . $profileImage : ROOT . '/assets/img/logo/avatar.jpg';
+    
+    $cartService = new CartService();
+    $productModel = new Product();
+    $customerID = $customerDetails["CustomerID"];
+    
+    $cartItems = $cartService->getCartForCustomer($customerID);
+    
+    $subtotal = 0;
+
+    if (is_array($cartItems) && !empty($cartItems)) {
+        $itemCount = count($cartItems);
+        foreach ($cartItems as $key => $cartItem) {
+            $productID = $cartItem["ProductID"];
+            $product = $productModel->getById($productID);
+
+            if (false) { // If got promotion
+                $discount = 0;
+                $promotionPrice = number_format($product[0]["Price"] - $discount, 2);
+                $cartItems[$key]["PromotionPrice"] = $promotionPrice;
+            }
+
+            $price = number_format($product[0]["Price"], 2);
+            $cartItems[$key]["ProductName"] = $product[0]["ProductName"];
+            $cartItems[$key]["Price"] = $price;
+            $cartItems[$key]["Weight"] = number_format($product[0]["Weight"], 0);
+            $cartItems[$key]["ProductImage"] = $product[0]["ProductImage"] ?? "meats.jpg";
+            
+            $subtotal += ($promotionPrice ?? $price) * $cartItem["Quantity"];
+        }
+    }
 }
 ?>
 
@@ -82,10 +114,16 @@ if ($isLoggedIn) {
                                         <a class="dropdown-item" href="/IPass/app/controllers/UserController.php?action=logout">Logout</a>
                                     </div>
                                 </li>
-
+                                <?php if (!isset($itemCount)): ?>
+                                <li class="nav-item">
+                                    <a href="http://localhost/IPass/app/views/Customer/shop.php" class="nav-link">
+                                        <i class="fa fa-shopping-basket"></i>
+                                    </a>
+                                </li>
+                                <?php else: ?>
                                 <li class="nav-item dropdown">
                                     <a href="javascript:void(0)" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        <i class="fa fa-shopping-basket"></i> <span class="badge badge-primary">5</span>
+                                        <i class="fa fa-shopping-basket"></i> <span class="badge badge-primary"><?= $itemCount ?></span>
                                     </a>
                                     <div class="dropdown-menu shopping-cart">
                                         <!-- Cart Details -->
@@ -96,23 +134,29 @@ if ($isLoggedIn) {
                                             <li>
                                                 <div class="shopping-cart-list">
                                                     <!-- Example Cart Item -->
+                                                    <?php foreach ($cartItems as $item): ?>
                                                     <div class="media">
-                                                        <img class="d-flex mr-3" src="<?= ROOT ?>/assets/img/logo/avatar.jpg" width="60">
+                                                        <img class="d-flex mr-3" src="<?= ROOT ?>/assets/img/ProductImage/<?= $item["ProductImage"] ?>" width="60">
                                                         <div class="media-body">
-                                                            <h5><a href="javascript:void(0)">Carrot</a></h5>
+                                                            <h5><a href="javascript:void(0)"><?= $item["ProductName"] ?></a></h5>
                                                             <p class="price">
-                                                                <span class="discount text-muted">Rp. 700.000</span>
-                                                                <span>Rp. 100.000</span>
+                                                                <?php if (isset($item["PromotionPrice"])): ?>
+                                                                <span class="discount text-muted">RM <?= $item["Price"] ?></span>
+                                                                <span>RM <?= $item["PromotionPrice"] ?></span>
+                                                                <?php else: ?>
+                                                                <span>RM <?= $item["Price"] ?></span>
+                                                                <?php endif; ?>
                                                             </p>
-                                                            <p class="text-muted">Qty: 1</p>
+                                                            <p class="text-muted">Qty: <?= $item["Quantity"] ?></p>
                                                         </div>
                                                     </div>
+                                                    <?php endforeach; ?>
                                                 </div>
                                             </li>
                                             <li>
                                                 <div class="drop-title d-flex justify-content-between">
                                                     <span>Total:</span>
-                                                    <span class="text-primary"><strong>Rp. 2000.000</strong></span>
+                                                    <span class="text-primary"><strong>RM <?= number_format($subtotal, 2) ?></strong></span>
                                                 </div>
                                             </li>
                                             <li class="d-flex justify-content-between pl-3 pr-3 pt-3">
@@ -122,6 +166,7 @@ if ($isLoggedIn) {
                                         </ul>
                                     </div>
                                 </li>
+                                <?php endif; ?>
                             <?php endif; ?>
                         </ul>
                     </div>

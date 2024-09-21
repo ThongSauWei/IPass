@@ -1,5 +1,5 @@
 <?php
-include_once 'header.php';
+include_once __DIR__ . '/header.php';
 ?>
 
 <div class="container" style="margin-bottom: 100px; margin-top:100px;">

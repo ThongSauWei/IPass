@@ -1,12 +1,12 @@
 <?php
 
-require_once '../core/NewModel.php';
-require_once '../state/OrderStateContext.php';
-require_once '../state/CancelledState.php';
-require_once '../state/CompletedState.php';
-require_once '../state/CreatedState.php';
-require_once '../state/DeliveringState.php';
-require_once '../state/PendingState.php';
+require_once __DIR__ . '/../core/NewModel.php';
+require_once __DIR__ . '/../state/OrderStateContext.php';
+require_once __DIR__ . '/../state/CancelledState.php';
+require_once __DIR__ . '/../state/CompletedState.php';
+require_once __DIR__ . '/../state/CreatedState.php';
+require_once __DIR__ . '/../state/DeliveringState.php';
+require_once __DIR__ . '/../state/PendingState.php';
 
 class OrderModel extends NewModel {
     protected $table = 'orders';
@@ -54,6 +54,20 @@ class OrderModel extends NewModel {
     
     public function updatePaymentMethod($orderID, $paymentMethod) {
         $this->update("PaymentType", $paymentMethod)->where("OrderID", $orderID)->execute();
+    }
+    
+    public function updateOrder($orderID, $order) {
+        $class = new ReflectionClass($order);
+        $properties = $class->getProperties();
+        
+        foreach ($properties as $property) {
+            $column = $property->getName();
+            $value = $property->getValue($order);
+            
+            $this->update($column, $value);
+        }
+        
+        $this->where("OrderID", $orderID)->execute();
     }
     
     public function deleteOrder($orderID) {

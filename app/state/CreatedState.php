@@ -1,7 +1,7 @@
 <?php
 
-require_once 'OrderStateInterface.php';
-require_once 'PendingState.php';
+require_once __DIR__ . '/OrderStateInterface.php';
+require_once __DIR__ . '/PendingState.php';
 
 class CreatedState implements OrderStateInterface {
     private $context;

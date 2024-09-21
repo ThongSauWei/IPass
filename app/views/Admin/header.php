@@ -16,10 +16,10 @@ SessionManager::requireLogin();
 $user = SessionManager::getUser();
 $userFacade = new UserFacade();
 
-if (!SessionManager::isAdmin() && !SessionManager::superAdmin()) {
-    header("Location: http://localhost/IPass/app/views/Customer/homepage.view.php");
-    exit();
-}
+//if (!SessionManager::isAdmin() && !SessionManager::superAdmin()) {
+//    header("Location: http://localhost/IPass/app/views/Customer/homepage.view.php");
+//    exit();
+//}
 
 if ($user) {
     $userID = $user['UserID'];

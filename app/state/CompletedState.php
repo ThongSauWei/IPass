@@ -1,6 +1,6 @@
 <?php
 
-require_once 'OrderStateInterface.php';
+require_once __DIR__ . '/OrderStateInterface.php';
 
 class CompletedState implements OrderStateInterface {
     private $context;

@@ -1,10 +1,10 @@
 <?php
 
-require_once 'OrderStateInterface.php';
-require_once 'CancelledState.php';
-require_once 'DeliveringState.php';
-require_once '../models/OrderDetailsModel.php';
-require_once '../models/Product.php';
+require_once __DIR__ . '/OrderStateInterface.php';
+require_once __DIR__ . '/CancelledState.php';
+require_once __DIR__ . '/DeliveringState.php';
+require_once __DIR__ . '/../models/OrderDetailsModel.php';
+require_once __DIR__ . '/../models/Product.php';
 
 class PendingState implements OrderStateInterface {
     private $context;

@@ -1,7 +1,7 @@
 <?php
 
-require_once '../models/OrderModel.php';
-require_once 'CreatedState.php';
+require_once __DIR__ . '/../models/OrderModel.php';
+require_once __DIR__ . '/CreatedState.php';
 
 class OrderStateContext {
     private $state;

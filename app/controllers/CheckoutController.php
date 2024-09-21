@@ -1,14 +1,14 @@
 <?php
 
-require_once '../core/SessionManager.php';
-require_once '../models/Customer.php';
-require_once '../models/CartService.php';
-require_once '../models/OrderModel.php';
-require_once '../models/Product.php';
-require_once '../models/OrderDetailsModel.php';
-require_once '../dto/OrderDTO.php';
-require_once '../dto/OrderDetailsDTO.php';
-require_once '../state/OrderStateContext.php';
+require_once __DIR__ . '/../core/SessionManager.php';
+require_once __DIR__ . '/../models/Customer.php';
+require_once __DIR__ . '/../models/CartService.php';
+require_once __DIR__ . '/../models/OrderModel.php';
+require_once __DIR__ . '/../models/Product.php';
+require_once __DIR__ . '/../models/OrderDetailsModel.php';
+require_once __DIR__ . '/../dto/OrderDTO.php';
+require_once __DIR__ . '/../dto/OrderDetailsDTO.php';
+require_once __DIR__ . '/../state/OrderStateContext.php';
 
 class CheckoutController {
     private $model;

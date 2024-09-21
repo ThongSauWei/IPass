@@ -1,7 +1,7 @@
 <?php
 
-require_once '../core/SessionManager.php';
-require_once '../models/OrderModel.php';
+require_once __DIR__ . '/../core/SessionManager.php';
+require_once __DIR__ . '/../models/OrderModel.php';
 
 class CompleteCheckoutController {
     private $model;

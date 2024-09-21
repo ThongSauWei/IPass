@@ -10,7 +10,7 @@
  *
  * @author User
  */
-require_once 'NewDatabase.php';
+require_once __DIR__ . '/NewDatabase.php';
 
 class NewModel {
 
