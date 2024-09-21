@@ -8,6 +8,7 @@ require_once '../models/Product.php';
 require_once '../models/OrderDetailsModel.php';
 require_once '../dto/OrderDTO.php';
 require_once '../dto/OrderDetailsDTO.php';
+require_once '../state/OrderStateContext.php';
 
 class CheckoutController {
     private $model;
@@ -89,10 +90,10 @@ class CheckoutController {
                 $discount = $cartTotal - (int) $jsonObj["subtotal"];
                 $deliveryFee = $jsonObj["deliveryFee"];
                 $address = $jsonObj["fullAddress"];
-                $paymentMethod = "card";
 
-                $order = new OrderDTO($orderID, $customerID, $cartTotal, $discount, $deliveryFee, date('Y-m-d'), 'Created', $address, $paymentMethod);
-                $this->model->createOrder($order);
+                $order = new OrderDTO($orderID, $customerID, $cartTotal, $discount, $deliveryFee, date('Y-m-d'), $address);
+                $orderContext = new OrderStateContext($orderID);
+                $orderContext->placeOrder($order);
 
                 $orderDetailsModel = new OrderDetailsModel();
 

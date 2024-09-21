@@ -3,6 +3,7 @@
 require_once __DIR__ . '/../core/NewModel.php'; // NewModel is now used
 require_once __DIR__ . '/ProductLogger.php';
 require_once __DIR__ . '/../core/NewDatabase.php';
+require_once __DIR__ . '/Wishlist.php';
 
 class Product extends NewModel {
 
@@ -56,7 +57,8 @@ class Product extends NewModel {
             'Price' => $this->productPrice,
             'Weight' => $this->weight,
             'ProductImage' => $this->productImage,
-            'Availability' => $this->availability
+            'Availability' => $this->availability,
+            'Status' => 1
         ];
 
         try {
@@ -82,7 +84,7 @@ class Product extends NewModel {
     public function getAll() {
         try {
             $this->table = 'product';
-            return $this->findAll()->execute();
+            return $this->findAll()->where('Status', 1)->execute();
         } catch (Exception $e) {
             $this->logger->log("Fetch", "Error", "Error get all product: " . htmlspecialchars($e->getMessage()));
             throw new Exception("Unable to fetch products. Please try again later.");
@@ -93,7 +95,7 @@ class Product extends NewModel {
     public function getById($id) {
         try {
             $this->table = 'product';
-            return $this->findAll()->where('ProductId', $id)->execute();
+            return $this->findAll()->where('ProductId', $id)->where('Status', 1)->execute();
         } catch (Exception $e) {
             $this->logger->log("Fetch", "Error", "Error get product by ID: " . htmlspecialchars($e->getMessage()));
             throw new Exception("Unable to fetch product. Please try again later.");
@@ -104,7 +106,7 @@ class Product extends NewModel {
     public function getCategories() {
         try {
             $this->table = 'product';
-            return $this->findAll(['Category'])
+            return $this->findAll(['Category'])->where('Status', 1)
                             ->execute();
         } catch (Exception $e) {
             $this->logger->log("Fetch", "Error", "Error get Categories: " . htmlspecialchars($e->getMessage()));
@@ -116,7 +118,7 @@ class Product extends NewModel {
     public function getProductsBySearch($searchTerm) {
         try {
             $searchTerm = '%' . htmlspecialchars($searchTerm, ENT_QUOTES, 'UTF-8') . '%';
-            $products = $this->findAll()
+            $products = $this->findAll()->where('Status', 1)->where('Availability', 1)
                     ->where('ProductName', $searchTerm, self::LIKE)
                     ->orWhere('Category', $searchTerm, self::LIKE)
                     ->execute();
@@ -131,7 +133,7 @@ class Product extends NewModel {
     // FILTER PRODUCTS
     public function filterProducts($category, $priceMin = null, $priceMax = null, $weightMin = null, $weightMax = null, $availability = '') {
         try {
-            $this->findAll(); 
+            $this->findAll()->where('Status', 1)->where('Availability', 1);
             // Add category filter
             if (!empty($category)) {
                 $this->where('Category', $category);
@@ -208,10 +210,11 @@ class Product extends NewModel {
         }
 
         try {
-            $this->table = 'Product'; 
+            $this->table = 'Product';
 
             $result = $this->findAll()
-                    ->where('Category', $category) 
+                    ->where('Category', $category)
+                    ->where('Status', 1)
                     ->where('Availability', 1)
                     ->execute();
 
@@ -247,8 +250,43 @@ class Product extends NewModel {
     // DELETE PRODUCT
     public function deleteProductById($id) {
         try {
-            $this->delete()->where('ProductId', $id)->execute();
-            $this->logger->log("Delete", "Success", "Product deleted successfully with ID: " . htmlspecialchars($id));
+//            $this->delete()->where('ProductId', $id)->execute();
+//            $this->table = 'WishlistItem'; // Switch to WishlistItem table
+//
+//            $result = $this->delete()
+//                    ->where('ProductID', $productId)
+//                    ->execute();
+//            $this->logger->log("Delete", "Success", "Product deleted successfully with ID: " . htmlspecialchars($id));
+            // First, check if the product exists in the WishlistItem table
+            $this->table = 'WishlistItem'; // Switch to WishlistItem table
+
+            $wishlistItems = $this->findAll()
+                    ->where('ProductId', $id) // Use the correct column name for ProductId in WishlistItem table
+                    ->execute();
+
+            if (!empty($wishlistItems)) {
+                $result = $this->delete()
+                        ->where('ProductID', $id)
+                        ->execute();
+            }
+
+            $this->table = 'cartItem'; // Switch to WishlistItem table
+
+            $cartItems = $this->findAll()
+                    ->where('ProductId', $id) // Use the correct column name for ProductId in WishlistItem table
+                    ->execute();
+
+            if (!empty($cartItems)) {
+                $result = $this->delete()
+                        ->where('ProductID', $id)
+                        ->execute();
+            }
+
+            $this->table = 'Product';
+            $this->update('Status', 0)->where('ProductID', $id)->execute();
+            // Log the success
+            $this->logger->log("Delete", "Success", "Product deleted successfully with ID: $id");
+
             return true;
         } catch (Exception $e) {
             $this->logger->log("Delete", "Error", "Error delete product: " . htmlspecialchars($e->getMessage()));
@@ -287,7 +325,7 @@ class Product extends NewModel {
                 if (!empty($promotionQuery)) {
                     $activePromotion = $promotionQuery[0];
                     break; // Stop once the first active promotion is found
-                } 
+                }
             }
 
             return $activePromotion;
@@ -300,7 +338,7 @@ class Product extends NewModel {
     //GET OFFER PRICE
     public function getPriceWithPromotion($productId) {
         $this->table = 'Product';
-        $productData = $this->findAll()->where('ProductID', $productId)->execute();
+        $productData = $this->findAll()->where('ProductID', $productId)->where('Status', 1)->where('Availability', 1)->execute();
 
         if (!empty($productData)) {
             $price = $productData[0]['Price'];
@@ -531,14 +569,14 @@ class Product extends NewModel {
     public function getMostOrderedProducts($limit = 10) {
         try {
             // Fetch all OrderDetails records
-            $this->table = 'OrderDetails';  
+            $this->table = 'OrderDetails';
             // fetch all records from OrderDetails
             $orderDetails = $this->findAll()->execute();
 
             if (empty($orderDetails)) {
                 // If there are no orders, return all products as fallback
-                $this->table = 'product';  
-                return $this->findAll()->limit($limit)->execute();
+                $this->table = 'product';
+                return $this->findAll()->limit($limit)->where('Status', 1)->where('Availability', 1)->execute();
             }
 
             // Count how many times each ProductID appears in OrderDetails 
@@ -563,7 +601,7 @@ class Product extends NewModel {
 
             foreach ($mostOrderedProductIds as $productId) {
                 // Fetch each product by its ProductID 
-                $product = $this->findAll()->where('ProductID', $productId)->execute();
+                $product = $this->findAll()->where('ProductID', $productId)->where('Status', 1)->execute();
                 if (!empty($product)) {
                     $products[] = $product[0];  // Since findAll returns an array, get the first result
                 }

@@ -110,7 +110,7 @@ include_once __DIR__ . '/../header.php';
 
                 <!-- Modal Footer with Buttons -->
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-secondary" onclick="window.location.href='displayProduct.php'">Cancel</button>
                     <button type="submit" class="btn btn-primary">Update Product</button>
                 </div>
             </form>

@@ -398,7 +398,7 @@ ob_end_flush();
         var text = this.getAttribute('data-text');
         var targetLanguage = this.getAttribute('data-lang');
         
-        alert("test");
+//        alert("test");
 
         fetch('../../controllers/ProductController.php?action=translate&lang=' + targetLanguage, {
             method: 'POST',
@@ -410,7 +410,7 @@ ob_end_flush();
                 .then(response => response.json())
                 .then(data => {
                     if (data.translatedText) {
-                        alert("testin");
+//                        alert("testin");
                         document.getElementById('product-desc').textContent = data.translatedText;
                         // Update translation link
                         var translateLink = document.getElementById('translate-link');
@@ -420,12 +420,12 @@ ob_end_flush();
                         translateLink.setAttribute('data-lang', newLang);
                         translateLink.setAttribute('data-text', data.translatedText);
                     } else {
-                        alert("test1");
+//                        alert("test1");
                         alert('Error: ' + (data.error || 'Unknown error'));
                     }
                 })
                 .catch(error => {
-                    alert("test2");
+//                    alert("test2");
                     alert('Error: ' + error.message);
                 });
     });

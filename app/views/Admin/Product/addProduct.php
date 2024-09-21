@@ -30,7 +30,7 @@ include_once __DIR__ . '/../header.php';
                 <div class="mb-3">
                     <label for="category" class="form-label">Category</label>
                     <select class="form-control" id="categoryAdd" name="Category" onchange="handleCategoryChange(this)" required>
-                        <option value="" disabled>Select Category</option>
+                        <option value="" selected>Select Category</option>
                         <!-- Add your dynamic PHP categories here -->
                         <?php foreach ($categories as $category): ?>
                             <option value="<?php echo htmlspecialchars($category['Category']); ?>">

@@ -81,7 +81,7 @@ include_once __DIR__ . '/header.php';
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">No. Pesanan : AL121N8H2XQB47</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -90,24 +90,12 @@ include_once __DIR__ . '/header.php';
                     <div class="row">
                         <div class="col-md-6">
                             <p id="billing-details">
-                                <strong>Billing Detail:</strong><br>
-                                Teguh Rianto<br>
-                                Jl. Petani No. 159, Cibabat<br>
-                                Cimahi Utara<br>
-                                Kota Cimahi<br>
-                                Jawa Barat 40513
                             </p>
                         </div>
                         <div class="col-md-6">
                             <p id="payment-method">
-                                <strong>Payment Method:</strong><br>
-                                Direct Transfer to<br>
-                                Bank: BCA<br>
-                                No Rek.: 72133236179
                             </p>
                             <p id="payment-date">
-                                <strong>Batas Pembayaran</strong><br>
-                                14-12-2017 17:55 GMT+7
                             </p>
                         </div>
                     </div>
@@ -133,7 +121,26 @@ include_once __DIR__ . '/header.php';
                     </div>
                 </div>
                 <div class="modal-footer">
+                    <button id="cancel-order" type="button" class="btn btn-outline-danger" onclick="cancelOrder()">Cancel Order</button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="notificationModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body notification">
+                    <!-- Message content will go here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -248,9 +255,7 @@ function fetchOrderDetails(orderID) {
 
 function populateModal(orderData, orderDetailsData) {
     const modalBody = document.querySelector('.modal-body');
-    console.log(orderData.DeliveryAddress);
     const address = orderData.DeliveryAddress.split(',');
-    console.log(address);
     document.querySelector('#exampleModalLabel').textContent = 'Order ID : ' + orderData.OrderID;
     modalBody.querySelector('#billing-details').innerHTML = '<strong>Billing Detail:</strong><br>';
     
@@ -290,6 +295,28 @@ function populateModal(orderData, orderDetailsData) {
     `;
     orderDetailsTableBody.insertAdjacentHTML('beforeend', totals);
     
+    const btn = document.querySelector('#cancel-order');
+    btn.setAttribute('data-order-id', `${orderData.OrderID}`);
+    console.log(btn);
+    
+}
+
+function cancelOrder() {
+    const btn = document.querySelector('#cancel-order');
+    let orderID = btn.getAttribute('data-order-id');
+    
+    let xhr = new XMLHttpRequest();
+        xhr.open("POST", "TransactionController.php?action=cancelOrder", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                document.querySelector('.modal-body.notification').innerText = xhr.responseText;
+                $('#notificationModal').modal('show');
+            }
+        };
+
+        xhr.send(JSON.stringify(orderID));
 }
 
 

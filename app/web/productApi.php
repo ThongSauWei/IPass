@@ -26,7 +26,7 @@ curl_setopt_array($curl, [
     CURLOPT_HTTPHEADER => [
         "Content-Type: application/x-www-form-urlencoded",
         "x-rapidapi-host: google-translate1.p.rapidapi.com",
-        "x-rapidapi-key: 500e61adc1msha39a431b3553a4fp1a1a0ajsn476d3d2704c3"
+        "x-rapidapi-key: bcd4c80433msh8f8b711953bca81p14f6a0jsn85fa5bd68d33"
     ],
 ]);
 
