@@ -207,72 +207,101 @@ $mostWantedProducts = $productController->getMostWantedProducts();
                         <div class="row">
                             <div class="col-md-12">
                                 <h2 class="title"><?php echo ucfirst(htmlspecialchars($category)); ?></h2>
-                                <div class="product-carousel owl-carousel">
-                                    <?php foreach ($products as $product): ?>
-                                        <a href="detail-product.php?productID=<?php echo htmlspecialchars($product['ProductID']); ?>" class="item-link">
 
-                                            <?php
-                                            // Fetch price and promotion data
-                                            $priceData = $productController->getPriceWithPromotion($product['ProductID']);
-                                            $promotion = $productController->hasPromotion($product['ProductID']);
-                                            ?>
-
-                                            <div class="item">
-                                                <div class="card card-product">
-                                                    <?php if ($promotion): ?>
-                                                        <div class="card-ribbon">
-                                                            <div class="card-ribbon-container right">
-                                                                <span class="ribbon ribbon-primary">Promotion</span>
+                                <?php if (count($products) < 4): ?>
+                                    <div class="row justify-content-center">
+                                        <?php foreach ($products as $product): ?>
+                                            <div class="col-md-3">
+                                                <a href="detail-product.php?productID=<?php echo htmlspecialchars($product['ProductID']); ?>" class="item-link">
+                                                    <div class="item">
+                                                        <div class="card card-product">
+                                                            <?php
+                                                            $priceData = $productController->getPriceWithPromotion($product['ProductID']);
+                                                            $promotion = $productController->hasPromotion($product['ProductID']);
+                                                            ?>
+                                                            <?php if ($promotion): ?>
+                                                                <div class="card-ribbon">
+                                                                    <div class="card-ribbon-container right">
+                                                                        <span class="ribbon ribbon-primary">Promotion</span>
+                                                                    </div>
+                                                                </div>
+                                                            <?php endif; ?>
+                                                            <div class="card-badge">
+                                                                <img src="../../../public/assets/img/ProductImage/<?php echo htmlspecialchars($product['ProductImage']); ?>" alt="Card image" width="250" height="250" class="card-img-top">
+                                                            </div>
+                                                            <div class="card-body">
+                                                                <h4 class="card-title" style="color: #333333;">
+                                                                    <span class="product-name"><?php echo htmlspecialchars($product['ProductName']); ?></span>
+                                                                </h4>
+                                                                <div class="card-price">
+                                                                    <?php if ($priceData['discountedPrice'] !== null): ?>
+                                                                        <span class="discount" style="text-decoration: line-through;">
+                                                                            RM <?php echo number_format($priceData['originalPrice'], 2); ?>
+                                                                        </span>
+                                                                        <span class="reguler">
+                                                                            RM <?php echo number_format($priceData['discountedPrice'], 2); ?>
+                                                                        </span>
+                                                                    <?php else: ?>
+                                                                        <span class="reguler">
+                                                                            RM <?php echo number_format($priceData['originalPrice'], 2); ?>
+                                                                        </span>
+                                                                    <?php endif; ?>
+                                                                </div>
+                                                                <button class="btn btn-block btn-primary">Add to Cart</button>
                                                             </div>
                                                         </div>
-                                                    <?php endif; ?>
-                                                    <div class="card-badge">
-                                                        <div class="card-badge-container left">
-                                                            <?php if ($promotion) { ?>
-                                                                <?php
-                                                                $promotionEndDate = new DateTime($promotion['EndDate']);
-                                                                ?>
-                                                                <span class="badge badge-default" style="color:black;">
-                                                                    Until <?php echo $promotionEndDate->format('m/d'); ?>
-                                                                </span>
-                                                                <span class="badge badge-primary">
-                                                                    <?php
-                                                                    if ($promotion['DiscountType'] === 'Percentage') {
-                                                                        echo $promotion['DiscountValue'] . '% OFF';
-                                                                    } elseif ($promotion['DiscountType'] === 'Fixed Amount') {
-                                                                        echo '- RM ' . number_format($promotion['DiscountValue'], 2);
-                                                                    }
-                                                                    ?>
-                                                                </span>
-                                                            <?php } ?>
-                                                        </div>
-                                                        <img src="../../../public/assets/img/ProductImage/<?php echo htmlspecialchars($product['ProductImage']); ?>" alt="Card image" width="250" height="250" class="card-img-top">
                                                     </div>
-                                                    <div class="card-body">
-                                                        <h4 class="card-title" style="color: #333333;">
-                                                            <span class="product-name"><?php echo htmlspecialchars($product['ProductName']); ?></span>
-                                                        </h4>
-                                                        <div class="card-price">
-                                                            <?php if ($priceData['discountedPrice'] !== null): ?>
-                                                                <span class="discount" style="text-decoration: line-through;">
-                                                                    RM <?php echo number_format($priceData['originalPrice'], 2); ?>
-                                                                </span>
-                                                                <span class="reguler">
-                                                                    RM <?php echo number_format($priceData['discountedPrice'], 2); ?>
-                                                                </span>
-                                                            <?php else: ?>
-                                                                <span class="reguler">
-                                                                    RM <?php echo number_format($priceData['originalPrice'], 2); ?>
-                                                                </span>
-                                                            <?php endif; ?>
+                                                </a>
+                                            </div>
+                                        <?php endforeach; ?>
+                                    </div>
+                                <?php else: ?>
+                                    <div class="product-carousel owl-carousel">
+                                        <?php foreach ($products as $product): ?>
+                                            <a href="detail-product.php?productID=<?php echo htmlspecialchars($product['ProductID']); ?>" class="item-link">
+                                                <div class="item">
+                                                    <div class="card card-product">
+                                                        <?php
+                                                        $priceData = $productController->getPriceWithPromotion($product['ProductID']);
+                                                        $promotion = $productController->hasPromotion($product['ProductID']);
+                                                        ?>
+                                                        <?php if ($promotion): ?>
+                                                            <div class="card-ribbon">
+                                                                <div class="card-ribbon-container right">
+                                                                    <span class="ribbon ribbon-primary">Promotion</span>
+                                                                </div>
+                                                            </div>
+                                                        <?php endif; ?>
+                                                        <div class="card-badge">
+                                                            <img src="../../../public/assets/img/ProductImage/<?php echo htmlspecialchars($product['ProductImage']); ?>" alt="Card image" width="250" height="250" class="card-img-top">
                                                         </div>
-                                                        <button class="btn btn-block btn-primary">Add to Cart</button>
+                                                        <div class="card-body">
+                                                            <h4 class="card-title" style="color: #333333;">
+                                                                <span class="product-name"><?php echo htmlspecialchars($product['ProductName']); ?></span>
+                                                            </h4>
+                                                            <div class="card-price">
+                                                                <?php if ($priceData['discountedPrice'] !== null): ?>
+                                                                    <span class="discount" style="text-decoration: line-through;">
+                                                                        RM <?php echo number_format($priceData['originalPrice'], 2); ?>
+                                                                    </span>
+                                                                    <span class="reguler">
+                                                                        RM <?php echo number_format($priceData['discountedPrice'], 2); ?>
+                                                                    </span>
+                                                                <?php else: ?>
+                                                                    <span class="reguler">
+                                                                        RM <?php echo number_format($priceData['originalPrice'], 2); ?>
+                                                                    </span>
+                                                                <?php endif; ?>
+                                                            </div>
+                                                            <button class="btn btn-block btn-primary">Add to Cart</button>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </a>
-                                    <?php endforeach; ?>
-                                </div>
+                                            </a>
+                                        <?php endforeach; ?>
+                                    </div>
+                                <?php endif; ?>
+
                             </div>
                         </div>
                     </div>
@@ -281,6 +310,7 @@ $mostWantedProducts = $productController->getMostWantedProducts();
             endif;
         }
         ?>
+
 
     <?php endif; ?>
 

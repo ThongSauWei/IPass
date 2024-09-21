@@ -1,7 +1,57 @@
 [2024-09-18 22:00:04] Operation: Add, Status: Success, Event: Product successfully added with ID: P0017
 [2024-09-18 22:00:04] Operation: Product Detail, Status: Info, Event: Product Detail : ID - P0017 Name - new test 1
-[2024-09-18 22:00:21] Operation: Update, Status: Success, Event: Product updated successfully with ID: P0017
-[2024-09-18 22:00:37] Operation: Update, Status: Success, Event: Product updated successfully with ID: P0017
-[2024-09-18 22:00:46] Operation: Update, Status: Success, Event: Product updated successfully with ID: P0017
-[2024-09-18 22:00:55] Operation: Delete, Status: Success, Event: Product deleted successfully with ID: P0017
-[2024-09-19 14:08:25] Operation: test, Status: test, Event: userid get: 0
+[2024-09-21 07:20:12] Operation: Add, Status: Success, Event: Product successfully added with ID: P0002
+[2024-09-21 07:20:12] Operation: Product Detail, Status: Info, Event: Product Detail : ID - P0002 Name - haha
+[2024-09-21 07:29:15] Operation: Add, Status: Success, Event: Product successfully added with ID: P0002
+[2024-09-21 07:29:15] Operation: Product Detail, Status: Info, Event: Product Detail : ID - P0002 Name - Spring Onion Leaves
+[2024-09-21 07:30:03] Operation: Update, Status: Success, Event: Product updated successfully with ID: P0002
+[2024-09-21 07:31:51] Operation: Add, Status: Success, Event: Product successfully added with ID: P0003
+[2024-09-21 07:31:51] Operation: Product Detail, Status: Info, Event: Product Detail : ID - P0003 Name - Lemon
+[2024-09-21 07:53:12] Operation: Update, Status: Success, Event: Product updated successfully with ID: P0002
+[2024-09-21 07:55:01] Operation: Add, Status: Success, Event: Product successfully added with ID: P0003
+[2024-09-21 07:55:01] Operation: Product Detail, Status: Info, Event: Product Detail : ID - P0003 Name - lemon
+[2024-09-21 07:57:36] Operation: Add, Status: Success, Event: Product successfully added with ID: P0004
+[2024-09-21 07:57:36] Operation: Product Detail, Status: Info, Event: Product Detail : ID - P0004 Name - Chicken Drumstick
+[2024-09-21 07:58:35] Operation: Add, Status: Success, Event: Product successfully added with ID: P0005
+[2024-09-21 07:58:35] Operation: Product Detail, Status: Info, Event: Product Detail : ID - P0005 Name - Chicken Wing
+[2024-09-21 07:59:46] Operation: Add, Status: Success, Event: Product successfully added with ID: P0006
+[2024-09-21 07:59:46] Operation: Product Detail, Status: Info, Event: Product Detail : ID - P0006 Name - Red Seedless Watermelon (Cut)
+[2024-09-21 08:00:47] Operation: Add, Status: Success, Event: Product successfully added with ID: P0007
+[2024-09-21 08:00:47] Operation: Product Detail, Status: Info, Event: Product Detail : ID - P0007 Name - Red Dragon Fruit 
+[2024-09-21 08:01:30] Operation: Add, Status: Success, Event: Product successfully added with ID: P0008
+[2024-09-21 08:01:30] Operation: Product Detail, Status: Info, Event: Product Detail : ID - P0008 Name - French Bean 
+[2024-09-21 08:02:22] Operation: Add, Status: Success, Event: Product successfully added with ID: P0009
+[2024-09-21 08:02:22] Operation: Product Detail, Status: Info, Event: Product Detail : ID - P0009 Name - Sweet Corn (Yellow) Cameron
+[2024-09-21 08:02:27] Operation: Update, Status: Success, Event: Product updated successfully with ID: P0008
+[2024-09-21 08:02:32] Operation: Update, Status: Success, Event: Product updated successfully with ID: P0009
+[2024-09-21 08:06:34] Operation: Add, Status: Success, Event: Product successfully added with ID: P0010
+[2024-09-21 08:06:34] Operation: Product Detail, Status: Info, Event: Product Detail : ID - P0010 Name - Red Chili Padi
+[2024-09-21 08:24:20] Operation: Add, Status: Success, Event: Product successfully added with ID: P0011
+[2024-09-21 08:24:20] Operation: Product Detail, Status: Info, Event: Product Detail : ID - P0011 Name - Blueberry
+[2024-09-21 08:24:29] Operation: Update, Status: Success, Event: Product updated successfully with ID: P0011
+[2024-09-21 08:26:58] Operation: Update, Status: Success, Event: Product updated successfully with ID: P0011
+[2024-09-21 08:28:23] Operation: Add, Status: Success, Event: Product successfully added with ID: P0012
+[2024-09-21 08:28:23] Operation: Product Detail, Status: Info, Event: Product Detail : ID - P0012 Name - Frozen Marinated Lamb Shoulder Slice
+[2024-09-21 08:29:33] Operation: Add, Status: Success, Event: Product successfully added with ID: P0013
+[2024-09-21 08:29:33] Operation: Product Detail, Status: Info, Event: Product Detail : ID - P0013 Name - Australia Chill Grass Striploin Steak
+[2024-09-21 08:30:56] Operation: Add, Status: Success, Event: Product successfully added with ID: P0014
+[2024-09-21 08:30:56] Operation: Product Detail, Status: Info, Event: Product Detail : ID - P0014 Name - Smoke Bacon Pork Sausage
+[2024-09-21 08:31:42] Operation: Add, Status: Success, Event: Product successfully added with ID: P0015
+[2024-09-21 08:31:42] Operation: Product Detail, Status: Info, Event: Product Detail : ID - P0015 Name - Fresh Island Mackerel(Cleaned and Gutted)
+[2024-09-21 08:32:22] Operation: Add, Status: Success, Event: Product successfully added with ID: P0016
+[2024-09-21 08:32:22] Operation: Product Detail, Status: Info, Event: Product Detail : ID - P0016 Name - Fresh Golden Snapper
+[2024-09-21 08:33:01] Operation: Add, Status: Success, Event: Product successfully added with ID: P0017
+[2024-09-21 08:33:01] Operation: Product Detail, Status: Info, Event: Product Detail : ID - P0017 Name - Fresh Silver pomfret
+[2024-09-21 08:33:38] Operation: Add, Status: Success, Event: Product successfully added with ID: P0018
+[2024-09-21 08:33:38] Operation: Product Detail, Status: Info, Event: Product Detail : ID - P0018 Name - Fresh Threadfin(Cleaned and Gutted)
+[2024-09-21 08:34:32] Operation: Add, Status: Success, Event: Product successfully added with ID: P0019
+[2024-09-21 08:34:32] Operation: Product Detail, Status: Info, Event: Product Detail : ID - P0019 Name - Round Cabbage (Cut)
+[2024-09-21 08:37:24] Operation: Add, Status: Success, Event: Product successfully added with ID: P0020
+[2024-09-21 08:37:24] Operation: Product Detail, Status: Info, Event: Product Detail : ID - P0020 Name - Peeled Josaphine Pineapple
+[2024-09-21 08:38:17] Operation: Add, Status: Success, Event: Product successfully added with ID: P0021
+[2024-09-21 08:38:17] Operation: Product Detail, Status: Info, Event: Product Detail : ID - P0021 Name - Old Ginger China
+[2024-09-21 08:39:24] Operation: Add, Status: Success, Event: Product successfully added with ID: P0022
+[2024-09-21 08:39:24] Operation: Product Detail, Status: Info, Event: Product Detail : ID - P0022 Name - Red Apple USA
+[2024-09-21 08:44:25] Operation: Update, Status: Success, Event: Product updated successfully with ID: P0001
+[2024-09-21 08:47:58] Operation: Update, Status: Success, Event: Product updated successfully with ID: P0001
+[2024-09-21 08:57:00] Operation: Delete, Status: Success, Event: Product deleted successfully with ID: P0001
