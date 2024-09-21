@@ -166,6 +166,44 @@ class Customer extends NewModel {
             throw new Exception('Failed to generate CustomerID. Please try again later.');
         }
     }
+    
+    //For API use
+    // Create new customer
+    public function createNewCustomer($data) {
+        $userModel = new User();
+
+        // Auto-generate UserID and CustomerID
+        $userID = $userModel->generateUserID(); 
+        $customerID = $this->generateCustomerID(); 
+
+        $userData = [
+            'UserID' => $userID,
+            'Username' => $data['Username'],
+            'Email' => $data['Email'],
+            'Password' => password_hash($data['Password'], PASSWORD_BCRYPT),
+            'Birthday' => $data['Birthday'],
+            'Gender' => $data['Gender'],
+            'RegistrationDate' => date('Y-m-d H:i:s')
+        ];
+
+        // Insert into User table
+        if ($userModel->insert($userData)->execute()) {
+            // Prepare customer data with auto-generated CustomerID
+            $customerData = [
+                'CustomerID' => $customerID,
+                'UserID' => $userID,
+                'CustomerName' => $data['CustomerName'],
+                'PhoneNumber' => $data['PhoneNumber'],
+                'Address' => $data['Address'],
+                'Point' => 0 // Default point set to 0
+            ];
+
+            // Insert into Customer table
+            return $this->insert($customerData)->execute();
+        }
+
+        return false;
+    }
 
 }
 
