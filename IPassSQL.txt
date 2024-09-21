@@ -177,13 +177,11 @@ CREATE TABLE Rewards (
 );
 
 -- Insert default superadmin user into the User table with 'admin' role
-INSERT INTO User (UserID, Username, Email, Password, Role, Birthday, Gender, ProfileImage)
-VALUES 
-('U0001', 'superadmin', 'superadmin@nskgrocery.com', '$2y$10$1oX5RXJi5/yDG.wwoTyGruzTeCe2eNBN1.BQDtEM75loiL/f3Yyia', 'admin', '1980-01-01', 'm', '/assets/img/ProfileImage/admin.jpg');
+-- INSERT INTO User (UserID, Username, Email, Password, Role, Birthday, Gender, ProfileImage)
+-- VALUES ('U0001', 'superadmin', 'superadmin@nskgrocery.com', '$2y$10$1oX5RXJi5/yDG.wwoTyGruzTeCe2eNBN1.BQDtEM75loiL/f3Yyia', 'admin', '1980-01-01', 'm', '/assets/img/ProfileImage/admin.jpg');
 
-INSERT INTO Admin (AdminID, UserID, AdminRole)
-VALUES 
-('A0001', 'U0001', 'superadmin');
+-- INSERT INTO Admin (AdminID, UserID, AdminRole)
+-- VALUES ('A0001', 'U0001', 'superadmin');
 
 -- Product INSERT Data
 INSERT INTO `product` (`ProductID`, `ProductName`, `ProductDesc`, `Category`, `Price`, `Weight`, `ProductImage`, `Availability`, `Status`) VALUES
@@ -210,3 +208,44 @@ INSERT INTO `product` (`ProductID`, `ProductName`, `ProductDesc`, `Category`, `P
 ('P0021', 'Old Ginger China', 'Old ginger (mature ginger) is spicier, fibrous and slightly tougher than new ginger. It has anti inflammatory properties and is often used in Asian dishes and medicinal purposes. ﻿﻿The flesh of old ginger is juicy with a very strong taste. It is often pickled in vinegar as a snack or cooked as an ingredient in many dishes.\r\nStorage Instructions\r\nRefrigerate fresh, whole, unpeeled ginger in an airtight plastic bag in the crisper drawer.', 'Vegetable', 2.95, 0.20, 'Old_Ginger_China.jpeg', 1, 1),
 ('P0022', 'Red Apple USA', 'These bright red apples contains a balanced sweet-tart flavour that is is almost honey like. Firm with a crisp bite, the Red Delicious apples make a healthy treat. Source from USA.\r\nStorage Instructions\r\nApples will keep up to eight weeks when stored whole in a well-ventilated, dark, and cool area. The storage time will vary depending on the variety as some varieties can last in cold storage for 6-12 months. Wrapping the Apple in newspaper and separating the fruits can help prolong storage life.', 'Fruit', 19.95, 1.00, 'Red_Apple_USA.jpeg', 1, 1);
 
+INSERT INTO `user` (`UserID`, `Username`, `Email`, `Password`, `Role`, `Birthday`, `Gender`, `ProfileImage`, `isActive`, `recovery_token`, `token_expiry`, `RegistrationDate`) VALUES
+('U0001', 'superadmin', 'superadmin@nskgrocery.com', '$2y$10$1oX5RXJi5/yDG.wwoTyGruzTeCe2eNBN1.BQDtEM75loiL/f3Yyia', 'admin', '1980-01-02', 'm', '/assets/img/ProfileImage/clock.png', 1, NULL, NULL, '2024-09-20 18:39:25'),
+('U0002', 'fg22', 'erikafung26@gmail.com', '$2y$10$TS3F5JTJZXTLlfza8ye8zOI.YwAD9R4PkEMN6p7c53bSb/RMSdj6y', 'customer', '2002-06-22', 'm', '/assets/img/ProfileImage/clock.png', 1, '9cd033c898e97a119aa15bb86d3cb66417257c394e5707deca0e34f79ddbdd100aed87e8b8356bfe2e8ecb941df4cfee278c', '2024-09-20 17:35:22', '2024-09-20 18:39:25'),
+('U0003', 'Jesus', 'staff@gmail.com', '$2y$10$1oX5RXJi5/yDG.wwoTyGruzTeCe2eNBN1.BQDtEM75loiL/f3Yyia', 'admin', '1980-01-01', 'm', '/assets/img/ProfileImage/profile2.jpg', 1, NULL, NULL, '2024-09-20 18:39:25'),
+('U0004', 'littlepotato', 'staff2@gmail.com', '$2y$10$1oX5RXJi5/yDG.wwoTyGruzTeCe2eNBN1.BQDtEM75loiL/f3Yyia', 'admin', '2003-11-21', 'f', '/assets/img/ProfileImage/admin.jpg', 1, NULL, NULL, '2024-09-20 18:39:25'),
+('U0005', 'littlepotato', 'staff3@gmail.com', '$2y$10$1oX5RXJi5/yDG.wwoTyGruzTeCe2eNBN1.BQDtEM75loiL/f3Yyia', 'admin', '2003-11-21', 'f', '/assets/img/ProfileImage/admin.jpg', 1, NULL, NULL, '2024-09-20 18:39:25'),
+('U0006', 'staff4', 'staff4@gmail.com', '$2y$10$1oX5RXJi5/yDG.wwoTyGruzTeCe2eNBN1.BQDtEM75loiL/f3Yyia', 'admin', '1995-05-15', 'm', '/assets/img/ProfileImage/admin.jpg', 1, NULL, NULL, '2024-09-20 18:39:25'),
+('U0007', 'staff5', 'staff5@gmail.com', '$2y$10$1oX5RXJi5/yDG.wwoTyGruzTeCe2eNBN1.BQDtEM75loiL/f3Yyia', 'admin', '1990-08-10', 'f', '/assets/img/ProfileImage/admin.jpg', 1, NULL, NULL, '2024-09-20 18:39:25'),
+('U0008', 'staff6', 'staff6@gmail.com', '$2y$10$1oX5RXJi5/yDG.wwoTyGruzTeCe2eNBN1.BQDtEM75loiL/f3Yyia', 'admin', '1988-01-22', 'm', '/assets/img/ProfileImage/admin.jpg', 1, NULL, NULL, '2024-09-20 18:39:25'),
+('U0009', 'staff7', 'staff7@gmail.com', '$2y$10$1oX5RXJi5/yDG.wwoTyGruzTeCe2eNBN1.BQDtEM75loiL/f3Yyia', 'admin', '1993-03-30', 'f', '/assets/img/ProfileImage/admin.jpg', 1, NULL, NULL, '2024-09-20 18:39:25'),
+('U0010', 'staff8', 'staff8@gmail.com', '$2y$10$1oX5RXJi5/yDG.wwoTyGruzTeCe2eNBN1.BQDtEM75loiL/f3Yyia', 'admin', '1997-07-18', 'm', '/assets/img/ProfileImage/admin.jpg', 1, NULL, NULL, '2024-09-20 18:39:25'),
+('U0011', 'staff9', 'staff9@gmail.com', '$2y$10$1oX5RXJi5/yDG.wwoTyGruzTeCe2eNBN1.BQDtEM75loiL/f3Yyia', 'admin', '1992-09-09', 'f', '/assets/img/ProfileImage/admin.jpg', 1, NULL, NULL, '2024-09-20 18:39:25'),
+('U0012', 'staff10', 'staff10@gmail.com', '$2y$10$1oX5RXJi5/yDG.wwoTyGruzTeCe2eNBN1.BQDtEM75loiL/f3Yyia', 'admin', '1994-12-12', 'm', '/assets/img/ProfileImage/admin.jpg', 1, NULL, NULL, '2024-09-20 18:39:25'),
+('U0013', 'aaaa', 'abc@gmail.com', '$2y$10$Xjfhsdzf95on/J.STSAQR.Ut7zTRnKztXNCWNSI9/OQJ526snxJWe', 'customer', '2024-09-20', 'f', '', 1, NULL, NULL, '2024-09-20 18:55:40'),
+('U0014', 'bbbb', 'testingCust@gmail.com', '$2y$10$sbcT4zt8wObiwBNhOWIkfeDq4yq8pLMYgXW51kkkgpa7W7oSKmFPi', 'customer', '2024-09-20', 'm', '', 1, NULL, NULL, '2024-09-20 18:57:54'),
+('U0015', 'sauwei', 'sauwei@gmail.com', '$2y$10$ZPogD7pzyEW/yrEkrLCK.e/wAIP7waqDzAdTNe5VmVAkzQv2llrOG', 'customer', '2003-11-21', 'f', '/assets/img/ProfileImage/sauwei.jpg', 1, NULL, NULL, '2024-09-21 00:28:12'),
+('U0016', 'puipui', 'pp@gmail.com', '$2y$10$LoVTsAiZ5rEhJ4499aJeBuJ4ygPrYR435MwenEVhPFEt1n5zq44Z2', 'admin', '2003-12-05', 'f', '/assets/img/ProfileImage/puipui.jpg', 1, NULL, NULL, '2024-09-21 03:17:52'),
+('U0017', 'ABCD', 'abcd@gmail.com', '$2y$10$JsoVwj3xA53GrR/nf6pZe.bqWt5ce341sdi0NUITFpsDgtV0yU9kq', 'admin', '2024-09-21', 'm', NULL, 1, NULL, NULL, '2024-09-21 17:10:23');
+
+
+INSERT INTO `customer` (`CustomerID`, `UserID`, `CustomerName`, `PhoneNumber`, `Address`, `Point`) VALUES
+('C0001', 'U0002', 'Fan Gao', '0123456789', 'No.1 Jalan ABC, Taman ABC, 52000, Kuala Lumpur', 0),
+('C0002', 'U0013', 'aaaa', '0123456789', '', 0),
+('C0003', 'U0014', 'bbbb', '0123456789', '', 0),
+('C0004', 'U0015', 'Sau Wei', '0162548249', '', 0);
+
+
+INSERT INTO `admin` (`AdminID`, `UserID`, `AdminRole`) VALUES
+('A0001', 'U0001', 'superadmin'),
+('A0002', 'U0003', 'staff'),
+('A0003', 'U0004', 'staff'),
+('A0004', 'U0005', 'staff'),
+('A0005', 'U0006', 'staff'),
+('A0006', 'U0007', 'staff'),
+('A0007', 'U0008', 'staff'),
+('A0008', 'U0009', 'staff'),
+('A0009', 'U0010', 'staff'),
+('A0010', 'U0011', 'staff'),
+('A0011', 'U0012', 'staff'),
+('A0012', 'U0016', 'staff'),
+('A0013', 'U0017', 'staff');
