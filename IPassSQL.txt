@@ -45,7 +45,8 @@ CREATE TABLE Product (
     Price DECIMAL(10, 2),
     Weight DECIMAL(5, 2),
     ProductImage VARCHAR(255),
-    Availability BOOLEAN
+    Availability BOOLEAN,
+    Status BOOLEAN
 );
 
 -- Promotion Table
