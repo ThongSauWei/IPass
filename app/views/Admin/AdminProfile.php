@@ -114,7 +114,7 @@ include_once __DIR__ . '/header.php';
                                             <label for="profileImage">Profile Image</label>
                                             <input type="file" class="form-control" id="profileImage" name="profileImage">
                                         </div>
-                                        <a href="/IPass/app/views/Admin/dashboard.view.php" class="btn btn-secondary mr-2" style="margin-left: 25rem; width: 8rem;" >Back</a>
+                                        <a href="/IPass/app/views/Admin/dashboard.view.php" class="btn btn-secondary mr-2" style="width: 8rem;" >Back</a>
                                         <button type="submit" class="btn btn-success">Update Profile</button>
                                     </form>
                                 </div>

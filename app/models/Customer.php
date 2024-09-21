@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__ . '/../core/NewModel.php';
 require_once __DIR__ . '/User.php';
 
 /*
@@ -7,16 +7,23 @@ require_once __DIR__ . '/User.php';
  * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
  */
 
-class Customer extends User {
+class Customer extends NewModel {
 
     protected $table = 'customer';
+
+    public function findCustByCustID($customerID) {
+        return $this->findAll()
+                ->where('CustomerID', $customerID)
+                ->limit(1)
+                ->execute();
+    }
 
     //admin site CRUD customer
     //display all customer
     public function displayAllCustomer() {
         try {
             // Get all customer members from the `customer` table
-            $customerList = $this->findAll(['UserID', 'CustomerID', 'CustomerName', 'PhoneNumber' , 'Address', 'Point'])
+            $customerList = $this->findAll(['UserID', 'CustomerID', 'CustomerName', 'PhoneNumber', 'Address', 'Point'])
                     ->execute();  // Fetch all customers without filtering by `UserID`
 
             $fullCustomerDetails = [];
@@ -27,7 +34,7 @@ class Customer extends User {
 
                 // Create a new User model to fetch user details
                 $userModel = new User();
-                $userDetails = $userModel->findAll(['Username', 'Email', 'Birthday', 'Gender', 'isActive'])
+                $userDetails = $userModel->findAll(['Username', 'Email', 'Birthday', 'Gender', 'isActive','RegistrationDate'])
                         ->where('UserID', $userID) // Fetch specific user details based on UserID
                         ->limit(1) // Fetch only one user with that ID
                         ->execute();
@@ -70,7 +77,7 @@ class Customer extends User {
     public function customerSelected($userID) {
         try {
             // Fetch customer data from the 'customer' table
-            $customerDetails = $this->findAll(['UserID', 'CustomerID', 'CustomerName', 'PhoneNumber','Address', 'Point'])
+            $customerDetails = $this->findAll(['UserID', 'CustomerID', 'CustomerName', 'PhoneNumber', 'Address', 'Point'])
                     ->where('UserID', $userID)
                     ->limit(1)
                     ->execute();
@@ -161,3 +168,5 @@ class Customer extends User {
     }
 
 }
+
+

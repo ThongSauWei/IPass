@@ -82,7 +82,7 @@ class CustomerController {
         }
 
         // Redirect back to the customer list after deletion
-        header('Location: /IPass/app/views/Admin/User/displayCustomer.php');
+        header('Location: http://localhost/IPass/app/views/Admin/User/displayCustomer.php');
         exit();
     }
 
@@ -97,7 +97,7 @@ class CustomerController {
                 $customerDetails = $this->userFacade->customerSelected($userID);
                 if ($customerDetails) {
                     $_SESSION['customer'] = $customerDetails;
-                    header('Location: /IPass/app/views/Admin/User/detailCustomer.php');
+                    header('Location: http://localhost/IPass/app/views/Admin/User/detailCustomer.php');
                     exit();
                 } else {
                     $_SESSION['error'] = "Customer (UserID: $userID) not found.";
@@ -109,7 +109,7 @@ class CustomerController {
             $_SESSION['error'] = "No customer selected.";
         }
 
-        header('Location: /IPass/app/views/Admin/User/displayCustomer.php');
+        header('Location: http://localhost/IPass/app/views/Admin/User/displayCustomer.php');
         exit();
     }
 
@@ -132,7 +132,7 @@ class CustomerController {
             $_SESSION['error'] = "No customer selected.";
         }
 
-        header('Location: /IPass/app/views/Admin/User/displayCustomer.php');
+        header('Location: http://localhost/IPass/app/views/Admin/User/detailCustomer.php');
         exit();
     }
 

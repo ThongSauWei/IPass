@@ -9,6 +9,6 @@
  *
  * @author Acer
  */
-interface ProductInterface {
-    public function convert($value);
+interface CurrencyAdapterInterface {
+    public function convert($amount, $fromCurrency, $toCurrency);
 }

@@ -11,7 +11,10 @@ CREATE TABLE User (
     Birthday DATE,
     Gender CHAR(1),  
     ProfileImage VARCHAR(255),
-    isActive BOOLEAN DEFAULT 1
+    isActive BOOLEAN DEFAULT 1,
+    RegistrationDate DATETIME,
+    recovery_token VARCHAR(255),
+    token_expiry DATETIME
 );
 
 -- Admin Table
@@ -42,7 +45,8 @@ CREATE TABLE Product (
     Price DECIMAL(10, 2),
     Weight DECIMAL(5, 2),
     ProductImage VARCHAR(255),
-    Availability BOOLEAN
+    Availability BOOLEAN,
+    Status BOOLEAN
 );
 
 -- Promotion Table
@@ -175,9 +179,8 @@ CREATE TABLE Rewards (
 -- Insert default superadmin user into the User table with 'admin' role
 INSERT INTO User (UserID, Username, Email, Password, Role, Birthday, Gender, ProfileImage)
 VALUES 
-('U0001', 'superadmin', 'superadmin@nskgrocery.com', 'Admin123!', 'admin', '1980-01-01', 'm', '/assets/img/ProfileImage/admin.jpg');
+('U0001', 'superadmin', 'superadmin@nskgrocery.com', '$2y$10$1oX5RXJi5/yDG.wwoTyGruzTeCe2eNBN1.BQDtEM75loiL/f3Yyia', 'admin', '1980-01-01', 'm', '/assets/img/ProfileImage/admin.jpg');
 
--- Insert corresponding superadmin role into the Admin table (U0001 user is the superadmin)
 INSERT INTO Admin (AdminID, UserID, AdminRole)
 VALUES 
 ('A0001', 'U0001', 'superadmin');

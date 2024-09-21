@@ -1,9 +1,6 @@
-
 <?php
 include_once __DIR__ . '/header.php';
 ?>
-
-
 
 <div id="page-content" class="page-content">
     <div class="banner">
@@ -15,7 +12,33 @@ include_once __DIR__ . '/header.php';
                 <div class="card card-login mb-5">
                     <div class="card-body">
 
+                        <!-- Display error or success messages -->
+                        <?php if (isset($_SESSION['error']) && !empty($_SESSION['error'])): ?>
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                <?php
+                                // Check if the error message is an array, and if so, implode it into a string
+                                if (is_array($_SESSION['error'])) {
+                                    echo implode('<br>', $_SESSION['error']); // Convert array elements into a string with <br> as separator
+                                } else {
+                                    echo $_SESSION['error']; // If it's a string, display it as-is
+                                }
+                                ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <?php unset($_SESSION['error']); // Clear errors after displaying ?>
+                        <?php endif; ?>
 
+                        <?php if (isset($_SESSION['success']) && !empty($_SESSION['success'])): ?>
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <?= $_SESSION['success'] ?>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <?php unset($_SESSION['success']); // Clear success message after displaying ?>
+                        <?php endif; ?>
 
                         <!-- Register Form -->
                         <form class="form-horizontal" method="POST" action="/IPass/app/controllers/UserController.php?action=register">
@@ -85,18 +108,6 @@ include_once __DIR__ . '/header.php';
     </div>
 </div>
 
-<!-- Display error messages as alerts -->
-<?php if (isset($_SESSION['error']) && !empty($_SESSION['error'])): ?>
-    <script>
-        let errors = <?php echo json_encode($_SESSION['error']); ?>;
-        errors.forEach(function (error) {
-            alert(error); // show each error using a JavaScript alert
-        });
-    </script>
-    <?php unset($_SESSION['error']); // clear errors after displaying?>
-<?php endif; ?>
-    
 <?php
 include_once __DIR__ . '/footer.php';
 ?>
-

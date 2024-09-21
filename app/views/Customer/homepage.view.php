@@ -1,47 +1,54 @@
+
+
 <?php
-include_once __DIR__ . '/header.php';
 require_once __DIR__ . '/../../models/Product.php'; // Ensure correct path
+require_once __DIR__ . '/../../core/SessionManager.php';
 // Initialize Product model
 $productModel = new Product();
 // Fetch distinct categories
 $categories = $productModel->getCategories();
 $categoriesWithImages = $productModel->getCategoriesWithImages();
+SessionManager::startSession();
+?>
+
+<?php
+include_once __DIR__ . '/header.php';
 ?>
 
 <style>
     .slide-img {
-    filter: blur(5px); /* Adjust the blur intensity here */
-    -webkit-filter: blur(5px);
-    height: 100vh; /* Adjust based on your image height */
-    object-fit: cover;
-    position: relative;
-}
+        filter: blur(5px); /* Adjust the blur intensity here */
+        -webkit-filter: blur(5px);
+        height: 100vh; /* Adjust based on your image height */
+        object-fit: cover;
+        position: relative;
+    }
 
-.carousel-caption {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff; /* You can change this based on your preference */
-    text-align: center;
-    z-index: 10;
-}
+    .carousel-caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #fff; /* You can change this based on your preference */
+        text-align: center;
+        z-index: 10;
+    }
 
-.promotion-title {
-    font-size: 3rem;
-    font-weight: bold;
-    color: #e41d61; /* Set to a strong color that stands out */
-}
+    .promotion-title {
+        font-size: 3rem;
+        font-weight: bold;
+        color: #e41d61; /* Set to a strong color that stands out */
+    }
 
-.promotion-lead {
-    font-size: 1.5rem;
-    color: #fff; /* You can adjust based on the background */
-}
+    .promotion-lead {
+        font-size: 1.5rem;
+        color: #fff; /* You can adjust based on the background */
+    }
 
-.btn-primary {
-    background-color: #e41d61; /* Button color */
-    border: none;
-}
+    .btn-primary {
+        background-color: #e41d61; /* Button color */
+        border: none;
+    }
 </style>
 
 <div id="page-content" class="page-content">

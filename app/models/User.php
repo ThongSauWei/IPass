@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . '/../core/NewModel.php';
+require_once __DIR__ . '/../web/sendGridService.php'; // Adjust the path as needed
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Scripting/EmptyPHP.php to edit this template
@@ -11,7 +12,6 @@ class User extends NewModel {
     protected $table = 'user';
 
     //get data part
-
     public function findUserByUserID($userID) {
         $result = $this->findAll()
                 ->where('UserID', $userID)
@@ -89,6 +89,11 @@ class User extends NewModel {
     //login register part
     public function register($data) {
         $data['Password'] = password_hash($data['Password'], PASSWORD_BCRYPT); //hash the password became hashvalue
+
+        $kualaLumpurTime = new DateTime('now', new DateTimeZone('Asia/Kuala_Lumpur'));
+        $currentDateTime = $kualaLumpurTime->format('Y-m-d H:i:s');
+
+        $data['RegistrationDate'] = $currentDateTime; //auto insert the current date
         $this->insert($data)->execute();
     }
 
@@ -163,6 +168,94 @@ class User extends NewModel {
         return $this->update('isActive', $status)
                         ->where('UserID', $userID)
                         ->execute();
+    }
+
+    //password recovery
+    public function passwordRecovery($email) {
+        // 1. Check if the email exists in the database
+        $user = $this->findAll()
+                ->where('Email', $email)
+                ->limit(1)
+                ->execute(); // Correct chaining order
+
+        if (!empty($user)) {
+            // 2. Generate a recovery token
+            $token = bin2hex(random_bytes(50));
+
+            // 3. Get current time in Kuala Lumpur and set the expiry time
+            $kualaLumpurTime = new DateTime('now', new DateTimeZone('Asia/Kuala_Lumpur'));
+            $kualaLumpurTime->modify('+1 hour'); // Add 1 hour for token expiry
+            $expiry = $kualaLumpurTime->format('Y-m-d H:i:s'); // Format it for MySQL
+            // Debugging: Print the expiry time for verification
+            echo "Token Expiry (Kuala Lumpur Time): " . $expiry . "<br>";
+
+            // 4. Update the user with the recovery token and expiry time (one by one)
+            $this->update('recovery_token', $token)
+                    ->where('Email', $email)->execute(); // Update the token
+            $this->update('token_expiry', $expiry)
+                    ->where('Email', $email)->execute(); // Update the expiry time
+            // 5. Send the recovery email
+            $result = sendPasswordRecoveryEmail($email, $token);  // Call SendGrid service to send email
+
+            if ($result == 202) {
+                return json_encode([
+                    'status' => 'success',
+                    'message' => 'Password recovery email sent successfully.'
+                ]);
+            } else {
+                return json_encode([
+                    'status' => 'error',
+                    'message' => 'Failed to send recovery email.'
+                ]);
+            }
+        } else {
+            return json_encode([
+                'status' => 'error',
+                'message' => 'Email not found.'
+            ]);
+        }
+    }
+
+    public function resetPassword($token, $newPassword) {
+        // 1. Get current date and time in Kuala Lumpur timezone
+        $kualaLumpurTime = new DateTime('now', new DateTimeZone('Asia/Kuala_Lumpur'));
+        $currentDateTime = $kualaLumpurTime->format('Y-m-d H:i:s'); // Format the date and time as a string
+        // Debugging: Print the current time and token
+        echo "Current Kuala Lumpur Time: " . $currentDateTime . "<br>";
+        echo "Token from URL: " . $token . "<br>";
+
+        // 2. Check if the token is valid and not expired
+        $user = $this->findAll()
+                ->where('recovery_token', $token)
+                ->where('token_expiry', $currentDateTime, '>') // Compare against current Kuala Lumpur date and time
+                ->execute();
+
+        // Debugging: Check if a user was found
+        if (empty($user)) {
+            echo "Token not found or expired.<br>";
+            return [
+                'status' => 'error',
+                'message' => 'Invalid or expired token.'
+            ];
+        } else {
+            echo "User found. Proceeding with password reset.<br>";
+        }
+
+        // 3. Hash the new password
+        $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT);
+
+        // 4. Update the user's password and clear the token (update one by one)
+        $this->update('Password', $hashedPassword)
+                ->where('recovery_token', $token)->execute(); // Update the password
+        $this->update('recovery_token', null)
+                ->where('recovery_token', $token)->execute(); // Clear the token
+        $this->update('token_expiry', null)
+                ->where('recovery_token', $token)->execute(); // Clear the expiry time
+
+        return [
+            'status' => 'success',
+            'message' => 'Password has been updated successfully.'
+        ];
     }
 
 }

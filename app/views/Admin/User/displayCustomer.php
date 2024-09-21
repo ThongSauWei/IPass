@@ -14,7 +14,6 @@ $errorMessage = $_SESSION['error'] ?? null;
 unset($_SESSION['success'], $_SESSION['error']); // Ensure the messages are cleared after rendering
 ?>
 
-
 <?php
 include_once __DIR__ . '/../../../../app/views/Admin/header.php';
 ?>
@@ -52,6 +51,11 @@ include_once __DIR__ . '/../../../../app/views/Admin/header.php';
             </button>
         </div>
     <?php endif; ?>
+
+    <!-- Add the "Customer Registration Report" button -->
+    <a href="http://localhost/IPass/app/views/Admin/User/CustomerRegistrationReport/customerReport.php" class="btn btn-info" style="margin-bottom:10px;">
+        <i class="fas fa-file-alt"></i> Customer Registration Report
+    </a>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">

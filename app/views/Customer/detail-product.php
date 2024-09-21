@@ -6,8 +6,10 @@ require_once __DIR__ . '/../../controllers/ProductController.php';
 require_once __DIR__ . '/../../core/SessionManager.php';
 require_once __DIR__ . '/../../adapter/WeightAdapterInterface.php';
 require_once __DIR__ . '/../../adapter/UnitConverterAdapter.php';
+require_once __DIR__ . '/../../adapter/CurrencyConverterAdapter.php';
 
 $weightConverter = new UnitConverterAdapter();
+$currencyConverter = new CurrencyConverterAdapter();
 
 $productController = new ProductController();
 
@@ -33,7 +35,16 @@ if ($userID) {
     $customerID = $productController->getCustomerIDByUserID($userID);
 }
 
+$selectedCurrency = 'MYR'; // Default currency
+if (isset($_GET['currency'])) {
+    $selectedCurrency = $_GET['currency'];
+}
+
 //echo "User ID: " . htmlspecialchars($userID);
+// Determine the current language (default to 'en' for English)
+$currentLanguage = isset($_GET['lang']) ? $_GET['lang'] : 'en';
+$translateTo = $currentLanguage === 'zh' ? 'en' : 'zh';
+$translateText = $currentLanguage === 'zh' ? 'Translate to English' : 'Translate to Chinese';
 
 if (isset($_GET['productID'])) {
     $productID = $_GET['productID'];
@@ -53,6 +64,25 @@ if (isset($_GET['productID'])) {
         } else {
             $error = "Product category is not defined.";
         }
+
+        // Convert prices
+        $priceData = $productController->getPriceWithPromotion($productID);
+        $originalPrice = $priceData['originalPrice'];
+        $discountedPrice = $priceData['discountedPrice'];
+
+        $convertedOriginalPrice = $productController->convertCurrency($originalPrice, 'MYR', $selectedCurrency);
+        $convertedDiscountedPrice = $productController->convertCurrency($discountedPrice ?? $originalPrice, 'MYR', $selectedCurrency);
+
+        $currencySymbols = [
+            'MYR' => 'RM ',
+            'USD' => 'USD ',
+            'SGD' => 'SGD ',
+            'CNY' => 'CNY ',
+            'EUR' => 'EUR ',
+            'GBP' => 'GBP '
+        ];
+
+        $currencySymbol = $currencySymbols[$selectedCurrency] ?? 'RM';
     }
 } else {
     $error = "No product ID provided.";
@@ -139,48 +169,44 @@ ob_end_flush();
 
                         </div>
                         <div class="col-sm-6">
+                            <strong>Overview</strong><br>
                             <p style="text-align: justify;">
-                                <strong>Overview</strong><br>
-                                <?php echo htmlspecialchars($product['ProductDesc']); ?>
+                                <span id="product-desc"><?php echo htmlspecialchars($product['ProductDesc']); ?></span>
+                                <a href="#" id="translate-link" data-text="<?php echo htmlspecialchars($product['ProductDesc']); ?>" data-lang="<?php echo htmlspecialchars($translateTo); ?>">
+                                    <?php echo htmlspecialchars($translateText); ?>
+                                </a>
                             </p>
+
                             <div class="row">
                                 <div class="col-sm-6">
                                     <!-- Price Section -->
                                     <p>
                                         <strong>Price</strong>
                                         <br>
-                                        <?php
-                                        // Fetch the price and promotion data
-                                        $priceData = $productController->getPriceWithPromotion($productID);
-
-                                        // Check if there's a promotional price
-                                        if ($priceData['discountedPrice'] !== null) {
-                                            // Display discounted price and original price
-                                            ?>
-                                            <span class="price">
-                                                RM <?php echo number_format($priceData['discountedPrice'], 2); ?>
-                                            </span>
-                                            <span class="old-price" style="text-decoration: line-through;">
-                                                RM <?php echo number_format($priceData['originalPrice'], 2); ?>
-                                            </span>
-                                            <?php
-                                        } else {
-                                            // No promotion, display original price only
-                                            ?>
-                                            <span class="price">
-                                                RM <?php echo number_format($priceData['originalPrice'], 2); ?>
-                                            </span>
-                                            <?php
-                                        }
-                                        ?>
+                                        <span id="price">
+                                            <?php if ($discountedPrice !== null): ?>
+                                                <span id="discounted-price" class="price">
+                                                    <?php echo htmlspecialchars($currencySymbol) . number_format($convertedDiscountedPrice, 2); ?>
+                                                </span>
+                                                <span id="original-price" class="old-price" style="text-decoration: line-through;">
+                                                    <?php echo htmlspecialchars($currencySymbol) . number_format($convertedOriginalPrice, 2); ?>
+                                                </span>
+                                            <?php else: ?>
+                                                <span id="original-price" class="price">
+                                                    <?php echo htmlspecialchars($currencySymbol) . number_format($convertedOriginalPrice, 2); ?>
+                                                </span>
+                                            <?php endif; ?>
+                                        </span>
                                     </p>
                                 </div>
 
                                 <div class="col-sm-6 text-right">
-                                    <select class="form-select d-inline-block" style="width: auto; display: inline;">
-                                        <option value="MYR" selected>MYR</option>
-                                        <option value="SGD">SGD</option>
-                                        <option value="USD">USD</option>
+                                    <select id="currency-select" class="form-select d-inline-block" style="width: auto; display: inline;">
+                                        <option value="MYR" <?php echo $selectedCurrency === 'MYR' ? 'selected' : ''; ?>>MYR</option>
+                                        <option value="USD" <?php echo $selectedCurrency === 'USD' ? 'selected' : ''; ?>>USD</option>
+                                        <option value="SGD" <?php echo $selectedCurrency === 'SGD' ? 'selected' : ''; ?>>SGD</option>
+                                        <option value="CNY" <?php echo $selectedCurrency === 'USD' ? 'selected' : ''; ?>>CNY</option>
+                                        <option value="GBP" <?php echo $selectedCurrency === 'SGD' ? 'selected' : ''; ?>>GBP</option>
                                         <!-- Add more currency options as needed -->
                                     </select>
                                 </div>
@@ -190,9 +216,8 @@ ob_end_flush();
                             // Get product weight from database
                             $productWeightKg = (float) $product['Weight']; // Weight in kg
 // Convert weight to grams
-                            $productWeightG = $weightConverter->convertToG($productWeightKg);
+                            $productWeightG = $productController->convertWeight($productWeightKg);
                             ?>
-
 
                             <div class="row">
                                 <div class="col-sm-6">
@@ -213,9 +238,6 @@ ob_end_flush();
                                     </select>
                                 </div>
                             </div>
-
-
-
 
                             <p>
                                 <strong>Category</strong><br>
@@ -343,22 +365,19 @@ ob_end_flush();
                     </div>
                 </div>
             </section>
-
-
         <?php endif; ?>
     <?php endif; ?>
 
 </div>
 
 <script>
+    //weight
     document.getElementById('weight-unit').addEventListener('change', function () {
         var unit = this.value;
         var weightElement = document.getElementById('product-weight');
-
         // Get the weight values from the PHP code
         var weightKg = <?php echo json_encode($productWeightKg); ?>;
         var weightG = <?php echo json_encode($productWeightG); ?>;
-
         // Update the displayed weight based on the selected unit
         if (unit === 'KG') {
             weightElement.textContent = weightKg + ' kg';
@@ -366,6 +385,53 @@ ob_end_flush();
             weightElement.textContent = weightG + ' g';
         }
     });
+    //currency
+    document.getElementById('currency-select').addEventListener('change', function () {
+        var selectedCurrency = this.value;
+        // Reload the page with the selected currency
+        window.location.href = 'detail-product.php?productID=<?php echo htmlspecialchars($productID); ?>&currency=' + selectedCurrency;
+    });
+
+    // Translate
+    document.getElementById('translate-link').addEventListener('click', function (e) {
+        e.preventDefault();
+        var text = this.getAttribute('data-text');
+        var targetLanguage = this.getAttribute('data-lang');
+        
+        alert("test");
+
+        fetch('../../controllers/ProductController.php?action=translate&lang=' + targetLanguage, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: new URLSearchParams({text: text})
+        })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.translatedText) {
+                        alert("testin");
+                        document.getElementById('product-desc').textContent = data.translatedText;
+                        // Update translation link
+                        var translateLink = document.getElementById('translate-link');
+                        var newLang = targetLanguage === 'zh' ? 'en' : 'zh';
+                        var newText = targetLanguage === 'zh' ? 'Translate to English' : 'Translate to Chinese';
+                        translateLink.textContent = newText;
+                        translateLink.setAttribute('data-lang', newLang);
+                        translateLink.setAttribute('data-text', data.translatedText);
+                    } else {
+                        alert("test1");
+                        alert('Error: ' + (data.error || 'Unknown error'));
+                    }
+                })
+                .catch(error => {
+                    alert("test2");
+                    alert('Error: ' + error.message);
+                });
+    });
+
+
+
 </script>
 
 <?php

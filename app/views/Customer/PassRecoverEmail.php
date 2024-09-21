@@ -1,28 +1,16 @@
 <?php
-require_once __DIR__ . '/../../core/SessionManager.php';
-
-SessionManager::startSession();
-
-if(SessionManager::loggedIn()){
-    header('Location: homepage.view.php');
-    exit();
-}
-?>
-
-<?php
 include_once __DIR__ . '/header.php';
 ?>
 
 <div id="page-content" class="page-content">
     <div class="banner">
-        <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('<?= ROOT ?>/assets/img/bg-header.jpg');">
+        <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('<?= ROOT ?>/assets/img/pass.jpg');">
             <div class="container">
-                <h1 class="pt-5">Login Page</h1>
-                <p class="lead">Save time and leave the groceries to us.</p>
+                <h1 class="pt-5">Password Recovery</h1>
+                <p class="lead">Please enter your email to reset your password.</p>
                 <div class="card card-login mb-5">
                     <div class="card-body">
-
-                        <!-- Moved alert container inside the card body, above the form -->
+                        <!-- Alert Container placed at the top of card body -->
                         <div id="centered-alert-container">
                             <?php if (isset($_SESSION['error']) && !empty($_SESSION['error'])): ?>
                                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
@@ -52,34 +40,24 @@ include_once __DIR__ . '/header.php';
                             <?php endif; ?>
                         </div>
 
-                        <!-- Login Form -->
-                        <form class="form-horizontal" method="post" action="/IPass/app/controllers/UserController.php?action=login">
+                        <!-- Form starts here -->
+                        <form class="form-horizontal" method="post" action="/IPass/app/controllers/PassRecoveryController.php?action=recovery">
                             <div class="form-group row mt-3">
                                 <div class="col-md-12">
-                                    <input class="form-control" type="text" name="identity" required placeholder="Email or Username">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-12">
-                                    <input class="form-control" type="password" name="password" required placeholder="Password">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <div class="col-md-12 d-flex justify-content-between align-items-center">
-                                    <div class="checkbox">
-                                        <input id="checkbox0" type="checkbox" name="remember">
-                                        <label for="checkbox0" class="mb-0"> Remember Me? </label>
-                                    </div>
-                                    <a href="http://localhost/IPass/app/views/Customer/PassRecoverEmail.php" class="text-light"><i class="fa fa-bell"></i> Forgot password?</a>
+                                    <input class="form-control" type="email" name="email" required placeholder="Enter your email">
                                 </div>
                             </div>
                             <div class="form-group row text-center mt-4">
                                 <div class="col-md-12">
-                                    <button type="submit" class="btn btn-primary btn-block text-uppercase">Log In</button>
+                                    <button type="submit" class="btn btn-primary btn-block text-uppercase">Submit</button>
+                                </div>
+                            </div>
+                            <div class="form-group row text-center mt-4">
+                                <div class="col-md-12">
+                                    <a href="http://localhost/IPass/app/views/Customer/Login.php" class="btn btn-secondary btn-block text-uppercase" style="margin-top: -15px;">Back to Login</a>
                                 </div>
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>
@@ -89,9 +67,10 @@ include_once __DIR__ . '/header.php';
 
 <?php include_once __DIR__ . '/footer.php'; ?>
 
-<!-- Adjust the alert position to align with the card body -->
+<!-- Custom CSS for alert positioning -->
 <style>
     #centered-alert-container {
-        margin-bottom: 20px; /* Space between the alert and the form */
+        margin-bottom: 15px; /* Add some space between the alert and the form */
+        text-align: center;
     }
 </style>
