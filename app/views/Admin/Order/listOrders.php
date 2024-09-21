@@ -24,12 +24,12 @@ require_once '../views/Admin/header.php';
                             <th></th>
                         </tr>
                     </thead>
-                    <?php if (!empty($orderList)): ?>
                     <tbody>
+                        <?php if (!empty($orderList)): ?>
                         <?php foreach ($orderList as $order): ?>
                         <tr onclick="window.location.href='http://localhost/IPass/app/controllers/OrderController.php?action=viewOrder&orderID=<?= $order["OrderID"] ?>'">
                             <td><?= $order["OrderID"] ?></td>
-                            <td><?= $order["CustomerID"] ?></td>
+                            <td><?= $order["CustomerName"] ?></td>
                             <td>RM <?= $order["PurchasedAmt"] ?></td>
                             <td>RM <?= $order["Discount"] ?></td>
                             <td>RM <?= $order["DeliveryFee"] ?></td>
@@ -38,13 +38,17 @@ require_once '../views/Admin/header.php';
                             <td><?= $order["Status"] ?></td>
                             <td><?= $order["PaymentType"] ?></td>
                             <td>
-                                <button class="btn btn-outline-warning" onclick="window.location.href='http://localhost/IPass/app/controllers/OrderController.php?action=editOrder&orderID=<?= $order["OrderID"] ?>'">Edit</button>
-                                <button class="btn btn-outline-danger" onclick="window.location.href='http://localhost/IPass/app/controllers/OrderController.php?action=deleteOrder&productID=<?= $oder["OrderID"] ?>'">Delete</button>
+                                <button class="btn btn-outline-warning" onclick="clickEdit(this, event)" id='<?= $order["OrderID"] ?>'>Edit</button>
+                                <button class="btn btn-outline-danger" onclick="window.location.href='http://localhost/IPass/app/controllers/OrderController.php?action=deleteOrder&productID=<?= $order["OrderID"] ?>'">Delete</button>
                             </td>
                         </tr>
                         <?php endforeach; ?>
+                        <?php else: ?>
+                        <tr>
+                            <td>No order records found.</td>
+                        </tr>
+                        <?php endif; ?>
                     </tbody>
-                    <?php endif; ?>
                 </table>
             </div>
         </div>
@@ -53,6 +57,13 @@ require_once '../views/Admin/header.php';
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"></script>
+<script>
+    function clickEdit(element, event) {
+        event.stopPropagation();
+        
+        window.location.href='http://localhost/IPass/app/controllers/OrderController.php?action=editOrder&orderID=' + element.id + '&customerName=<?= $order["CustomerName"] ?>';
+    }
+</script>
 <?php
 include_once '../views/Admin/footer.php';
 ?>

@@ -15,57 +15,13 @@ class OrderController {
         $this->orderDetailsModel = new OrderDetailsModel();
     }
     
-    public function listOrders() {
-        try {
-            SessionManager::requireLogin();
-            $orderList = $this->orderModel->getAllOrders();
-            
-            $customerModel = new Customer();
-            
-            foreach ($orderList as $key => $order) {
-                
-            }
-            
-            require '../views/Admin/Order/listOrders.php';
-        } catch (Exception $ex) {
-            echo 'Error: ' . $ex->getMessage();
-        }
-    }
-    
-    public function viewOrder() {
-        try {
-            SessionManager::requireLogin();
-            $orderID = isset($_GET['orderID'])? $_GET['orderID'] : null;
-            
-            if ($orderID) {
-                $order = $this->orderModel->getOrder($orderID);
-                $orderDetails = $this->orderDetailsModel->getOrderDetailsByOrder($orderID);
-            
-                $productModel = new Product();
-                
-                foreach ($orderDetails as $key => $item) {
-                    $productID = $item["ProductID"];
-                    $product = $productModel->getById($productID);
-                    $orderDetails[$key]["ProductName"] = $product[0]["ProductName"];
-                }
-            
-                require '../views/Admin/Order/viewOrder.php';
-            } else {
-                throw new Exception("Order ID is required");
-            }
-        } catch (Exception $ex) {
-            echo 'Error: ' . $ex->getMessage();
-        }
-    }
-    
     public function handleOrder() {
         try {
             $jsonObj = json_decode(file_get_contents('php://input'), true);
             $orderID = $jsonObj['orderID'];
             $action = $jsonObj['action'];
             
-            $orderContext = $this->model->getOrderContext($orderID);
-            
+            $orderContext = $this->orderModel->getOrderContext($orderID);
             switch ($action) {
                 case 'Cancel':
                     $orderContext->cancelOrder();
@@ -84,6 +40,60 @@ class OrderController {
             echo 'Error: ' . $ex->getMessage();
         }
     }
+    
+    public function listOrders() {
+        try {
+            SessionManager::requireLogin();
+            $orderList = $this->orderModel->getAllOrders();
+            
+            $customerModel = new Customer();
+            
+            foreach ($orderList as $key => $order) {
+                $customerID = $order["CustomerID"];
+                $customer = $customerModel->findCustByCustID($customerID);
+                $orderList[$key]["CustomerName"] = $customer[0]["CustomerName"];
+            }
+            
+            require '../views/Admin/Order/listOrders.php';
+        } catch (Exception $ex) {
+            echo 'Error: ' . $ex->getMessage();
+        }
+    }
+    
+    public function showOrder() {
+        try {
+            SessionManager::requireLogin();
+            $orderID = isset($_GET['orderID'])? $_GET['orderID'] : null;
+            
+            if ($orderID) {
+                $order = $this->orderModel->getOrder($orderID);
+                $orderDetails = $this->orderDetailsModel->getOrderDetailsByOrder($orderID);
+            
+                $productModel = new Product();
+                
+                foreach ($orderDetails as $key => $item) {
+                    $productID = $item["ProductID"];
+                    $product = $productModel->getById($productID);
+                    $orderDetails[$key]["ProductName"] = $product[0]["ProductName"];
+                }
+                
+                if ($_GET['action'] === 'viewOrder') {
+                    require '../views/Admin/Order/viewOrder.php';
+                } else if ($_GET['action'] === 'editOrder') {
+                    $customerName = $_GET["customerName"];
+                    $order["CustomerName"] = $customerName;
+                    
+                    require '../views/Admin/Order/editOrder.php';
+                }
+            
+                
+            } else {
+                throw new Exception("Order ID is required");
+            }
+        } catch (Exception $ex) {
+            echo 'Error: ' . $ex->getMessage();
+        }
+    }
 }
 
 $controller = new OrderController();
@@ -92,7 +102,11 @@ if (isset($_GET['action']) && $_GET['action'] === 'listOrders') {
     $controller->listOrders();
 }
 
-if (isset($_GET['action']) && $_GET['action'] === 'viewOrder') {
-    $controller->viewOrder();
+if (isset($_GET['action']) && ($_GET['action'] === 'viewOrder' || $_GET['action'] === 'editOrder')) {
+    $controller->showOrder();
+}
+
+if (isset($_GET['action']) && $_GET['action'] === 'handleOrder') {
+    $controller->handleOrder();
 }
 

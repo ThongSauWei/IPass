@@ -179,7 +179,7 @@ $mostWantedProducts = $productController->getMostWantedProducts();
                                                     </span>
                                                 <?php endif; ?>
                                             </div>
-                                            <a href="add-to-cart.php?productID=<?php echo htmlspecialchars($product['ProductID']); ?>" class="btn btn-block btn-primary">Add to Cart</a>
+                                            <a href="detail-product.php?productID=<?php echo htmlspecialchars($product['ProductID']); ?>" class="btn btn-block btn-primary">Add to Cart</a>
                                         </div>
                                     </div>
                                 </div>

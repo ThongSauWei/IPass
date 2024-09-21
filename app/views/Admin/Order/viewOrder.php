@@ -83,9 +83,9 @@ require_once '../views/Admin/header.php';
                 </div>
                 <div class="modal-footer" style="display: flex; justify-content: space-between; width: 100%;">
                     <div style="display: flex; gap: 20px;">
-                        <button type="button" class="btn btn-danger" value="Cancel">Cancel Order</button>
-                        <button type="button" class="btn btn-primary" value="Deliver">Deliver Order</button>
-                        <button type="button" class="btn btn-info" value="Complete">Complete Order</button>
+                        <button type="button" class="btn btn-danger" onclick="handleOrder(this)" value="Cancel">Cancel Order</button>
+                        <button type="button" class="btn btn-primary" onclick="handleOrder(this)" value="Deliver">Deliver Order</button>
+                        <button type="button" class="btn btn-info" onclick="handleOrder(this)" value="Complete">Complete Order</button>
                     </div>
                     <button onclick="backToOrderListPage()" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
                 </div>
@@ -117,8 +117,8 @@ require_once '../views/Admin/header.php';
     }
     
     function handleOrder(element) {
-        let orderID = <?= $order["OrderID"] ?>
-        const action = element.value;
+        let orderID = '<?= $order["OrderID"] ?>';
+        let action = element.value;
     
         let xhr = new XMLHttpRequest();
         xhr.open("POST", "OrderController.php?action=handleOrder", true);

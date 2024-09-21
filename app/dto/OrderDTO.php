@@ -8,8 +8,9 @@ class OrderDTO {
     public $deliveryFee;
     public $orderDate;
     public $deliveryAddress;
+    public $paymentType;
     
-    public function __construct($orderID, $customerID, $purchasedAmt, $discount, $deliveryFee, $orderDate, $deliveryAddress) {
+    public function __construct($orderID, $customerID, $purchasedAmt, $discount, $deliveryFee, $orderDate, $deliveryAddress, $paymentType) {
         $this->orderID = $orderID;
         $this->customerID = $customerID;
         $this->purchasedAmt = $purchasedAmt;
@@ -17,6 +18,7 @@ class OrderDTO {
         $this->deliveryFee = $deliveryFee;
         $this->orderDate = $orderDate;
         $this->deliveryAddress = $deliveryAddress;
+        $this->paymentType = $paymentType;
     }
 }
 

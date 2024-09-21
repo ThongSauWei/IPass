@@ -55,3 +55,9 @@
 [2024-09-21 08:44:25] Operation: Update, Status: Success, Event: Product updated successfully with ID: P0001
 [2024-09-21 08:47:58] Operation: Update, Status: Success, Event: Product updated successfully with ID: P0001
 [2024-09-21 08:57:00] Operation: Delete, Status: Success, Event: Product deleted successfully with ID: P0001
+[2024-09-21 10:25:00] Operation: Add, Status: Success, Event: Product successfully added with ID: P0023
+[2024-09-21 10:25:00] Operation: Product Detail, Status: Info, Event: Product Detail : ID - P0023 Name - test
+[2024-09-21 10:25:18] Operation: Delete, Status: Success, Event: Product deleted successfully with ID: P0023
+[2024-09-21 10:29:21] Operation: Update, Status: Success, Event: Product updated successfully with ID: P0002
+[2024-09-21 10:42:36] Operation: Delete, Status: Success, Event: Product deleted successfully with ID: P0022
+[2024-09-21 12:44:24] Operation: Add to Wishlist, Status: Error, Event: Error add product to wishlist: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`grocerydb`.`wishlist`, CONSTRAINT `wishlist_ibfk_1` FOREIGN KEY (`CustomerID`) REFERENCES `customer` (`CustomerID`))

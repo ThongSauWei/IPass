@@ -13,6 +13,8 @@ class OrderModel extends NewModel {
     
     public function createOrder($order) {
         $this->insert($order)->execute();
+        
+        return true;
     }
     
     public function getOrder($orderID) {

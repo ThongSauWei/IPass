@@ -16,7 +16,6 @@
                 </div>
             </div>
         </div>
-    </div>
 
     <section id="checkout">
         <div class="container">
@@ -28,33 +27,33 @@
                         <fieldset>
                             <div class="form-group row">
                                 <div class="col">
-                                    <input class="form-control" placeholder="Name" type="text">
+                                    <input class="form-control" placeholder="Name" type="text" required>
                                 </div>
                                 <div class="col">
-                                    <input class="form-control" placeholder="Last Name" type="text">
+                                    <input class="form-control" placeholder="Last Name" type="text" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <input class="form-control" placeholder="Company Name" type="text">
                             </div>
                             <div class="form-group">
-                                <textarea class="form-control" placeholder="Address"></textarea>
+                                <textarea class="form-control" placeholder="Address" required></textarea>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="Town / City" type="text">
+                                <input class="form-control" placeholder="Town / City" type="text" required>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="State / Country" type="text">
+                                <input class="form-control" placeholder="State / Country" type="text" required>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" placeholder="Postcode / Zip" type="text">
+                                <input class="form-control" placeholder="Postcode / Zip" type="text" required>
                             </div>
                             <div class="form-group row">
                                 <div class="col">
-                                    <input class="form-control" placeholder="Email Address" type="email">
+                                    <input class="form-control" placeholder="Email Address" type="email" required>
                                 </div>
                                 <div class="col">
-                                    <input class="form-control" placeholder="Phone Number" type="tel">
+                                    <input class="form-control" placeholder="Phone Number" type="tel" required>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -153,7 +152,25 @@
             </div>
         </div>
     </section>
-</div>
+    <div class="modal fade" id="notificationModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body notification">
+                    <!-- Message content will go here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <!--<script src="https://www.paypal.com/sdk/js?client-id=AVdHnaMMrATHoOSsE-2Ci4__PPN_eeufjmyrd7KKmXBeCzUifSfcH5BKECix6nob4u2vW5flPZ50Jluv&currency=MYR"></script>  PayPal SDK -->
 <script src="https://js.stripe.com/v3/"></script>
 <script>
@@ -237,32 +254,80 @@
     async function handleSubmit(e) {
         e.preventDefault();
         
-        const address = document.querySelector('textarea[placeholder="Address"]').value;
-        const city = document.querySelector('input[placeholder="Town / City"]').value;
-        const state = document.querySelector('input[placeholder="State / Country"]').value;
-        const zipcode = document.querySelector('input[placeholder="Postcode / Zip"]').value;
+        const name = document.querySelector('input[placeholder="Name"]').value.trim();
+        const lastName = document.querySelector('input[placeholder="Last Name"]').value.trim();
+        const address = document.querySelector('textarea[placeholder="Address"]').value.trim();
+        const city = document.querySelector('input[placeholder="Town / City"]').value.trim();
+        const state = document.querySelector('input[placeholder="State / Country"]').value.trim();
+        const zipcode = document.querySelector('input[placeholder="Postcode / Zip"]').value.trim();
+        const email = document.querySelector('input[placeholder="Email Address"]').value.trim();
+        const phone = document.querySelector('input[placeholder="Phone Number"]').value.trim();
+        
+        if (!name) {
+            showError("Please enter your name");
+            return false;
+        }
+        
+        if (!lastName) {
+            showError("Please enter your last name");
+            return false;
+        }
+        
+        if (!address) {
+            showError("Please enter your address");
+            return false;
+        }
+        
+        if (!city) {
+            showError("Please enter your city");
+            return false;
+        }
+        
+        if (!state) {
+            showError("Please enter your state");
+            return false;
+        }
+        
+        const zipcodePattern = /^[0-9]{5}$/;
+        if (!zipcode) {
+            showError("Please enter your zip code");
+            return false;
+        } else if (!zipcodePattern.test(zipcode)) {
+            showError("Invalid zip code. Please enter again");
+            return false;
+        }
+        
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!email) {
+            showError("Please enter your email");
+            return false;
+        } else if (!emailPattern.test(email)) {
+            showError("Invalid email. Please enter again");
+            return false;
+        }
+        
+        const phonePattern = /^01[0-9]{8,9}$/;
+        if (!phone) {
+            showError("Please enter your phone number");
+            return false;
+        } else if (!phonePattern.test(phone)) {
+            showError("Invalid phone number. Please enter again");
+            return false;
+        }
         
         const fullAddress = address + ', ' + city + ', ' + state + ', ' + zipcode;
 
         try {
-            const response = await fetch('../controllers/CheckoutController.php?action=createOrder', {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ subtotal, deliveryFee, fullAddress }),
-            });
+            const queryString = new URLSearchParams({
+                subtotal: subtotal,
+                deliveryFee: deliveryFee,
+                fullAddress: fullAddress,
+            }).toString();
             
-            const createOrderResponse = await response.json();
-
-            if (!createOrderResponse.ok) {
-                throw new Error('Failed to create the order.');
-            }
-            
-            const { error, paymentIntent } = await stripe.confirmPayment({
+            const { error } = await stripe.confirmPayment({
                 elements,
                 confirmParams: {
-                    return_url: "http://localhost/IPass/app/controllers/CompleteCheckoutController.php?action=showPage&orderID=" + createOrderResponse.orderID + "&paymentIntentID=" + paymentIntent.id,
+                    return_url: "http://localhost/IPass/app/controllers/CheckoutController.php?action=createOrder&" + queryString,
                 },
             });
         
@@ -272,6 +337,11 @@
         } catch (error) {
             console.error('Error during order creation: ', error);
         }
+    }
+    
+    function showError(errorMsg) {
+        document.querySelector('.modal-body.notification').innerText = errorMsg;
+        $('#notificationModal').modal('show');
     }
 </script>
 <?php
