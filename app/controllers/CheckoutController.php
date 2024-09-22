@@ -10,6 +10,10 @@ require_once __DIR__ . '/../dto/OrderDTO.php';
 require_once __DIR__ . '/../dto/OrderDetailsDTO.php';
 require_once __DIR__ . '/../state/OrderStateContext.php';
 
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
 class CheckoutController {
     private $model;
 
