@@ -1,5 +1,5 @@
 <?php 
-require_once __DIR__ . '/../views/Admin/header.php';
+require_once __DIR__ . '/../header.php';
 ?>
 <div class="container-fluid">
     <h1 class="h3 mb-2 text-gray-800">Order Management</h1>
@@ -66,7 +66,7 @@ require_once __DIR__ . '/../views/Admin/header.php';
                 </div>
                 <div class="modal-footer">
                     <button id='<?= $order["OrderID"] ?>' type='button' class='btn btn-danger' onclick="clickDelete(this)">Sure</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeDialog()">Close</button>
                 </div>
             </div>
         </div>
@@ -79,6 +79,10 @@ require_once __DIR__ . '/../views/Admin/header.php';
         event.stopPropagation();
         
         $('#notificationModal').modal('show');
+    }
+    
+    function closeDialog() {
+        $('#notificationModal').modal('hide');
     }
     
     function clickDelete(element) {

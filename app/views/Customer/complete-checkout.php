@@ -20,6 +20,6 @@ include_once __DIR__ . '/header.php';
 </div>
 
 <?php
-include_once 'footer.php';
+include_once __DIR__ . '/footer.php';
 ?>
 

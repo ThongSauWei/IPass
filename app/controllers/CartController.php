@@ -39,7 +39,7 @@ class CartController {
 
                     $cartItems[$key]["ProductName"] = $product[0]["ProductName"];
                     $cartItems[$key]["Price"] = number_format($product[0]["Price"], 2);
-                    $cartItems[$key]["Weight"] = number_format($product[0]["Weight"], 0);
+                    $cartItems[$key]["Weight"] = $product[0]["Weight"] * 1000;
                     $cartItems[$key]["ProductImage"] = $product[0]["ProductImage"] ?? ROOT . "/assets/img/meats.jpg";
                 }
             }
@@ -105,13 +105,11 @@ $controller = new CartController();
 
 if (isset($_GET['action']) && $_GET['action'] === 'showCart') {
     $controller->showCart();
-}
-
-if (isset($_GET['action']) && $_GET['action'] === 'updateCart') {
+} else if (isset($_GET['action']) && $_GET['action'] === 'updateCart') {
     $controller->updateCart();
-}
-
-if (isset($_POST['action']) && $_POST['action'] === 'removeCartItem') {
+} else if (isset($_POST['action']) && $_POST['action'] === 'removeCartItem') {
     $controller->removeCartItem();
+} else {
+    $controller->showCart();
 }
 

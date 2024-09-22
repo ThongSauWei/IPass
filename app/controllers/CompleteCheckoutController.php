@@ -33,4 +33,6 @@ $controller = new CompleteCheckoutController($model);
 
 if (isset($_GET['action']) && $_GET['action'] === 'showPage') {
     $controller->showPage();
+} else {
+    $controller->showPage();
 }

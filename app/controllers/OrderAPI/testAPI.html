@@ -55,7 +55,7 @@
             <label for="deliveryFee">Delivery Fee:</label>
             <input type="text" id="deliveryFee">
             <label for="orderDetails">Order Details (JSON Format):</label>
-            <textarea id="orderDetails" rows="4">[{"productID": "P001", "unitPrice": 100, "quantity": 2, "discount": 10}]</textarea>
+            <textarea id="orderDetails" rows="4">[{"productID": "P001", "quantity": 2, "discount": 10}]</textarea>
             <button onclick="createOrder()">Create Order</button>
             <pre id="createResponse"></pre>
         </div>
@@ -76,7 +76,7 @@
             <label for="updateDeliveryFee">Delivery Fee:</label>
             <input type="text" id="updateDeliveryFee">
             <label for="updateOrderDetails">Order Details (JSON Format):</label>
-            <textarea id="updateOrderDetails" rows="4">[{"productID": "P001", "unitPrice": 150, "quantity": 1, "discount": 0}]</textarea>
+            <textarea id="updateOrderDetails" rows="4">[{"productID": "P001", "quantity": 1, "discount": 0}]</textarea>
             <button onclick="updateOrder()">Update Order</button>
             <pre id="updateResponse"></pre>
         </div>

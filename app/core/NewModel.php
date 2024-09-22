@@ -208,6 +208,8 @@ class NewModel {
         
         $this->initialiseStmt();
         
+        var_dump($sql);
+        echo "<br />";
         return $this->db->query($sql, $tempBinding);
     }
 

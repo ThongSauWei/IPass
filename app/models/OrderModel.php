@@ -32,7 +32,7 @@ class OrderModel extends NewModel {
     }
     
     public function getOrdersByCustomer($customerID, $limit = 1000, $offset = 0) {
-        return $this->findAll()->where("CustomerID", $customerID)->limit($limit)->offset($offset)->execute();
+        return $this->findAll()->where("CustomerID", $customerID)->orderBy("OrderID", "DESC")->limit($limit)->offset($offset)->execute();
     }
     
     public function getOrderCount($customerID = null) {

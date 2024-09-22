@@ -4,6 +4,7 @@ require_once __DIR__ . '/../../models/OrderModel.php';
 require_once __DIR__ . '/../../models/OrderDetailsModel.php';
 require_once __DIR__ . '/../../dto/OrderDTO.php';
 require_once __DIR__ . '/../../dto/OrderDetailsDTO.php';
+require_once __DIR__ . '/../../models/Product.php';
 
 class OrderAPIController {
     private $orderModel;
@@ -53,15 +54,18 @@ class OrderAPIController {
 
                 // Create the order
                 $orderID = $this->orderModel->getNewOrderID();
+                
+                $productModel = new Product();
 
                 $orderDetailsList = [];
                 // Extract order details and insert them
                 $orderDetails = $data['orderDetails'];
                 foreach ($orderDetails as $detail) {
-                    $orderItem = new OrderDetailsDTO($orderID, $detail["productID"], $detail["unitPrice"], $detail["quantity"], $detail["discount"]);
+                    $product = $productModel->getById($detail["productID"])[0];
+                    $orderItem = new OrderDetailsDTO($orderID, $detail["productID"], $product["Price"], $detail["quantity"], $detail["discount"]);
                     $orderDetailsList[] = $orderItem;
 
-                    $purchasedAmount += ($detail["unitPrice"] * $detail["quantity"] - $detail["discount"]);
+                    $purchasedAmount += ($product["Price"] * $detail["quantity"] - $detail["discount"]);
                 }
 
                 $order = new OrderDTO($orderID, $customerID, $purchasedAmount, $discount, $deliveryFee, date('Y-m-d'), $deliveryAddress, $paymentType);
@@ -96,12 +100,21 @@ class OrderAPIController {
                 $deliveryFee = $data['deliveryFee'];
                 $purchasedAmount = 0;
                 
+                $productModel = new Product();
+                
                 $orderDetails = $data['orderDetails'];
                 foreach ($orderDetails as $detail) {
-                    $orderItem = new OrderDetailsDTO($id, $detail["productID"], $detail["unitPrice"], $detail["quantity"], $detail["discount"]);
-                    $this->orderDetailsModel->updateOrderDetails($id, $detail["ProductID"], $orderItem);
+                    $product = $productModel->getById($detail["productID"])[0];
+                    $orderItem = new OrderDetailsDTO($id, $detail["productID"], $product["Price"], $detail["quantity"], $detail["discount"]);
+                    
+                    $orderDetail = $this->orderDetailsModel->getOrderDetails($id, $detail["productID"]);
+                    if (is_array($orderDetail) && !empty($orderDetail)) {
+                        $this->orderDetailsModel->updateOrderDetails($id, $detail["productID"], $orderItem);
+                    } else {
+                        $this->orderDetailsModel->insertOrderDetails($orderItem);
+                    }
 
-                    $purchasedAmount += ($detail["unitPrice"] * $detail["quantity"] - $detail["discount"]);
+                    $purchasedAmount += ($product["Price"] * $detail["quantity"] - $detail["discount"]);
                 }
                 
                 $order = new OrderDTO($id, $customerID, $purchasedAmount, $discount, $deliveryFee, date('Y-m-d'), $deliveryAddress, $paymentType);
@@ -119,6 +132,7 @@ class OrderAPIController {
     // Delete an order by ID
     public function deleteOrder($id) {
         try {
+            $this->orderDetailsModel->clearAllOrderDetails($id);
             $this->orderModel->deleteOrder($id);
             $this->response(200, ['success' => true]);
         } catch (Exception $e) {

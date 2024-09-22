@@ -16,10 +16,10 @@ SessionManager::requireLogin();
 $user = SessionManager::getUser();
 $userFacade = new UserFacade();
 
-//if (!SessionManager::isAdmin() && !SessionManager::superAdmin()) {
-//    header("Location: http://localhost/IPass/app/views/Customer/homepage.view.php");
-//    exit();
-//}
+if (!SessionManager::isAdmin() && !SessionManager::superAdmin()) {
+    header("Location: http://localhost/IPass/app/views/Customer/homepage.view.php");
+    exit();
+}
 
 if ($user) {
     $userID = $user['UserID'];
@@ -45,7 +45,11 @@ if ($user) {
         <link href="<?= ROOT ?>/assets/vendor/fontawesome-free/css/all.css" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
         <link href="<?= ROOT ?>/assets/css/sb-admin-2.min.css" rel="stylesheet">
-
+        <style>
+            .fa-file-text-o:before {
+                content: "\f0f6";
+            }
+        </style>
 
     </head>
 
@@ -150,21 +154,10 @@ if ($user) {
                 </li>
                 
                 <li id="order-list" class="nav-item">
-                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
-                       aria-controls="collapsePages">
-                        <i class="fas fa-fw fa-folder"></i>
+                    <a class="nav-link" href="http://localhost/IPass/app/controllers/OrderController.php?action=listOrders">
+                        <i class="fas fa-fw fa-file-alt"></i>
                         <span>Order</span>
                     </a>
-                    <div class="collapse" aria-labelledby="headingPages"
-                         data-parent="#accordionSidebar">
-                        <div class="bg-white py-2 collapse-inner rounded">
-                            <div class="collapse-divider"></div>
-                            <h6 class="collapse-header">Order:</h6>
-                            <a class="collapse-item" href="<?= ROOT ?>/../app/views/Admin/Order/listOrder.php">View All Orders</a>
-                            <a class="collapse-item" href="<?= ROOT ?>/../app/views/Admin/Product/productLog.php">Product Transaction Log</a>
-                            
-                        </div>
-                    </div>
                 </li>
 
 

@@ -47,6 +47,7 @@ class CheckoutController {
                         $price = number_format($product[0]["Price"], 2);
                     }
 
+                    $cartItems[$key]["ProductName"] = $product[0]["ProductName"];
                     $cartItems[$key]["Price"] = $price;
                     $subtotal += $price * $cartItem['Quantity'];
                 }
@@ -129,9 +130,9 @@ $controller = new CheckoutController($model);
 
 if (isset($_GET['action']) && $_GET['action'] === 'showPage') {
     $controller->showPage();
-}
-
-if (isset($_GET['action']) && $_GET['action'] === 'createOrder') {
+} else if (isset($_GET['action']) && $_GET['action'] === 'createOrder') {
     $controller->createOrder();
+} else {
+    $controller->showPage();
 }
 

@@ -82,7 +82,7 @@
                                         <?php foreach ($cartItems as $item): ?>
                                             <tr>
                                                 <td>
-                                                    <?= $item["ProductID"] ?> x<?= $item["Quantity"] ?>
+                                                    <?= $item["ProductName"] ?> x<?= $item["Quantity"] ?>
                                                 </td>
                                                 <td class="text-right">
                                                     RM <span class="subtotal"><?= number_format($item["Price"] * $item["Quantity"], 2) ?></span>
@@ -345,5 +345,5 @@
     }
 </script>
 <?php
-include_once 'footer.php';
+include_once __DIR__ . '/footer.php';
 ?>

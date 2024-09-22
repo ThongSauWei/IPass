@@ -21,27 +21,27 @@ if ($isLoggedIn) {
     $productModel = new Product();
     $customerID = $customerDetails["CustomerID"];
     
-    $cartItems = $cartService->getCartForCustomer($customerID);
+    $cartItemsHeader = $cartService->getCartForCustomer($customerID);
     
     $subtotal = 0;
 
-    if (is_array($cartItems) && !empty($cartItems)) {
-        $itemCount = count($cartItems);
-        foreach ($cartItems as $key => $cartItem) {
+    if (is_array($cartItemsHeader) && !empty($cartItemsHeader)) {
+        $itemCount = count($cartItemsHeader);
+        foreach ($cartItemsHeader as $key => $cartItem) {
             $productID = $cartItem["ProductID"];
             $product = $productModel->getById($productID);
 
             if (false) { // If got promotion
                 $discount = 0;
                 $promotionPrice = number_format($product[0]["Price"] - $discount, 2);
-                $cartItems[$key]["PromotionPrice"] = $promotionPrice;
+                $cartItemsHeader[$key]["PromotionPrice"] = $promotionPrice;
             }
 
             $price = number_format($product[0]["Price"], 2);
-            $cartItems[$key]["ProductName"] = $product[0]["ProductName"];
-            $cartItems[$key]["Price"] = $price;
-            $cartItems[$key]["Weight"] = number_format($product[0]["Weight"], 0);
-            $cartItems[$key]["ProductImage"] = $product[0]["ProductImage"] ?? "meats.jpg";
+            $cartItemsHeader[$key]["ProductName"] = $product[0]["ProductName"];
+            $cartItemsHeader[$key]["Price"] = $price;
+            $cartItemsHeader[$key]["Weight"] = number_format($product[0]["Weight"], 0);
+            $cartItemsHeader[$key]["ProductImage"] = $product[0]["ProductImage"] ?? "meats.jpg";
             
             $subtotal += ($promotionPrice ?? $price) * $cartItem["Quantity"];
         }
@@ -134,7 +134,7 @@ if ($isLoggedIn) {
                                             <li>
                                                 <div class="shopping-cart-list">
                                                     <!-- Example Cart Item -->
-                                                    <?php foreach ($cartItems as $item): ?>
+                                                    <?php foreach ($cartItemsHeader as $item): ?>
                                                     <div class="media">
                                                         <img class="d-flex mr-3" src="<?= ROOT ?>/assets/img/ProductImage/<?= $item["ProductImage"] ?>" width="60">
                                                         <div class="media-body">

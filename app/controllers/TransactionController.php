@@ -142,20 +142,15 @@ $controller = new TransactionController($model);
 
 if (isset($_GET['action']) && $_GET['action'] === 'showPage') {
     $controller->showPage();
-}
-
-// Handle AJAX request for pagination FIRST
-if (isset($_GET['action']) && $_GET['action'] === 'getPaginatedOrders') {
+}else if (isset($_GET['action']) && $_GET['action'] === 'getPaginatedOrders') {
     $controller->getPaginatedOrders();
-    exit; // Make sure no further code is executed
-}
-
-if (isset($_GET['action']) && $_GET['action'] === 'getOrderDetails') {
+    exit; 
+} else if (isset($_GET['action']) && $_GET['action'] === 'getOrderDetails') {
     $controller->getOrderDetails();
     exit;
-}
-
-if (isset($_GET['action']) && $_GET['action'] === 'cancelOrder') {
+} else if (isset($_GET['action']) && $_GET['action'] === 'cancelOrder') {
     $controller->cancelOrder();
     exit;
+} else {
+    $controller->showPage();
 }

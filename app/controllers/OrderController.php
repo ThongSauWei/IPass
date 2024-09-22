@@ -109,17 +109,13 @@ $controller = new OrderController();
 
 if (isset($_GET['action']) && $_GET['action'] === 'listOrders') {
     $controller->listOrders();
-}
-
-if (isset($_GET['action']) && ($_GET['action'] === 'viewOrder')) {
+} else if (isset($_GET['action']) && ($_GET['action'] === 'viewOrder')) {
     $controller->showOrder();
-}
-
-if (isset($_GET['action']) && $_GET['action'] === 'handleOrder') {
+} else if (isset($_GET['action']) && $_GET['action'] === 'handleOrder') {
     $controller->handleOrder();
-}
-
-if (isset($_GET['action']) && $_GET['action'] === 'deleteOrder') {
+} else if (isset($_GET['action']) && $_GET['action'] === 'deleteOrder') {
     $controller->deleteOrder();
+} else {
+    $controller->listOrders();
 }
 

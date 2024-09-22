@@ -13,6 +13,10 @@ class OrderDetailsModel extends NewModel {
         return $this->findAll()->where("OrderID", $orderID)->execute();
     }
     
+    public function getOrderDetails($orderID, $productID) {
+        return $this->findAll()->where("OrderID", $orderID)->where("ProductID", $productID)->execute();
+    }
+    
     public function updateOrderDetails($orderID, $productID, $data) {
         $class = new ReflectionClass($data);
         $properties = $class->getProperties();

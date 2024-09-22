@@ -34,14 +34,14 @@ include_once __DIR__ . '/header.php';
                             </thead>
                                 <tbody>
                                     <?php if (!empty($cartItems)): ?>
-                                    <?php foreach ($cartItems as $item): ?>
+                                    <?php foreach ($cartItems as $key => $item): ?>
                                         <tr id="row-<?= $item['ProductID'] ?>">
                                             <td>
                                                 <img src="<?= ROOT ?>/assets/img/ProductImage/<?= $item["ProductImage"] ?>" width="60">
                                             </td>
                                             <td>
                                                 <?= $item["ProductName"] ?> <br>
-                                                <small><?= $item["Weight"] * 1000 ?>g</small>
+                                                <small><?= $cartItems[$key]["Weight"] ?>g</small>
                                             </td>
                                             <td id="price-<?= $item['ProductID'] ?>">
                                                 <?= isset($item["PromotionPrice"])? "<del>RM " . $item["Price"] . "</del> <span style='color:rgb(233, 30, 99);'>RM " . $item["PromotionPrice"] . "</span>" : "RM " . $item["Price"] ?>
